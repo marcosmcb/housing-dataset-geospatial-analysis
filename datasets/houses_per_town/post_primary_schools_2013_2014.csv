@@ -1,0 +1,724 @@
+"AIRO_ID","Roll_No","Off_Name","Add_1","Add_2","Add_3","Add_4","County","Gender","Pupil_Att","Irish_Lan","Fee","Ethos","F_13_14","M_13_14","xcoord","ycoord","Long","Lat"
+1,"60010P","Loreto Secondary School","Balbriggan","Co Dublin","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",1,0,320163,264003,320163,264003
+2,"60021U","St Marys Secondary School","Baldoyle","Dublin 13","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",291,0,324596,240138,324596,240138
+3,"60030V","Blackrock College","Rock Road","Blackrock","Co. Dublin","","Dublin","Boys","Mixed","No subjects taught through Irish","Y","CATHOLIC",0,999,320690,229652,320690,229652
+4,"60040B","Willow Park School","Rock Road","Blackrock","Co Dublin","","Dublin","Boys","Mixed","No subjects taught through Irish","Y","CATHOLIC",0,206,320348,229910,320348,229910
+5,"60041D","Coláiste Eoin","Baile an Bhóthair","Bóthair Stigh Lorgan","Co Atha Cliath","","Dublin","Boys","Day","All pupils taught all subjects through Irish","N","CATHOLIC",0,491,319719,229513,319719,229513
+6,"60042F","Coláiste Íosagáin","Bóthar Stigh Lorgan","Baile an Bhóthair","Co Átha Cliath","","Dublin","Girls","Day","All pupils taught all subjects through Irish","N","CATHOLIC",494,0,319777,229489,319777,229489
+7,"60050E","Oatlands College","Mount Merrion","Co Dublin","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,538,319911,228389,319911,228389
+8,"60070K","Dominican College","Sion Hill","Blackrock","Co Dublin","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",391,0,320739,229424,320739,229424
+9,"60081P","Rockford Manor Secondary School","Stradbrook Rd","Blackrock","Co Dublin","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",319,0,322559,227852,322559,227852
+10,"60090Q","Rathdown School","Upper Glenageary Road","Glenageary","Co. Dublin","","Dublin","Girls","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",315,0,324802,226730,324802,226730
+11,"60092U","Clonkeen College","Clonkeen Road","Blackrock","Co Dublin","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,526,322986,225944,322986,225944
+12,"60100Q","Castleknock College","Castleknock","Dublin 15","","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,590,308641,236572,308641,236572
+13,"60120W","Mount Sackville Secondary School","Chapelizod","Dublin 20","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",617,0,309430,235635,309430,235635
+14,"60121B","Moyle Park College","Clondalkin","Dublin 22","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,664,306848,231173,306848,231173
+15,"60122D","Coláiste Bríde","New Road","Clondalkin","Dublin 22","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",949,0,307409,230942,307409,230942
+16,"60130C","Loreto Abbey Secondary School","Dalkey","Co Dublin","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",621,0,326794,227123,326794,227123
+17,"60140F","Mount Anville Secondary School","Mount Anville Rd","Dublin 14","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",616,0,318567,228444,318567,228444
+18,"60160L","Notre Dame Secondary School","Upper Churchtown Road","Dublin 14","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",181,0,316647,228439,316647,228439
+19,"60180R","Christian Brothers College","Monkstown Park","Dun Laoghaire","Co Dublin","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,458,323548,228179,323548,228179
+20,"60240J","Loreto College Foxrock","Foxrock","Dublin 18","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",642,0,321678,226241,321678,226241
+21,"60250M","Holy Child Secondary School","Military Road","Killiney","Co. Dublin","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",360,0,325876,224129,325876,224129
+22,"60260P","St Joseph Of Cluny Secondary School","Bellevue Park","Ballinclea Rd","Killiney","Co Dublin","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",402,0,325235,226099,325235,226099
+23,"60261R","St Benildus College","Upper Kilmacud Rd","Stillorgan","Blackrock","Co Dublin","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,764,318673,227484,318673,227484
+24,"60262T","St Laurence College","Loughlinstown","Dublin 18","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",170,183,324304,223875,324304,223875
+25,"60263V","St Josephs College","Lucan","Co Dublin","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",888,0,303891,235313,303891,235313
+26,"60264A","Coláiste Phádraig CBS","Roselawn","Lucan","Co Dublin","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,725,304405,235195,304405,235195
+27,"60272W","The Kings Hospital","Palmerstown","Dublin 20","","","Dublin","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",310,386,307510,235478,307510,235478
+28,"60290B","St Pauls College","Sybil Hill","Raheny","Dublin 5","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,579,320299,237379,320299,237379
+29,"60291D","Árdscoil La Salle","Raheny Road","Raheny","Dublin 5","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",100,172,321823,239181,321823,239181
+30,"60300B","Manor House School","Watermill Road","Raheny","Dublin 5","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",808,0,321628,238015,321628,238015
+31,"60310E","Da La Salle College","Upper Churchtown Road","Churchtown","Dublin 14","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,390,315838,228757,315838,228757
+32,"60320H","St Columba's College","Whitechurch","Dublin 16","","","Dublin","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",134,160,315549,225384,315549,225384
+33,"60321J","Rockbrook Park School","Edmondstown Road","Rathfarnham","Dublin 16","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,150,313444,224883,313444,224883
+34,"60340N","Loreto High School","Beaufort","Grange Rd","Rathfarnham","Dublin 14","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",626,0,314491,228248,314491,228248
+35,"60341P","Sancta Maria College","Ballyroan Crescent","Rathfarnham","Dublin 16","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",482,0,313168,227361,313168,227361
+36,"60342R","Colaiste Eanna","Ballyroan","Dublin16","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,599,313496,227543,313496,227543
+37,"60343T","St Joseph's Secondary School","Convent Lane","Rush","Co. Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",251,416,326674,253891,326674,253891
+38,"60361V","St Raphaela's Secondary School","Upper Kilmacud Road","Stillorgan","Co Dublin","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",503,0,319747,227340,319747,227340
+39,"60370W","St. Fintan's High School","Dublin Road","Sutton","Dublin 13","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,663,325264,239295,325264,239295
+40,"60380C","Santa Sabina Dominican College","Greenfield Road","Sutton","Dublin 13","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",617,0,326427,239097,326427,239097
+41,"60381E","Sutton Park School","St Fintans Road","Sutton","Dublin 13","","Dublin","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",141,156,326900,237995,326900,237995
+42,"60383I","Coláiste Choilm","Dublin Road","Swords","Co Dublin","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,553,317932,246158,317932,246158
+43,"60390F","St Josephs C.B.S.","Merville Ave","Fairview","Dublin 3","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",0,300,317653,236382,317653,236382
+44,"60400F","St Vincents C.B.S. Glasnevin","Glasnevin","Dublin 11","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,401,314874,236702,314874,236702
+45,"60410I","C.B.S. James Street","James's Street","Dublin 8","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,189,313985,233574,313985,233574
+46,"60420L","Árdscoil Rís","Griffith Avenue","Dublin 9","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,527,317993,236887,317993,236887
+47,"60430O","St Pauls C.B.S.","Christian Brothers","Nth Brunswick Street","Dublin 7","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,246,314873,234735,314873,234735
+48,"60440R","O'Connell School","North Richmond Street","Dublin 1","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",24,253,316510,235626,316510,235626
+49,"60450U","Coláiste Mhuire","Bothar Rath Tó","Baile Atha Cliath 7","","","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",101,127,313224,236217,313224,236217
+50,"60470D","Christian Brothers, Synge St.","Synge St.,","Dublin 8.","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,233,315417,232844,315417,232844
+51,"60471F","St. David's C.B.S.","Malahide Road","Artane","Dublin 5","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,489,318654,238217,318654,238217
+52,"60480G","Meanscoil Iognáid Rís","Long Mile Road","Walkinstown","Dublin 12","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,683,311078,231707,311078,231707
+53,"60481I","St. Aidan's C.B.S.","Collins Avenue Ext","Whitehall","Dublin 9","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,676,316351,238530,316351,238530
+54,"60490J","C.B.S. Westland Row","Westland Row","Dublin 2","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",48,75,316667,233911,316667,233911
+55,"60491L","St Declan's College","Nephin Road","Cabra","Dublin 7","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,644,313008,236499,313008,236499
+56,"60500J","Marian College","Ballsbridge","Dublin 4","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",3,449,318178,232872,318178,232872
+57,"60510M","St Johns College De La Salle","Le Fanu Rd","Ballyfermot","Dublin 10","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,399,309545,233870,309545,233870
+58,"60511O","Beneavin De La Salle College","Beneavin Road","Finglas","Dublin 11","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,486,314043,239016,314043,239016
+59,"60520P","Belvedere College S.J","6 Great Denmark Street","Dublin 1","","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,1,315764,235304,315764,235304
+60,"60530S","Gonzaga College","Sandford Road","Ranelagh","Dublin 6","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,547,316717,231019,316717,231019
+61,"60540V","Catholic University School","89 Lower Leeson Street","Dublin 2","","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,439,316235,233065,316235,233065
+62,"60550B","Chanel College","Coolock Village","Malahide Road","Dublin 5","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,568,319544,239017,319544,239017
+63,"60560E","St Marys College","Rathmines","Dublin 6","","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,430,315519,232171,315519,232171
+64,"60561G","St Michaels College","Ailesbury Road","Dublin 4","","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,594,318887,231431,318887,231431
+65,"60562I","Templeogue College","Templeville Road","Dublin 6W","","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,693,312579,229510,312579,229510
+66,"60570H","Terenure College","Templeogue Road","Terenure","Dublin 6w","","Dublin","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,686,313553,229543,313553,229543
+67,"60571J","Patrician College","Deanstown Ave","Finglas West","Dublin 11","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,183,311968,238396,311968,238396
+68,"60581M","St Kevins College","Ballygall Rd East","Finglas","Dublin 11","","Dublin","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,517,314667,238611,314667,238611
+69,"60590N","St Conleths College","28 Clyde Road","Ballsbridge","Dublin 4","","Dublin","Mixed","Day","No subjects taught through Irish","Y","CATHOLIC",24,220,317289,232274,317289,232274
+70,"60630W","St Kilian's Deutsche Schule","Roebuck Road","Clonskeagh","Dublin 14","","Dublin","Mixed","Day","No subjects taught through Irish","Y","INTER DENOMINATIONAL",147,217,318100,229603,318100,229603
+71,"60640C","Sandford Park School Ltd","Sandford Road","Ranelagh","Dublin 6","","Dublin","Mixed","Day","No subjects taught through Irish","Y","CHURCH OF IRELAND",30,211,316649,231616,316649,231616
+72,"60650F","St Andrews College","Booterstown Ave","Blackrock","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","Y","CHURCH OF IRELAND",498,495,319933,229851,319933,229851
+73,"60660I","St Patricks Cathedral G.S","St Patricks Close","Dublin 8","","","Dublin","Mixed","Day","No subjects taught through Irish","Y","CHURCH OF IRELAND",38,84,315180,233459,315180,233459
+74,"60670L","The High School","Zion Road","Rathgar","Dublin 6","","Dublin","Mixed","Day","No subjects taught through Irish","Y","CHURCH OF IRELAND",340,426,315155,229753,315155,229753
+75,"60690R","Dominican College","Griffith Ave","Drumcondra","Dublin 9","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",713,0,316568,237420,316568,237420
+76,"60700R","Scoil Chaitriona","Bóthar Mobhí","Glasnaíon","Ath Cliath 9","","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",232,190,315700,237430,315700,237430
+77,"60710U","Muckross Park College","Donnybrook","Dublin 4","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",712,0,317160,231570,317160,231570
+78,"60720A","Saint Dominic's Secondary School","Kylemore Road","Ballyfermot","Dublin 10","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",373,0,310131,233968,310131,233967.99
+79,"60731F","St Dominics College","Cabra","Dublin 7","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",875,0,312724,236996,312724,236996
+80,"60732H","Caritas College","Drumfinn Road","Dublin 10","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",280,0,309290,234429,309290,234429
+81,"60741I","St Michaels Secondary School","Wellmount Road","Finglas","Dublin 11","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",591,0,313050,238767,313050,238767
+82,"60750J","Holy Faith Secondary School","1 Belgrove Road","Clontarf","Dublin 3","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",637,0,320053,235931,320053,235931
+83,"60770P","St Mary's Secondary School","Holy Faith Convent","Glasnevin","Dublin 11","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",723,0,315003,237588,315003,237588
+84,"60791A","St Marys Secondary School","Brookwood Meadow","Killester","Dublin 5","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",390,0,319696,238017,319696,238017
+85,"60792C","Presentation College","Warrenmount","Dublin 8","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",278,0,314772,233105,314772,233105
+86,"60800V","Loreto College","Crumlin Road","Dublin 12","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",459,0,313464,232347,313464,232347
+87,"60810B","Loreto College","Swords","Co Dublin","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",629,0,316593,246327,316593,246327
+88,"60820E","Loreto College","53 St Stephens Green","Dublin 2","","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",577,0,316199,233234,316199,233234
+89,"60840K","Maryfield College","Glandore Road","Drumcondra","Dublin 9","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",666,0,317504,237626,317504,237626
+90,"60841M","Rosary College","Armagh Road","Crumlin","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",80,93,312842,231133,312842,231133
+91,"60843Q","St Josephs Secondary School","Stanhope St","Dublin 7","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",228,0,314465,234954,314465,234954
+92,"60851P","Assumption Secondary School","Walkinstown","Dublin 12","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",338,0,311223,231490,311223,231490
+93,"60852R","Mater Christi","Cappagh","Finglas","Dublin 11","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",202,0,311628,239281,311628,239281
+94,"60853T","Mount Carmel Secondary School","Kings Inn Street","Dublin 1","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",323,0,315360,234905,315360,234905
+95,"60860Q","Our Ladys School","Templeogue Rd","Terenure","Dublin 6W","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",762,0,313640,229094,313640,229094
+96,"60870T","Our Lady Of Mercy College","Beaumont","Dublin 9","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",375,0,317768,238830,317768,238830
+97,"60871V","Mercy College Coolock","St Brendans Drive","Coolock","Dublin 5","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",422,0,319926,238807,319926,238807
+98,"60872A","Mercy Secondary School","Goldenbridge","Inchicore","Dublin 8","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",174,0,311826,233123,311826,233123
+99,"60890C","St Louis High School","Charleville Road","Rathmines","Dublin 6","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",656,0,315305,231494,315305,231494
+100,"60891E","Jesus and Mary College","Our Lady's Grove","Goatstown Road","Dublin 14","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",364,0,317717,229251,317717,229251
+101,"60892G","The Teresian School","12 Stillorgan Road","Donnybrook","Dublin 4","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",188,0,318151,230845,318151,230845
+102,"60902G","St Pauls Secondary School","Greenhills","Dublin 12","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",601,0,311237,229889,311237,229889
+103,"60910F","Alexandra College","Milltown","Dublin 6","","","Dublin","Girls","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",443,0,316694,230314,316694,230314
+104,"60930L","Rosemont School","Enniskerry Road","Sandyford","Dublin 18","","Dublin","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",97,0,321691,229069,321691,229069
+105,"60990G","Ardscoíl Éanna (Meanscoil Chroimghlinne)","314/318 Crumlin Road","Crumlin","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",54,83,312454,232064,312454,232064
+106,"60991I","Our Lady Of Mercy Secondary School","Mourne Road","Drimnagh","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",140,142,312027,232480,312027,232480
+107,"61010U","Wesley College","Ballinteer","Dublin 16","","","Dublin","Mixed","Mixed","No subjects taught through Irish","Y","METHODIST",415,468,317352,226585,317352,226585
+108,"61020A","Stratford College","1 Zion Road","Rathgar","Dublin 6","","Dublin","Mixed","Day","No subjects taught through Irish","Y","JEWISH",48,49,315075,230186,315075,230186
+109,"61051L","St Clare's College","Ballyjamesduff","Co. Cavan","","","Cavan","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",287,261,252857,290962,252857,290962
+110,"61060M","St Patrick's College","Cavan","Co. Cavan","","","Cavan","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,561,242447,306764,242447,306764
+111,"61070P","Loreto College","Cavan","Co. Cavan","","","Cavan","Girls","Day","No subjects taught through Irish","N","CATHOLIC",730,0,241108,307231,241108,307231
+112,"61080S","Royal School Cavan","College Street","Cavan","Co. Cavan","","Cavan","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",107,136,241925,304089,241925,304089
+113,"61120E","St Mary's Academy CBS","Station Rd","Carlow","","","Carlow","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,565,272595,177200,272595,177200
+114,"61130H","St Mary's Knockbeg College","Knockbeg","Co. Carlow","","","Carlow","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,365,271585,180064,271585,180064
+115,"61140K","St. Leo's College","Dublin Road","Carlow","","","Carlow","Girls","Day","No subjects taught through Irish","N","CATHOLIC",911,0,272326,177067,272326,177067
+116,"61141M","Presentation College","Askea","Carlow","Co. Carlow","","Carlow","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",328,297,273594,176749,273594,176749
+117,"61150N","Presentation / De La Salle College","Royal Oak Road","Muine Bheag","Co. Carlow","","Carlow","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",233,237,269672,161542,269672,161542
+118,"61220I","St. Joseph's Secondary School","Doon Road","Ballybunion","Co. Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",129,110,86318,141921,86318,141921
+119,"61250R","Meanscoil Phadraig Naofa","Castleisland","Co Kerry","","","Kerry","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,148,100440,110147,100440,110147
+120,"61260U","Mean Scoil Naomh Ioseph","Clochar na Toirbhirte","Castleisland","Co Kerry","","Kerry","Girls","Day","No subjects taught through Irish","N","CATHOLIC",167,0,100168,109698,100168,109698
+121,"61301I","Coláiste Íde","Baile an Ghóilín","Daingean Uí Chúis","Co Chiarraí","","Kerry","Girls","Boarding","All pupils taught all subjects through Irish","N","CATHOLIC",130,0,42184,99699,42184,99699
+122,"61320M","Coláiste Bhréanainn","Cill Airne","Co Chiarraí","","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",2,529,96060,90927,96060,90927
+123,"61340S","St. Brigid's Secondary School","New Street","Killarney","Co. Kerry","","Kerry","Girls","Day","No subjects taught through Irish","N","CATHOLIC",458,0,96060,90651,96060,90651
+124,"61360B","The Intermediate School","Iveragh Road","Killorglin","Co. Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",342,333,77053,96484,77053,96484
+125,"61370E","St. Michael's College","Listowel","Co. Kerry","","","Kerry","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,190,99675,133868,99675,133868
+126,"61380H","Presentation Secondary School","Listowel","Co Kerry","","","Kerry","Girls","Day","No subjects taught through Irish","N","CATHOLIC",328,0,98492,133856,98492,133856
+127,"61410N","Presentation Secondary School","Miltown","Killarney","Co Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",316,246,82724,100496,82724,100496
+128,"61440W","C.B.S. Secondary School","The Green","Tralee","Co. Kerry","","Kerry","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,602,83585,113835,83585,113835
+129,"61450C","Presentation Secondary School","Tralee","Co Kerry","","","Kerry","Girls","Day","No subjects taught through Irish","N","CATHOLIC",671,0,83904,114247,83904,114247
+130,"61510R","Coláiste Éamann Rís","Callan","Co Kilkenny","","","Kilkenny","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,222,241702,144382,241702,144382
+131,"61520U","St. Brigid's College","Callan","Co. Kilkenny","","","Kilkenny","Girls","Day","No subjects taught through Irish","N","CATHOLIC",291,0,241547,144255,241547,144255
+132,"61550G","Meánscoil na mBráithre Criostaí","Sráid Shéamais","Cill Channaigh","","","Kilkenny","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,663,250341,155985,250341,155985
+133,"61560J","St Kieran's College","Secondary School","College Rd","Kilkenny","","Kilkenny","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,711,250443,155300,250443,155300
+134,"61570M","Kilkenny College","Castlecomer Road","Kilkenny","","","Kilkenny","Mixed","Mixed","No subjects taught through Irish","N","CHURCH OF IRELAND",355,433,250947,157628,250947,157628
+135,"61580P","Loreto Secondary School","Granges Road","Kilkenny","","","Kilkenny","Girls","Day","No subjects taught through Irish","N","CATHOLIC",846,0,250062,156627,250062,156627
+136,"61590S","Presentation Secondary School","Loughboy","Kilkenny","","","Kilkenny","Girls","Day","No subjects taught through Irish","N","CATHOLIC",665,0,250996,154424,250996,154424
+137,"61661P","Salesian College","Celbridge","Co. Kildare","","","Kildare","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,691,296496,235165,296496,235165
+138,"61680T","Newbridge College","Newbridge","Co. Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","Y","CATHOLIC",411,448,280705,215994,280705,215994
+139,"61681V","Patrician Secondary School","Newbridge","Co Kildare","","","Kildare","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,840,280777,215534,280777,215534
+140,"61682A","Holy Family Secondary School","Newbridge","Co. Kildare","","","Kildare","Girls","Day","No subjects taught through Irish","N","CATHOLIC",757,0,280941,215412,280941,215412
+141,"61690W","Cross And Passion College","Kilcullen","Co Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",348,344,283930,209528,283930,209528
+142,"61691B","Scoil Dara","Church St","Kilcock","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",398,416,288494,240004,288494,240004
+143,"61702D","St Pauls Secondary School","Monasterevin","Co Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",153,148,262499,210618,262499,210618
+144,"61710C","Meánscoil Iognáid Ris","Naas","Co Kildare","","","Kildare","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,920,289438,219178,289438,219178
+145,"61720F","Clongowes Wood College","Clane","Co Kildare","","","Kildare","Boys","Boarding","No subjects taught through Irish","Y","CATHOLIC",0,441,287719,229723,287719,229723
+146,"61730I","Coláiste Naomh Mhuire","Convent Of Mercy","Sallins Rd.","Naas","Co Kildare","Kildare","Girls","Day","No subjects taught through Irish","N","CATHOLIC",920,0,289282,219638,289282,219638
+147,"61770U","Arklow CBS","Coolgreaney Road","Arklow","Co Wicklow","","Wicklow","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,342,323729,173373,323729,173373
+148,"61780A","St Marys College","St Mary's Rd","Arklow","Co Wicklow","","Wicklow","Girls","Day","No subjects taught through Irish","N","CATHOLIC",545,0,324338,173321,324338,173321
+149,"61790D","St Brendan's College","Woodbrook","Bray","Co Wicklow","","Wicklow","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,302,325562,220007,325562,220007
+150,"61800D","Presentation College","Putland Road","Bray","Co. Wicklow","","Wicklow","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,635,326892,217366,326892,217366
+151,"61811I","St Gerard's School","Thornhill Road","Bray","","","Wicklow","Mixed","Day","No subjects taught through Irish","Y","CATHOLIC",201,314,324651,218571,324651,218571
+152,"61820J","Loreto Secondary School","Vevay Rd","Bray","Co Wicklow","","Wicklow","Girls","Day","No subjects taught through Irish","N","CATHOLIC",848,0,326592,217911,326592,217911
+153,"61830M","St David's Holy Faith Secondary","Co-Educational School","Greystones","Co Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",196,372,329757,212386,329757,212386
+154,"61860V","Dominican College","Wicklow","Co. Wicklow","","","Wicklow","Girls","Day","No subjects taught through Irish","N","CATHOLIC",435,0,331738,193640,331738,193640
+155,"61910K","Rice College","New Road","Ennis","Co Clare","","Clare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",255,381,134054,177843,134054,177843
+156,"61920N","St Flannan's College","Ennis","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",385,793,133737,176317,133737,176317
+157,"61930Q","Coláiste Mhuire","College Road","Ennis","Co Clare","","Clare","Girls","Day","No subjects taught through Irish","N","CATHOLIC",807,0,133653,177756,133653,177756
+158,"61940T","Meánscoil Na mBráithre","Ennistymon","Co. Clare","","","Clare","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,177,113365,188628,113365,188628
+159,"61950W","Scoil Mhuire","Ennistymon","Co Clare","","","Clare","Girls","Day","No subjects taught through Irish","N","CATHOLIC",279,0,112737,188313,112737,188313
+160,"62000W","Mary Immaculate Secondary School","Lisdoonvarna","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",150,128,113459,198511,113459,198511
+161,"62010C","St. Joseph's Secondary School","Spanish Point","Milown Malbay","Co Clare","","Clare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",122,147,103589,178239,103589,178239
+162,"62020F","St. Joseph's Secondary School","Tulla","Co. Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",193,225,148835,179551,148835,179551
+163,"62050O","Árdscoil Uí Urmoltaigh","Droichead na Bandan","Co Chorcaí","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,375,148651,55162,148651,55162
+164,"62060R","Bandon Grammar School","Bandon","Co Cork","","","Cork","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",255,360,148276,53672,148276,53672
+165,"62061T","Coláiste Na Toirbhirte","Árd Aoibhinn","Bandon","Co Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",529,0,149513,54410,149513,54410
+166,"62090D","Scoil Mhuire gan Smal","Blarney","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",288,325,161524,75649,161524,75649
+167,"62130M","Coláiste An Chroí Naofa","Carraig na bhFear","Co Chorcaí","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",203,285,167766,81441,167766,81441
+168,"62140P","St Aloysius College","Carrigtwohill","Co Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",728,0,182193,73076,182193,73076
+169,"62170B","Sacred Heart Secondary School","Convent of Mercy","Clonakilty","Co. Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",521,0,139080,41876,139080,41876
+170,"62180E","Coláiste Muire","Bishop's St","Cobh","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",287,293,179800,66936,179800,66936
+171,"62200H","Colaiste Muire","Crosshaven","Co. Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",315,216,179481,60978,179481,60978
+172,"62210K","Nagle Rice Secondary School","Doneraile","Co. Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",74,92,160155,107868,160155,107868
+173,"62260C","Coláiste Cholmáin","Mainistir Fhearmuí","Co Chorcai","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,438,180988,98250,180988,98250
+174,"62270F","Loreto Secondary School","Fermoy","Co Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",651,0,181091,98203,181091,98203
+175,"62290L","Scoil Mhuire","Kanturk","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",161,119,137689,103272,137689,103272
+176,"62301N","Colaiste An Phiarsaigh","Gleann Maghair","Corcaigh","","","Cork","Mixed","Mixed","All pupils taught all subjects through Irish","N","CATHOLIC",283,238,172637,74019,172637,74019
+177,"62310O","De La Salle College","Macroom","Co Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,307,133617,73101,133617,73101
+178,"62320R","St Mary'S Secondary School","Convent Of Mercy","Macroom","Co. Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",317,0,134102,72776,134102,72776
+179,"62330U","Patrician Academy","Mallow","Co Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,390,155895,98784,155895,98784
+180,"62350D","St Mary's Secondary School","Convent Of Mercy","Mallow","Co Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",576,0,156142,98972,156142,98972
+181,"62360G","Christian Brothers Secondary School","Castleredmond","Midleton","Co Cork","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,603,188325,72790,188325,72790
+182,"62370J","Midleton College","Midleton","Co Cork","","","Cork","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",146,228,188392,73643,188392,73643
+183,"62380M","St Mary's High School","Midleton","Co Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",618,0,188385,72858,188385,72858
+184,"62420V","Christian Brothers Secondary School","Mitchelstown","Co Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,323,181842,112431,181842,112431
+185,"62421A","Presentation Secondary School","Mitchelstown","Co Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",269,0,181936,112615,181936,112615
+186,"62440E","Scoil na mBráithre Chríostaí","Bakers Road","Charleville","Co Cork","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,303,153769,122715,153769,122715
+187,"62450H","St. Mary's Secondary School","Convent Of Mercy","Charleville","Co Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",411,0,153252,122780,153252,122780
+188,"62460K","St Francis Capuchin College","Rochestown","Co Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,672,174148,68564,174148,68564
+189,"62470N","Mount St Michael","Rosscarbery","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",181,220,128951,37152,128951,37152
+190,"62480Q","St Fachtna's - De La Salle College","Skibbereen","Co Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,297,112417,34105,112417,34105
+191,"62490T","Mercy Heights Secondary School","Skibbereen","Co Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",409,0,112552,33968,112552,33968
+192,"62520C","Christian Brothers College","Sidney Hill","Wellington Road","Cork.","","Cork","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,841,167855,72428,167855,72428
+193,"62530F","North Monastery Secondary School","Our Lady's Mount","North Monastery Rd.","Cork","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,365,166974,72921,166974,72921
+194,"62531H","Gaelcholáiste Mhuire","An Mhainistir Thuaidh","Corcaigh","","","Cork","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",167,284,166974,73057,166974,73057
+195,"62540I","Deerpark C.B.S.","St Patrick's Road","Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,245,167433,70918,167433,70918
+196,"62560O","Coláiste Chríost Rí","Capwell Road","Cork","","","Cork","Boys","Day","Some pupils taught some subjects through Irish","N","CATHOLIC",0,632,168071,70869,168071,70869
+197,"62570R","Presentation Brothers College","The Mardyke","Cork","","","Cork","Boys","Day","No subjects taught through Irish","Y","CATHOLIC",0,670,166661,71764,166661,71764
+198,"62580U","Coláiste An Spioraid Naoimh","Bishopstown","Cork","","","Cork","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,687,164410,70154,164410,70154
+199,"62590A","St Vincent's Secondary School","St Mary's Road","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",275,0,167126,72760,167126,72760
+200,"62621I","North Presentation Secondary School","Farranree","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",271,0,166636,73369,166636,73369
+201,"62630J","St Aloysius School","St Maries Of The Isle","Sharman Crawford Street","Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",258,0,166852,71550,166852,71550
+202,"62640M","St. Angela's College","Griffith College Campus","Wellington Road","Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",534,0,167632,72327,167632,72327
+203,"62650P","Ursuline Secondary School","Blackrock","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",193,0,171405,71530,171405,71530
+204,"62661U","Mount Mercy College","Model Farm Road","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",778,0,164461,70923,164461,70923
+205,"62690E","Scoil Mhuire","2 Sidney Place","Wellington Road","Cork","","Cork","Girls","Day","No subjects taught through Irish","Y","CATHOLIC",360,0,167832,72272,167832,72272
+206,"62691G","Regina Mundi College","Douglas Road","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",518,0,169489,70139,169489,70139
+207,"62692I","Christ King Girls' Secondary School","Half Moon Lane","South Douglas Road","Cork","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",1,0,168222,70272,168222,70272
+208,"62693K","Presentation Secondary School","Ballyphehane","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",295,0,167107,70232,167107,70232
+209,"62730N","St Patricks College","Gardiner's Hill","Cork","","","Cork","Girls","Day","No subjects taught through Irish","N","CATHOLIC",298,0,168740,72945,168740,72945
+210,"62770C","Scoil Mhuire Secondary School","St. Oran's Road","Buncrana","Co. Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",279,311,234615,431703,234615,431703
+211,"62830R","St Eunan's College","Letterkenny","Co Donegal","","","Donegal","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,838,216355,411632,216355,411632
+212,"62840U","Loreto Secondary School","Letterkenny","Co Donegal","","","Donegal","Girls","Day","No subjects taught through Irish","N","CATHOLIC",973,0,216630,411432,216630,411432
+213,"62861F","St Columbas College","Stranorlar","Co. Donegal","","","Donegal","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",445,451,214551,395189,214551,395189
+214,"62870G","Presentation College","Athenry","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",531,557,150224,228127,150224,228127
+215,"62880J","Colaiste Sheosaimh","Gearrbhaile","Beál Áth na Slua","Co na Gaillimhe","","Galway","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,504,183442,230389,183442,230389
+216,"62890M","Ardscoil Mhuire","Mackney","Ballinasloe","Co Galway","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",544,0,183606,230228,183606,230228
+217,"62900M","Coláiste Mhuire","Ballygar","Co. Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",106,130,178742,252723,178742,252723
+218,"62930V","St. Cuan's College","Castleblakney","Ballinasloe","Co Galway","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",142,160,168596,242145,168596,242145
+219,"62960H","St Joseph's College","Nun's Island","Galway","","","Galway","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,758,129459,225189,129459,225189
+220,"62970K","Coláiste Iognáid S.J.","Br. Na Mara","Gaillimh","","","Galway","Mixed","Day","Some pupils taught some subjects through Irish","N","CATHOLIC",263,341,129235,224899,129235,224899
+221,"62980N","St. Mary's College","St. Mary's Road","Galway","","","Galway","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,441,128854,225027,128854,225027
+222,"62981P","Coláiste Einde","Threadneedle Road","Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",254,503,127341,224454,127341,224454
+223,"62990Q","Dominican College","Taylors Hill","Galway","","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",645,0,128197,224760,128197,224760
+224,"63000E","Presentation Secondary School","Presentation Rd","Galway","","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",226,0,129351,225305,129351,225305
+225,"63001G","Jesus & Mary Secondary School","Salerno Secondary School","Threadneedle Rd","Salthill","Galway","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",608,0,127345,224243,127345,224243
+226,"63010H","Meán Scoil Mhuire","Newtownsmith","Galway","","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",255,0,129733,225430,129733,225430
+227,"63040Q","Presentation College","Headford","Co. Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",367,389,126311,247030,126311,247030
+228,"63050T","Seamount College","Kinvara","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",254,86,137448,210179,137448,210179
+229,"63070C","St Raphaels College","Loughrea","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",245,177,162443,216480,162443,216480
+230,"63090I","Holy Rosary College","Mountbellew","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",260,293,167012,246725,167012,246725
+231,"63100I","Calasanctius College","Oranmore","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",398,407,137783,224515,137783,224515
+232,"63101K","St Pauls","Oughterard","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",168,196,111755,243017,111755,243017
+233,"63130R","Colaiste Chroi Mhuire","An Spideal","Co Na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",86,110,112762,222255,112762,222255
+234,"63160D","St. Brigid's School","Convent Of Mercy","Tuam","Co. Galway","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",319,0,143797,251735,143797,251735
+235,"63170G","Presentation College","Currylea","Tuam","Co Galway","","Galway","Girls","Day","No subjects taught through Irish","N","CATHOLIC",445,0,143749,251862,143749,251862
+236,"63171I","Mercy College","Woodford","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",99,89,173408,199857,173408,199857
+237,"63190M","Marist College","Retreat Road","Athlone","Co. Westmeath","","Westmeath","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,532,204949,241649,204949,241649
+238,"63191O","St Aloysius College","The Park","Athlone","Co Westmeath","","Westmeath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",42,291,203662,241078,203662,241078
+239,"63210P","Our Lady's Bower","Retreat Rd.","Athlone","Co Westmeath","","Westmeath","Girls","Mixed","No subjects taught through Irish","N","CATHOLIC",692,0,205225,241349,205225,241349
+240,"63211R","St Joseph's College","Summerhill","Athlone","Co Westmeath","","Westmeath","Girls","Day","No subjects taught through Irish","N","CATHOLIC",286,0,200899,239881,200899,239881
+241,"63221U","Meán Scoil an Chlochair","Kilbeggan","Mullingar","Co Westmeath","","Westmeath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",229,228,233822,235355,233822,235355
+242,"63270K","Colaiste Mhuire,","Mullingar","Co. Westmeath","","","Westmeath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",36,674,243364,253211,243364,253211
+243,"63280N","St Finian's College","Mullingar","Co Westmeath","","","Westmeath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",311,322,242794,254513,242794,254513
+244,"63290Q","Loreto College","Mullingar","Co Westmeath","","","Westmeath","Girls","Day","No subjects taught through Irish","N","CATHOLIC",715,0,243409,253481,243409,253481
+245,"63300Q","Wilson's Hospital School","Multyfarnham","Co Westmeath","","","Westmeath","Mixed","Mixed","No subjects taught through Irish","N","CHURCH OF IRELAND",227,203,238617,262567,238617,262567
+246,"63310T","St Joseph's Secondary School","Rochfortbridge","Co. Westmeath","","","Westmeath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",425,406,246484,240616,246484,240616
+247,"63430G","St. Mary's C.B.S.","Borris Road","Portlaoise","Co. Laois","","Laois","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,639,248401,199943,248401,199943
+248,"63451O","Scoil Chriost Ri","Presentation Secondary School","Borris Road","Portlaoise","Co Laois","Laois","Girls","Day","No subjects taught through Irish","N","CATHOLIC",741,0,248439,199941,248439,199941
+249,"63550Q","F.C.J. Secondary School","Bunclody","Enniscorthy","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",387,380,291649,156942,291649,156942
+250,"63560T","St. Mary's C.B.S.","Millpark Road","Enniscorthy","Co Wexford","","Wexford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,653,297220,139365,297220,139365
+251,"63570W","Coláiste Bride","Enniscorthy","Co Wexford","","","Wexford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",682,0,297890,139976,297890,139976
+252,"63600F","Christian Brothers Secondary School","Mountgarrett","New Ross","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",81,192,272136,127924,272136,127924
+253,"63610I","Good Counsel College","New Ross","Co Wexford","","","Wexford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,816,272788,127632,272788,127632
+254,"63620L","St. Mary's Secondary School","Irishtown","New Ross","Co Wexford","","Wexford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",595,0,272821,128039,272821,128039
+255,"63630O","Our Lady of Lourdes Secondary School","Rosbercon","New Ross","Co Wexford","","Wexford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",365,0,271306,127885,271306,127885
+256,"63640R","Christian Brothers Secondary School","Thomas St","Wexford","","","Wexford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,596,304794,121274,304794,121274
+257,"63650U","St Peter's College","Secondary School","Summerhill","Wexford","","Wexford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,748,304185,121430,304185,121430
+258,"63660A","Loreto Secondary School","Spawell Road","Wexford","Co Wexford","","Wexford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",723,0,304055,122401,304055,122401
+259,"63661C","Presentation Secondary School","Grogan's Road","Wexford","Co. Wexford","","Wexford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",777,0,304709,121549,304709,121549
+260,"63710M","Mercy Secondary School","Ballymahon","Co Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",262,274,215625,257495,215625,257495
+261,"63730S","Cnoc Mhuire","Granard","Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",219,225,233754,281303,233754,281303
+262,"63750B","St. Mel's College","Longford","Co. Longford","","","Longford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,425,213661,275484,213661,275484
+263,"63760E","Meán Scoil Muire","Convent Road","Longford Town","Co. Longford","","Longford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",557,0,213539,275092,213539,275092
+264,"63840C","St. Joseph's C.B.S.","Newfoundwell Rd","Drogheda","Co Louth","","Louth","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,642,310200,276225,310200,276225
+265,"63841E","St Mary's Diocesan School","Beamore Road","Drogheda","Co. Louth","","Louth","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,747,309168,274449,309168,274449
+266,"63850F","Our Ladys College","Greenhills","Drogheda","Co Louth","","Louth","Girls","Day","No subjects taught through Irish","N","CATHOLIC",978,0,310500,275804,310500,275804
+267,"63860I","Sacred Heart Secondary School","Sunnyside","Drogheda","Co Louth","","Louth","Girls","Day","No subjects taught through Irish","N","CATHOLIC",593,0,309460,274761,309460,274761
+268,"63870L","Drogheda Grammar School","Mornington Rd","Drogheda","Co Louth","","Louth","Mixed","Mixed","No subjects taught through Irish","Y","QUAKER",124,164,312032,275663,312032,275663
+269,"63880O","Colaiste Rís","Sraid an tSéipéil","Dún Dealgan","Co Lú","","Louth","Mixed","Day","Some pupils taught all subjects through Irish","N","CATHOLIC",176,406,304913,307637,304913,307637
+270,"63890R","St Mary's College","Nicholas Street","Dundalk","Co Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",227,452,304925,307826,304925,307826
+271,"63891T","De La Salle College","Castleblaney Road","Dundalk","Co. Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",6,744,303218,308673,303218,308673
+272,"63900R","St Vincent's Secondary School","Seatown Place","Dundalk","Co. Louth","","Louth","Girls","Day","No subjects taught through Irish","N","CATHOLIC",924,0,305478,307431,305478,307431
+273,"63910U","St Louis Secondary School","Dun Lughaidh","Dundalk","Co Louth","","Louth","Girls","Day","No subjects taught through Irish","N","CATHOLIC",600,0,303127,308656,303127,308656
+274,"63920A","Dundalk Grammar School","The Crescent","Dundalk","Co Louth","","Louth","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",218,331,304291,306523,304291,306523
+275,"64130W","Scoil Pól","Kilfinane","Co. Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",114,110,167934,123378,167934,123378
+276,"64150F","Glenstal Abbey School","Murroe","Co Limerick","","","Limerick","Boys","Boarding","No subjects taught through Irish","Y","CATHOLIC",0,205,173855,156753,173855,156753
+277,"64170L","Scoil Mhuire & Íde","Newcastle West","Co Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",229,167,127934,133223,127934,133223
+278,"64180O","Salesian Secondary College","Pallaskenry","Co Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",288,293,142021,155412,142021,155412
+279,"64200R","Colaiste Mhichil","Sexton Street","Limerick","","","Limerick","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,433,158011,156583,158011,156583
+280,"64201T","Ardscoil Ris","North Circular Rd","Limerick","","","Limerick","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,738,156665,157287,156665,157287
+281,"64220A","St Clements College","Laurel Hill College","South Circular Road","Limerick","","Limerick","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,483,156857,156223,156857,156223
+282,"64240G","St Munchin's College","Corbally","Limerick","","","Limerick","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,588,158503,159116,158503,159116
+283,"64250J","Presentation Secondary School","Sexton Street","Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",451,84,157945,156693,157945,156693
+284,"64260M","Laurel Hill Secondary School FCJ","Laurel Hill","South Circular Road","Limerick","","Limerick","Girls","Day","No subjects taught through Irish","N","CATHOLIC",625,0,156772,156126,156772,156126
+285,"64270P","Laurel Hill Coláiste FCJ","Cnoc Na Labhras","Luimneach","","","Limerick","Girls","Day","All pupils taught all subjects through Irish","N","CATHOLIC",404,0,156827,156141,156827,156141
+286,"64280S","Salesian Secondary School","Fernbank","North Circular Road","Limerick","","Limerick","Girls","Day","No subjects taught through Irish","N","CATHOLIC",295,0,156828,157212,156828,157212
+287,"64290V","Ardscoil Mhuire","Corbally","Limerick","","","Limerick","Girls","Day","No subjects taught through Irish","N","CATHOLIC",335,0,158477,157785,158477,157785
+288,"64300V","Scoil Carmel","O'Connell Avenue","Limerick","","","Limerick","Girls","Day","No subjects taught through Irish","N","CATHOLIC",218,0,156962,155737,156962,155737
+289,"64310B","Villiers Secondary School","North Circular Road","Limerick","","","Limerick","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",348,250,155558,156889,155558,156889
+290,"64350N","St Patrick's Classical School","Moatlands","Navan","Co Meath","","Meath","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,879,286161,267746,286161,267746
+291,"64360Q","St. Joseph's Secondary School, Navan,","Brew's Hill","Navan","Co Meath","","Meath","Girls","Day","No subjects taught through Irish","N","CATHOLIC",661,0,286738,267489,286738,267489
+292,"64370T","Loreto Secondary School","St Michaels","Navan","Co Meath","","Meath","Girls","Day","No subjects taught through Irish","N","CATHOLIC",777,0,287555,267799,287555,267799
+293,"64410F","Eureka Secondary School","Kells","Co. Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",710,3,274510,275652,274510,275652
+294,"64420I","Franciscan College","Gormanstown","Co Meath","","","Meath","Mixed","Mixed","No subjects taught through Irish","Y","CATHOLIC",22,186,316744,266386,316744,266386
+295,"64450R","Scoil Mhuire","Convent Of Mercy","Trim","Co Meath","","Meath","Girls","Day","No subjects taught through Irish","N","CATHOLIC",659,0,280268,256502,280268,256502
+296,"64500G","Balla Secondary School","Balla","Castlebar","Co Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",108,133,125096,284731,125096,284731
+297,"64510J","St Muredachs College","Sligo Road","Ballina","Co Mayo","","Mayo","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,415,125221,319091,125221,319091
+298,"64520M","St. Mary's Secondary School","Convent of Mercy","Ballina","Co Mayo","","Mayo","Girls","Day","No subjects taught through Irish","N","CATHOLIC",591,0,124053,319292,124053,319292
+299,"64570E","Our Lady's Secondary School","Belmullet","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",151,142,70635,331233,70635,331233
+300,"64580H","St. Geralds College","Newport Road","Castlebar","Co. Mayo","","Mayo","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,483,113973,290545,113973,290545
+301,"64590K","St Joseph's Secondary School","Castlebar","Co Mayo","","","Mayo","Girls","Day","No subjects taught through Irish","N","CATHOLIC",398,0,115072,290351,115072,290351
+302,"64600K","St Josephs Secondary School","Charlestown","Co. Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",111,98,147445,301506,147445,301506
+303,"64610N","Coláiste Cholmáin","Claremorris","Co Mayo","","","Mayo","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,391,135346,276628,135346,276628
+304,"64620Q","Mount St Michael","Convent of Mercy","Claremorris","Co Mayo","","Mayo","Girls","Day","No subjects taught through Irish","N","CATHOLIC",485,0,133965,276294,133965,276294
+305,"64630T","Jesus & Mary Secondary School","Gortnor Abbey","Crossmolina","Co Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",242,227,115072,317259,115072,317259
+306,"64640W","St Joseph's Secondary School","Foxford","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",181,195,127136,304184,127136,304184
+307,"64660F","Sancta Maria College","Louisburgh","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",160,179,80981,280947,80981,280947
+308,"64690O","Scoil Muire Agus Padraig","Swinford","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",199,180,137481,299604,137481,299604
+309,"64691Q","Coláiste Mhuire","Tuar Mhic Éadaigh","Co Mhaigh Eo","","","Mayo","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",85,70,110795,269251,110795,269251
+310,"64700O","Rice College","Castlebar Road","Westport","Co Mayo","","Mayo","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,556,100374,284555,100374,284555
+311,"64710R","Sacred Heart School","Westport","Co Mayo","","","Mayo","Girls","Day","No subjects taught through Irish","N","CATHOLIC",600,0,100100,284577,100100,284577
+312,"64750G","Patrician High School","Carrickmacross","Co. Monaghan","","","Monaghan","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,490,284299,304471,284299,304471
+313,"64760J","St Louis Secondary School","Carrickmacross","Co. Monaghan","","","Monaghan","Girls","Day","No subjects taught through Irish","N","CATHOLIC",596,0,284199,303484,284199,303484
+314,"64770M","Our Lady's Secondary School","Castleblayney","Co. Monaghan","","","Monaghan","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",392,298,282258,319531,282258,319531
+315,"64810V","St. Macartan's College","Monaghan","Co. Monaghan","","","Monaghan","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,656,268112,335514,268112,335514
+316,"64820B","St. Louis Secondary School","Monaghan","Co. Monaghan","","","Monaghan","Girls","Day","No subjects taught through Irish","N","CATHOLIC",457,0,266954,333460,266954,333460
+317,"64830E","Monaghan Collegiate School","Corlatt","Monaghan","Co Monaghan","","Monaghan","Mixed","Day","No subjects taught through Irish","Y","CHURCH OF IRELAND",112,141,269195,333018,269195,333018
+318,"64880T","Scoil na mBraithre","Dungarvan","Co Waterford","","","Waterford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",9,289,225902,92813,225902,92813
+319,"64890W","St Augustines College","Abbeyside","Dungarvan","Co Waterford","","Waterford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",306,363,227982,94320,227982,94320
+320,"64900W","Ard Scoil na nDeise","Convent Rd","Dungarvan","Co Waterford","","Waterford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",359,0,226153,92849,226153,92849
+321,"64922J","Stella Maris","Pond Rd","Tramore","Co Waterford","","Waterford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",467,0,258183,101686,258183,101686
+322,"64923L","C.B.S. Tramore, Co. Waterford","St Otterans Tce","Tramore","Co Waterford","","Waterford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,503,258029,101958,258029,101958
+323,"64930I","C.B.S. Mount Sion, Waterford","Barrack Street","Waterford","","","Waterford","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,187,260356,111910,260356,111910
+324,"64940L","Waterpark College","Park Road","Waterford","","","Waterford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",35,301,261397,111905,261397,111905
+325,"64950O","De La Salle College","Newtown","Waterford","","","Waterford","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",0,1,261334,111668,261334,111668
+326,"64970U","Presentation Secondary School","Cannon Street","Waterford","","","Waterford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",436,0,259684,111487,259684,111487
+327,"64971W","Our Lady of Mercy Secondary School","Ozanam St.","Waterford","","","Waterford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",553,0,259765,112360,259765,112360
+328,"64990D","St Angela's Ursuline Convent","Ursuline Convent","Waterford","","","Waterford","Girls","Day","No subjects taught through Irish","N","CATHOLIC",866,0,260586,110807,260586,110807
+329,"65010R","Newtown School","Newtown Road","Waterford City","Co.Waterford","","Waterford","Mixed","Mixed","No subjects taught through Irish","Y","QUAKER",137,144,261459,111417,261459,111417
+330,"65080P","C.B.S. Roscommon","Abbeytown","Roscommon","Co. Roscommon","","Roscommon","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,364,187101,264059,187101,264059
+331,"65090S","Scoil Muire gan Smal","Convent of Mercy","Roscommon Town","","","Roscommon","Girls","Day","No subjects taught through Irish","N","CATHOLIC",585,0,186979,264170,186979,264170
+332,"65100S","Scoil Mhuire","Strokestown","Co Roscommon","","","Roscommon","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",215,248,192636,280891,192636,280891
+333,"65130E","St Marys College","Ballysadare","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",112,148,166692,329207,166692,329207
+334,"65140H","Colaiste Mhuire","Ballymote","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",120,123,166487,316165,166487,316165
+335,"65150K","Jesus & Mary Secondary School","Enniscrone","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",183,171,128779,330158,128779,330158
+336,"65170Q","Summerhill College","Sligo","Co. Sligo","","","Sligo","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,782,168793,335453,168793,335453
+337,"65180T","Ursuline College","Finisklin","Sligo","","","Sligo","Girls","Day","No subjects taught through Irish","N","CATHOLIC",741,0,168273,336431,168273,336431
+338,"65181V","Mercy College","Chapel Hill","Sligo","Co. Sligo","","Sligo","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",361,21,169626,335486,169626,335486
+339,"65190W","Sligo Grammar School","The Mall","Sligo","","","Sligo","Mixed","Mixed","No subjects taught through Irish","Y","CHURCH OF IRELAND",161,247,169890,336142,169890,336142
+340,"65240L","Presentation Secondary School","Ballingarry","Thurles","Co. Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",99,119,229505,148728,229505,148728
+341,"65241N","St Josephs College","Borrisoleigh","Thurles","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",111,145,202830,166393,202830,166393
+342,"65270U","C.B.S.","Carrick-On-Suir","Co Tipperary","","","Tipperary","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,210,240988,121977,240988,121977
+343,"65280A","Scoil Mhuire","Greenhill","Carrick-On-Suir","Co Tipperary","","Tipperary","Girls","Day","No subjects taught through Irish","N","CATHOLIC",461,0,240838,122215,240838,122215
+344,"65300D","Rockwell College","Cashel","Co Tipperary","","","Tipperary","Mixed","Mixed","No subjects taught through Irish","Y","CATHOLIC",102,403,207274,134042,207274,134042
+345,"65320J","Árdscoil na mBráithre","Clonmel","Co Tipperary","","","Tipperary","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,726,220564,122808,220564,122808
+346,"65330M","Loreto Secondary School","Coleville Rd.","Clonmel","Co Tipperary","","Tipperary","Girls","Day","No subjects taught through Irish","N","CATHOLIC",509,0,220893,122074,220893,122074
+347,"65340P","Presentation Secondary School","Clonmel","Co Tipperary","","","Tipperary","Girls","Day","No subjects taught through Irish","N","CATHOLIC",503,0,219319,121885,219319,121885
+348,"65350S","Patrician Presentation","Rocklow Rd.","Fethard","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",52,47,220550,135194,220550,135194
+349,"65370B","St. Joseph's C.B.S","Summerhill","Nenagh","Co Tipperary","","Tipperary","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,483,187051,179490,187051,179490
+350,"65380E","St Mary's Secondary School","Nenagh","Co Tipperary","","","Tipperary","Girls","Day","No subjects taught through Irish","N","CATHOLIC",585,0,186469,179325,186469,179325
+351,"65400H","St. Mary's Secondary School","Newport","Co. Tipperary","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",263,262,172229,162094,172229,162094
+352,"65410K","Cistercian College","Roscrea","Co. Tipperary","","","Tipperary","Boys","Boarding","No subjects taught through Irish","Y","CATHOLIC",0,170,209805,190161,209805,190161
+353,"65440T","Our Ladys Secondary School","Templemore","Co. Tipperary","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",217,315,211566,171667,211566,171667
+354,"65450W","C.B.S. Thurles","Rossa St","Thurles","Co Tipperary","","Tipperary","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,706,212604,158866,212604,158866
+355,"65460C","Presentation Secondary School","Thurles","Co Tipperary","","","Tipperary","Girls","Mixed","No subjects taught through Irish","N","CATHOLIC",662,0,213093,158887,213093,158887
+356,"65470F","Ursuline Secondary School","Thurles","Co. Tipperary","","","Tipperary","Girls","Mixed","No subjects taught through Irish","N","CATHOLIC",757,0,212925,158679,212925,158679
+357,"65490L","The Abbey School","Station Road","Co. Tipperary","","","Tipperary","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,432,189163,135538,189163,135538
+358,"65500L","St. Anne's Secondary School","Convent Of Mercy","Rosanna Road","Tipperary Town","","Tipperary","Girls","Day","No subjects taught through Irish","N","CATHOLIC",344,0,189014,136320,189014,136320
+359,"65582Q","St Mary's Secondary School","Edenderry","Co Offaly","","","Offaly","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",405,393,262663,232546,262663,232546
+360,"65610S","Colaiste Choilm","O'Moore Street","Tulach Mhor","Co. Offaly","","Offaly","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,595,233955,224737,233955,224737
+361,"65620V","Sacred Heart Secondary School","Daingean Road","Tullamore","Co. Offaly","","Offaly","Girls","Day","No subjects taught through Irish","N","CATHOLIC",684,0,234352,225242,234352,225242
+362,"65630B","Killina Presentation Secondary School","Rahan","Tullamore","Co Offaly","","Offaly","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",216,228,226976,224553,226976,224553
+363,"68067P","St Nathy's College","Ballaghaderreen","Co Roscommon","","","Roscommon","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",279,339,161878,295045,161878,295045
+364,"68068R","Coláiste Íosagáin","Portarlington","Co. Laois","","","Laois","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",408,463,253195,212593,253195,212593
+365,"68070E","Mercy Secondary School","Mounthawk,","Tralee,","Co. Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",599,586,82443,115974,82443,115974
+366,"68071G","John Scottus Secondary School","72/76 Morehampton Rd","Donnybrook","Dublin 4","","Dublin","Mixed","Day","No subjects taught through Irish","Y","INTER DENOMINATIONAL",71,65,317277,231986,317277,231986
+367,"68072I","GAEL CHOLAISTE CHILL DARA","Seanbhóthar Luimnigh","Nás na Ríogh","","CONTAE CHILL DARA","Kildare","Mixed","Day","All pupils taught all subjects through Irish","N","CATHOLIC",134,98,288933,219153,288933,219153
+368,"68074M","St. Jarlaths College","TUAM","CO GALWAY","","","Galway","Boys","Day","No subjects taught through Irish","N","CATHOLIC",0,527,143928,252069,143928,252069
+369,"68075O","MEAN SCOIL NUA AN LEITH TRIUIGH","CAISLEAN GHRIAIRE","CO CHIARRAI","","","Kerry","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",69,68,62250,113343,62250,113343
+370,"68077S","Árdscoil na Trionóide","Rathstewart","Athy","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",411,396,268298,194388,268298,194388
+371,"68078U","GAELCHOLAISTE PHORT LAIRGE","Cúirt An Easpag","Baile Mhic Ghunnair","Waterford","","Waterford","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",73,87,258822,109616,258822,109616
+372,"68080H","Meanscoil Gharman","Brownswood","Enniscorthy","","","Wexford","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",78,62,298037,136697,298037,136697
+373,"68121S","Scoil na Tríonóide Naofa","Doon","Co Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",353,305,183420.69,149544.23,183420.68,149544.23
+374,"70010V","Balbriggan Community College","Pine Ridge","Chapel St.","Balbriggan","Co Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",138,381,320082,263889,320082,263889
+375,"70020B","Grange Community College","Grange Road","Donaghmede","Dublin 13","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",150,120,322630,240484,322630,240484
+376,"70021D","Coláiste de hÍde","Br Thish Motháin Thuaidh","Br Chaisleáin Thigh Mótháin","Tamhlacht","Baile Atha Cliath 24","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",164,152,310100,229128,310100,229128
+377,"70030E","Senior College Dunlaoghaire","Eblana Avenue","Dun Laoghaire","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",538,330,324331.29,228601.4,324331.3,228601.4
+378,"70040H","Deansrath Community College","New Nangor Road","Clondalkin","Dublin 22","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",254,200,305301,231568,305301,231568
+379,"70041J","Collinstown Park Community College","Neilstown Rd.","Rowlagh","Clondalkin","Dublin 22","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",339,344,306878,233512,306878,233512
+380,"70042L","St. Kevin's Community College","Fonthill Road","Clondalkin","Dublin 22","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",123,163,306228,234792,306228,234792
+381,"70050K","Dún Laoghaire Further Education Institute","Further Education","Cumberland St","Dun Laoghaire","Co Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",260,420,323763.14,228757.28,323763.14,228757.28
+382,"70070Q","College Of Further Education Dundrum","Main Street","Dundrum","Dublin 14","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",193,84,317111.9,228156.5,317111.9,228156.5
+383,"70080T","Lucan Community College","Esker Drive","Lucan","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",386,468,303291,234144,303291,234144
+384,"70081V","Colaiste Ghleann na hAbhann","Riversdale Community College","Blanchardstown Road North","Dublin 15","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",187,237,307842,240285,307842,240285
+385,"70090W","Sallynoggin College of Further Education","Pearse Street","Sallynoggin","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",478,232,324209.35,226360.55,324209.34,226360.55
+386,"70100W","Coláiste Chilliain","Bóthar Nangor","Cluain Dolcáin","Baile Atha Cliath 22","","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",203,197,306493,231559,306493,231559
+387,"70110C","Stillorgan College of Further Education","Further Education","Old Dublin Rd","Stillorgan","Co Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",106,110,320094.27,228267.17,320094.28,228267.16
+388,"70120F","St Finians Community College","Swords","Co Dublin","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",272,344,317958,247576,317958,247576
+389,"70121H","Fingal Community College","Seatown Road","Swords","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",254,282,318490,247084,318490,247084
+390,"70130I","Greenhills College","Limekiln Avenue","Greenhills","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",163,324,310967,229898,310967,229898
+391,"70140L","Firhouse Community College","Firhouse Road","Dublin 24","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",285,423,310206,226342,310206,226342
+392,"70141N","Mount Seskin Community College","Jobstown","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",129,163,306097,226537,306097,226537
+393,"70150O","Cabra Community College","Kilkieran Road","Cabra","Dublin 7","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",77,89,313589,236728,313589,236728
+394,"70160R","St. Kevins College","Clogher Road","Crumlin","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",92,214,313677,232114,313677,232114
+395,"70170U","Crumlin College Of Further Education","Crumlin Road","Crumlin","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",412,254,313087.6,232296.33,313087.6,232296.33
+396,"70180A","Coláiste Eoin","Cappagh Road","Finglas West","Dublin 11","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",34,97,312532,238849,312532,238849
+397,"70190D","Colaiste Ide College of Further Education","Cardiffsbridge Road","Finglas West","Dublin11","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",291,432,312378,238671,312378,238671
+398,"70200D","Ringsend College","Cambridge Road","Ringsend","Dublin 4","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",75,80,318332,234063,318332,234063
+399,"70220J","Inchicore College of Further Education","Emmet Road","Inchicore","Dublin 8","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",457,344,312412.69,233528.14,312412.69,233528.14
+400,"70230M","Killester College of Further Education","Collins Avenue","Killester","Dublin 5","Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",194,150,319303.19,237145.71,319303.19,237145.71
+401,"70240P","Kylemore College","Kylemore Road","Ballyfermot","Dublin 10","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",81,262,309829,234006,309829,234006
+402,"70250S","Marino College","14-20 Marino Mart","Fairview","Dublin 3","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",451,175,317773,236344,317773,236344
+403,"70260V","St Mac Dara's Community College","Wellington Lane","Templeogue","Dublin 6W","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",379,477,311558,228722,311558,228722
+404,"70280E","Rathmines College","Town Hall","Rathmines","Dublin 6","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",308,368,315658,231802,315658,231802
+405,"70290H","Ballsbridge College of Further Education","Shelbourne Road","Ballsbridge","Dublin 4","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",236,213,317879.1,232511.23,317879.11,232511.23
+406,"70300H","Pearse College - Colaiste an Phiarsaigh","Clogher Road","Crumlin","Dublin 12","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",215,496,313669,232024,313669,232024
+407,"70310K","Plunket College","Swords Road","Whitehall","Dublin 9","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",157,305,316621,237990,316621,237990
+408,"70320N","Whitehall House Senior College","Swords Road","Dublin 9","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",306,269,315436.95,237115.59,315436.95,237115.59
+409,"70321P","Margaret Aylward Community College","The Thatch Road","Whitehall","Dublin 9","","Dublin","Girls","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",220,0,317125,238510,317125,238510
+410,"70330Q","Coláiste Dhúlaigh","Barryscourt Road","Coolock","Dublin 17","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",121,205,318911,239980,318911,239980
+411,"70340T","Liberties College","Bull Alley Street","Dublin 8","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",557,240,315201.02,233652.44,315201.02,233652.44
+412,"70342A","Ballyfermot College of Further Education","Ballyfermot Road","Dublin 10","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",687,769,309814.4,233451.78,309814.4,233451.79
+413,"70350W","St Bricin's Vocational School","Belturbet","Co Cavan","","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",84,113,236450,316857,236450,316857
+414,"70360C","St. Mogue's College","Bawnboy","Belturbet","Co Cavan","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",86,106,221106,319290,221106,319290
+415,"70380I","Breifne College","Cootehill Rd","Cavan","Co Cavan","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",299,361,242874,306854,242874,306854
+416,"70390L","Virginia College","Virginia","Co Cavan","","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",313,405,260344,287231,260344,287231
+417,"70400L","Borris Vocational School","Borris","Co Carlow","","","Carlow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",197,271,273382,150053,273382,150053
+418,"70410O","Coláiste Eoin","Hacketstown","Co Carlow","","","Carlow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",106,122,297477,179893,297477,179893
+419,"70420R","Carlow Vocational School","Kilkenny Road","Carlow","Co. Carlow","","Carlow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",555,466,271798,175823,271798,175823
+420,"70430U","Vocational School Muine Bheag","Muine Bheag","Co Carlow","","","Carlow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",104,116,270980,161698,270980,161698
+421,"70440A","Gaelcholáiste Cheatharlach","Easca","Ceatharlach","","","Carlow","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",190,175,273462,176763,273462,176763
+422,"70450D","Killarney Community College","New Road","Killarney","Co Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",190,219,95859,91078,95859,91078
+423,"70460G","Community College Killorglin","Killorglin","Co Kerry","","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",79,108,77794,95672,77794,95672
+424,"70500P","Listowel Community College","Listowel","Co Kerry","","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",177,115,99483,133970,99483,133970
+425,"70520V","Castleisland Community College","Tonbwee","Castleisland","Co. Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",100,171,100513,109340,100513,109340
+426,"70540E","Causeway Comprehensive School","Causeway","Tralee","Co Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",281,311,81916,130298,81916,130298
+427,"70550H","Tralee Community College","Clash","Tralee","","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",331,229,84949,114707,84949,114707
+428,"70560K","Gaelcholáiste Chiarraí","Tobar Mhaigh Dor","Trá Lí","Co Chiarraí","","Kerry","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",144,171,84053,114073,84053,114073
+429,"70570N","Scoil Aireagail","Ballyhale","Kilkenny","","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",96,137,253518,136612,253518,136612
+430,"70590T","Duiske College","Graignamanagh","Co Kilkenny","","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",60,77,270792,143637,270792,143637
+431,"70600T","Coláiste Mhuire","Johnstown","Co Kilkenny","","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",196,264,229803,165970,229803,165970
+432,"70610W","City Vocational School","New Street,","Kilkenny","","","Kilkenny","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",227,185,250510,155392,250510,155392
+433,"70620C","Coláiste Cois Siúire","Mooncoin","Co Kilkenny","","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",52,93,251450,115622,251450,115622
+434,"70640I","Grennan College","Ladywell St","Thomastown","Co Kilkenny","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",200,191,258244,142181,258244,142181
+435,"70641K","Coláiste Pobail Osraí","Bóthar Urmhumhan","Cill Chainnigh","","","Kilkenny","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",87,92,250617,155505,250617,155505
+436,"70650L","Athy Community College","Tomard","Athy","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",163,176,268585,193382,268585,193382
+437,"70660O","Curragh Post-Primary School","McSwiney Road","Curragh","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",77,82,278486,211422,278486,211422
+438,"70670R","Colaiste Lorcain","Castledermot","Co. Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",164,176,278215,184837,278215,184837
+439,"70680U","St Conleth's Community College","Station Road","Newbridge","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",266,237,280219,215313,280219,215313
+440,"70691C","Confey Community College","Confey","Leixlip","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",356,433,299984,236919,299984,236919
+441,"70700A","Maynooth Post Primary School","Moyglare Rd","Maynooth","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",591,616,293441,238046,293441,238046
+442,"70710D","Piper's Hill College","Killashee","Naas","Co. Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",430,490,288966,216892,288966,216892
+443,"70720G","St Farnan's Post Primary School","Prosperous","Co. Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",210,297,283322,226977,283322,226977
+444,"70730J","Ardscoil Rath Iomgháin","Rathangan","Co Kildare","","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",365,307,267221,219072,267221,219072
+445,"70740M","Arklow Community College","Coolgreaney Rd","Arklow","Co Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",169,162,323271,173201,323271,173201
+446,"70750P","Scoil Chonglais","Baltinglass","Co Wicklow","","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",256,256,287377,188208,287377,188208
+447,"70760S","Blessington Community College","Naas Rd","Blessington","Co Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",155,177,297722,214278,297722,214278
+448,"70770V","St Thomas' Community College","Novara Avenue","Bray","Co. Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",538,534,326569,218334,326569,218334
+449,"70790E","Coláiste Bhríde Carnew","Carnew","Co.Wicklow","","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",428,443,301297,163093,301297,163093
+450,"70800E","St Kevin's Community College","Dunlavin","Co Wicklow","","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",304,264,287431,201152,287431,201152
+451,"70810H","Avondale Community College","Rathdrum","Co Wicklow","","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",236,317,318652,188496,318652,188496
+452,"70821M","Coláiste Raithín","Bóthar Florence","Bré","Co Chill Mhantain","","Wicklow","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",117,137,326698,218700,326698,218700
+453,"70830N","Ennis Community College","Ennis","Co Clare","","","Clare","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",277,237,133503,177780,133503,177780
+454,"70840Q","Ennistymon Vocational School","Ennistymon","Ennis","Co Clare","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",54,107,112988,188457,112988,188457
+455,"70860W","St Michael's Community College","Kilmihill","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",120,114,110786,164522,110786,164522
+456,"70880F","St Joseph's Community College","Carrigholt Rd.","Kilkee","Co. Clare","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",88,81,88420,159392,88420,159392
+457,"70900I","Scariff Community College","Scariff","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",178,175,164009,183628,164009,183628
+458,"70901K","St Anne's Community College","Killaloe","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",264,279,170321,172447,170321,172447
+459,"70910L","St. Brogan's College, Bandon","Kilbrogan","Bandon","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",259,414,149087,55896,149087,55896
+460,"70920O","Colaiste Ghobnatan","Baile Mhic Ire","Co Chorcaí","","","Cork","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",108,113,120569,76919,120569,76919
+461,"70931T","Scoil Mhuire","Béal Atha an Ghaorthaidh","Co Chorcaí","","","Cork","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",66,40,114963,66959,114963,66959
+462,"70950A","Clonakilty Community College","Clonakilty","Co Cork","","","Cork","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",86,511,138619,41674,138619,41674
+463,"70960D","Coachford College","Coachford","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",275,291,145447,73541,145447,73541
+464,"70970G","Cobh Community College","Carrignafoy","Cobh","Co. Cork","","Cork","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",134,126,180306,66964,180306,66964
+465,"70990M","Coláiste an Chraoibhin","Duntaheen Road","Fermoy","Co Cork","","Cork","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",247,378,180515,98128,180515,98128
+466,"71000A","Colaiste Treasa","Kanturk","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",222,257,138395,103216,138395,103216
+467,"71020G","Davis College","Summerhill","Mallow","Co Cork","","Cork","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",568,547,156119,97155,156119,97155
+468,"71030J","McEgan College","Macroom","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",164,128,133871,72910,133871,72910
+469,"71040M","St Fanahan's College","Mitchelstown","Mallow","Co.Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",131,144,182135,112556,182135,112556
+470,"71050P","St Colman's Community College","Youghal Road","Midleton","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",214,504,188525,73077,188525,73077
+471,"71080B","Mannix College","Charleville","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",29,33,153668,122127,153668,122127
+472,"71090E","Rossa College","Skibbereen","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",111,145,112704,34076,112704,34076
+473,"71101G","St Aidan's Community College","Ballincolly","Dublin Hill","Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",234,384,168226,74375,168226,74375
+474,"71102I","Schull Community College","Colla Road","Schull","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",204,235,92706,31034,92706,31034
+475,"71103K","Coláiste Choilm","Ballincollig","Co. Cork","","","Cork","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",707,686,160095,70928,160095,70928
+476,"71110H","Nagle Community College","Mahon","Blackrock","Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",49,130,172306,71028,172306,71028
+477,"71120K","Cork College Of Commerce","Morrison's Island","Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",1,653,167735,71539,167735,71539
+478,"71121M","St John's Central College","Sawmill Street","Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",553,597,167862.98,71305.81,167862.98,71305.81
+479,"71122O","Colaiste Stiofán Naofa","Tramore Road","Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",340,565,166908,69523,166908,69523
+480,"71123Q","Terence Mac Swiney Community College","Hollyhill","Knocknaheeny","Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",131,137,165368,72498,165368,72498
+481,"71124S","Coláiste Daibhéid","An t-Ardán Theas","Corcaigh","","","Cork","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",113,107,167841,71390,167841,71390
+482,"71140Q","Crana College","Crana Road","Buncrana","Co. Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",270,263,234638,432109,234638,432109
+483,"71150T","Coláiste na Carraige","Carrick","Co. Donegal","","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",111,127,159185,378760,159185,378760
+484,"71180F","Abbey Vocational School","The Glebe","Donegal Town","Co.Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",388,372,192785,377831,192785,377831
+485,"71200I","Errigal College","Windyhall","Letterkenny","","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",162,175,217111,412877,217111,412877
+486,"71220O","Mulroy College","Milford","Letterkenny","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",148,175,218929,427306,218929,427306
+487,"71230R","Deele College","Raphoe","Lifford","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",251,268,225513,402980,225513,402980
+488,"71240U","Finn Valley College","Main Street","Stranorlar","Lifford","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",121,180,214527,394944,214527,394944
+489,"71241W","St. Catherine's Vocational School","Donegal Road","Killybegs","Co. Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",168,159,171808,376873,171808,376873
+490,"71242B","Gairm Scoil Chú Uladh","Béal an Átha Móir","An Clochan","Leifear","Co Dhun na nGall","Donegal","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",128,118,197142,402008,197142,402008
+491,"71244F","Gairmscoil Mhic Diarmada","An Leadhbgarbh","Árainn Mhór","Co Dhún na nGall","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",28,37,168486,415414,168486,415414
+492,"71250A","Colaiste Cholmcille","Indreabhán","Co na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",137,142,107226,222437,107226,222437
+493,"71270G","Gairmscoil Mhuire","Athenry","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",232,315,150345,228131,150345,228131
+494,"71280J","St Brigids Vocational School","Loughrea","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",275,348,162666,216257,162666,216257
+495,"71290M","Coláiste an Chreagáin","Mountbellew","Ballinasloe","Co Galway","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",37,36,167899,245741,167899,245741
+496,"71300M","Gairmscoil Éinne Oileain Arann","Cill Rónain","Inis Mór","Árainn","Co na Gaillimhe","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",33,33,88160,209618,88160,209618
+497,"71310P","Gairm Scoil Chilleáin Naofa","St. Killians Vocational School","Cnoc Breac","New Inn, Ballinasloe","Co Galway","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",64,69,167493,227873,167493,227873
+498,"71320S","Coláiste Naomh Feichín","Corr na Mona","Co na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",57,49,103774,252493,103774,252493
+499,"71330V","Coláiste na Coiribe","Bothar Thuama","Gaillimh","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",196,213,130828,226299,130828,226299
+500,"71340B","Galway Technical Institute","Father Griffin Road","Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",648,527,129343.36,224606.96,129343.36,224606.96
+501,"71370K","Coláiste Ghobnait","Inis Oírr","Oileáin Arann","Cuan na Gaillimhe","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",17,11,97961,202461,97961,202461
+502,"71380N","Gairmscoil na bPiarsach","Ros Muc","Co na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",54,44,92870,238618,92870,238618
+503,"71390Q","Archbishop McHale College","Dublin Road","Tuam","Co Galway","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",66,137,143966,251475,143966,251475
+504,"71400Q","Galway Community College","Wellpark","Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",241,392,131123,226354,131123,226354
+505,"71410T","Athlone Community College","Retreat Road","Athlone","Co Westmeath","","Westmeath","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",389,531,205401,241559,205401,241559
+506,"71420W","Castlepollard Community College","Castlepollard","Mullingar","Co Westmeath","","Westmeath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",118,90,245974,269633,245974,269633
+507,"71430C","Columba College","Killucan","Co Westmeath","","","Westmeath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",92,102,257105,252159,257105,252159
+508,"71450I","Mullingar Community College","Millmount Road","Mullingar","Co. Westmeath","","Westmeath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",207,237,244187,252875,244187,252875
+509,"71470O","Clonaslee Vocational School","Clonaslee","Co. Laois","","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",124,137,232608,210613,232608,210613
+510,"71510A","Portlaoise College","Mountrath Road","Portlaoise","Co. Laois","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",379,296,246118,198506,246118,198506
+511,"71520D","St Fergal's College","Rathdowney","Co Laois","","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",134,151,228539,178209,228539,178209
+512,"71540J","Carrigallen Vocational School","Carrigallen","Co Leitrim","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",126,148,223156,303432,223156,303432
+513,"71560P","Lough Allen College","Drumkeerin","Co Leitrim","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",79,101,191095,324481,191095,324481
+514,"71570S","Vocational School","Drumshanbo","Co Leitrim","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",188,196,197009,311032,197009,311032
+515,"71600B","Coláiste Abbain","Adamstown","Enniscorthy","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",82,69,287285,127555,287285,127555
+516,"71610E","Bridgetown Vocational College","Bridgetown","Co Wexford","","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",289,328,299141,109470,299141,109470
+517,"71620H","Vocational College Bunclody","Bunclody","Enniscorthy","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",109,121,291302,156578,291302,156578
+518,"71630K","Vocational College","Enniscorthy","Co Wexford","","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",387,391,296108,140702,296108,140702
+519,"71650Q","Coláiste an Átha","Kilmuckridge","Co. Wexford","","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",134,179,316428,141366,316428,141366
+520,"71660T","New Ross Vocational College","New Ross","Co Wexford","","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",109,127,272700,127093,272700,127093
+521,"71680C","Wexford Vocational College","Westgate","Wexford","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",257,203,304510,122136,304510,122136
+522,"71690F","Ballymahon Vocational School","Ballymahon","Co Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",145,210,215166,257615,215166,257615
+523,"71700F","Colaiste Mhuire","Askeaton","Co Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",237,216,134353,150229,134353,150229
+524,"71710I","Ardscoil Phadraig","Granard","Co Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",119,120,232699,280896,232699,280896
+525,"71720L","Lanesboro Community College","Lanesboro","Co Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",74,120,201154,268810,201154,268810
+526,"71730O","Templemichael College","Templemichael","Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",209,159,214156,275792,214156,275792
+527,"71750U","Bush Post Primary School","Riverstown","Dundalk","Co Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",272,297,318809,306998,318809,306998
+528,"71760A","Drogheda Inst. of Further Education","The Twenties","Drogheda","Co. Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",474,316,308372.45,276796.78,308372.45,276796.78
+529,"71761C","St Oliver's Community College","Rathmullen Road","Drogheda","Co. Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",588,668,307090,274988,307090,274988
+530,"71770D","Ó Fiaich College","Dublin Road","Dundalk","Co. Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",419,439,305505,305301,305505,305301
+531,"71780G","Scoil Ui Mhuiri","Barn Road","Dunleer","Co. Louth","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",254,382,306527,287528,306527,287528
+532,"71790J","Desmond College","Station Road","Newcastle West","Co. Limerick","","Limerick","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",231,298,128528,134279,128528,134279
+533,"71840V","Colaiste Chiarain","Croom","Co. Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",466,405,151556,141233,151556,141233
+534,"71850B","Hazelwood College","Dromcollogher","Co. Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",283,313,138481,121636,138481,121636
+535,"71920T","St Nessan's Community College","Moylish Park","Moylish","Limerick","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",149,196,156149,158732,156149,158732
+536,"71930W","Limerick College of Further Education","Limerick Senior College","Mulgrave Street","Limerick","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",739,470,158356.02,156647.44,158356.02,156647.44
+537,"71950F","St Peter's College","Dunboyne","Co. Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",769,718,301847,241992,301847,241992
+538,"71960I","Community College Dunshaughlin","Dunshaughlin","Co Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",396,577,296304,252512,296304,252512
+539,"71970L","St. Fintinas Post Primary School","Longwood","Enfield","Co Meath","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",113,130,271645,245506,271645,245506
+540,"71980O","O'Carolan College","Nobber","Co Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",234,348,282911,286029,282911,286029
+541,"71990R","St Oliver Post Primary","Oldcastle","Co. Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",255,286,255219,280624,255219,280624
+542,"71991T","Coláiste Pobail Rath Cairn","Ráth Cairn","Athboy","Co Meath","","Meath","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",72,73,275435,263944,275435,263944
+543,"72010I","Beaufort College","Trim Rd","Navan","Co Meath","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",160,384,287119,266797,287119,266797
+544,"72020L","Moyne College","Ballina","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",84,102,124982,318816,124982,318816
+545,"72050U","St. Brendan's College","Belmullet","Co. Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",173,180,70947,331355,70947,331355
+546,"72100J","St. Tiernan's College","Crossmolina","Ballina","Co Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",80,110,113991,317208,113991,317208
+547,"72130S","St. Patrick's College","Lacken Cross","Killala","Co Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",109,111,116056,331929,116056,331929
+548,"72140V","Colaiste Chomain","Rossport","Ballina","Co Mayo","","Mayo","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",23,49,82652,338973,82652,338973
+549,"72160E","Carrowbeg College","Westport","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",137,135,99686,284715,99686,284715
+550,"72170H","Ballybay Community College","Ballybay","Co Monaghan","","","Monaghan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",138,144,271866,319980,271866,319980
+551,"72171J","Largy College","Analore Rd","Clones","Co Monaghan","","Monaghan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",205,230,250631,325897,250631,325897
+552,"72180K","Inver College","Carrickmacross","Co Monaghan","","","Monaghan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",162,214,284275,304564,284275,304564
+553,"72190N","Castleblayney College","Dublin Road","Castleblayney","Co Monaghan","","Monaghan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",136,168,282937,319122,282937,319122
+554,"72210Q","Beech Hill College","Monaghan","Co. Monaghan","","","Monaghan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",592,413,267632,333343,267632,333343
+555,"72220T","Coláiste Chathail Naofa","Youghal Rd","Dungarvan","","","Waterford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",218,155,225557,92822,225557,92822
+556,"72230W","St Declan's Community College","Kilmacthomas","Co Waterford","","","Waterford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",304,356,239603,105990,239603,105990
+557,"72240C","Waterford College of Further Education","Parnell Street","Waterford","","","Waterford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",540,307,260876.24,112158.1,260876.25,112158.11
+558,"72241E","St Paul's Community College","Browne's Road","Waterford City","","","Waterford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",109,343,258941,111418,258941,111418
+559,"72280O","Elphin Community College","Elphin","Castlerea","Co Roscommon","","Roscommon","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",38,76,186697,288388,186697,288388
+560,"72290R","Roscommon Community School","Lisnamult","Roscommon","Co. Roscommon","","Roscommon","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",79,146,186824,263936,186824,263936
+561,"72300R","Corran College","Ballymote","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",57,67,166332,315903,166332,315903
+562,"72310U","Coola Post Primary School","Riverstown","Via Boyle","Co Sligo","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",191,233,175623,322873,175623,322873
+563,"72320A","Coláiste Iascaigh","Easkey","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",64,81,137775,337870,137775,337870
+564,"72330D","Grange Vocational School","Grange","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",56,105,166107,349347,166107,349347
+565,"72350J","North Connaught College","Tubbercurry","Co Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",108,42,152444.54,312209.35,152444.54,312209.35
+566,"72360M","Ballinode College","Clarion Rd","Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",401,317,170134,336791,170134,336791
+567,"72370P","Borrisokane Community College","Borrisokane","Co Tipperary","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",259,279,192116,194515,192116,194515
+568,"72400V","Comeragh College","Greenside","Carrick-On-Suir","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",112,177,240224,122107,240224,122107
+569,"72420E","Central Technical Institute","Clonmel","Co Tipperary","","","Tipperary","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",207,278,220801,122467,220801,122467
+570,"72430H","Scoil Ruain","Killenaule","Thurles","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",197,230,221947,146746,221947,146746
+571,"72440K","Nenagh Vocational School","Dromin Road","Nenagh","Co Tipperary","","Tipperary","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",192,208,186454,179894,186454,179894
+572,"72450N","Newport College","Newport","Co Tipperary","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",83,66,172575,162675,172575,162675
+573,"72470T","Templemore College","Templemore","Co Tipperary","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",190,103,210720.78,171433.04,210720.78,171433.04
+574,"72480W","St. Alibe's School","Rosanna Road","Tipperary Town","","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",120,158,189440,136281,189440,136281
+575,"72490C","Coláiste Mhuire Co-Ed","Castlemeadows","Thurles","Co Tipperary","","Tipperary","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",158,182,211817,159190,211817,159190
+576,"72520I","Coláiste Naomh Cormac","Kilcormac","Co Offaly","","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",97,109,218756,214329,218756,214329
+577,"72530L","Ard Scoil Chiarain Naofa","Frederick St.","Clara","Co. Offaly","","Offaly","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",116,105,225865,232309,225865,232309
+578,"72540O","Oaklands Community College","Sr. Senan Avenue","Edenderry","Co. Offaly","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",237,306,262488,232259,262488,232259
+579,"72560U","Tullamore College","Riverside","Tullamore","Co. Offaly","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",241,327,234380,225129,234380,225129
+580,"76060U","Davitt College","Springfield","Castlebar","","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",543,441,115145,290494,115145,290494
+581,"76061W","Colaiste na Trocaire (Mercy Community College)","Rathkeale","Co. Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",237,214,136617,141319,136617,141319
+582,"76062B","Castleknock Community College","Carpenterstown Road","Castleknock","Dublin 15","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",552,584,307138,236937,307138,236937
+583,"76063D","Colaiste Dun Iascaigh","Cashel Road","Cahir","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",290,349,205654,125487,205654,125487
+584,"76064F","Glanmire Community College","Glanmire","Co. Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",370,530,173610,75424,173610,75424
+585,"76065H","Coláiste Cois Life","Gleann an Ghrífín","Leamhcán","Co Átha Cliath","","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",240,277,304225,234388,304225,234388
+586,"76066J","Meánscoil San Nioclás","Rinn O gCuanach","Co. Phort Láirge","","","Waterford","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",71,57,228148,88740,228148,88740
+587,"76067L","Colaiste Pobail Naomh Mhuire","Cill na Mullach","Co Chorcaí","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",103,121,154277,108914,154277,108914
+588,"76068N","Coláiste na Sceilge","Caherciveen","Co. Kerry","","","Kerry","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",267,248,45943,78767,45943,78767
+589,"76069P","Colaiste Phobáil Ros Cré","Corville Rd","Roscrea","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",355,347,214164,189224,214164,189224
+590,"76070A","Coláiste Ióasef","Kilmallock","Co. Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",288,280,160728,128166,160728,128166
+591,"76072E","Abbey Community College","Boyle","Co Roscommon","","","Roscommon","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",193,217,180416,302223,180416,302223
+592,"76073G","Castletroy College","Newtown","Castletroy","Co Limerick","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",555,618,163452,156977,163452,156977
+593,"76075K","St John Bosco Community College","Cahercon","Kildysart","Co Clare","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",89,92,125331,158516,125331,158516
+594,"76076M","Colaiste Chraobh Abhann","Creowen","Kilcoole","Co Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",290,330,329632,207279,329632,207279
+595,"76077O","Larkin Community College","Champions Avenue","Dublin 1","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",151,290,316061,234949,316061,234949
+596,"76078Q","Skerries Community College","Skerries","Co. Dublin","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",388,525,324841,260442,324841,260442
+597,"76079S","Coláiste Phobail Cholmcille","Baile Úr","Oileán Thoraí","Doirí Beaga","Co. Dhún Na nGall","Donegal","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",3,2,185983,446442,185983,446442
+598,"76081F","Coláiste Ailigh","Cnoc na Móna","Leitir Ceanainn","Co.Dhún na nGall","","Donegal","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",115,117,217085,411925,217085,411925
+599,"76082H","Abbey Community College","Abbey Rd","Ferrybank","Waterford","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",341,380,261581,112852,261581,112852
+600,"76083J","Magh Ene College","Church Road","Bundoran","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",137,190,181940,358556,181940,358556
+601,"76084L","Moville Community College","Carrownaff","Moville","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",265,280,260504,438182,260504,438182
+602,"76085N","Gealcholáiste Reachrann","Bóthar Mhainistir na Gráinsí","Domhnach Míde","Baile Atha Cliath 13","","Dublin","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",181,156,322655,240460,322655,240460
+603,"76086P","MARIA IMMACULATA COMMUNITY COLLEGE","Dunmanway","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",226,277,122963,51883,122963,51883
+604,"76087R","CAVAN INSTITUTE","CATHEDRAL ROAD","CAVAN","","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",744,580,242182.11,305887.3,242182.11,305887.29
+605,"76088T","Ratoath College","Jamestown","Ratoath","Co. Meath","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",466,525,302358,251042,302358,251042
+606,"76089V","MOHILL COMMUNITY COLLEGE","MOHILL","CO LEITRIM","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",204,167,208479,296976,208479,296976
+607,"76090G","Coláiste Pobail Bheanntraí","SESKIN","BANTRY","CO CORK","","Cork","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",333,340,99988.95,47741.31,99988.95,47741.31
+608,"76091I","Coláiste Oiriall","Tir Chianáin","Muineachán","Co Mhuineacháin","","Monaghan","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",173,101,267611,333249,267611,333249
+609,"76092K","PRESENTATION COLLEGE","TERENURE","DUBLIN 6W","","","Dublin","Girls","Day","No subjects taught through Irish","N","CATHOLIC",308,0,314237,230307,314237,230307
+610,"76093M","COLÁISTE ÍDE AGUS IOSAEF","ABBEYFEALE","CO LIMERICK","","","Limerick","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",344,332,111791.1,126820.71,111791.1,126820.71
+611,"76094O","COLÁISTE DHÚLAIGH COLLEGE OF FURTHER EDUCATION","BARRYCOURT ROAD","COOLOCK","DUBLIN 17","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",592,762,322546.39,239004.71,322546.39,239004.71
+612,"76096S","Merlin College","Doughiska Road","Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",31,38,134382.57,226216.82,134382.57,226216.81
+613,"76097U","ADAMSTOWN COMMUNITY COLLEGE","Station Rd","Adamstown","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",343,379,302483,232853,302483,232853
+614,"76098W","Colaiste Pobail Setanta","Phibblestown Community College","Phibblestown","Dublin 15","","Dublin","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",376,395,304089,239756,304089,239756
+615,"76099B","Coláiste Chill Mhantáin","Burkeen","Wicklow Town","Co Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",205,590,329721.14,194556.32,329721.14,194556.32
+616,"76101I","GAELCHOLÁISTE LUIMNIGH","MEAL SIOR ANRAÍ","LUIMNEACH","","","Limerick","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",305,204,158109,157414,158109,157414
+617,"76102K","Coláiste an Eachréidh","An Coiléar Bán","Baile Átha an Rí","Co na Gaillimhe","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",72,67,150128,228221,150128,228221
+618,"76103M","Colaiste na hInse","Bettystown","Co Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",305,454,316039,273459,316039,273459
+619,"76104O","Donabate Community College","Olive Laffoy, Principal","Donabate Community College","Portrane Road","Donabate, Co. Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",322,410,323289,250450,323289,250450
+620,"76105Q","Colaiste Na Sionna","Banagher","Banagher","","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",229,300,201206,215138,201206,215138
+621,"76106S","Gaelcholáiste na Mara","Pairc Na bPiarsach","Bothar an Ghleanntain","Arklow","Co.Wicklow","Wicklow","Mixed","Day","All pupils taught all subjects through Irish","N","MULTI DENOMINATIONAL",66,110,323601,173728,323601,173728
+622,"76107U","Gaelcholáiste Chineál Eoghain","Muileann Thulaigh Gharbháin","Bun Cranncha","Co. Dhún na nGall","","Donegal","Mixed","Day","All pupils taught all subjects through Irish","N","MULTI DENOMINATIONAL",13,27,234951,433120,234951,433120
+623,"76127D","Creagh College","Carnew Road","Gorey","Co. Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",114,144,314199.06,159897.74,314199.06,159897.75
+624,"76129H","Ardgillan Community College","Castlelands","Balbriggan","","Co Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",153,392,320632,262796,320632,262796
+625,"76130P","Luttrellstown Community College","Luttrellstown Community College","Mill Road","Blanchardstown","Dublin 15","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",182,244,308314,238917,308314,238917
+626,"76150V","Coláiste Pobail Acla","Achill Sound","Westport","Co. Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",97,127,74377.92,299789.06,74377.92,299789.06
+627,"76173K","Colaiste na Mí, Navan, Co. Meath","Navan","Navan","","","Meath","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",18,69,288820.37,266291.77,288820.37,266291.76
+628,"76213T","Lusk Community College","Raheny Lane","Rathmore Road","Lusk","Co. Dublin","Dublin","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",46,60,322256.4,254752.43,322256.4,254752.43
+629,"76233C","Coláiste Bhaile Chláir","Claregalway","Co. Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",72,90,137166.04,233450.65,137166.04,233450.66
+630,"81001I","Newpark Comprehensive School","Newtown Park Avenue","Blackrock","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","CHURCH OF IRELAND",377,465,321872,228141,321872,228141
+631,"81002K","Mount Temple Comprehensive School","Malahide Road","Dublin 3","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CHURCH OF IRELAND",411,469,318352,236834,318352,236834
+632,"81005Q","St Aidans Comprehensive School","Cootehill","Co Cavan","","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",243,250,261365,313432,261365,313432
+633,"81006S","Tarbert Comprehensive School","Tarbert","Listowel","Co Kerry","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",273,355,106233,147863,106233,147863
+634,"81007U","Shannon Comprehensive School","Shannon","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",345,343,140589,161842,140589,161842
+635,"81008W","Ashton School","Blackrock Road","Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","CHURCH OF IRELAND",229,283,168930,71280,168930,71280
+636,"81009B","Boherbue Comprehensive School","Boherbue","Mallow","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",179,185,127382,101321,127382,101321
+637,"81010J","St Columba's Comprehensive School","Glenties","Co Donegal","","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",174,217,181650,394671,181650,394671
+638,"81011L","The Royal and Prior School","Raphoe","Co Donegal","","","Donegal","Mixed","Mixed","No subjects taught through Irish","N","CHURCH OF IRELAND",275,269,226349,403226,226349,403226
+639,"81012N","Scoil Chuimsitheach Chiaráin","An Cheathrú Rua","Co na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",135,167,93427,224705,93427,224705
+640,"81013P","St. Clare's Comprehensive School","Manorhamilton","Co. Leitrim","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",217,264,188527,339250,188527,339250
+641,"81014R","Crescent College Comprehensive","Dooradoyle Rd","Dooradoyle","Limerick","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",388,503,156664,154087,156664,154087
+642,"81016V","East Glendalough School","Station Road","Wicklow Town","","","Wicklow","Mixed","Day","No subjects taught through Irish","N","CHURCH OF IRELAND",187,213,330727,194713,330727,194713
+643,"81017A","TRINITY COMPREHENSIVE SCHOOL","BALLYMUN ROAD","DUBLIN 9","","","Dublin","Mixed","Day","No subjects taught through Irish","N","CATHOLIC",198,197,315652,239495,315652,239495
+644,"91301D","Holy Family Community School","Kilteel Road","Rathcoole","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",376,492,301443,226216,301443,226216
+645,"91302F","Phobailscoil Iosolde","Palmerstown","Dublin 20","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",224,312,308139,234340,308139,234340
+646,"91305L","Ballinteer Community School","Ballinteer","Dublin 16","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",153,207,316221,227068,316221,227068
+647,"91310E","Cabinteely Community School","Cabinteely","Dublin 18","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",247,278,323748,225086,323748,225086
+648,"91315O","Scoil Phobail Chuil Mhin","Cluain Saileach","Baile Atha Cliath 15","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",510,580,306786,238793,306786,238793
+649,"91316Q","Blakestown Community School","Blanchardstown","Dublin 15","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",248,261,306256,239595,306256,239595
+650,"91318U","The Donahies Community School","Streamville Road","Dublin 13","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",218,304,321582,239639,321582,239639
+651,"91324P","Portmarnock Community School","Carrickhill Road","Portmarnock","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",385,479,323821,243985,323821,243985
+652,"91325R","Malahide Community School","Broomfield","Malahide","Co. Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",588,628,322824,244694,322824,244694
+653,"91330K","Holy Child Community School","Pearse St","Sallynoggin","Co Dublin","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",107,166,324357,226662,324357,226662
+654,"91332O","St Marks Community School","Cookstown Rd","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",404,467,307484,227971,307484,227971
+655,"91335U","Tallaght Community School","Balrothery","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",314,436,310833,228418,310833,228418
+656,"91336W","Old Bawn Community School","Old Bawn","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",331,492,308717,227116,308717,227116
+657,"91337B","Killinarden Community School","Killinarden","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",220,246,306960,226255,306960,226255
+658,"91338D","St Aidan's Community School","Brookfield","Tallaght","Dublin 24","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",226,273,305920,227402,305920,227402
+659,"91339F","Hartstown Community School","Clonsilla","Dublin 15","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",489,602,305411,239585,305411,239585
+660,"91342R","Pobalscoil Neasáin","Baldoyle","Dublin 13","","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",202,449,324378,239587,324378,239587
+661,"91343T","St. Tiernan's Community School","Parkvale","Balally","Dublin 16","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",158,210,317509,227114,317509,227114
+662,"91344V","Rosmini Community School","Grace Park Road","Drumcondra","Dublin 9","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",91,157,316860,237079,316860,237079
+663,"91351S","Bailieborough Community School","Bailieborough","Co Cavan","","","Cavan","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",284,301,267478,296423,267478,296423
+664,"91356F","Tullow Community School","The Mullawn","Tullow","Co. Carlow","","Carlow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",319,298,285554,172768,285554,172768
+665,"91360T","Community School","Castlecomer","Co Kilkenny","","","Kilkenny","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",287,319,252946,172770,252946,172770
+666,"91371B","Leixlip Community School","Celbridge Road","Leixlip","Co. Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",296,376,299956,235879,299956,235879
+667,"91372D","Scoil Mhuire Community School","Clane","Naas","Co Kildare","","Kildare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",502,507,286891,227658,286891,227658
+668,"91376L","St. Kilian's Community School","Ballywaltrim","Bray","Co. Wicklow","","Wicklow","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",240,248,325271,216592,325271,216592
+669,"91386O","Ballincollig Community School","Innishmore","Ballincollig","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",354,403,158612,71026,158612,71026
+670,"91387Q","Beara Community School","Castletownbere","Beara","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",145,182,67600,45577,67600,45577
+671,"91388S","Carrigaline Community School","Waterpark","Carrigaline","Co Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",506,483,173380,62839,173380,62839
+672,"91390F","Millstreet Community School","Millstreet Town","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",129,123,126736,90522,126736,90522
+673,"91391H","St Peter's Community School","Passage West","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",154,142,176628,68156,176628,68156
+674,"91396R","Douglas Community School","Clermont Avenue","Douglas","Cork","","Cork","Boys","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",0,563,169587,69643,169587,69643
+675,"91397T","Bishopstown Community School","Bishopstown","Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",100,132,163836,70263,163836,70263
+676,"91400F","Mayfield Community School","Old Youghal Road","Mayfield","Cork","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",79,235,169525,73407,169525,73407
+677,"91406R","Carndonagh Community School","Carndonagh","Lifford","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",504,485,246480,444954,246480,444954
+678,"91407T","Rosses Community School","Dungloe","Co. Donegal","","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",245,280,177489,411369,177489,411369
+679,"91408V","Pobalscoil Chloich Cheannfhaola","An Fálcarrach","Leitir Ceanainn","Co. Dhún na nGall","","Donegal","Mixed","Day","Some pupils taught some subjects through Irish","N","INTER DENOMINATIONAL",234,202,193692,432735,193692,432735
+680,"91409A","Pobalscoil Ghaoth Dobhair","Doirí Beaga","Leitir Ceannain","Tir Chonaill","","Donegal","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",156,188,182262,427736,182262,427736
+681,"91411K","Scoil Phobail Mhic Dara","Carna","Co na Gaillimhe","","","Galway","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",63,51,78875,231919,78875,231919
+682,"91412M","Scoil Phobail","Clifden","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",198,225,65794,249481,65794,249481
+683,"91413O","Portumna Community School","Portumna","Co. Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",210,239,185300,204816,185300,204816
+684,"91414Q","Dunmore Community School","Dunmore","Co Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",150,157,151127,263203,151127,263203
+685,"91426A","Mountmellick Community School","Mountmellick","Co Laois","","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",193,227,245073,207679,245073,207679
+686,"91427C","Heywood Community School","Ballinakill","Portlaoise","Co. Laois","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",327,358,247207,181813,247207,181813
+687,"91431Q","Ramsgrange Community School","Ramsgrange","New Ross","Co Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",171,184,274078,110913,274078,110913
+688,"91436D","Moyne Community School","Moyne","Co Longford","","","Longford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",280,325,223180,295485,223180,295485
+689,"91441T","Ardee Community School","Ardee","Co Louth","","","Louth","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",350,371,295717,290045,295717,290045
+690,"91446G","St Endas Community School","Kilmallock Rd","Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",30,51,159491,155218,159491,155218
+691,"91447I","St Caimin's Community School","Tullyvarraga","Shannon","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",334,387,141797,161948,141797,161948
+692,"91448K","Kilrush Community School","Kilrush","Co Clare","","","Clare","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",187,224,99631,155545,99631,155545
+693,"91456J","St Ciaran's Community School","Navan Rd","Kells","Co Meath","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",101,530,274531,275513,274531,275513
+694,"91461C","Ballyhaunis Community School","Knock Road","Ballyhaunis","Co.Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",246,268,148575,279857,148575,279857
+695,"91462E","Ballinrobe Community School","Convent Road","Ballinrobe","Co Mayo","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",269,316,119812,264350,119812,264350
+696,"91491L","St.Brendan's Community School","Birr","Co Offaly","","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",431,469,205647,206031,205647,206031
+697,"91492N","Gorey Community School","Esmonde Street","Gorey","Co. Wexford","","Wexford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",751,767,315892,159405,315892,159405
+698,"91493P","Castlerea Community School","Castlerea","Co. Roscommon","","","Roscommon","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",225,207,168164,279659,168164,279659
+699,"91494R","St Louis Community School","Kiltimagh","Co Mayo","","","Mayo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",372,305,134088,289218,134088,289218
+700,"91495T","Ashbourne Community School","Deerpark","Ashbourne","Co Meath","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",484,582,306995,251646,306995,251646
+701,"91496V","Community School","Carrick-On-Shannon","Leitrim","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",295,284,194454,299961,194454,299961
+702,"91497A","Cashel Community School","Dualla Road","Cashel","Co Tipperary","","Tipperary","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",356,447,208069,140803,208069,140803
+703,"91498C","Gort Community School","Gort","Co. Galway","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",294,382,145646,201466,145646,201466
+704,"91499E","Kinsale Community School","Kinsale","Co Cork","","","Cork","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",431,367,163445,50276,163445,50276
+705,"91500J","Loreto Community School","Milford","Co Donegal","","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",375,381,218629,426887,218629,426887
+706,"91501L","Moate Community School","Church Street","Moate","Co Westmeath","","Westmeath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",676,571,218270,238502,218270,238502
+707,"91502N","John The Baptist Community School","Hospital","Co Limerick","","","Limerick","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",440,483,170504,135820,170504,135820
+708,"91503P","Pobalscoil Inbhear Sceine","Kenmare","Co. Kerry","","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",230,252,91087,71183,91087,71183
+709,"91504R","Scoil Phobail Sliabh Luachra","Rathmore","Co. Kerry","","","Kerry","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",204,232,114588,92572,114588,92572
+710,"91505T","St Wolstan's Community School","Ballymakeely","Clane Rd","Celbridge","Co Kildare","Kildare","Girls","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",774,0,295851,232462,295851,232462
+711,"91506V","Coláiste Cholmcille","College St","Ballyshannon","Co Donegal","","Donegal","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",335,319,188109,361662,188109,361662
+712,"91508C","Boyne Community School","Trim","Co. Meath","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",134,619,280629,256301,280629,256301
+713,"91509E","BLACKWATER COMMUNITY SCHOOL","Ballyanchor Road","Lismore","Co Waterford","","Waterford","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",371,389,204139,98085,204139,98085
+714,"91510M","St. Colmcille's Community School","Scholarstown Rd","Knocklyon","Dublin 16","","Dublin","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",340,379,312459,226671,312459,226671
+715,"91511O","Pobalscoil Chorca Dhuibhne","An Grobh","An Daingean","Co. Chiarraí","","Kerry","Mixed","Day","All pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",226,222,44842,101415,44842,101415
+716,"91512Q","St Attracta's Community School","Tubbercurry","Co. Sligo","","","Sligo","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",287,314,150272,311845,150272,311845
+717,"91513S","Pobalscoil na Tríonóide","Frogmore","Youghal","Co. Cork","","Cork","Mixed","Day","Some pupils taught all subjects through Irish","N","INTER DENOMINATIONAL",412,428,208761,77649,208761,77649
+718,"91514U","GLENAMADDY COMMUNITY SCHOOL","GLENAMADDY","CO GALWAY","","","Galway","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",217,207,162648,262083,162648,262083
+719,"91515W","GALLEN COMMUNITY SCHOOL","FERBANE","CO OFFALY","","","Offaly","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",197,185,211470,224321,211470,224321
+720,"91517D","ATHBOY COMMUNITY SCHOOL","ATHBOY","CO MEATH","","","Meath","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",218,341,271958,264413,271958,264413
+721,"91519H","BALLINAMORE COMMUNITY SCHOOL","BALLINAMORE","CO LEITRIM","","","Leitrim","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",133,151,213664.55,312223.36,213664.55,312223.37
+722,"91530S","KILDARE TOWN COMMUNITY SCHOOL","KILDARE","CO KILDARE","","","Kildare","Mixed","Day","No subjects taught through Irish","N","MULTI DENOMINATIONAL",320,355,272736.32,213845.55,272736.33,213845.55
+723,"91550B","MOUNTRATH COMMUNITY SCHOOL","Dysartbeigh","Mountrath","Co. Laois","","Laois","Mixed","Day","No subjects taught through Irish","N","INTER DENOMINATIONAL",373,369,234826,193964,234826,193964

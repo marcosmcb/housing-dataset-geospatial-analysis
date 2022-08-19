@@ -1,0 +1,62 @@
+---
+title: "Ireland Housing - Data Exploration"
+author: Marcos Cavalcante
+output: github_document
+---
+First step is to install and load the necessary libraries.
+
+```{r loadlib, echo=T, results='hide', message=F, warning=F}
+packages <- c("tidyverse","haven", "devtools", "dplyr")
+
+if(sum(as.numeric(!packages %in% installed.packages())) != 0){
+  installer <- packages[!packages %in% installed.packages()]
+  for(i in 1:length(installer)) {
+    install.packages(installer, dependencies = T)
+    break()
+  }
+  sapply(packages, require, character = T) 
+} else {
+  sapply(packages, require, character = T) 
+}
+
+devtools::install_github("ropensci/skimr")
+library(skimr)
+
+```
+
+
+## Data Exploration
+
+At this next stage, the dataset will be explored further with regards to the data values it holds.
+Exploration around the lower and upper boundaries of each numeric attribute as well as its histogram distribution will be done.
+
+
+Let's start by using the skim library to have a glimpse of the dataset.
+
+```{r}
+
+dataset_directory <- "../../datasets/"
+dataset_filename <- paste(dataset_directory, "ireland_houses_filtered.csv", sep="")
+
+ireland_houses <- read.csv(file = dataset_filename ) # Load the dataset
+
+skim(ireland_houses)
+```
+
+
+Glimpse of the dataset without the latitude and longitude attributes:
+
+```{r}
+skim(ireland_houses) %>%
+  filter(!skim_variable %in% c("latitude", "longitude"))
+```
+
+## Understanding the data
+
+The data already provides really good insights. For example: 
+
+* The mean _price_ of houses is €601,026 and the most expensive house in the dataset is worth €15 million euro.
+
+* The mean _size_ of a house in $sq^2$ is 130 $sq^2$, and the biggest house has 6300 $sq^2$.
+
+* There appears to be some outliers as well, for instance: house with 30 bedrooms and 28 bathrooms

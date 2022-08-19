@@ -1,0 +1,155 @@
+---
+title: "Ireland Housing - Data Cleaning"
+author: Marcos Cavalcante
+output: github_document
+---
+
+### Installing libraries
+
+First step is to install and load the necessary libraries.
+
+```{r include=FALSE}
+packages <- c("tidyverse","haven", "devtools", "dplyr")
+
+if(sum(as.numeric(!packages %in% installed.packages())) != 0){
+  installer <- packages[!packages %in% installed.packages()]
+  for(i in 1:length(installer)) {
+    install.packages(installer, dependencies = T)
+    break()
+  }
+  sapply(packages, require, character = T) 
+} else {
+  sapply(packages, require, character = T) 
+}
+
+devtools::install_github("ropensci/skimr")
+library(skimr)
+
+```
+
+## Import the Ireland Housing dataset
+
+At this step, the Ireland housing dataset will be imported
+
+```{r}
+dataset_directory <- "../../datasets/"
+dataset_filename <- paste(dataset_directory, "house_listings_all.csv", sep="")
+
+ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
+```
+
+## Data Exploration
+
+In this step, the first five rows of our dataset will be displayed so that we can take a look at the different pieces of data available to us and what kind of information they bring to the analysis.
+
+```{r}
+head(ireland_houses, 5)
+```
+
+## Removing Columns
+
+After looking at the first few rows, it is possible to see that there are columns with missing data, different data types and format as well as columns which, at first glance, do not bring any value to our analysis.
+
+However, before starting to remove any data, let's explore it a little more by running the summary and skim functions. Those functions will give an statistical overview of our data.
+
+```{r}
+summary(ireland_houses)
+skim(ireland_houses)
+```
+
+From the information above, it can be seen that:
+
+* __url_link__: It provides the URL of the house listing and, it should be removed as it doesn't impact the analysis.
+* __ber_code__: BER stands for Building Energy Rating and the BER Code is simply the ID of the certificate that the house was given.
+
+* __id__: ID is a property used within the property website database for managing the data.
+* __daftShortcode__: This code is another ID-like property which is used for managing data within the property website database.
+
+* __publishDate__: This attribute contains infnormation about the date of the property listing and it will not be taken into consideration in this study.
+
+* __location__: It would be a useful attribute to be kept, however, this information is also present in the title column (which is, in fact, the address of the property)
+
+* __propertySize__: Similar to the _location_ attribute, _propertySize_ is already captured by another attribute: _size_meters_squared_.
+
+As a result, The columns mentioned above can be removed as they do not contribute to this analysis. After removing the unwanted attributes, we save the resulting dataset in a new variable.
+
+```{r}
+ireland_houses %>% 
+  select(-c(url_link, ber_code, id, daftShortcode, publishDate, location, propertySize)) ->
+  ireland_houses_cleaned
+
+
+head(ireland_houses_cleaned, 5)
+skim(ireland_houses_cleaned)
+```
+
+## Removing rows with missing data
+
+After removing the columns that do not help our study, we can now focus on removing rows where important data is missing.
+From the output of the _skim_ method, we can observe that: 
+
+* There are _19967_ rows which do not contain information about the property size. 
+* It is also possible to note that there are _1658_ properties which do not have a bathroom.
+
+Another peculiar detail is the fact that _bedrooms_ and _price_ are of type __character__.
+But, firstly, let's proceed to remove the rows with missing data.
+
+
+```{r}
+ireland_houses_size_filtered <- filter(ireland_houses_cleaned, !is.na(size_meters_squared))
+ireland_houses_filtered <- filter(ireland_houses_size_filtered, !is.na(bathrooms))
+skim(ireland_houses_filtered)
+```
+
+## Type convertion - Price
+
+Once missing data is removed, we can start looking at converting the values of _price_ and _bedrooms_ from character to numeric.
+
+The filtered dataset was further explored in Excel to better understand why _price_ and _bedrooms_ are of type character. It could be seen that:
+
+* _price_ was mostly a numeric value, but there are instances where the strings: __"Price on Application"__, __"AMV: Price on Application"__ and __"AMV: ‚Ç¨__ appear.
+
+What will be done is the following: 
+
+- rows with __"Price on Application"__ and __"AMV: Price on Application"__ will be attempted to convert to numeric and fail, instead the value __"NA"__ will be used, which can then be filtered out.
+
+- rows that start with __"AMV: ‚Ç¨__ and are followed by the house value will be stripped off the initial string and the price will be kept. After that, the string value resultant will be converted to numeric.
+
+
+```{r warning=FALSE}
+
+strip_chars_from_price <- function(house_df) {
+  price_as_character = house_df$price
+  
+  bad_token = "AMV: ‚Ç¨"
+
+  comma_separated_number = str_remove(price_as_character, bad_token)
+  price_cleaned = gsub(",", "", comma_separated_number)
+  house_df$price <- as.numeric(price_cleaned)
+  
+  return(house_df)
+}
+
+ireland_houses_prices_numeric <- strip_chars_from_price(ireland_houses_filtered)
+
+convert_bedrooms_numeric <- function(house_df) {
+  house_df$bedrooms <- as.numeric(house_df$bedrooms)
+  return(house_df)
+}
+
+ireland_houses_filtered <- filter(strip_chars_from_price(ireland_houses_filtered), !is.na(price))
+ireland_houses_filtered <- filter(convert_bedrooms_numeric(ireland_houses_filtered), !is.na(bedrooms))
+ireland_houses_filtered <- filter(ireland_houses_filtered, propertyType!="")
+
+skim(ireland_houses_filtered)
+
+```
+
+## Write Clean dataset to file
+
+Finally, the clean dataset can be write back to a CSV file.
+
+```{r}
+dataset_filename <- paste(dataset_directory, "ireland_houses_filtered.csv", sep="")
+write.csv(ireland_houses_filtered, dataset_filename, row.names = FALSE)
+```
