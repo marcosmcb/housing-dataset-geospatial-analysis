@@ -119,13 +119,7 @@ What will be done is the following:
 ```{r warning=FALSE}
 
 strip_chars_from_price <- function(house_df) {
-  price_as_character = house_df$price
-  
-  bad_token = "AMV: ‚Ç¨"
-
-  comma_separated_number = str_remove(price_as_character, bad_token)
-  price_cleaned = gsub(",", "", comma_separated_number)
-  house_df$price <- as.numeric(price_cleaned)
+  house_df$price <- extract_numeric(house_df$price)
   
   return(house_df)
 }

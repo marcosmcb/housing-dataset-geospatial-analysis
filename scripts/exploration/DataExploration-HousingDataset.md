@@ -5,7 +5,7 @@ Marcos Cavalcante
 First step is to install and load the necessary libraries.
 
 ``` r
-packages <- c("tidyverse","haven", "devtools", "dplyr")
+packages <- c("tidyverse","haven", "devtools", "dplyr", "ggplot2", "gapminder")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -43,7 +43,7 @@ skim(ireland_houses)
 |                                                  |                |
 |:-------------------------------------------------|:---------------|
 | Name                                             | ireland_houses |
-| Number of rows                                   | 77785          |
+| Number of rows                                   | 78028          |
 | Number of columns                                | 11             |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                |
 | Column type frequency:                           |                |
@@ -58,18 +58,18 @@ Data summary
 
 | skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  18 | 102 |     0 |     8806 |          0 |
+| title         |         0 |             1 |  18 | 102 |     0 |     8879 |          0 |
 | propertyType  |         0 |             1 |   6 |  14 |     0 |        8 |          0 |
 | ber_rating    |         0 |             1 |   0 |   6 |  2316 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 35101 |     4625 |          0 |
+| ber_epi       |         0 |             1 |   0 |  18 | 35259 |     4637 |          0 |
 | category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
 
 **Variable type: numeric**
 
 | skim_variable       | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |       p100 | hist  |
 |:--------------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|-----------:|:------|
-| price               |         0 |             1 | 601026.72 | 656734.92 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
-| size_meters_squared |         0 |             1 |    130.08 |    161.04 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
+| price               |         0 |             1 | 599857.97 | 656086.50 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
+| size_meters_squared |         0 |             1 |    130.07 |    160.87 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
 | bedrooms            |         0 |             1 |      3.19 |      1.43 |     1.00 |      2.00 |      3.00 |      4.00 |  3.000e+01 | ▇▁▁▁▁ |
 | bathrooms           |         0 |             1 |      2.12 |      1.39 |     1.00 |      1.00 |      2.00 |      3.00 |  2.800e+01 | ▇▁▁▁▁ |
 | latitude            |         0 |             1 |     53.19 |      0.50 |    51.44 |     53.29 |     53.33 |     53.36 |  5.538e+01 | ▁▁▇▁▁ |
@@ -85,7 +85,7 @@ skim(ireland_houses) %>%
 |                                                  |                |
 |:-------------------------------------------------|:---------------|
 | Name                                             | ireland_houses |
-| Number of rows                                   | 77785          |
+| Number of rows                                   | 78028          |
 | Number of columns                                | 11             |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                |
 | Column type frequency:                           |                |
@@ -100,18 +100,18 @@ Data summary
 
 | skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  18 | 102 |     0 |     8806 |          0 |
+| title         |         0 |             1 |  18 | 102 |     0 |     8879 |          0 |
 | propertyType  |         0 |             1 |   6 |  14 |     0 |        8 |          0 |
 | ber_rating    |         0 |             1 |   0 |   6 |  2316 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 35101 |     4625 |          0 |
+| ber_epi       |         0 |             1 |   0 |  18 | 35259 |     4637 |          0 |
 | category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
 
 **Variable type: numeric**
 
 | skim_variable       | n_missing | complete_rate |      mean |        sd |    p0 |    p25 |    p50 |    p75 |     p100 | hist  |
 |:--------------------|----------:|--------------:|----------:|----------:|------:|-------:|-------:|-------:|---------:|:------|
-| price               |         0 |             1 | 601026.72 | 656734.92 | 40000 | 300000 | 415000 | 650000 | 15000000 | ▇▁▁▁▁ |
-| size_meters_squared |         0 |             1 |    130.08 |    161.04 |     1 |     75 |    102 |    144 |     6109 | ▇▁▁▁▁ |
+| price               |         0 |             1 | 599857.97 | 656086.50 | 40000 | 300000 | 415000 | 650000 | 15000000 | ▇▁▁▁▁ |
+| size_meters_squared |         0 |             1 |    130.07 |    160.87 |     1 |     75 |    102 |    144 |     6109 | ▇▁▁▁▁ |
 | bedrooms            |         0 |             1 |      3.19 |      1.43 |     1 |      2 |      3 |      4 |       30 | ▇▁▁▁▁ |
 | bathrooms           |         0 |             1 |      2.12 |      1.39 |     1 |      1 |      2 |      3 |       28 | ▇▁▁▁▁ |
 
@@ -127,3 +127,77 @@ The data already provides really good insights. For example:
 
 -   There appears to be some outliers as well, for instance: house with
     30 bedrooms and 28 bathrooms
+
+-   The column *title* has a very misleading name, as it represents the
+    address in text format of the house. From the address text, we can
+    potentially break down the houses by their neighborhoods.
+
+## Frequency graphs
+
+However, before changing anything in the dataset, let’s try build some
+frequency graphs on the numeric variables
+
+### House Price
+
+In order to better visualise how the observations distribute across the
+price range, let’s choose the range from €0 to €2 million euro as it
+will allow us to well visualise where most of the observations fall.
+
+``` r
+options(scipen = 999) # turn off scientific notation
+
+ggplot(ireland_houses, aes(x = price, colour = propertyType, fill = propertyType)) +
+  geom_freqpoly(
+    bins=30,
+    lwd = 1,
+    linetype = 2
+  ) +
+  labs(
+    title = "Frequency of House Prices in Ireland",
+    x = "Price",
+    y = "Observations"
+  ) +
+  xlim(0, 2000000) +
+  scale_fill_brewer() 
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+### Property Size
+
+For this graph, for visualisation sake, let’s pick the house which have
+property size smaller than 750 $sq^2$
+
+``` r
+options(scipen = 999) # turn off scientific notation
+
+ggplot(ireland_houses, aes(x = size_meters_squared, colour = propertyType, fill = propertyType)) +
+  geom_freqpoly(
+    bins=30,
+    lwd = 1,
+    linetype = 2
+  ) +
+  labs(
+    title = "Frequency of Property Size in Ireland",
+    x = "Property size in square meters",
+    y = "Observations"
+  ) +
+  xlim(0, 500) +
+  scale_fill_brewer() 
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+## Splitting up address
+
+The address data can be split up so that the neighbourhood information
+can be extracted and further enhance our spatial visualisation.
+
+``` r
+split_up_addres <- function(house_df) {
+  split_output <- strsplit(house_df$title, ",")
+  house_df$title <- str_trim(toString(lapply( split_output, tail, n=1)))
+  split_output
+  return(house_df)
+}
+```

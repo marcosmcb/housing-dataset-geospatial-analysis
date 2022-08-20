@@ -6,7 +6,7 @@ output: github_document
 First step is to install and load the necessary libraries.
 
 ```{r loadlib, echo=T, results='hide', message=F, warning=F}
-packages <- c("tidyverse","haven", "devtools", "dplyr")
+packages <- c("tidyverse","haven", "devtools", "dplyr", "ggplot2", "gapminder")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -60,3 +60,72 @@ The data already provides really good insights. For example:
 * The mean _size_ of a house in $sq^2$ is 130 $sq^2$, and the biggest house has 6300 $sq^2$.
 
 * There appears to be some outliers as well, for instance: house with 30 bedrooms and 28 bathrooms
+
+* The column _title_ has a very misleading name, as it represents the address in text format of the house. From the address text, we can potentially break down the houses by their neighborhoods.
+
+## Frequency graphs
+However, before changing anything in the dataset, let's try build some frequency graphs on the numeric variables
+
+
+### House Price
+
+In order to better visualise how the observations distribute across the price range, let's choose the range from €0 to €2 million euro as it will allow us to well visualise where most of the observations fall.
+```{r warning=FALSE}
+options(scipen = 999) # turn off scientific notation
+
+ggplot(ireland_houses, aes(x = price, colour = propertyType, fill = propertyType)) +
+  geom_freqpoly(
+    bins=30,
+    lwd = 1,
+    linetype = 2
+  ) +
+  labs(
+    title = "Frequency of House Prices in Ireland",
+    x = "Price",
+    y = "Observations"
+  ) +
+  xlim(0, 2000000) +
+  scale_fill_brewer() 
+```
+
+
+### Property Size
+For this graph, for visualisation sake, let's pick the house which have property size smaller than 750 $sq^2$
+
+```{r warning=FALSE}
+options(scipen = 999) # turn off scientific notation
+
+ggplot(ireland_houses, aes(x = size_meters_squared, colour = propertyType, fill = propertyType)) +
+  geom_freqpoly(
+    bins=30,
+    lwd = 1,
+    linetype = 2
+  ) +
+  labs(
+    title = "Frequency of Property Size in Ireland",
+    x = "Property size in square meters",
+    y = "Observations"
+  ) +
+  xlim(0, 500) +
+  scale_fill_brewer() 
+```
+
+
+
+## Splitting up address
+
+The address data can be split up so that the neighbourhood information can be extracted and further enhance our spatial visualisation.
+
+
+```{r}
+split_up_addres <- function(house_df) {
+  split_output <- strsplit(house_df$title, ",")
+  house_df$title <- str_trim(toString(lapply( split_output, tail, n=1)))
+  split_output
+  return(house_df)
+}
+```
+
+
+
+

@@ -339,25 +339,28 @@ What will be done is the following:
 
 ``` r
 strip_chars_from_price <- function(house_df) {
-  price_as_character = house_df$price
-  
-  bad_token = "AMV: ‚Ç¨"
-
-  comma_separated_number = str_remove(price_as_character, bad_token)
-  price_cleaned = gsub(",", "", comma_separated_number)
-  house_df$price <- as.numeric(price_cleaned)
+  house_df$price <- extract_numeric(house_df$price)
   
   return(house_df)
 }
 
 ireland_houses_prices_numeric <- strip_chars_from_price(ireland_houses_filtered)
+```
 
+    ## extract_numeric() is deprecated: please use readr::parse_number() instead
+
+``` r
 convert_bedrooms_numeric <- function(house_df) {
   house_df$bedrooms <- as.numeric(house_df$bedrooms)
   return(house_df)
 }
 
 ireland_houses_filtered <- filter(strip_chars_from_price(ireland_houses_filtered), !is.na(price))
+```
+
+    ## extract_numeric() is deprecated: please use readr::parse_number() instead
+
+``` r
 ireland_houses_filtered <- filter(convert_bedrooms_numeric(ireland_houses_filtered), !is.na(bedrooms))
 ireland_houses_filtered <- filter(ireland_houses_filtered, propertyType!="")
 
@@ -367,7 +370,7 @@ skim(ireland_houses_filtered)
 |                                                  |                         |
 |:-------------------------------------------------|:------------------------|
 | Name                                             | ireland_houses_filtered |
-| Number of rows                                   | 77785                   |
+| Number of rows                                   | 78028                   |
 | Number of columns                                | 11                      |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                         |
 | Column type frequency:                           |                         |
@@ -382,18 +385,18 @@ Data summary
 
 | skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  18 | 102 |     0 |     8806 |          0 |
+| title         |         0 |             1 |  18 | 102 |     0 |     8879 |          0 |
 | propertyType  |         0 |             1 |   6 |  14 |     0 |        8 |          0 |
 | ber_rating    |         0 |             1 |   0 |   6 |  2316 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 35101 |     4625 |          0 |
+| ber_epi       |         0 |             1 |   0 |  18 | 35259 |     4637 |          0 |
 | category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
 
 **Variable type: numeric**
 
 | skim_variable       | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |       p100 | hist  |
 |:--------------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|-----------:|:------|
-| price               |         0 |             1 | 601026.72 | 656734.92 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
-| size_meters_squared |         0 |             1 |    130.08 |    161.04 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
+| price               |         0 |             1 | 599857.97 | 656086.50 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
+| size_meters_squared |         0 |             1 |    130.07 |    160.87 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
 | bedrooms            |         0 |             1 |      3.19 |      1.43 |     1.00 |      2.00 |      3.00 |      4.00 |  3.000e+01 | ▇▁▁▁▁ |
 | bathrooms           |         0 |             1 |      2.12 |      1.39 |     1.00 |      1.00 |      2.00 |      3.00 |  2.800e+01 | ▇▁▁▁▁ |
 | latitude            |         0 |             1 |     53.19 |      0.50 |    51.44 |     53.29 |     53.33 |     53.36 |  5.538e+01 | ▁▁▇▁▁ |
