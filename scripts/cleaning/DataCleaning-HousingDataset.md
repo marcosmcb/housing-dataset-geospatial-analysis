@@ -58,16 +58,15 @@ head(ireland_houses, 5)
     ## 4           http://www.daft.ie/for-sale/detached-house-cloonfide-moydow-co-longford/3990203
     ## 5 http://www.daft.ie/for-sale/detached-house-5-rath-na-gcarraige-ardagh-co-longford/3979561
 
-## Removing Columns
+## Further Investigation
 
-After looking at the first few rows, it is possible to see that there
-are columns with missing data, different data types and format as well
-as columns which, at first glance, do not bring any value to our
-analysis.
+From looking at the first 5 observations, it can be noted that some
+variables are only used by the property website to manage their
+database, some examples are: *id*, *daftShortCode*, *ber_code* and
+*url_link*.
 
-However, before starting to remove any data, let’s explore it a little
-more by running the summary and skim functions. Those functions will
-give an statistical overview of our data.
+Nevertheless, skimming and summarizing the data further will provide
+better a better understanding of the variables available.
 
 ``` r
 summary(ireland_houses)
@@ -160,13 +159,15 @@ Data summary
 | latitude            |         0 |          1.00 |         53.18 |        0.53 |      51.44 |         53.28 |         53.34 |         53.37 |         55.38 | ▁▁▇▁▁ |
 | longitude           |         0 |          1.00 |         -6.82 |        1.01 |     -10.45 |         -6.80 |         -6.28 |         -6.25 |         -6.01 | ▁▁▁▁▇ |
 
-From the information above, it can be seen that:
+## Removing Variables
 
--   **url_link**: It provides the URL of the house listing and, it
-    should be removed as it doesn’t impact the analysis.
+After doing some further investigation, it is possible to see that there
+are variables with missing data, different data types and format as well
+as variables which do not bring any value to our analysis, like it was
+said before.
 
--   **ber_code**: BER stands for Building Energy Rating and the BER Code
-    is simply the ID of the certificate that the house was given.
+From the statistical summary and data exploration above, it can be seen
+that:
 
 -   **id**: ID is a property used within the property website database
     for managing the data.
@@ -174,13 +175,19 @@ From the information above, it can be seen that:
 -   **daftShortcode**: This code is another ID-like property which is
     used for managing data within the property website database.
 
--   **publishDate**: This attribute contains infnormation about the date
-    of the property listing and it will not be taken into consideration
+-   **ber_code**: BER stands for Building Energy Rating and the BER Code
+    is simply the ID of the certificate that the house was given.
+
+-   **url_link**: It provides the URL of the house listing and, it
+    should be removed as it doesn’t impact the analysis.
+
+-   **publishDate**: This attribute contains information about the date
+    of the property listing, and it will not be taken into consideration
     in this study.
 
--   **location**: It would be a useful attribute to be kept, however,
-    this information is also present in the title column (which is, in
-    fact, the address of the property)
+-   **location**: It is a useful attribute to be kept, however, this
+    information is also present in the title column (which is, in fact,
+    the address of the property)
 
 -   **propertySize**: Similar to the *location* attribute,
     *propertySize* is already captured by another attribute:
@@ -191,10 +198,8 @@ contribute to this analysis. After removing the unwanted attributes, we
 save the resulting dataset in a new variable.
 
 ``` r
-ireland_houses %>% 
-  select(-c(url_link, ber_code, id, daftShortcode, publishDate, location, propertySize)) ->
-  ireland_houses_cleaned
-
+ireland_houses_cleaned <- ireland_houses %>% 
+  select(-c(id, daftShortcode, ber_code, url_link, publishDate, location, propertySize)) 
 
 head(ireland_houses_cleaned, 5)
 ```
@@ -218,13 +223,31 @@ head(ireland_houses_cleaned, 5)
     ## 4                  53.66372 -7.787243      Buy
     ## 5 114.83 kWh/m2/yr 53.64857 -7.702947      Buy
 
+## Data Transformation - Renaming Variables
+
+It could also be seen that some of the variables did not follow a naming
+standard and used an adequate name, for example: *title* actually refers
+to the *address* of the house and *size_meters_squared* refers to the
+*propertySize*.
+
+The naming convention used across the variables is **camel-case**,
+therefore *ber_rating* and *ber_epi* will be renamed to *berRating* and
+*berEPI* respectively.
+
 ``` r
-skim(ireland_houses_cleaned)
+ireland_houses_renamed <- rename( ireland_houses_cleaned, 
+  address = title,
+  propertySize = size_meters_squared,
+  berRating = ber_rating,
+  berEPI = ber_epi
+)
+
+skim(ireland_houses_renamed)
 ```
 
 |                                                  |                        |
 |:-------------------------------------------------|:-----------------------|
-| Name                                             | ireland_houses_cleaned |
+| Name                                             | ireland_houses_renamed |
 | Number of rows                                   | 100294                 |
 | Number of columns                                | 11                     |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                        |
@@ -240,144 +263,85 @@ Data summary
 
 | skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  12 | 105 |     0 |    12362 |          0 |
+| address       |         0 |             1 |  12 | 105 |     0 |    12362 |          0 |
 | price         |         0 |             1 |   7 |  25 |     0 |      705 |          0 |
 | bedrooms      |         0 |             1 |   0 |   9 |   187 |       45 |          0 |
 | propertyType  |         0 |             1 |   0 |  14 |    40 |       10 |          0 |
-| ber_rating    |         0 |             1 |   0 |   6 |  3919 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 50104 |     5674 |          0 |
+| berRating     |         0 |             1 |   0 |   6 |  3919 |       17 |          0 |
+| berEPI        |         0 |             1 |   0 |  18 | 50104 |     5674 |          0 |
 | category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
 
 **Variable type: numeric**
 
-| skim_variable       | n_missing | complete_rate |   mean |     sd |     p0 |   p25 |    p50 |    p75 |    p100 | hist  |
-|:--------------------|----------:|--------------:|-------:|-------:|-------:|------:|-------:|-------:|--------:|:------|
-| size_meters_squared |     19967 |          0.80 | 131.94 | 163.58 |   1.00 | 75.00 | 102.00 | 147.00 | 6109.00 | ▇▁▁▁▁ |
-| bathrooms           |      1658 |          0.98 |   2.13 |   1.47 |   1.00 |  1.00 |   2.00 |   3.00 |   32.00 | ▇▁▁▁▁ |
-| latitude            |         0 |          1.00 |  53.18 |   0.53 |  51.44 | 53.28 |  53.34 |  53.37 |   55.38 | ▁▁▇▁▁ |
-| longitude           |         0 |          1.00 |  -6.82 |   1.01 | -10.45 | -6.80 |  -6.28 |  -6.25 |   -6.01 | ▁▁▁▁▇ |
+| skim_variable | n_missing | complete_rate |   mean |     sd |     p0 |   p25 |    p50 |    p75 |    p100 | hist  |
+|:--------------|----------:|--------------:|-------:|-------:|-------:|------:|-------:|-------:|--------:|:------|
+| propertySize  |     19967 |          0.80 | 131.94 | 163.58 |   1.00 | 75.00 | 102.00 | 147.00 | 6109.00 | ▇▁▁▁▁ |
+| bathrooms     |      1658 |          0.98 |   2.13 |   1.47 |   1.00 |  1.00 |   2.00 |   3.00 |   32.00 | ▇▁▁▁▁ |
+| latitude      |         0 |          1.00 |  53.18 |   0.53 |  51.44 | 53.28 |  53.34 |  53.37 |   55.38 | ▁▁▇▁▁ |
+| longitude     |         0 |          1.00 |  -6.82 |   1.01 | -10.45 | -6.80 |  -6.28 |  -6.25 |   -6.01 | ▁▁▁▁▇ |
 
-## Removing rows with missing data
+## Data Transformation - Tidying Data
 
-After removing the columns that do not help our study, we can now focus
-on removing rows where important data is missing. From the output of the
-*skim* method, we can observe that:
+The output of the **skim** function has showed some interesting details,
+for instance: *price*, *berEPI*, and *bedrooms* are of type
+**character**, when, in fact, **numeric** would be a better type because
+they represent quantitative data.
 
--   There are *19967* rows which do not contain information about the
-    property size.
--   It is also possible to note that there are *1658* properties which
-    do not have a bathroom.
+*propertyType*, *category* and *berRating* are of type characters,
+however, **factor** may be a better type because there is a limited
+number of categorical values they can hold, **factor** is also a better
+type as it allows for better data manipulation so that typos can be
+avoided and sorting the data in a meaningful way becomes possible.
 
-Another peculiar detail is the fact that *bedrooms* and *price* are of
-type **character**. But, firstly, let’s proceed to remove the rows with
-missing data.
-
-``` r
-ireland_houses_size_filtered <- filter(ireland_houses_cleaned, !is.na(size_meters_squared))
-ireland_houses_filtered <- filter(ireland_houses_size_filtered, !is.na(bathrooms))
-skim(ireland_houses_filtered)
-```
-
-|                                                  |                         |
-|:-------------------------------------------------|:------------------------|
-| Name                                             | ireland_houses_filtered |
-| Number of rows                                   | 79123                   |
-| Number of columns                                | 11                      |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                         |
-| Column type frequency:                           |                         |
-| character                                        | 7                       |
-| numeric                                          | 4                       |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |                         |
-| Group variables                                  | None                    |
-
-Data summary
-
-**Variable type: character**
-
-| skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
-|:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  18 | 102 |     0 |     9159 |          0 |
-| price         |         0 |             1 |   7 |  25 |     0 |      579 |          0 |
-| bedrooms      |         0 |             1 |   0 |   4 |     7 |       39 |          0 |
-| propertyType  |         0 |             1 |   0 |  14 |     6 |        9 |          0 |
-| ber_rating    |         0 |             1 |   0 |   6 |  2349 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 35961 |     4733 |          0 |
-| category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
-
-**Variable type: numeric**
-
-| skim_variable       | n_missing | complete_rate |   mean |     sd |     p0 |   p25 |    p50 |    p75 |    p100 | hist  |
-|:--------------------|----------:|--------------:|-------:|-------:|-------:|------:|-------:|-------:|--------:|:------|
-| size_meters_squared |         0 |             1 | 131.02 | 160.77 |   1.00 | 75.00 | 102.00 | 145.00 | 6109.00 | ▇▁▁▁▁ |
-| bathrooms           |         0 |             1 |   2.13 |   1.40 |   1.00 |  1.00 |   2.00 |   3.00 |   28.00 | ▇▁▁▁▁ |
-| latitude            |         0 |             1 |  53.18 |   0.50 |  51.44 | 53.28 |  53.33 |  53.36 |   55.38 | ▁▁▇▁▁ |
-| longitude           |         0 |             1 |  -6.74 |   0.95 | -10.35 | -6.46 |  -6.28 |  -6.25 |   -6.01 | ▁▁▁▁▇ |
-
-## Type convertion - Price
-
-Once missing data is removed, we can start looking at converting the
-values of *price* and *bedrooms* from character to numeric.
-
-The filtered dataset was further explored in Excel to better understand
-why *price* and *bedrooms* are of type character. It could be seen that:
-
--   *price* was mostly a numeric value, but there are instances where
-    the strings: **“Price on Application”**, **“AMV: Price on
-    Application”** and **“AMV: ‚Ç¨** appear.
-
-What will be done is the following:
-
--   rows with **“Price on Application”** and **“AMV: Price on
-    Application”** will be attempted to convert to numeric and fail,
-    instead the value **“NA”** will be used, which can then be filtered
-    out.
-
--   rows that start with **“AMV: ‚Ç¨** and are followed by the house
-    value will be stripped off the initial string and the price will be
-    kept. After that, the string value resultant will be converted to
-    numeric.
+Thus, in this next step, the data will be tidied up in a better manner.
 
 ``` r
-strip_chars_from_price <- function(house_df) {
-  house_df$price <- extract_numeric(house_df$price)
+ireland_houses_tidy <- mutate(
+  ireland_houses_renamed,
+  price = parse_number(price),
+  berEPI = as.numeric(str_remove(berEPI, "kWh/m2/yr")),
+  bedrooms = as.numeric(bedrooms),
   
-  return(house_df)
-}
-
-ireland_houses_prices_numeric <- strip_chars_from_price(ireland_houses_filtered)
+  propertyType = as.factor(propertyType),
+  category = as.factor(category),
+  berRating = as.factor(berRating)
+)
 ```
 
-    ## extract_numeric() is deprecated: please use readr::parse_number() instead
+    ## Warning: 2189 parsing failures.
+    ## row col expected               actual
+    ##   4  -- a number Price on Application
+    ##  14  -- a number Price on Application
+    ## 237  -- a number Price on Application
+    ## 244  -- a number Price on Application
+    ## 245  -- a number Price on Application
+    ## ... ... ........ ....................
+    ## See problems(...) for more details.
+
+    ## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
 
 ``` r
-convert_bedrooms_numeric <- function(house_df) {
-  house_df$bedrooms <- as.numeric(house_df$bedrooms)
-  return(house_df)
-}
-
-ireland_houses_filtered <- filter(strip_chars_from_price(ireland_houses_filtered), !is.na(price))
+skim(ireland_houses_tidy)
 ```
 
-    ## extract_numeric() is deprecated: please use readr::parse_number() instead
+    ## Warning in sorted_count(x): Variable contains value(s) of "" that have been
+    ## converted to "empty".
 
-``` r
-ireland_houses_filtered <- filter(convert_bedrooms_numeric(ireland_houses_filtered), !is.na(bedrooms))
-ireland_houses_filtered <- filter(ireland_houses_filtered, propertyType!="")
+    ## Warning in sorted_count(x): Variable contains value(s) of "" that have been
+    ## converted to "empty".
 
-skim(ireland_houses_filtered)
-```
-
-|                                                  |                         |
-|:-------------------------------------------------|:------------------------|
-| Name                                             | ireland_houses_filtered |
-| Number of rows                                   | 78028                   |
-| Number of columns                                | 11                      |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                         |
-| Column type frequency:                           |                         |
-| character                                        | 5                       |
-| numeric                                          | 6                       |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |                         |
-| Group variables                                  | None                    |
+|                                                  |                     |
+|:-------------------------------------------------|:--------------------|
+| Name                                             | ireland_houses_tidy |
+| Number of rows                                   | 100294              |
+| Number of columns                                | 11                  |
+| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                     |
+| Column type frequency:                           |                     |
+| character                                        | 1                   |
+| factor                                           | 3                   |
+| numeric                                          | 7                   |
+| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |                     |
+| Group variables                                  | None                |
 
 Data summary
 
@@ -385,28 +349,132 @@ Data summary
 
 | skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| title         |         0 |             1 |  18 | 102 |     0 |     8879 |          0 |
-| propertyType  |         0 |             1 |   6 |  14 |     0 |        8 |          0 |
-| ber_rating    |         0 |             1 |   0 |   6 |  2316 |       17 |          0 |
-| ber_epi       |         0 |             1 |   0 |  18 | 35259 |     4637 |          0 |
-| category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
+| address       |         0 |             1 |  12 | 105 |     0 |    12362 |          0 |
+
+**Variable type: factor**
+
+| skim_variable | n_missing | complete_rate | ordered | n_unique | top_counts                                     |
+|:--------------|----------:|--------------:|:--------|---------:|:-----------------------------------------------|
+| propertyType  |         0 |             1 | FALSE   |       10 | Ter: 32263, Sem: 22957, Det: 21205, Apa: 13016 |
+| berRating     |         0 |             1 | FALSE   |       17 | D1: 10949, D2: 10558, C3: 9662, C2: 8634       |
+| category      |         0 |             1 | FALSE   |        2 | Buy: 99251, New: 1043                          |
 
 **Variable type: numeric**
 
-| skim_variable       | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |       p100 | hist  |
-|:--------------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|-----------:|:------|
-| price               |         0 |             1 | 599857.97 | 656086.50 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
-| size_meters_squared |         0 |             1 |    130.07 |    160.87 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
-| bedrooms            |         0 |             1 |      3.19 |      1.43 |     1.00 |      2.00 |      3.00 |      4.00 |  3.000e+01 | ▇▁▁▁▁ |
-| bathrooms           |         0 |             1 |      2.12 |      1.39 |     1.00 |      1.00 |      2.00 |      3.00 |  2.800e+01 | ▇▁▁▁▁ |
-| latitude            |         0 |             1 |     53.19 |      0.50 |    51.44 |     53.29 |     53.33 |     53.36 |  5.538e+01 | ▁▁▇▁▁ |
-| longitude           |         0 |             1 |     -6.72 |      0.93 |   -10.35 |     -6.43 |     -6.28 |     -6.25 | -6.010e+00 | ▁▁▁▁▇ |
+| skim_variable | n_missing | complete_rate |      mean |         sd |       p0 |       p25 |       p50 |       p75 |       p100 | hist  |
+|:--------------|----------:|--------------:|----------:|-----------:|---------:|----------:|----------:|----------:|-----------:|:------|
+| price         |      2189 |          0.98 | 567082.61 |  622642.94 | 20000.00 | 295000.00 | 395000.00 | 595000.00 |  1.500e+07 | ▇▁▁▁▁ |
+| propertySize  |     19967 |          0.80 |    131.94 |     163.58 |     1.00 |     75.00 |    102.00 |    147.00 |  6.109e+03 | ▇▁▁▁▁ |
+| bedrooms      |       212 |          1.00 |      3.22 |       1.50 |     1.00 |      2.00 |      3.00 |      4.00 |  4.000e+01 | ▇▁▁▁▁ |
+| bathrooms     |      1658 |          0.98 |      2.13 |       1.47 |     1.00 |      1.00 |      2.00 |      3.00 |  3.200e+01 | ▇▁▁▁▁ |
+| berEPI        |     50104 |          0.50 |  18282.52 | 1338991.26 |     0.34 |    176.78 |    246.93 |    344.06 |  1.000e+08 | ▇▁▁▁▁ |
+| latitude      |         0 |          1.00 |     53.18 |       0.53 |    51.44 |     53.28 |     53.34 |     53.37 |  5.538e+01 | ▁▁▇▁▁ |
+| longitude     |         0 |          1.00 |     -6.82 |       1.01 |   -10.45 |     -6.80 |     -6.28 |     -6.25 | -6.010e+00 | ▁▁▁▁▇ |
 
-## Write Clean dataset to file
+## Data Cleaning
 
-Finally, the clean dataset can be write back to a CSV file.
+Once the date types have been sorted, it is possible to see the presence
+of missing data in many of the variables in our dataset.
+
+For example, *berEPI* is missing in about *50%* of the observations,
+*price* and *bathrooms* are missing in *2%* of the observations,
+*propertySize* is missing in *20%* of the observations and there are 212
+out of 100.294 observations where number of *bedrooms* is missing.
+
+At this stage, those observations with missing data will be removed
+because applying any strategy to replace those missing values may add
+bias in our study. Nevertheless, if necessary, this decision will be
+revisited in this study to evaluate whether or not having those
+observations will help the analysis.
 
 ``` r
-dataset_filename <- paste(dataset_directory, "ireland_houses_filtered.csv", sep="")
-write.csv(ireland_houses_filtered, dataset_filename, row.names = FALSE)
+ireland_houses_cleaned <- ireland_houses_tidy %>%
+  filter(!is.na(price)) %>%
+  filter(!is.na(propertySize)) %>%
+  filter(!is.na(bathrooms)) %>%
+  filter(!is.na(bedrooms))
+  
+skim(ireland_houses_cleaned)
+```
+
+    ## Warning in sorted_count(x): Variable contains value(s) of "" that have been
+    ## converted to "empty".
+
+    ## Warning in sorted_count(x): Variable contains value(s) of "" that have been
+    ## converted to "empty".
+
+|                                                  |                        |
+|:-------------------------------------------------|:-----------------------|
+| Name                                             | ireland_houses_cleaned |
+| Number of rows                                   | 78034                  |
+| Number of columns                                | 11                     |
+| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                        |
+| Column type frequency:                           |                        |
+| character                                        | 1                      |
+| factor                                           | 3                      |
+| numeric                                          | 7                      |
+| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |                        |
+| Group variables                                  | None                   |
+
+Data summary
+
+**Variable type: character**
+
+| skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
+|:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
+| address       |         0 |             1 |  18 | 102 |     0 |     8881 |          0 |
+
+**Variable type: factor**
+
+| skim_variable | n_missing | complete_rate | ordered | n_unique | top_counts                                     |
+|:--------------|----------:|--------------:|:--------|---------:|:-----------------------------------------------|
+| propertyType  |         0 |             1 | FALSE   |        9 | Ter: 26424, Sem: 17710, Det: 15139, Apa: 10459 |
+| berRating     |         0 |             1 | FALSE   |       17 | D2: 8555, D1: 8478, C3: 7631, C2: 6936         |
+| category      |         0 |             1 | FALSE   |        2 | Buy: 78024, New: 10                            |
+
+**Variable type: numeric**
+
+| skim_variable | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |       p100 | hist  |
+|:--------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|-----------:|:------|
+| price         |         0 |          1.00 | 599841.20 | 656064.62 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |  1.500e+07 | ▇▁▁▁▁ |
+| propertySize  |         0 |          1.00 |    130.07 |    160.86 |     1.00 |     75.00 |    102.00 |    144.00 |  6.109e+03 | ▇▁▁▁▁ |
+| bedrooms      |         0 |          1.00 |      3.19 |      1.43 |     1.00 |      2.00 |      3.00 |      4.00 |  3.000e+01 | ▇▁▁▁▁ |
+| bathrooms     |         0 |          1.00 |      2.12 |      1.39 |     1.00 |      1.00 |      2.00 |      3.00 |  2.800e+01 | ▇▁▁▁▁ |
+| berEPI        |     35265 |          0.55 |   2692.25 | 483553.68 |     0.34 |    173.71 |    246.86 |    344.67 |  1.000e+08 | ▇▁▁▁▁ |
+| latitude      |         0 |          1.00 |     53.19 |      0.50 |    51.44 |     53.29 |     53.33 |     53.36 |  5.538e+01 | ▁▁▇▁▁ |
+| longitude     |         0 |          1.00 |     -6.72 |      0.93 |   -10.35 |     -6.43 |     -6.28 |     -6.25 | -6.010e+00 | ▁▁▁▁▇ |
+
+The last step removed 22.260 observations, which represents about 22.2%
+of all the observations. As the data tidy up process is done, the
+resulting data frame can be written to disk in CSV format.
+
+## Data Transformation - Deriving other variables
+
+In this step, the address variable will be studied further. The address
+information is a concatenation of building or apartment number, street
+name, neighborhood and post town or city. In order to gather more
+meaningful information from the address variable, the post town or city
+information will be extracted into another variable called town.
+
+``` r
+get_town_from_address <- function(address) {
+  address_tokens <- str_split(address, pattern = ",")[[1]]
+  town <- str_trim( address_tokens[length(address_tokens)]  )
+  return(town)
+}
+
+ireland_houses_cleaned$town <- ireland_houses_cleaned$address %>% 
+  lapply(get_town_from_address) %>%
+  unlist
+```
+
+## Write Clean Dataset to Disk
+
+Finally, after doing some initial data exploration and cleaning, we can
+proceed to start analyzing the variance and covariance of the variables
+in our dataset, thus diving a little deeper into our analysis.
+
+``` r
+dataset_filename <- paste(dataset_directory, "ireland_houses_cleaned.csv", sep="")
+write.csv(ireland_houses_cleaned, dataset_filename, row.names = FALSE)
 ```

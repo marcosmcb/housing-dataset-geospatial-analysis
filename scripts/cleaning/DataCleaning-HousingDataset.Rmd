@@ -8,8 +8,8 @@ output: github_document
 
 First step is to install and load the necessary libraries.
 
-```{r include=FALSE}
-packages <- c("tidyverse","haven", "devtools", "dplyr")
+```{r, Package Installation, include=FALSE}
+packages <- c("tidyverse","haven", "devtools", "dplyr", "stringr")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -31,7 +31,7 @@ library(skimr)
 
 At this step, the Ireland housing dataset will be imported
 
-```{r}
+```{r Data Import}
 dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, "house_listings_all.csv", sep="")
 
@@ -42,108 +42,133 @@ ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
 
 In this step, the first five rows of our dataset will be displayed so that we can take a look at the different pieces of data available to us and what kind of information they bring to the analysis.
 
-```{r}
+```{r Visualizing first 5 rows}
 head(ireland_houses, 5)
 ```
 
-## Removing Columns
+## Further Investigation
 
-After looking at the first few rows, it is possible to see that there are columns with missing data, different data types and format as well as columns which, at first glance, do not bring any value to our analysis.
+From looking at the first 5 observations, it can be noted that some variables are only used by the property website to manage their database, some examples are: *id*, *daftShortCode*, *ber_code* and *url_link*.
 
-However, before starting to remove any data, let's explore it a little more by running the summary and skim functions. Those functions will give an statistical overview of our data.
+Nevertheless, skimming and summarizing the data further will provide better a better understanding of the variables available.
 
-```{r}
+```{r Further Investigation}
 summary(ireland_houses)
 skim(ireland_houses)
 ```
+## Removing Variables
 
-From the information above, it can be seen that:
+After doing some further investigation, it is possible to see that there are variables with missing data, different data types and format as well as variables which do not bring any value to our analysis, like it was said before.
 
-* __url_link__: It provides the URL of the house listing and, it should be removed as it doesn't impact the analysis.
-* __ber_code__: BER stands for Building Energy Rating and the BER Code is simply the ID of the certificate that the house was given.
+
+From the statistical summary and data exploration above, it can be seen that:
 
 * __id__: ID is a property used within the property website database for managing the data.
+
 * __daftShortcode__: This code is another ID-like property which is used for managing data within the property website database.
 
-* __publishDate__: This attribute contains infnormation about the date of the property listing and it will not be taken into consideration in this study.
+* __ber_code__: BER stands for Building Energy Rating and the BER Code is simply the ID of the certificate that the house was given.
 
-* __location__: It would be a useful attribute to be kept, however, this information is also present in the title column (which is, in fact, the address of the property)
+* __url_link__: It provides the URL of the house listing and, it should be removed as it doesn't impact the analysis.
+
+* __publishDate__: This attribute contains information about the date of the property listing, and it will not be taken into consideration in this study.
+
+* __location__: It is a useful attribute to be kept, however, this information is also present in the title column (which is, in fact, the address of the property)
 
 * __propertySize__: Similar to the _location_ attribute, _propertySize_ is already captured by another attribute: _size_meters_squared_.
 
 As a result, The columns mentioned above can be removed as they do not contribute to this analysis. After removing the unwanted attributes, we save the resulting dataset in a new variable.
 
-```{r}
-ireland_houses %>% 
-  select(-c(url_link, ber_code, id, daftShortcode, publishDate, location, propertySize)) ->
-  ireland_houses_cleaned
-
+```{r Removing Variables}
+ireland_houses_cleaned <- ireland_houses %>% 
+  select(-c(id, daftShortcode, ber_code, url_link, publishDate, location, propertySize)) 
 
 head(ireland_houses_cleaned, 5)
+```
+
+
+## Data Transformation - Renaming Variables
+
+It could also be seen that some of the variables did not follow a naming standard and used an adequate name, for example: *title* actually refers to the *address* of the house and *size_meters_squared* refers to the *propertySize*.
+
+The naming convention used across the variables is __camel-case__, therefore *ber_rating* and *ber_epi* will be renamed to *berRating* and *berEPI* respectively.
+
+```{r Data Transformation - Renaming Variables}
+ireland_houses_renamed <- rename( ireland_houses_cleaned, 
+  address = title,
+  propertySize = size_meters_squared,
+  berRating = ber_rating,
+  berEPI = ber_epi
+)
+
+skim(ireland_houses_renamed)
+```
+## Data Transformation - Tidying Data
+
+The output of the __skim__ function has showed some interesting details, for instance: *price*, *berEPI*, and *bedrooms* are of type __character__, when, in fact, __numeric__ would be a better type because they represent quantitative data.
+
+*propertyType*, *category* and *berRating* are of type characters, however, __factor__ may be a better type because there is a limited number of categorical values they can hold, __factor__ is also a better type as it allows for better data manipulation so that typos can be avoided and sorting the data in a meaningful way becomes possible.
+
+Thus, in this next step, the data will be tidied up in a better manner.
+
+```{r Data Transformation - Tidying Data}
+ireland_houses_tidy <- mutate(
+  ireland_houses_renamed,
+  price = parse_number(price),
+  berEPI = as.numeric(str_remove(berEPI, "kWh/m2/yr")),
+  bedrooms = as.numeric(bedrooms),
+  
+  propertyType = as.factor(propertyType),
+  category = as.factor(category),
+  berRating = as.factor(berRating)
+)
+
+skim(ireland_houses_tidy)
+```
+
+
+## Data Cleaning
+Once the date types have been sorted, it is possible to see the presence of missing data in many of the variables in our dataset.
+
+For example, *berEPI* is missing in about *50%* of the observations, *price* and *bathrooms* are missing in *2%* of the observations, *propertySize* is missing in *20%* of the observations and there are 212 out of 100.294 observations where number of *bedrooms* is missing.
+
+At this stage, those observations with missing data will be removed because applying any strategy to replace those missing values may add bias in our study. Nevertheless, if necessary, this decision will be revisited in this study to evaluate whether or not having those observations will help the analysis.
+
+```{r Data Cleaning}
+ireland_houses_cleaned <- ireland_houses_tidy %>%
+  filter(!is.na(price)) %>%
+  filter(!is.na(propertySize)) %>%
+  filter(!is.na(bathrooms)) %>%
+  filter(!is.na(bedrooms))
+  
 skim(ireland_houses_cleaned)
 ```
 
-## Removing rows with missing data
+The last step removed 22.260 observations, which represents about 22.2% of all the observations.
+As the data tidy up process is done, the resulting data frame can be written to disk in CSV format.
 
-After removing the columns that do not help our study, we can now focus on removing rows where important data is missing.
-From the output of the _skim_ method, we can observe that: 
+## Data Transformation - Deriving other variables
 
-* There are _19967_ rows which do not contain information about the property size. 
-* It is also possible to note that there are _1658_ properties which do not have a bathroom.
+In this step, the address variable will be studied further. The address information is a concatenation of building or apartment number, street name, neighborhood and post town or city. In order to gather more meaningful information from the address variable, the post town or city information will be extracted into another variable called town.
 
-Another peculiar detail is the fact that _bedrooms_ and _price_ are of type __character__.
-But, firstly, let's proceed to remove the rows with missing data.
-
-
-```{r}
-ireland_houses_size_filtered <- filter(ireland_houses_cleaned, !is.na(size_meters_squared))
-ireland_houses_filtered <- filter(ireland_houses_size_filtered, !is.na(bathrooms))
-skim(ireland_houses_filtered)
-```
-
-## Type convertion - Price
-
-Once missing data is removed, we can start looking at converting the values of _price_ and _bedrooms_ from character to numeric.
-
-The filtered dataset was further explored in Excel to better understand why _price_ and _bedrooms_ are of type character. It could be seen that:
-
-* _price_ was mostly a numeric value, but there are instances where the strings: __"Price on Application"__, __"AMV: Price on Application"__ and __"AMV: ‚Ç¨__ appear.
-
-What will be done is the following: 
-
-- rows with __"Price on Application"__ and __"AMV: Price on Application"__ will be attempted to convert to numeric and fail, instead the value __"NA"__ will be used, which can then be filtered out.
-
-- rows that start with __"AMV: ‚Ç¨__ and are followed by the house value will be stripped off the initial string and the price will be kept. After that, the string value resultant will be converted to numeric.
-
-
-```{r warning=FALSE}
-
-strip_chars_from_price <- function(house_df) {
-  house_df$price <- extract_numeric(house_df$price)
-  
-  return(house_df)
+```{r Data Transformation - Deriving other variables}
+get_town_from_address <- function(address) {
+  address_tokens <- str_split(address, pattern = ",")[[1]]
+  town <- str_trim( address_tokens[length(address_tokens)]  )
+  return(town)
 }
 
-ireland_houses_prices_numeric <- strip_chars_from_price(ireland_houses_filtered)
-
-convert_bedrooms_numeric <- function(house_df) {
-  house_df$bedrooms <- as.numeric(house_df$bedrooms)
-  return(house_df)
-}
-
-ireland_houses_filtered <- filter(strip_chars_from_price(ireland_houses_filtered), !is.na(price))
-ireland_houses_filtered <- filter(convert_bedrooms_numeric(ireland_houses_filtered), !is.na(bedrooms))
-ireland_houses_filtered <- filter(ireland_houses_filtered, propertyType!="")
-
-skim(ireland_houses_filtered)
-
+ireland_houses_cleaned$town <- ireland_houses_cleaned$address %>% 
+  lapply(get_town_from_address) %>%
+  unlist
 ```
 
-## Write Clean dataset to file
+## Write Clean Dataset to Disk
 
-Finally, the clean dataset can be write back to a CSV file.
+Finally, after doing some initial data exploration and cleaning, we can proceed to start analyzing the variance and covariance of the variables in our dataset, thus diving a little deeper into our analysis.
 
-```{r}
-dataset_filename <- paste(dataset_directory, "ireland_houses_filtered.csv", sep="")
-write.csv(ireland_houses_filtered, dataset_filename, row.names = FALSE)
+```{r Write Clean Dataset to Disk}
+dataset_filename <- paste(dataset_directory, "ireland_houses_cleaned.csv", sep="")
+write.csv(ireland_houses_cleaned, dataset_filename, row.names = FALSE)
 ```
+
