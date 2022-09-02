@@ -5,7 +5,8 @@ Marcos Cavalcante
 First step is to install and load the necessary libraries.
 
 ``` r
-packages <- c("tidyverse","haven", "devtools", "dplyr", "ggplot2", "gapminder")
+packages <- c("tidyverse", "haven", "devtools", "dplyr", 
+              "ggplot2", "gapminder", "patchwork", "ggridges", "PerformanceAnalytics")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -161,12 +162,95 @@ dataset. For example:
 
 ## Frequency graphs
 
-However, before changing anything in the dataset, let’s try build some
-frequency graphs on the numeric variables
+Let’s start the data exploration by plotting frequency graphs in order
+to understand how the observations are distributed over different
+variables, for example: *property type*, *property size* and *house
+price*.
+
+### Property Type Bar Chart
+
+The bar chart below shows the observations are distributed over the
+property types. It is clear that the majority of the houses are terrace
+and are followed by semi-detached, detached and apartments respectively.
+
+The graph also shows that some houses have no value for property type
+and therefore have missing data.
+
+``` r
+ggplot(data = ireland_houses) +
+  geom_bar(
+    width = 0.4,
+    mapping = aes(fill = as.factor(propertyType), 
+                  x = factor(propertyType,
+                      labels = c("NA", 
+                                 "Apartment", 
+                                 "Bungalow", 
+                                 "Detached", 
+                                 "Duplex", 
+                                 "End of Terrace", 
+                                 "Semi-Detached", 
+                                 "Terrace", 
+                                 "Town House"
+  )))) +
+  scale_y_continuous(breaks = seq(0, 27000, 2000)) +
+  labs(title = "Property Types Count", 
+       x = "Property Type",
+       y = "Count") +
+  coord_flip() +
+  theme(legend.position="none")
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Property%20Type%20Bar%20Chart-1.png)<!-- -->
+
+### Property Type by Proper
+
+``` r
+chart.Correlation((ireland_houses[2:4]), histogram = TRUE)
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+### Property Type by Price Bivariate graph
+
+After understanding how the observations are distributed across the 16
+valid property types. It can clearly be seen that *Terrace*,
+*Semi-Detached* and *Detached* houses roughly represent over 75% of the
+houses.
+
+The next graph displays how prices and property prices are related.
+
+``` r
+# propertyTypeFactor = factor(propertyType,labels = c(
+#                                  "NA", 
+#                                  "Apartment", 
+#                                  "Bungalow", 
+#                                  "Detached", 
+#                                  "Duplex", 
+#                                  "End of Terrace", 
+#                                  "Semi-Detached", 
+#                                  "Terrace", 
+#                                  "Town House"))
+
+
+ggplot(data = ireland_houses) + 
+  geom_density_ridges(aes(x = price, 
+                          y = propertyType, 
+                          fill = propertyType)) +
+  scale_x_continuous(name = "price", limits = c(0, 1000000)) +
+  theme_ridges() + 
+  labs(title = "Property Type by Price", x = "Price", y = "Property Type") +
+  theme(legend.position = "none")
+```
+
+    ## Picking joint bandwidth of 38100
+
+    ## Warning: Removed 8210 rows containing non-finite values (stat_density_ridges).
+
+![](DataExploration-HousingDataset_files/figure-gfm/Property%20Type%20by%20Price%20Bivariate%20graph-1.png)<!-- -->
 
 ### House Price
 
-In order to better visualise how the observations distribute across the
+In order to better visualize how the observations distribute across the
 price range, let’s choose the range from €0 to €2 million euro as it
 will allow us to well visualise where most of the observations fall.
 
@@ -189,14 +273,12 @@ ggplot(ireland_houses, aes(x = price, colour = propertyType, fill = propertyType
 
 ![](DataExploration-HousingDataset_files/figure-gfm/House%20Prices%20Histogram-1.png)<!-- -->
 
-### Property Size
+### Property Type
 
-For this graph, for visualisation sake, let’s pick the house which have
+For this graph, for visualization sake, let’s pick the house which have
 property size smaller than 750 $sq^2$
 
 ``` r
-options(scipen = 999) # turn off scientific notation
-
 ggplot(ireland_houses, aes(x = propertySize, colour = propertyType, fill = propertyType)) +
   geom_freqpoly(
     bins=30,
