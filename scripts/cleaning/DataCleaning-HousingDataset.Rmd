@@ -2,14 +2,17 @@
 title: "Ireland Housing - Data Cleaning"
 author: Marcos Cavalcante
 output: github_document
+always_allow_html: true
 ---
+
+
 
 ### Installing libraries
 
 First step is to install and load the necessary libraries.
 
 ```{r, Package Installation, include=FALSE}
-packages <- c("tidyverse","haven", "devtools", "dplyr", "stringr")
+packages <- c("tidyverse","haven", "devtools", "dplyr", "stringr", "kableExtra", "formattable","stringi", "see", "ggraph", "correlation", "PerformanceAnalytics")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -29,7 +32,7 @@ library(skimr)
 
 ## Import the Ireland Housing dataset
 
-At this step, the Ireland housing dataset will be imported
+At this step, the Ireland houses dataset will be imported
 
 ```{r Data Import}
 dataset_directory <- "../../datasets/"
@@ -46,64 +49,169 @@ In this step, the first five rows of our dataset will be displayed so that we ca
 head(ireland_houses, 5)
 ```
 
+Looking at the output of the previous step, some interesting things can be observed:
+
+* __id__ and __daftShortCode__ seem to describe values that look like identifiers, but identifiers that are used for different purposes.
+
+* __title__ contains values which look like addresses of properties.
+
+* __price__ are expected to be of _numeric_ type, nevertheless, strings like _"Price on Application"_ are also present.
+
+* __size_meters_squared__ and __propertySize__, at first glance, contain the same information / values, however, formatted differently. Another interesting point is that there are values missing on both variables.
+
+* __bedrooms__ and __bathrooms__ contain the amount of each of those in the property and should therefore be of _numeric_ type.
+
+* __propertyType__ contain values that describe what kind of property that is, for example: Bungalow and Detached.
+
+* __publishDate__ is an attribute related more to the ad than to the property itself and it describes the date when the ad was published.
+
+* __ber_rating__ is a variable that tells how energy efficient is a property, BER stands for Building Energy Rating.
+
+* __ber_code__ is simply the ID of the certificate that the house was given.
+
+* __ber_epi__ describes the energy consumption per square meter of a the property yearly.
+
+* __latitude__ and __longitude__ are spatial values used to locate the property on the map.
+
+* __category__ only shows the value of _"Buy"_.
+
+* __location__ contains value with the concatenation of town/city and the county.
+
+## Percentage of Missing Values in the dataset per feature
+
+In this step, it is possible to see that there are variables with missing values. Nevertheless, it is worth noting that most of those features have been assigned the type of character and there might be features with missing data, but due to the wrong data type, they are displayed as if they were not missing.
+
+At a later point, those features with the wrong data type will be converted into the appropriate data type.
+
+
+```{r Percentage of Missing Values}
+
+
+compile_missing_values_table <- function( dfHouses ) {
+  percentage_missing <- colSums(is.na(dfHouses)) * 100 / nrow(dfHouses)
+  percentage_missing_sorted <- percentage_missing[order(percentage_missing, decreasing = TRUE)]
+
+  percentage_missing_formatted = percent(formattable(percentage_missing_sorted) / 100)
+
+  kbl(percentage_missing_formatted, col.names = NULL) %>%
+    kable_paper(bootstrap_options = "striped", full_width = F, html_font = "Computer Modern") %>%
+    add_header_above(header = c("Feature", "Percentage of Missing Values"))
+}
+
+
+compile_missing_values_table( ireland_houses )
+
+```
+
+## Count of unique values per feature in the dataset
+
+In this section, it is possible to understand how many distinct values each feature has. By analysing the results, we can identify that there is likely duplicate observations in the dataset.
+
+For example, the dataset has over 100 thousand observations, but only about 13 thousand different values for : *id*, *daftShortCode* and *url_link*, which are usually used to uniquely identify a record.
+
+
+```{r Count of Unique Values}
+
+compile_unique_values_table <- function( dfHouses ) {
+  
+  unique_values_list <- lapply(dfHouses, function(x) length(unique(x)) ) %>% 
+    as.list()
+
+  unique_values_sorted <- unique_values_list[ order( unlist(unique_values_list), decreasing = TRUE  ) ]
+
+  unique_values_df <- data.frame( unique_values_sorted )
+
+  kbl(t(unique_values_df)) %>%
+    kable_paper(bootstrap_options = "striped", full_width = F, html_font = "Computer Modern") %>%
+    kable_styling(fixed_thead = T) %>% 
+    add_header_above(header = c("Total Number of Observations", nrow(ireland_houses) ), align = "right") %>%
+    add_header_above(header = c("Feature", "Total of Unique Values"))
+}
+
+compile_unique_values_table(ireland_houses)
+
+```
+
 ## Further Investigation
 
-From looking at the first 5 observations, it can be noted that some variables are only used by the property website to manage their database, some examples are: *id*, *daftShortCode*, *ber_code* and *url_link*.
+After doing some data exploration and gaining some insight into the dataset, the next step is to look at the descriptive statistics of the features in the dataset in order to get a general summary of the dataset as a whole and explore properties like:
 
-Nevertheless, skimming and summarizing the data further will provide better a better understanding of the variables available.
+* **Data types**
+* **Min and Max values**
+* **Completion rate**
+* **Mean**
+* **Percentiles**
 
 ```{r Further Investigation}
-summary(ireland_houses)
 skim(ireland_houses)
 ```
-## Removing Variables
 
-After doing some further investigation, it is possible to see that there are variables with missing data, different data types and format as well as variables which do not bring any value to our analysis, like it was said before.
+The output of the skim function shows us that our findings from the initial data exploration are correct. For example, there are over 100 thousand observations in the dataset, but only about 12 thousand unique values, it can also be seen that the datatypes used for some of the features are clearly not right, for instance price is of type character. 
 
+Furthermore, there are features with a high number of missing values, for example: *size* and *ber_code*. There is potentially more missing values on other features, however, those are hidden for now due to the wrong data type being used.
 
-From the statistical summary and data exploration above, it can be seen that:
+# Data Cleaning
 
-* __id__: ID is a property used within the property website database for managing the data.
+This step will be completed in the following stages:
 
-* __daftShortcode__: This code is another ID-like property which is used for managing data within the property website database.
-
-* __ber_code__: BER stands for Building Energy Rating and the BER Code is simply the ID of the certificate that the house was given.
-
-* __url_link__: It provides the URL of the house listing and, it should be removed as it doesn't impact the analysis.
-
-* __publishDate__: This attribute contains information about the date of the property listing, and it will not be taken into consideration in this study.
-
-* __location__: It is a useful attribute to be kept, however, this information is also present in the title column (which is, in fact, the address of the property)
-
-* __propertySize__: Similar to the _location_ attribute, _propertySize_ is already captured by another attribute: _size_meters_squared_.
-
-As a result, The columns mentioned above can be removed as they do not contribute to this analysis. After removing the unwanted attributes, we save the resulting dataset in a new variable.
-
-```{r Removing Variables}
-ireland_houses_cleaned <- ireland_houses %>% 
-  select(-c(id, daftShortcode, ber_code, url_link, publishDate, location, propertySize)) 
-
-head(ireland_houses_cleaned, 5)
-```
-
+* *Rename Variables*
+* *Removal of Duplicate observations*
+* *Convert variables into appropriate data types*
+* *Remove observations with missing values*
 
 ## Data Transformation - Renaming Variables
 
-It could also be seen that some of the variables did not follow a naming standard and used an adequate name, for example: *title* actually refers to the *address* of the house and *size_meters_squared* refers to the *propertySize*.
+It was seen that some of the variables did not follow a naming standard and used an adequate name, for example: *title* actually refers to the *address* of the house and *size_meters_squared* refers to the *size*.
 
 The naming convention used across the variables is __camel-case__, therefore *ber_rating* and *ber_epi* will be renamed to *berRating* and *berEPI* respectively.
 
 ```{r Data Transformation - Renaming Variables}
-ireland_houses_renamed <- rename( ireland_houses_cleaned, 
+ireland_houses <- rename( ireland_houses, 
   address = title,
-  propertySize = size_meters_squared,
+  size = size_meters_squared,
   berRating = ber_rating,
-  berEPI = ber_epi
+  berEPI = ber_epi,
+  urlLink = url_link,
+  berCode = ber_code
 )
 
-skim(ireland_houses_renamed)
 ```
-## Data Transformation - Tidying Data
+
+
+## Data Cleaning - Removal of Duplicates
+
+As it was seen before, there are many duplicate values, in fact, only about 12% of the observations are unique. In order to remove the duplicate values, the feature *url_link* will be used to filter out any duplicate observations.
+
+The rationale behind using the *url_link* is that URLs are guaranteed to be unique across the internet and they are a concatenation of: property type + address + id. Thus, by removing observations which have the same URL, we are sure to remove observations that are the very same because they were put on sale on the websites more than once and got different ids.
+
+So, in the step below, a new column, *urlNoId*, will be created from the *urlLink* feature, however without the id information.
+
+
+```{r Data Cleaning - Removal of Duplicates}
+
+remove_id_from_url <- function(url) {
+  url_tokens <- str_split(url, pattern = "/")[[1]]
+  
+  url_tokens_without_id <- stri_paste( url_tokens[1 : length(url_tokens) - 1], collapse = "/"  )
+  return(url_tokens_without_id)
+}
+
+
+ireland_houses$urlNoId <- ireland_houses$urlLink %>%
+  lapply(remove_id_from_url) %>%
+  unlist
+  
+ireland_houses <- ireland_houses %>%
+  distinct(urlNoId, .keep_all = T)
+
+
+skim(ireland_houses)
+
+compile_missing_values_table(ireland_houses)
+
+```
+
+## Data Transformation - Convert variables into appropriate Data Types
 
 The output of the __skim__ function has showed some interesting details, for instance: *price*, *berEPI*, and *bedrooms* are of type __character__, when, in fact, __numeric__ would be a better type because they represent quantitative data.
 
@@ -112,8 +220,8 @@ The output of the __skim__ function has showed some interesting details, for ins
 Thus, in this next step, the data will be tidied up in a better manner.
 
 ```{r Data Transformation - Tidying Data}
-ireland_houses_tidy <- mutate(
-  ireland_houses_renamed,
+ireland_houses <- mutate(
+  ireland_houses,
   price = parse_number(price),
   berEPI = as.numeric(str_remove(berEPI, "kWh/m2/yr")),
   bedrooms = as.numeric(bedrooms),
@@ -123,19 +231,91 @@ ireland_houses_tidy <- mutate(
   berRating = as.factor(berRating)
 )
 
-skim(ireland_houses_tidy)
+skim(ireland_houses)
 ```
 
 
-## Data Cleaning
+## Data Cleaning - Removing observations without Price
 Once the date types have been sorted, it is possible to see the presence of missing data in many of the variables in our dataset.
 
-For example, *berEPI* is missing in about *50%* of the observations, *price* and *bathrooms* are missing in *2%* of the observations, *propertySize* is missing in *20%* of the observations and there are 212 out of 100.294 observations where number of *bedrooms* is missing.
+For example: 
+* *berEPI* is missing in about *50%* of the observations; 
+* *berCode* is missing in about *42%* of the observations; 
+* *size* is missing in *26%* of the observations; 
+* *price* is missing in about *5%* of the observations;
+* *bathrooms* is missing in about *2%* of the observations;
+* There are 46 out of 12.586 observations where number of *bedrooms* is missing.
 
-At this stage, those observations with missing data will be removed because applying any strategy to replace those missing values may add bias in our study. Nevertheless, if necessary, this decision will be revisited in this study to evaluate whether or not having those observations will help the analysis.
+At this stage, the only observations that can be removed are those without the price variable because that is the target variable of the analysis.
+
+```{r Data Cleaning - Removing price}
+
+ireland_houses <- ireland_houses %>% filter(!is.na(price))
+skim(ireland_houses)
+
+
+
+calc_area_size <- function( price_in_meter, price_in_ac ) {
+  if ( is.na(price_in_meter) ) {
+    acre_in_meters_ireland = 6555
+    my_size <- as.numeric(str_remove(price_in_ac, "ac"))
+    return( my_size * acre_in_meters_ireland )
+  }
+  
+  return (price_in_meter)
+}
+
+ireland_houses$size <- mapply(calc_area_size, ireland_houses$size, ireland_houses$propertySize)
+
+skim(ireland_houses)
+
+```
+
+
+```{r Data Exploration - Correlation}
+numeric_data <- ireland_houses %>% 
+  select(price, size, bedrooms, bathrooms, berCode, berEPI, latitude, longitude) 
+
+
+skim(numeric_data)
+
+plot( price ~ size, data = numeric_data, main = "Scatter plot of data" )
+cor.test( numeric_data$price, numeric_data$size, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$bedrooms, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$bathrooms, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$berCode, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$berEPI, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$latitude, use = "complete.obs"  )
+cor( numeric_data$price, numeric_data$longitude, use = "complete.obs"  )
+
+
+sum( with( numeric_data, bedrooms > 10 | bathrooms > 10  )  )
+
+
+ireland_houses_lm <- numeric_data %>%
+  filter(!is.na(size)) %>%
+  
+  filter(!is.na(bedrooms)) 
+  
+
+#Estimando o modelo
+modelo_tempodist <- lm(formula = price ~ bedrooms + size + bathrooms + longitude,
+                       data = ireland_houses_lm)
+
+#Observando os parâmetros do modelo_tempodist
+summary(modelo_tempodist)
+
+
+numeric_data %>%
+  correlation(method = "pearson") %>%
+  plot()
+
+chart.Correlation((numeric_data), histogram = TRUE)
+
+```
 
 ```{r Data Cleaning}
-ireland_houses_cleaned <- ireland_houses_tidy %>%
+ireland_houses_cleaned <- ireland_houses %>%
   filter(!is.na(price)) %>%
   filter(!is.na(propertySize)) %>%
   filter(!is.na(bathrooms)) %>%
