@@ -199,7 +199,7 @@ For this graph, for visualization sake, let's pick the house which have property
 
 ```{r Property Size Histogram, warning=FALSE}
 
-ggplot(ireland_houses, aes(x = propertySize, colour = propertyType, fill = propertyType)) +
+ggplot(ireland_houses, aes(x = size, colour = propertyType, fill = propertyType)) +
   geom_freqpoly(
     bins=30,
     lwd = 1,

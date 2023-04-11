@@ -52,12 +52,12 @@ skim(ireland_houses)
 |                                                  |                |
 |:-------------------------------------------------|:---------------|
 | Name                                             | ireland_houses |
-| Number of rows                                   | 78034          |
+| Number of rows                                   | 9019           |
 | Number of columns                                | 12             |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                |
 | Column type frequency:                           |                |
-| character                                        | 5              |
-| numeric                                          | 7              |
+| character                                        | 6              |
+| numeric                                          | 6              |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |                |
 | Group variables                                  | None           |
 
@@ -65,25 +65,25 @@ Data summary
 
 **Variable type: character**
 
-| skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
-|:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| address       |         0 |             1 |  18 | 102 |     0 |     8881 |          0 |
-| propertyType  |         0 |             1 |   0 |  14 |     6 |        9 |          0 |
-| berRating     |         0 |             1 |   0 |   6 |  2316 |       17 |          0 |
-| category      |         0 |             1 |   3 |   9 |     0 |        2 |          0 |
-| town          |         0 |             1 |   4 |  14 |     0 |       68 |          0 |
+| skim_variable       | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
+|:--------------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
+| address             |         0 |             1 |  18 | 102 |     0 |     8881 |          0 |
+| propertyType        |         0 |             1 |   0 |  14 |     2 |        9 |          0 |
+| berRating           |         0 |             1 |   0 |   6 |   179 |       17 |          0 |
+| location            |         0 |             1 |   4 |  61 |     0 |      118 |          0 |
+| county              |         0 |             1 |   4 |   9 |     0 |       26 |          0 |
+| townOrNeighbourhood |         0 |             1 |   4 |  52 |     0 |      114 |          0 |
 
 **Variable type: numeric**
 
-| skim_variable | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |          p100 | hist  |
-|:--------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|--------------:|:------|
-| price         |         0 |          1.00 | 599841.20 | 656064.62 | 40000.00 | 300000.00 | 415000.00 | 650000.00 |   15000000.00 | ▇▁▁▁▁ |
-| propertySize  |         0 |          1.00 |    130.07 |    160.86 |     1.00 |     75.00 |    102.00 |    144.00 |       6109.00 | ▇▁▁▁▁ |
-| bedrooms      |         0 |          1.00 |      3.19 |      1.43 |     1.00 |      2.00 |      3.00 |      4.00 |         30.00 | ▇▁▁▁▁ |
-| bathrooms     |         0 |          1.00 |      2.12 |      1.39 |     1.00 |      1.00 |      2.00 |      3.00 |         28.00 | ▇▁▁▁▁ |
-| berEPI        |     35265 |          0.55 |   2692.25 | 483553.68 |     0.34 |    173.71 |    246.86 |    344.67 | 100000000\.00 | ▇▁▁▁▁ |
-| latitude      |         0 |          1.00 |     53.19 |      0.50 |    51.44 |     53.29 |     53.33 |     53.36 |         55.38 | ▁▁▇▁▁ |
-| longitude     |         0 |          1.00 |     -6.72 |      0.93 |   -10.35 |     -6.43 |     -6.28 |     -6.25 |         -6.01 | ▁▁▁▁▇ |
+| skim_variable | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |        p100 | hist  |
+|:--------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|------------:|:------|
+| price         |         0 |             1 | 462205.81 | 555869.03 | 40000.00 | 245000.00 | 340000.00 | 495000.00 | 15000000.00 | ▇▁▁▁▁ |
+| size          |         0 |             1 |    145.61 |    150.63 |     1.00 |     86.00 |    112.00 |    163.50 |     6109.00 | ▇▁▁▁▁ |
+| bedrooms      |         0 |             1 |      3.43 |      1.35 |     1.00 |      3.00 |      3.00 |      4.00 |       30.00 | ▇▁▁▁▁ |
+| bathrooms     |         0 |             1 |      2.35 |      1.34 |     1.00 |      1.00 |      2.00 |      3.00 |       28.00 | ▇▁▁▁▁ |
+| latitude      |         0 |             1 |     53.09 |      0.70 |    51.44 |     52.63 |     53.29 |     53.40 |       55.38 | ▂▂▇▁▁ |
+| longitude     |         0 |             1 |     -7.34 |      1.18 |   -10.35 |     -8.47 |     -6.80 |     -6.28 |       -6.01 | ▁▂▃▂▇ |
 
 ## Understanding the data
 
@@ -94,71 +94,71 @@ dataset. For example:
 
 #### Address
 
--   There seems to be about 8,881 different addresses, and the total
-    number of observations is 78,034.
+- There seems to be about 8,881 different addresses, and the total
+  number of observations is 78,034.
 
 #### Property Type
 
--   **Property Type** holds only 9 different values, they are:
-    *Apartment*, *Bungalow*, *Detached*, *Duplex*, *End of Terrace*,
-    *Semi Detached*, *Terrace*, *Town House* and **NA**.
+- **Property Type** holds only 9 different values, they are:
+  *Apartment*, *Bungalow*, *Detached*, *Duplex*, *End of Terrace*, *Semi
+  Detached*, *Terrace*, *Town House* and **NA**.
 
 #### Category
 
--   It is present in all observations and holds 2 possible values: *Buy*
-    and *New Houses*.
+- It is present in all observations and holds 2 possible values: *Buy*
+  and *New Houses*.
 
 #### Town
 
--   This variable holds the neighborhoods in Ireland, it has 68
-    different values. This shows that not all the cities / neighborhoods
-    from Ireland are in this dataset - this is expected as there may be
-    no houses on sale in those places.
+- This variable holds the neighborhoods in Ireland, it has 68 different
+  values. This shows that not all the cities / neighborhoods from
+  Ireland are in this dataset - this is expected as there may be no
+  houses on sale in those places.
 
 ### Continuous Variables
 
 #### Price
 
--   The mean *price* of houses is around €600,000 and the *most
-    expensive* house in the dataset is worth €15 million euro.
+- The mean *price* of houses is around €600,000 and the *most expensive*
+  house in the dataset is worth €15 million euro.
 
--   **Percentiles**: It can be seen on the table that very few, nearly
-    0% of the houses have a price of up to €40,000, 25% prices of up to
-    €300,000, 50% prices of up to €415,000, 75% prices of up to €650,000
-    and no houses are over €15 million euro. Understanding the
-    percentiles is quite helpful as it shows how the house prices are
-    distributes over the observations.
+- **Percentiles**: It can be seen on the table that very few, nearly 0%
+  of the houses have a price of up to €40,000, 25% prices of up to
+  €300,000, 50% prices of up to €415,000, 75% prices of up to €650,000
+  and no houses are over €15 million euro. Understanding the percentiles
+  is quite helpful as it shows how the house prices are distributes over
+  the observations.
 
--   **Standard Deviation**: The standard deviation in the price variable
-    is quite high, €656.000, which indicates that there is a great price
-    range.
+- **Standard Deviation**: The standard deviation in the price variable
+  is quite high, €656.000, which indicates that there is a great price
+  range.
 
 #### Property Size
 
--   The mean *size* of a house in $sq^2$ is 130 $sq^2$, and the biggest
-    house has 6300 $sq^2$.
+- The mean *size* of a house in $sq^2$ is 130 $sq^2$, and the biggest
+  house has 6300 $sq^2$.
 
--   **Percentiles**: In the first percentile it shows that there are
-    some observations with under 1$sq^2$; 25% of the houses have up to
-    75$sq^2$; 50% of the observations are under 102$sq^2$, 75% are under
-    144$sq^2$ and there are no houses bigger than 6109$sq^2$.
+- **Percentiles**: In the first percentile it shows that there are some
+  observations with under 1$sq^2$; 25% of the houses have up to
+  75$sq^2$; 50% of the observations are under 102$sq^2$, 75% are under
+  144$sq^2$ and there are no houses bigger than 6109$sq^2$.
 
--   **Standard Deviation**: The standard deviation in the *property
-    size* variable is quite high, 160$sq^2$. What this tells us is that
-    there is a large range of house sizes, as a comparison, the standard
-    deviation is greater than 75% of the observations.
+- **Standard Deviation**: The standard deviation in the *property size*
+  variable is quite high, 160$sq^2$. What this tells us is that there is
+  a large range of house sizes, as a comparison, the standard deviation
+  is greater than 75% of the observations.
 
 #### Bathrooms
 
--   The **bathrooms** variable shows some interesting behaviour, where
-    the mean is about 2 bathrooms per house and the maximum number of
-    bathrooms in a house is 28.
+- The **bathrooms** variable shows some interesting behaviour, where the
+  mean is about 2 bathrooms per house and the maximum number of
+  bathrooms in a house is 28.
 
 #### Bedrooms
 
--   Similar to the *bathrooms* variable, **bedrooms** also show an
-    intersting behaviour, the mean is 3 bedrooms per house and the
-    maximum number of bedrooms is 30.
+- Similar to the *bathrooms* variable, **bedrooms** also show an
+  intersting behaviour, the mean is 3 bedrooms per house and the maximum
+  number of bedrooms is 30.
 
 ## Frequency graphs
 
@@ -208,6 +208,12 @@ ggplot(data = ireland_houses) +
 chart.Correlation((ireland_houses[2:4]), histogram = TRUE)
 ```
 
+    ## Warning in par(usr): argument 1 does not name a graphical parameter
+
+    ## Warning in par(usr): argument 1 does not name a graphical parameter
+
+    ## Warning in par(usr): argument 1 does not name a graphical parameter
+
 ![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 ### Property Type by Price Bivariate graph
@@ -242,9 +248,10 @@ ggplot(data = ireland_houses) +
   theme(legend.position = "none")
 ```
 
-    ## Picking joint bandwidth of 38100
+    ## Picking joint bandwidth of 41500
 
-    ## Warning: Removed 8210 rows containing non-finite values (stat_density_ridges).
+    ## Warning: Removed 475 rows containing non-finite values
+    ## (`stat_density_ridges()`).
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Property%20Type%20by%20Price%20Bivariate%20graph-1.png)<!-- -->
 
@@ -279,7 +286,7 @@ For this graph, for visualization sake, let’s pick the house which have
 property size smaller than 750 $sq^2$
 
 ``` r
-ggplot(ireland_houses, aes(x = propertySize, colour = propertyType, fill = propertyType)) +
+ggplot(ireland_houses, aes(x = size, colour = propertyType, fill = propertyType)) +
   geom_freqpoly(
     bins=30,
     lwd = 1,

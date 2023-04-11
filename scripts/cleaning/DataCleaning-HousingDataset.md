@@ -16,9 +16,10 @@ The following steps will be taken:
 4.  Removal of unnecessary variables
 5.  Renaming variables
 6.  Conversion into appropriate data types
-7.  Creation of new variables if possible
+7.  Creation of new variables
 8.  Handling outliers
 9.  Scaling variables
+10. Write Clean Dataset
 
 ## Installing libraries
 
@@ -28,7 +29,7 @@ loaded.
 ``` r
 packages <- c("tidyverse", "haven", "devtools", "dplyr", "stringr", "kableExtra", 
               "formattable","stringi", "see", "ggraph", "correlation", 
-              "PerformanceAnalytics")
+              "PerformanceAnalytics", "gridExtra")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -52,6 +53,8 @@ At this step, the Ireland houses dataset will be imported.
 ``` r
 dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, "house_listings_all.csv", sep="")
+
+options(scipen = 999) # turn off scientific notation
 
 ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
 ```
@@ -1145,6 +1148,38 @@ ireland_houses <- mutate(ireland_houses,
 )
 ```
 
+#### Fixing properties with empty factor for property type
+
+It was noted that 2 properties have an empty property type. In order to
+fix it, the house address was used to look it up online. Suitable
+property types were found for those 2 observations and they are going to
+be applied now.
+
+``` r
+propertyLevels <- levels(ireland_houses$propertyType)
+semiDetached <- propertyLevels[7]
+semiDetached <- factor( semiDetached, levels = propertyLevels )
+
+detached <- propertyLevels[4]
+detached <- factor( detached, levels = propertyLevels )
+
+ireland_houses <- ireland_houses %>% 
+  mutate( 
+    propertyType = if_else( propertyType=="" & 
+                            address == "Four bedroomed Semi-Detached, Owenmore Paddock, Ballinacarrow, Co. Sligo", 
+                            semiDetached, 
+                            propertyType ) 
+  )
+
+ireland_houses <- ireland_houses %>% 
+  mutate( 
+    propertyType = if_else( propertyType=="" & 
+                            address == "House Tpye D, Moin Na Ri, Moin Na Ri, Kilworth, Co. Cork", 
+                            detached, 
+                            propertyType ) 
+  )
+```
+
 Let’s describe the dataset one more time to see what it looks like now.
 
 ``` r
@@ -1363,10 +1398,10 @@ propertyType
 FALSE
 </td>
 <td style="text-align:right;">
-9
+8
 </td>
 <td style="text-align:left;">
-Det: 3629, Sem: 2324, Ter: 1471, Apa: 982
+Det: 3630, Sem: 2325, Ter: 1471, Apa: 982
 </td>
 </tr>
 <tr>
@@ -1462,7 +1497,7 @@ price
 495000.00
 </td>
 <td style="text-align:right;">
-1.500e+07
+15000000.00
 </td>
 <td style="text-align:left;">
 ▇▁▁▁▁
@@ -1497,7 +1532,7 @@ size
 166.00
 </td>
 <td style="text-align:right;">
-6.109e+03
+6109.00
 </td>
 <td style="text-align:left;">
 ▇▁▁▁▁
@@ -1532,7 +1567,7 @@ bedrooms
 4.00
 </td>
 <td style="text-align:right;">
-3.000e+01
+30.00
 </td>
 <td style="text-align:left;">
 ▇▁▁▁▁
@@ -1567,7 +1602,7 @@ bathrooms
 3.00
 </td>
 <td style="text-align:right;">
-2.800e+01
+28.00
 </td>
 <td style="text-align:left;">
 ▇▁▁▁▁
@@ -1602,7 +1637,7 @@ berEPI
 296.46
 </td>
 <td style="text-align:right;">
-1.000e+08
+100000000\.00
 </td>
 <td style="text-align:left;">
 ▇▁▁▁▁
@@ -1637,7 +1672,7 @@ latitude
 53.40
 </td>
 <td style="text-align:right;">
-5.538e+01
+55.38
 </td>
 <td style="text-align:left;">
 ▂▃▇▁▁
@@ -1672,7 +1707,7 @@ longitude
 -6.28
 </td>
 <td style="text-align:right;">
--6.010e+00
+-6.01
 </td>
 <td style="text-align:left;">
 ▁▂▃▂▇
@@ -1725,7 +1760,7 @@ parse_townOrNeighbourhood <- function(location) {
 }
 
 
-parse_location <- function(location) {
+parse_county <- function(location) {
   
   str_tokens_vec <- str_split( location, "_" )[[1]]
   county_token <- str_tokens_vec[length(str_tokens_vec)]
@@ -1733,13 +1768,128 @@ parse_location <- function(location) {
   if (tolower(county_token) == "city") {
     county_token <- str_tokens_vec[1]
   }
+  
   return (county_token)
 }
 
 
-ireland_houses$county <- ireland_houses$location %>% lapply( parse_location ) %>% unlist
-ireland_houses$townOrNeighbourhood <- ireland_houses$location %>% lapply( parse_townOrNeighbourhood ) %>% unlist
+ireland_houses$county <- ireland_houses$location %>% 
+  lapply( parse_county ) %>% 
+  unlist
+
+
+ireland_houses$townOrNeighbourhood <- ireland_houses$location %>% 
+  lapply( parse_townOrNeighbourhood ) %>% 
+  unlist
 ```
+
+## Handling Outliers
+
+This step is focused on trying to find out outliers in our dataset.
+Outliers are not desirable as they can have great impact on the
+statistical analyses of a machine learning project.
+
+Let’s identify the outliers in our dataset. Only numerical variables
+will be analysed initially as those can be found more easily with
+techniques such as: histograms, box plots and z-score. Thus, the
+variables that will be analysed are: price, size, bedrooms and
+bathrooms.
+
+``` r
+create_annotations <- function( dfVariable, statsPosition ) {
+  
+  annotations <- data.frame(
+    x = c(
+      round(min(dfVariable), 2), 
+      round(mean(dfVariable), 2), 
+      round(max(dfVariable), 2)
+    ),
+    y = statsPosition,
+    label = c("Min:", "Mean:", "Max:")
+  ) 
+  
+  return (annotations)
+}
+
+
+create_histogram <- function( dataframe, props, labs, annotations ) {
+
+  histogram <- ggplot(dataframe$df, aes(x = !!dataframe$col)) +
+      geom_histogram(color = props$color, fill = props$fill, bins = props$bins) +
+      labs( title = labs$title,
+            x = labs$x,
+            y = labs$y
+      ) +
+      scale_fill_brewer() +
+      geom_text(data = annotations,
+                aes(x = x, y = y, label = paste(label, x)),
+                size = 4,
+                fontface="bold")
+  
+  return (histogram)
+}
+
+
+sizeHistogram <- create_histogram( 
+  dataframe = list( df = ireland_houses, col = sym("size") ),
+  props = list(color = "darkblue", fill = "lightblue", bins = 30),
+  labs  = list(title = "Histogram of house sizes", x = "Size", y = "Observations"),
+  annotations = create_annotations(ireland_houses$size,  c(4100, 4700, 200))
+)
+
+
+priceHistogram <- create_histogram( 
+  dataframe = list( df = ireland_houses, col = sym("price") ),
+  props = list(color = "darkgreen", fill = "lightgreen", bins = 30),
+  labs  = list(title = "Histogram of house prices", x = "Price", y = "Observations"),
+  annotations = create_annotations(ireland_houses$price,  c(2800, 5500, 100))
+)
+
+bathroomsHistogram <- create_histogram( 
+  dataframe = list(df = ireland_houses, col = sym("bathrooms") ),
+  props = list(color = "deeppink", fill = "lightpink", bins = 15),
+  labs  = list(title = "Histogram of number of bathrooms per house", x = "Bathrooms", y = "Observations"),
+  annotations = create_annotations(ireland_houses$bathrooms,  c(5600, 3500, 100))
+)
+
+bedroomsHistogram <- create_histogram( 
+  dataframe = list(df = ireland_houses, col = sym("bedrooms") ),
+  props = list(color = "firebrick", fill = "orangered", bins = 15),
+  labs  = list(title = "Histogram of number of bedrooms per house", x = "Bedrooms", y = "Observations"),
+  annotations = create_annotations(ireland_houses$bedrooms,   c(500, 5000, 100))
+)
+
+
+grid.arrange(
+  arrangeGrob(sizeHistogram, priceHistogram),
+  arrangeGrob(bedroomsHistogram, bathroomsHistogram), ncol = 2)
+```
+
+![](DataCleaning-HousingDataset_files/figure-gfm/-%20create%20histograms%20and%20plot-1.png)<!-- -->
+
+The histograms above show some interesting results in our dataset. For
+example, it can be observed that there are properties with over 20
+bathrooms or 20 bedrooms, which looks quite unrealistic at first sight,
+but when you look it up those properties, you can clearly see that those
+are mansions. This helps us to also understand the disparity in the
+price of the house, where the minimum cost is about €40,000.00 and the
+mean is €462,205.00, nevertheless the maximum price is €15,000,000.00.
+
+The house size histogram does show us some clear outliers however. Those
+outliers are houses with a size under 20 square meters for example.
+There are 10 observations that fall under that filter, in fact, all of
+those observations are under 16 square meters. Looking up the properties
+in those 10 address, it is possible to see that those properties have
+been incorrectly input in the dataset, so they can be filtered out.
+
+``` r
+ireland_houses <- ireland_houses %>% filter(!(size < 17))
+```
+
+## Scaling variables
+
+This step will not be performed at this point, as some data exploration
+activities are necessary to be carried out beforehand.
 
 ## Write Clean Dataset to disk
 
