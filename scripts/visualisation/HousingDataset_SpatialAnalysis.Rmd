@@ -21,10 +21,13 @@ if(sum(as.numeric(!packages %in% installed.packages())) != 0){
 } else {
   sapply(packages, require, character = T) 
 }
+
+webshot::install_phantomjs()
 ```
 
 
 ## Load the data and convert to Simple Feature object
+
 ```{r}
 dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, "ireland_houses_filtered.csv", sep="")
@@ -39,7 +42,6 @@ ireland_houses_sf <- st_as_sf(x = ireland_houses,
 
 ```
 
-
 ## Plotting the data spatially
 
 ```{r}
@@ -53,7 +55,6 @@ tm_shape(shp = ireland_houses_sf) +
 
 ```
 
-
 ## Loading shapefile with the map of Ireland
 
 ```{r}
@@ -63,10 +64,7 @@ tm_shape(shp = shp_ireland) +
   tm_borders()
 ```
 
-
-
 ## Joining the two objects together
-
 
 ```{r}
 tm_shape(shp = shp_ireland) + 
@@ -76,6 +74,3 @@ tm_shape(shp = shp_ireland) +
           size = 0.02)
 
 ```
-
-
-
