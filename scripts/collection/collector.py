@@ -124,5 +124,5 @@ def perform_searches():
         write_dict_to_csv(writer, dict_listings)
         close_csv(file)
 
-
-perform_searches()
+if __name__ == "__main__":
+    perform_searches()
