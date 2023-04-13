@@ -52,7 +52,7 @@ skim(ireland_houses)
 |                                                  |                |
 |:-------------------------------------------------|:---------------|
 | Name                                             | ireland_houses |
-| Number of rows                                   | 9019           |
+| Number of rows                                   | 9009           |
 | Number of columns                                | 12             |
 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |                |
 | Column type frequency:                           |                |
@@ -67,9 +67,9 @@ Data summary
 
 | skim_variable       | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
 |:--------------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| address             |         0 |             1 |  18 | 102 |     0 |     8881 |          0 |
-| propertyType        |         0 |             1 |   0 |  14 |     2 |        9 |          0 |
-| berRating           |         0 |             1 |   0 |   6 |   179 |       17 |          0 |
+| address             |         0 |             1 |  18 | 102 |     0 |     8871 |          0 |
+| propertyType        |         0 |             1 |   6 |  14 |     0 |        8 |          0 |
+| berRating           |         0 |             1 |   0 |   6 |   178 |       17 |          0 |
 | location            |         0 |             1 |   4 |  61 |     0 |      118 |          0 |
 | county              |         0 |             1 |   4 |   9 |     0 |       26 |          0 |
 | townOrNeighbourhood |         0 |             1 |   4 |  52 |     0 |      114 |          0 |
@@ -78,12 +78,12 @@ Data summary
 
 | skim_variable | n_missing | complete_rate |      mean |        sd |       p0 |       p25 |       p50 |       p75 |        p100 | hist  |
 |:--------------|----------:|--------------:|----------:|----------:|---------:|----------:|----------:|----------:|------------:|:------|
-| price         |         0 |             1 | 462205.81 | 555869.03 | 40000.00 | 245000.00 | 340000.00 | 495000.00 | 15000000.00 | ▇▁▁▁▁ |
-| size          |         0 |             1 |    145.61 |    150.63 |     1.00 |     86.00 |    112.00 |    163.50 |     6109.00 | ▇▁▁▁▁ |
+| price         |         0 |             1 | 462485.76 | 556102.05 | 40000.00 | 245000.00 | 340000.00 | 495000.00 | 15000000.00 | ▇▁▁▁▁ |
+| size          |         0 |             1 |    145.76 |    150.64 |    20.00 |     86.00 |    112.00 |    164.00 |     6109.00 | ▇▁▁▁▁ |
 | bedrooms      |         0 |             1 |      3.43 |      1.35 |     1.00 |      3.00 |      3.00 |      4.00 |       30.00 | ▇▁▁▁▁ |
-| bathrooms     |         0 |             1 |      2.35 |      1.34 |     1.00 |      1.00 |      2.00 |      3.00 |       28.00 | ▇▁▁▁▁ |
+| bathrooms     |         0 |             1 |      2.35 |      1.35 |     1.00 |      1.00 |      2.00 |      3.00 |       28.00 | ▇▁▁▁▁ |
 | latitude      |         0 |             1 |     53.09 |      0.70 |    51.44 |     52.63 |     53.29 |     53.40 |       55.38 | ▂▂▇▁▁ |
-| longitude     |         0 |             1 |     -7.34 |      1.18 |   -10.35 |     -8.47 |     -6.80 |     -6.28 |       -6.01 | ▁▂▃▂▇ |
+| longitude     |         0 |             1 |     -7.34 |      1.18 |   -10.35 |     -8.46 |     -6.80 |     -6.28 |       -6.01 | ▁▂▃▂▇ |
 
 ## Understanding the data
 
@@ -182,8 +182,7 @@ ggplot(data = ireland_houses) +
     width = 0.4,
     mapping = aes(fill = as.factor(propertyType), 
                   x = factor(propertyType,
-                      labels = c("NA", 
-                                 "Apartment", 
+                      labels = c("Apartment", 
                                  "Bungalow", 
                                  "Detached", 
                                  "Duplex", 
@@ -248,7 +247,7 @@ ggplot(data = ireland_houses) +
   theme(legend.position = "none")
 ```
 
-    ## Picking joint bandwidth of 41500
+    ## Picking joint bandwidth of 39300
 
     ## Warning: Removed 475 rows containing non-finite values
     ## (`stat_density_ridges()`).
