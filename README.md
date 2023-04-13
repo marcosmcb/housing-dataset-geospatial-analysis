@@ -20,4 +20,48 @@ For the Data Collection step, you can find further information at:
 
 * [Data Preparation](/scripts/cleaning/)
 
-    * 
+    * In this folder, you can find all the steps taken to clean the dataset, such as:
+  
+      1. Removing duplicate observations
+      2. Handling of missing values
+      3. Removal of unnecessary variables
+      4. Renaming variables
+      5. Conversion into appropriate data types
+      6. Creation of new variables
+      7. Handling Outliers
+      8. Writing the clean dataset
+
+* [Exploratory Data Analysis](/scripts/exploration/)
+
+    * In this step, the goal is to perform the following tasks:
+
+        1. Data Visualisation: 
+           
+           * Histograms of variables
+           * Box Plot
+           * Density charts
+           * Heat Maps
+           * Spatial plots
+  
+        2. Summary Statistics:
+           
+           * Mean 
+           * Median 
+           * Mode
+           * Standard Deviation 
+           * Correlation coefficients.
+
+        3. Data Distribution
+        4. Outliers
+        5. Feature Engineering
+        6. Hypoteshis testing
+        7. Data Normalisation
+        8. Further data cleaning
+
+* [Model Selection](/scripts/model-selection/)
+
+   1. Evaluation metrics selection
+   2. Choosing candidate models
+   3. Training and evaluation models
+   4. Model testing
+   5. Model validation
