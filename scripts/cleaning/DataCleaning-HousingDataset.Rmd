@@ -69,7 +69,7 @@ ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
 In this step, the first five rows of our dataset will be displayed so that we can take a look at the different pieces of data available to us and what kind of information they bring to the analysis.
 
 ```{r Visualizing first 5 rows}
-head(ireland_houses, 5)
+summary(ireland_houses, 5)
 ```
 
 Looking at the output of the previous step, some interesting things can be observed:
