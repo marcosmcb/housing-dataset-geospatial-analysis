@@ -55,8 +55,6 @@ if(sum(as.numeric(!packages %in% installed.packages())) != 0){
 
 devtools::install_github("ropensci/skimr")
 library(skimr)
-
-
 ```
 
 
@@ -173,7 +171,7 @@ As we can see from the output of the step above, _ber_code_ is missing in 42.47%
 
 ### Handling missing values - BER Code
 
-As the _ber_code_ variable only represents the certificate number of the BER rating (Building Energy Rating), we can safely remove this column from the dataset as the certificate number will be individually assigned to each property and do not actually influence on the house price, instead the house's BER rating and BER EPI (Energy Performance Indicator) are what in fact affect the house price.
+As the _ber_code_ variable only represents the certificate number of the BER rating (Building Energy Rating), we can safely remove this column from the dataset as the certificate number will be individually assigned to each property and do not actually influence on the house price, instead the house's BER rating and BER EPI (Energy Performance Indicator) might, in fact, affect the house price.
 
 ```{r - Remove BER Code variable}
 
@@ -372,12 +370,14 @@ parse_county <- function(location) {
 
 ireland_houses$county <- ireland_houses$location %>% 
   lapply( parse_county ) %>% 
-  unlist
+  unlist %>% 
+  as.factor
 
 
 ireland_houses$townOrNeighbourhood <- ireland_houses$location %>% 
   lapply( parse_townOrNeighbourhood ) %>% 
-  unlist
+  unlist %>% 
+  as.factor
 
 ```
 
@@ -486,9 +486,9 @@ Finally, after doing some initial data exploration and cleaning, we can proceed 
 
 ```{r Write Clean Dataset to Disk}
 dataset_filename <- paste(dataset_directory, 
-                          "ireland_houses_cleaned.csv", 
+                          "ireland_houses_cleaned.Rda", 
                           sep="")
 
-write.csv(ireland_houses, dataset_filename, row.names = FALSE)
+save(ireland_houses, file = dataset_filename)
 ```
 

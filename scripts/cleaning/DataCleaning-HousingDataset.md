@@ -444,7 +444,7 @@ BER rating (Building Energy Rating), we can safely remove this column
 from the dataset as the certificate number will be individually assigned
 to each property and do not actually influence on the house price,
 instead the house’s BER rating and BER EPI (Energy Performance
-Indicator) are what in fact affect the house price.
+Indicator) might, in fact, affect the house price.
 
 ``` r
 ireland_houses <- ireland_houses[ , !names(ireland_houses) %in% c("ber_code") ]
@@ -1825,12 +1825,14 @@ parse_county <- function(location) {
 
 ireland_houses$county <- ireland_houses$location %>% 
   lapply( parse_county ) %>% 
-  unlist
+  unlist %>% 
+  as.factor
 
 
 ireland_houses$townOrNeighbourhood <- ireland_houses$location %>% 
   lapply( parse_townOrNeighbourhood ) %>% 
-  unlist
+  unlist %>% 
+  as.factor
 ```
 
 ## Handling Outliers
@@ -1949,8 +1951,8 @@ in our dataset, thus diving a little deeper into our analysis.
 
 ``` r
 dataset_filename <- paste(dataset_directory, 
-                          "ireland_houses_cleaned.csv", 
+                          "ireland_houses_cleaned.Rda", 
                           sep="")
 
-write.csv(ireland_houses, dataset_filename, row.names = FALSE)
+save(ireland_houses, file = dataset_filename)
 ```
