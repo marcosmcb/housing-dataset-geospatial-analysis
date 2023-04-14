@@ -1,6 +1,49 @@
 Ireland Housing - Data Cleaning
 ================
 Marcos Cavalcante
+2023-04-14
+
+- <a href="#data-cleaning" id="toc-data-cleaning">Data Cleaning</a>
+- <a href="#installing-libraries" id="toc-installing-libraries">Installing
+  libraries</a>
+- <a href="#loading-the-dataset---ireland-housing-dataset"
+  id="toc-loading-the-dataset---ireland-housing-dataset">Loading the
+  Dataset - Ireland Housing dataset</a>
+- <a href="#removal-of-duplicates" id="toc-removal-of-duplicates">Removal
+  of duplicates</a>
+- <a
+  href="#handling-missing-values---what-is-the--of-values-missing-for-each-variable"
+  id="toc-handling-missing-values---what-is-the--of-values-missing-for-each-variable">Handling
+  missing values - What is the % of values missing for each variable.</a>
+  - <a href="#handling-missing-values---ber-code"
+    id="toc-handling-missing-values---ber-code">Handling missing values -
+    BER Code</a>
+  - <a href="#handling-missing-values---size-meters-squared-and-bathrooms"
+    id="toc-handling-missing-values---size-meters-squared-and-bathrooms">Handling
+    missing values - Size Meters Squared and Bathrooms</a>
+- <a href="#removal-of-unnecessary-variables"
+  id="toc-removal-of-unnecessary-variables">Removal of unnecessary
+  variables</a>
+- <a href="#describing-the-dataset-with-skim-function"
+  id="toc-describing-the-dataset-with-skim-function">Describing the
+  dataset with <em>skim</em> function</a>
+- <a href="#renaming-variables" id="toc-renaming-variables">Renaming
+  Variables</a>
+- <a href="#conversion-into-appropriate-data-types"
+  id="toc-conversion-into-appropriate-data-types">Conversion into
+  appropriate data types</a>
+- <a
+  href="#handling-of-missing-values---removing-observations-and-variables"
+  id="toc-handling-of-missing-values---removing-observations-and-variables">Handling
+  of missing values - Removing observations and variables</a>
+- <a href="#creation-of-new-variables"
+  id="toc-creation-of-new-variables">Creation of new variables</a>
+- <a href="#handling-outliers" id="toc-handling-outliers">Handling
+  Outliers</a>
+- <a href="#scaling-variables" id="toc-scaling-variables">Scaling
+  variables</a>
+- <a href="#write-clean-dataset-to-disk"
+  id="toc-write-clean-dataset-to-disk">Write Clean Dataset to disk</a>
 
 ### Data Cleaning
 
@@ -66,39 +109,49 @@ that we can take a look at the different pieces of data available to us
 and what kind of information they bring to the analysis.
 
 ``` r
-head(ireland_houses, 5)
+summary(ireland_houses, 5)
 ```
 
-    ##        id daftShortcode                                     title
-    ## 1 3984227      19666819             Drumroe, Ardagh, Co. Longford
-    ## 2 4003982     112963422                    Lissardowlan, Longford
-    ## 3 3999348     112922102       Cartrongarrow, Ardagh, Co. Longford
-    ## 4 3990203      19727521           Cloonfide, Moydow, Co. Longford
-    ## 5 3979561      19620850 5 Rath Na Gcarraige, Ardagh, Co. Longford
-    ##                  price size_meters_squared propertySize bedrooms bathrooms
-    ## 1             295000.0                 273       273 m²        6         4
-    ## 2             595000.0                 267       267 m²        4         4
-    ## 3             130000.0                  NA                     2         1
-    ## 4 Price on Application                  NA                     1         1
-    ## 5             285000.0                 191       191 m²        4         3
-    ##   propertyType publishDate ber_rating  ber_code          ber_epi latitude
-    ## 1     Bungalow  2022-08-10         B3 114847999 131.08 kWh/m2/yr 53.68968
-    ## 2     Detached  2022-08-02         B3 103099164 140.49 kWh/m2/yr 53.71720
-    ## 3     Detached  2022-07-28         E2 107714511  108.1 kWh/m2/yr 53.67240
-    ## 4     Detached  2022-07-21     SI_666        NA                  53.66372
-    ## 5     Detached  2022-08-03         B2 112836572 114.83 kWh/m2/yr 53.64857
-    ##   longitude category             location
-    ## 1 -7.684429      Buy ABBEYSHRULE_LONGFORD
-    ## 2 -7.726544      Buy ABBEYSHRULE_LONGFORD
-    ## 3 -7.728253      Buy ABBEYSHRULE_LONGFORD
-    ## 4 -7.787243      Buy ABBEYSHRULE_LONGFORD
-    ## 5 -7.702947      Buy ABBEYSHRULE_LONGFORD
-    ##                                                                                    url_link
-    ## 1                   http://www.daft.ie/for-sale/bungalow-drumroe-ardagh-co-longford/3984227
-    ## 2                  http://www.daft.ie/for-sale/detached-house-lissardowlan-longford/4003982
-    ## 3       http://www.daft.ie/for-sale/detached-house-cartrongarrow-ardagh-co-longford/3999348
-    ## 4           http://www.daft.ie/for-sale/detached-house-cloonfide-moydow-co-longford/3990203
-    ## 5 http://www.daft.ie/for-sale/detached-house-5-rath-na-gcarraige-ardagh-co-longford/3979561
+    ##        id          daftShortcode          title              price          
+    ##  Min.   :   6800   Min.   :  1319566   Length:100294      Length:100294     
+    ##  1st Qu.:3805133   1st Qu.: 18690195   Class :character   Class :character  
+    ##  Median :3933350   Median : 19258514   Mode  :character   Mode  :character  
+    ##  Mean   :3842396   Mean   : 28263078                                        
+    ##  3rd Qu.:3974191   3rd Qu.: 19593376                                        
+    ##  Max.   :4019790   Max.   :113071717                                        
+    ##                                                                             
+    ##  size_meters_squared propertySize         bedrooms           bathrooms     
+    ##  Min.   :   1.0      Length:100294      Length:100294      Min.   : 1.000  
+    ##  1st Qu.:  75.0      Class :character   Class :character   1st Qu.: 1.000  
+    ##  Median : 102.0      Mode  :character   Mode  :character   Median : 2.000  
+    ##  Mean   : 131.9                                            Mean   : 2.134  
+    ##  3rd Qu.: 147.0                                            3rd Qu.: 3.000  
+    ##  Max.   :6109.0                                            Max.   :32.000  
+    ##  NA's   :19967                                             NA's   :1658    
+    ##  propertyType       publishDate         ber_rating           ber_code         
+    ##  Length:100294      Length:100294      Length:100294      Min.   :         0  
+    ##  Class :character   Class :character   Class :character   1st Qu.: 106661911  
+    ##  Mode  :character   Mode  :character   Mode  :character   Median : 113473896  
+    ##                                                           Mean   : 113341265  
+    ##                                                           3rd Qu.: 114880636  
+    ##                                                           Max.   :1134291201  
+    ##                                                           NA's   :43417       
+    ##    ber_epi             latitude       longitude         category        
+    ##  Length:100294      Min.   :51.44   Min.   :-10.451   Length:100294     
+    ##  Class :character   1st Qu.:53.28   1st Qu.: -6.805   Class :character  
+    ##  Mode  :character   Median :53.34   Median : -6.285   Mode  :character  
+    ##                     Mean   :53.18   Mean   : -6.823                     
+    ##                     3rd Qu.:53.37   3rd Qu.: -6.249                     
+    ##                     Max.   :55.38   Max.   : -6.014                     
+    ##                                                                         
+    ##    location           url_link        
+    ##  Length:100294      Length:100294     
+    ##  Class :character   Class :character  
+    ##  Mode  :character   Mode  :character  
+    ##                                       
+    ##                                       
+    ##                                       
+    ## 
 
 Looking at the output of the previous step, some interesting things can
 be observed:
@@ -168,9 +221,6 @@ remove_duplicates <- function( dfHouses, dupes_column ) {
 }
 
 ireland_houses <- remove_duplicates(ireland_houses, c("id", "url_link"))
-
-no_dupes_filename <- paste(dataset_directory, "no_dupes_dataset.csv", sep="")
-write.csv(ireland_houses, no_dupes_filename, row.names=FALSE)
 
 print(paste("Number of observations AFTER removing duplicates:", 
             nrow(ireland_houses)))

@@ -1,10 +1,19 @@
 ---
 title: "Ireland Housing - Data Cleaning"
 author: Marcos Cavalcante
-output: github_document
+date: '`r Sys.Date()`'
+output: 
+  github_document:
+    toc: true
+    toc_depth: 3
+    number_sections: false
 always_allow_html: true
 ---
 
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo=TRUE, error=FALSE)
+options(dplyr.summarise.inform = FALSE)
+```
 
 
 ### Data Cleaning
@@ -120,9 +129,6 @@ remove_duplicates <- function( dfHouses, dupes_column ) {
 }
 
 ireland_houses <- remove_duplicates(ireland_houses, c("id", "url_link"))
-
-no_dupes_filename <- paste(dataset_directory, "no_dupes_dataset.csv", sep="")
-write.csv(ireland_houses, no_dupes_filename, row.names=FALSE)
 
 print(paste("Number of observations AFTER removing duplicates:", 
             nrow(ireland_houses)))
