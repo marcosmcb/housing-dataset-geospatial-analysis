@@ -1,64 +1,70 @@
 Ireland Housing - Exploratory Data Analysis - EDA
 ================
 Marcos Cavalcante
-2023-04-14
+2023-04-16
 
 - <a href="#exploratory-data-analysis"
   id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
-- <a href="#installing-libraries" id="toc-installing-libraries">Installing
-  libraries</a>
+  - <a href="#installing-libraries" id="toc-installing-libraries">Installing
+    libraries</a>
 - <a href="#summary-statistics" id="toc-summary-statistics">Summary
   Statistics</a>
 - <a href="#data-distribution-and-relationship"
   id="toc-data-distribution-and-relationship">Data Distribution and
   Relationship</a>
-  - <a href="#data-exploration---price-target-variable"
-    id="toc-data-exploration---price-target-variable">Data Exploration -
-    Price target variable</a>
-  - <a href="#data-exploration---correlation-matrix"
-    id="toc-data-exploration---correlation-matrix">Data Exploration -
-    Correlation Matrix</a>
+  - <a href="#house-price-the-target-variable"
+    id="toc-house-price-the-target-variable">House Price, the target
+    variable</a>
+    - <a href="#histogram-of-price" id="toc-histogram-of-price">Histogram of
+      Price</a>
+  - <a href="#correlation-matrix" id="toc-correlation-matrix">Correlation
+    Matrix</a>
+  - <a href="#analysing-relationship-between-house-price-and-size"
+    id="toc-analysing-relationship-between-house-price-and-size">Analysing
+    relationship between house price and size</a>
   - <a
-    href="#data-exploration---analysing-relationship-between-price-and-size"
-    id="toc-data-exploration---analysing-relationship-between-price-and-size">Data
-    Exploration - Analysing relationship between price and size</a>
+    href="#analysing-relationship-between-house-price-and-number-of-bathrooms"
+    id="toc-analysing-relationship-between-house-price-and-number-of-bathrooms">Analysing
+    relationship between house price and number of bathrooms</a>
   - <a
-    href="#data-exploration---analysing-relationship-between-price-and-number-of-bathrooms"
-    id="toc-data-exploration---analysing-relationship-between-price-and-number-of-bathrooms">Data
-    Exploration - Analysing relationship between price and number of
-    bathrooms</a>
-  - <a
-    href="#data-exploration---analysing-relationship-between-price-and-number-of-bedrooms"
-    id="toc-data-exploration---analysing-relationship-between-price-and-number-of-bedrooms">Data
-    Exploration - Analysing relationship between price and number of
-    bedrooms</a>
-- <a href="#visualisation-of-character-variables"
-  id="toc-visualisation-of-character-variables">Visualisation of character
-  variables</a>
-  - <a href="#property-type-by-price-bivariate-graph"
-    id="toc-property-type-by-price-bivariate-graph">Property Type by Price
-    Bivariate graph</a>
-  - <a href="#house-price" id="toc-house-price">House Price</a>
-  - <a href="#plotting-the-data-spatially"
-    id="toc-plotting-the-data-spatially">Plotting the data spatially</a>
-- <a href="#loading-shapefile-with-the-map-of-ireland"
-  id="toc-loading-shapefile-with-the-map-of-ireland">Loading shapefile
-  with the map of Ireland</a>
-- <a href="#joining-the-two-objects-together"
-  id="toc-joining-the-two-objects-together">Joining the two objects
-  together</a>
+    href="#analysing-relationship-between-house-price-and-number-of-bedrooms"
+    id="toc-analysing-relationship-between-house-price-and-number-of-bedrooms">Analysing
+    relationship between house price and number of bedrooms</a>
+  - <a href="#analysing-factor-variables---anova-p-value-and-f-value"
+    id="toc-analysing-factor-variables---anova-p-value-and-f-value">Analysing
+    factor variables - ANOVA, p-value and f-value</a>
+    - <a href="#property-type" id="toc-property-type">Property Type</a>
+    - <a href="#county" id="toc-county">County</a>
+    - <a href="#ber-rating" id="toc-ber-rating">BER Rating</a>
+    - <a href="#town-or-neighbourhood" id="toc-town-or-neighbourhood">Town or
+      Neighbourhood</a>
+- <a href="#data-visualisation" id="toc-data-visualisation">Data
+  Visualisation</a>
+  - <a href="#property-price" id="toc-property-price">Property Price</a>
+    - <a href="#box-plot-property-type-by-price"
+      id="toc-box-plot-property-type-by-price">Box-Plot Property Type by
+      Price</a>
+    - <a href="#frequency-plot-property-type-by-price"
+      id="toc-frequency-plot-property-type-by-price">Frequency Plot Property
+      Type by Price</a>
+  - <a href="#density-plot-of-county-and-house-price"
+    id="toc-density-plot-of-county-and-house-price">Density Plot of County
+    and House price</a>
+- <a href="#spatial-visualisation" id="toc-spatial-visualisation">Spatial
+  Visualisation</a>
+  - <a href="#plot-of-property-type-by-county"
+    id="toc-plot-of-property-type-by-county">Plot of Property Type by
+    County</a>
+  - <a href="#plot-of-count-of-houses-by-county"
+    id="toc-plot-of-count-of-houses-by-county">Plot of Count of Houses by
+    County</a>
+  - <a href="#plot-of-property-type" id="toc-plot-of-property-type">Plot of
+    Property Type</a>
+  - <a href="#choropleth-map-of-mean-house-price-per-county"
+    id="toc-choropleth-map-of-mean-house-price-per-county">Choropleth Map of
+    Mean House Price per County</a>
 
-## Exploratory Data Analysis
-
-In this part of the study, the following tasks will be performed:
-
-- **Creation of Summary Statistics**
-- **Data Distribution**
-- **Data Visualisation**
-- **Outliers**
-- **Feature Engineering**
-- **Hypothesis Testing**
-- **Data Cleaning**
+# Exploratory Data Analysis
 
 ## Installing libraries
 
@@ -68,7 +74,7 @@ First step is to install and load the necessary libraries.
 packages <- c("tidyverse", "haven", "devtools", "dplyr", 
               "ggplot2", "gapminder", "patchwork", "ggridges", 
               "corrplot", "gridExtra", "sf","tmap","rgdal","rgeos",
-              "adehabitatHR", "knitr", "kableExtra")
+              "adehabitatHR", "knitr", "kableExtra", "randomForest")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -87,7 +93,7 @@ webshot::install_phantomjs()
 library(skimr)
 ```
 
-## Summary Statistics
+# Summary Statistics
 
 In this stage, the dataset will be looked at from many perspectives, the
 target variable, **price**, will be looked at carefully when comparing
@@ -97,7 +103,7 @@ The other variables in the dataset will also be analysed and some
 feature engineering techniques may be used to derive other pieces of
 data from them.
 
-As an input in this step, the **ireland_houses_cleaned.csv** file will
+As an input in this step, the **ireland_houses_cleaned** dataframe will
 be used as it was created in the previous notebook where the dataset was
 cleaned.
 
@@ -105,9 +111,10 @@ Let’s start by using the skim library to have a glimpse of the dataset.
 
 ``` r
 dataset_directory <- "../../datasets/"
-dataset_filename <- paste(dataset_directory, "ireland_houses_cleaned.csv", sep="")
+dataset_filename <- paste(dataset_directory, "ireland_houses_cleaned.Rda", 
+                          sep="")
 
-ireland_houses <- read.csv(file = dataset_filename ) # Load the dataset
+load(file = dataset_filename) # loads ireland_houses dataframe
 
 options(scipen = 999) # turn off scientific notation
 
@@ -162,7 +169,15 @@ Column type frequency:
 character
 </td>
 <td style="text-align:left;">
-6
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+4
 </td>
 </tr>
 <tr>
@@ -251,58 +266,6 @@ address
 </tr>
 <tr>
 <td style="text-align:left;">
-propertyType
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-berRating
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-178
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 location
 </td>
 <td style="text-align:right;">
@@ -327,6 +290,75 @@ location
 0
 </td>
 </tr>
+</tbody>
+</table>
+
+**Variable type: factor**
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+propertyType
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Det: 3440, Sem: 2278, Ter: 1427, Apa: 977
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+berRating
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+C3: 1112, C1: 1086, C2: 1085, D1: 975
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 county
@@ -337,20 +369,14 @@ county
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-0
+<td style="text-align:left;">
+FALSE
 </td>
 <td style="text-align:right;">
 26
 </td>
-<td style="text-align:right;">
-0
+<td style="text-align:left;">
+DUB: 3303, COR: 1168, GAL: 533, WEX: 398
 </td>
 </tr>
 <tr>
@@ -363,20 +389,14 @@ townOrNeighbourhood
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-52
-</td>
-<td style="text-align:right;">
-0
+<td style="text-align:left;">
+FALSE
 </td>
 <td style="text-align:right;">
 114
 </td>
-<td style="text-align:right;">
-0
+<td style="text-align:left;">
+NOR: 780, SOU: 705, IBA: 592, COR: 561
 </td>
 </tr>
 </tbody>
@@ -636,11 +656,11 @@ longitude
 </tbody>
 </table>
 
-The dataset has at this point over 9000 thousand observations and 12
-variables, where one of those is the **target** variable. 6 of those
-variables are of numeric type and the other 6 are of character type,
-some of those can be transformed in factors, but that will be done at a
-later stage.
+At this point, the dataset has over 9000 thousand observations and 12
+variables, where one of those is the **target** variable.
+
+6 of those variables are of numeric type, 4 are of factor type and the
+other 2 are of character type.
 
 From the quick statistic summary above, it can be observed that:
 
@@ -667,69 +687,70 @@ From the quick statistic summary above, it can be observed that:
   bathrooms in a house is 28.
 
 - **Bedrooms**: Similar to the *bathrooms* variable, **bedrooms** also
-  show an intersting behaviour, the mean is 3 bedrooms per house and the
-  maximum number of bedrooms is 30.
+  show an interesting behaviour, the mean is 3 bedrooms per house and
+  the maximum number of bedrooms is 30.
 
 Each variable’s significance is described below:
 
 | Variable            | Description                                                               |
 |---------------------|---------------------------------------------------------------------------|
 | address             | A long form of the property address                                       |
-| propertyType        | The type of the property, i.e. Apartment, End of Terrace, Semi-D, Terrace |
-| berRating           | BER Rating of this property, i.e. A1, B2                                  |
-| location            | A short form of the property address area, i.e. Dublin 1, Co. Dublin      |
-| county              | The county the property is in. Examples: “Co. Wicklow”, “Co. Kerry”       |
-| townOrNeighbourhood | The town or neighbourhood where is the property                           |
-| price               | The price of the property, in euro €                                      |
-| size                | The size of the property in square meters                                 |
-| bedrooms            | The number of bedrooms in this property                                   |
 | bathrooms           | The number of bathrooms in this property                                  |
+| bedrooms            | The number of bedrooms in this property                                   |
+| berRating           | BER Rating of this property, i.e. A1, B2                                  |
+| county              | The county the property is in. Examples: “Co. Wicklow”, “Co. Kerry”       |
 | latitude            | The latitude of the property                                              |
+| location            | A short form of the property address area, i.e. Dublin 1, Co. Dublin      |
 | longitude           | The longitude of the property                                             |
+| price               | The price of the property, in euro €                                      |
+| propertyType        | The type of the property, i.e. Apartment, End of Terrace, Semi-D, Terrace |
+| size                | The size of the property in square meters                                 |
+| townOrNeighbourhood | The town or neighbourhood where is the property                           |
 
-## Data Distribution and Relationship
+# Data Distribution and Relationship
 
-### Data Exploration - Price target variable
+## House Price, the target variable
 
-Let’s start by exploring the target variable, **price**.
+Let’s start by exploring the target variable, **price**. Price’s
+histogram is going to be plotted below so it is possible to see the
+amount of properties distributed across the price range.
 
-#### Histogram of Price
+### Histogram of Price
 
 ``` r
-price_histogram_all <- ggplot(ireland_houses, aes(x = price)) +
-      geom_histogram(color = "darkblue", fill = "deepskyblue", bins = 30) +
-      labs(title = "Histogram of All house prices", x = "Price", y = "Observations") +
-      scale_fill_brewer() +
-      theme(text=element_text(size = 20, face = "bold", family = "mono"))
-
-price_histogram_under_2mi <- ggplot(ireland_houses, aes(x = price)) +
+price_histogram_under_2mi <- ggplot(ireland_houses[ ireland_houses$price < 2000000, ], aes(x = price)) +
       geom_histogram(color = "darkblue", fill = "deepskyblue", bins = 30) +
       labs(title = "Histogram of house prices under € 2 million", x = "Price", y = "Observations") +
       scale_x_continuous(name = "Price", limits = c(0, 2000000)) +
       scale_fill_brewer() +
       theme(text=element_text(size = 20, face = "bold", family = "mono"))
 
+price_histogram_above_2mi <- ggplot(ireland_houses[ ireland_houses$price >= 2000000, ], aes(x = price)) +
+      geom_histogram(color = "darkblue", fill = "deepskyblue", bins = 30) +
+      labs(title = "Histogram of house prices above € 2 million", x = "Price", y = "Observations") +
+      scale_fill_brewer() +
+      theme(text=element_text(size = 20, face = "bold", family = "mono"))
 
-grid.arrange(price_histogram_all, price_histogram_under_2mi)
+grid.arrange(price_histogram_under_2mi, price_histogram_above_2mi)
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/Price%20Histogram-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Histogram%20of%20Price-1.png)<!-- -->
 
 Again, those results are expected as most of the houses are under
 €495,000.00. Nevertheless, the histogram shows that there are some
 observations that have a price of over €1,000,000.00, that might be an
 early indication that our dataset is unbalanced as most of the
-obersations are under €500,000.00.
+observations are under €500,000.00.
 
-### Data Exploration - Correlation Matrix
+## Correlation Matrix
 
 One way to understand the relationship among the variables in a dataset
 is by calculating its correlation matrix. By doing that, you can see how
-strongly the target variable in the dataset correlate with the other and
-whether or not there is problems with multicollinearity - which happens
-when other variables in the dataset have a high correlation with each
-other - cancelling each other out when using certain machine learning
-models.
+strongly the target variable in the dataset correlates with the other
+variables and whether or not there are problems with multicollinearity -
+which happens when other variables in the dataset have a high
+correlation with each other - cancelling each other out when using
+certain machine learning models.
 
 At a later point, we start looking more carefully at the character
 variables.
@@ -738,62 +759,70 @@ The correlation method used in this calculation is the **Pearson**
 method.
 
 ``` r
-correlation_matrix <- cor(select_if(ireland_houses, is.numeric) )
+correlation_matrix <- cor(select_if(ireland_houses, is.numeric))
 
 corrplot( corr = correlation_matrix, 
           method = "color", 
           type = "lower", 
           order = "hclust", 
           addCoef.col = "black", 
-          diag=FALSE, 
-          tl.srt= 45, 
+          diag = FALSE, 
+          tl.srt = 45, 
           tl.col = "black"
 )
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Correlation%20Matrix-1.png)<!-- -->
 
 From the matrix correlation above, some important information can be
-infered:
+inferred:
 
-- There is a moderate correlation between price and size as the
-  coeficient is over 0.40 and a weak positive correlation with bathroom
-  and bedroom (except latitude and longitude).
+- There is a **moderate positive correlation** between price and size as
+  the coeficient is over 0.40 and a **weak positive correlation** with
+  bathroom and bedroom. Latitude and longitude have very weak
+  correlation with price, as expected.
 
-- There is also a strong positive correlation between bathrooms and
-  bedrooms, which is an early indication of multicollinearity.
+- There is also a **strong positive correlation** between bathrooms and
+  bedrooms, which can be an early indication of multicollinearity.
 
-### Data Exploration - Analysing relationship between price and size
+## Analysing relationship between house price and size
 
 ``` r
-all_house_price <- ggplot(data = ireland_houses, aes(x = size, y = price)) +
+create_lin_graph <- function(house_df, aest, labels) {
+  lin_graph <- ggplot(data = house_df, aes(x = !!aest$x, y = !!aest$y)) +
         geom_point(col='deepskyblue') + 
         geom_smooth(formula = y ~ x, method = "lm", se=FALSE, color="orangered") +
-        labs(title = "All House Price by House Size", x = "Size", y = "Price") +
+        labs(title = labels$title, x = labels$x, y = labels$y) +
         scale_y_continuous(n.breaks = 15) +
         scale_x_continuous(n.breaks = 15) +
         theme(text=element_text(size = 15, face = "bold", family = "mono"))
+  
+  return (lin_graph)
+}
 
-under_2mi_house_price <- ggplot(data = ireland_houses, aes(x = size, y = price)) +
-        geom_point(col='deepskyblue') + 
-        geom_smooth(formula = y ~ x, method = "lm", se=FALSE, color="orangered") +
-        labs(title = "Under €2MI House Price by House Size", x = "Size", y = "Price") +
-        scale_y_continuous(n.breaks = 15, limits = c(0, 2000000)) +
-        scale_x_continuous(n.breaks = 15) +
-        theme(text=element_text(size = 15, face = "bold", family = "mono"))
+under_2mi_house_price <- create_lin_graph(
+  house_df = ireland_houses[ireland_houses$price < 2000000,],
+  aest = list( x = sym("size"), y = sym("price") ),
+  labels = list(title = "Under €2MI House Price by Size", x = "Size", y = "Price")
+)
 
-under_2k_house_size <- ggplot(data = ireland_houses, aes(x = size, y = price)) +
-        geom_point(col='deepskyblue') + 
-        geom_smooth(formula = y ~ x, method = "lm", se=FALSE, color="orangered") +
-        labs(title = "All House Price by House Size under 2K", x = "Size", y = "Price") +
-        scale_y_continuous(n.breaks = 15) +
-        scale_x_continuous(n.breaks = 15, limits = c(0, 2000)) +
-        theme(text=element_text(size = 15, face = "bold", family = "mono"))
+over_2mi_house_price <- create_lin_graph(
+  house_df = ireland_houses[ireland_houses$price >= 2000000,],
+  aest = list( x = sym("size"), y = sym("price") ),
+  labels = list(title = "Over €2MI House Price by Size", x = "Size", y = "Price")
+)
 
-grid.arrange(all_house_price, under_2mi_house_price, under_2k_house_size)
+under_2k_house_size <- create_lin_graph(
+  house_df = ireland_houses[ireland_houses$size < 2000,],
+  aest = list( x = sym("size"), y = sym("price") ),
+  labels = list(title = "All House Price by Size under 2K", x = "Size", y = "Price")
+)
+
+
+grid.arrange(under_2mi_house_price, over_2mi_house_price, under_2k_house_size) 
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/Analysing%20relationship%20between%20price%20and%20size-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Analysing%20relationship%20between%20house%20price%20and%20size-1.png)<!-- -->
 
 The plots above reveal us many interesting things, for example:
 
@@ -802,16 +831,16 @@ The plots above reveal us many interesting things, for example:
     dataset, the most expensive ones stand out in the graph, for
     example: a house costing about €15 million euro and other two houses
     costing €12 and €10.5 million euro respectively.
-  - It can also be seen some house that have a large property area, such
-    as 3,500, 4,000 and 6,000 $sq^2$.
+  - It can also be seen that some houses have a large property area,
+    such as 3,500, 4,000 and 6,000 $sq^2$.
 
-### Data Exploration - Analysing relationship between price and number of bathrooms
+## Analysing relationship between house price and number of bathrooms
 
 ``` r
 create_bathroom_barchart <- function( df, title ) {
   bar_chart <-  ggplot(df, aes(x = bathrooms, y = price)) +
-    geom_bar(stat = "summary", fun.y = "median", fill = 'deepskyblue') +
-    labs(x = "Bathrooms", y = "Mean price") +
+    geom_bar(stat = "summary", fun = median, fill = 'deepskyblue') +
+    labs(x = "Bathrooms", y = "Price") +
     scale_x_continuous(n.breaks = 15) +
     geom_label(stat = "count", aes(label = ..count.., y = ..count..)) +
     labs(title = title) +
@@ -822,21 +851,18 @@ create_bathroom_barchart <- function( df, title ) {
 
 bar_chart_under_6_bathrooms <- create_bathroom_barchart(
   df = ireland_houses[ireland_houses$bathrooms < 6,],
-  title = "Mean Price of Houses with under 6 bathrooms"  
+  title = "Median Price of Houses with under 6 bathrooms"  
 )
 
 bar_chart_over_6_bathrooms <- create_bathroom_barchart(
   df = ireland_houses[ireland_houses$bathrooms >= 6,],
-  title = "Mean Price of Houses with over 6 bathrooms"  
+  title = "Median Price of Houses with over 6 bathrooms"  
 )
 
 grid.arrange(bar_chart_under_6_bathrooms, bar_chart_over_6_bathrooms)
 ```
 
-    ## No summary function supplied, defaulting to `mean_se()`
-    ## No summary function supplied, defaulting to `mean_se()`
-
-![](DataExploration-HousingDataset_files/figure-gfm/-%20Analysing%20relationship%20between%20price%20and%20number%20of%20bathrooms-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Analysing%20relationship%20between%20house%20price%20and%20number%20of%20bathrooms-1.png)<!-- -->
 
 To compile the bar charts above, the dataframe was split into 2 based on
 the number of bathrooms to help visualise the data, 6 was choosen based
@@ -848,13 +874,13 @@ of bathrooms increase, so does the house price. However, this is not
 always true. It is possible to see instance where houses with more
 bathrooms cost less than houses with less bathrooms.
 
-### Data Exploration - Analysing relationship between price and number of bedrooms
+## Analysing relationship between house price and number of bedrooms
 
 ``` r
 create_bedroom_barchart <- function( df, title ) {
   bar_chart <-  ggplot(df, aes(x = bedrooms, y = price)) +
-    geom_bar(stat = "summary", fun.y = "median", fill = 'deepskyblue') +
-    labs(x = "Bedrooms", y = "Mean price") +
+    geom_bar(stat = "summary", fun = median, fill = 'deepskyblue') +
+    labs(x = "Bedrooms", y = "Price") +
     scale_x_continuous(n.breaks = 15) +
     geom_label(stat = "count", aes(label = ..count.., y = ..count..)) +
     labs(title = title) +
@@ -865,71 +891,265 @@ create_bedroom_barchart <- function( df, title ) {
 
 bar_chart_under_6_bedrooms <- create_bedroom_barchart(
   df = ireland_houses[ireland_houses$bedrooms < 6,],
-  title = "Mean Price of Houses with under 6 bedrooms"  
+  title = "Median Price of Houses with under 6 bedrooms"  
 )
 
 bar_chart_over_6_bedrooms <- create_bedroom_barchart(
   df = ireland_houses[ireland_houses$bedrooms >= 6,],
-  title = "Mean Price of Houses with over 6 bedrooms"  
+  title = "Median Price of Houses with over 6 bedrooms"  
 )
 
 grid.arrange(bar_chart_under_6_bedrooms, bar_chart_over_6_bedrooms)
 ```
 
-    ## No summary function supplied, defaulting to `mean_se()`
-    ## No summary function supplied, defaulting to `mean_se()`
-
-![](DataExploration-HousingDataset_files/figure-gfm/-%20Analysing%20relationship%20between%20price%20and%20number%20of%20bedrooms-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Analysing%20relationship%20between%20house%20price%20and%20number%20of%20bedrooms-1.png)<!-- -->
 
 The same kind of behaviour can be seen with the bedroom variable. This
 should be no surprise as there was indeed a positive correlation between
 number of bedrooms and house price.
 
-## Visualisation of character variables
+## Analysing factor variables - ANOVA, p-value and f-value
 
-### Property Type by Price Bivariate graph
+In this part of the analysis, the relationship between price and the
+factor variables: **property type**, **county**, **townOrNeighbourhood**
+and **berRating** will be studied.
 
-After understanding how the observations are distributed across the 16
-valid property types. It can clearly be seen that *Terrace*,
-*Semi-Detached* and *Detached* houses roughly represent over 75% of the
-houses.
+The statistical methods used will be the **ANOVA (Analysis of
+Variance)** so that the significance of those variables with relation to
+the price can be understood.
+
+The hypothesis used across those factors is the following:
+
+- **H0** *( p-value \> 0.05 & small f-value )*: It means that the
+  variables do not have a strong relationship and therefore the
+  categorical variable does not contribute to the prediction of the
+  target variable.
+
+- **H1** *( p-value \< 0.05 & large f-value )*: It means that the
+  variables do not have a strong relationship, which indicates that the
+  categorical variable is signifcant when trying to understand changes
+  in the target variable.
+
+### Property Type
+
+#### Calculating ANOVA
+
+``` r
+anova_result <- aov(price ~ propertyType, data = ireland_houses)
+summary(anova_result)
+```
+
+    ##                Df           Sum Sq        Mean Sq F value              Pr(>F)
+    ## propertyType    7   76910505205713 10987215029388   36.51 <0.0000000000000002
+    ## Residuals    9001 2708808922336583   300945330778                            
+    ##                 
+    ## propertyType ***
+    ## Residuals       
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Given the results above, we can reject the null hypothesis based on the
+**p-value** as that is smaller than *0.05*.
+
+#### Calculating the F Critical
+
+``` r
+calculate_f_critical <- function( total_observations, num_property_levels ) {
+  
+  total_observations <- nrow(ireland_houses)
+  number_of_predictors <- num_property_levels 
+  
+  min_df <- total_observations - number_of_predictors
+  max_df <- total_observations - 1
+  alpha <- 0.05
+
+  f_critical <- qf(
+    p = 1 - alpha, 
+    df1 = min_df, 
+    df2 = max_df, 
+    lower.tail = FALSE
+  )  
+  
+  return (f_critical)
+}
+
+cat( "F-Critical value is", calculate_f_critical( 
+  total_observations = nrow(ireland_houses), 
+  num_property_levels = nlevels(ireland_houses$propertyType)
+))
+```
+
+    ## F-Critical value is 0.9659243
+
+The F-Critical value is significantly smaller than the F-value
+calculated from the ANOVA step, therefore, we can certainly **reject**
+the null hypothesis (**H0**).
+
+### County
+
+#### Calculating ANOVA
+
+``` r
+anova_result <- aov(price ~ county, data = ireland_houses)
+summary(anova_result)
+```
+
+    ##               Df           Sum Sq       Mean Sq F value              Pr(>F)    
+    ## county        25  177970935572066 7118837422883   24.52 <0.0000000000000002 ***
+    ## Residuals   8983 2607748491970246  290298173435                                
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Given the results above, we can reject the null hypothesis based on the
+**p-value** as that is smaller than *0.05*.
+
+#### Calculating the F Critical
+
+``` r
+cat( "F-Critical value is", calculate_f_critical( 
+  total_observations = nrow(ireland_houses), 
+  num_property_levels = nlevels(ireland_houses$county)
+))
+```
+
+    ## F-Critical value is 0.9659071
+
+The F-Critical value is significantly smaller than the F-value
+calculated from the ANOVA step, therefore, we can certainly **reject**
+the null hypothesis (**H0**).
+
+### BER Rating
+
+#### Calculating ANOVA
+
+``` r
+anova_result <- aov(price ~ berRating, data = ireland_houses)
+summary(anova_result)
+```
+
+    ##               Df           Sum Sq        Mean Sq F value              Pr(>F)
+    ## berRating     16  162603430928200 10162714433013   34.84 <0.0000000000000002
+    ## Residuals   8992 2623115996614096   291716636634                            
+    ##                
+    ## berRating   ***
+    ## Residuals      
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Given the results above, we can reject the null hypothesis based on the
+**p-value** as that is smaller than *0.05*.
+
+#### Calculating the F Critical
+
+``` r
+cat( "F-Critical value is", calculate_f_critical( 
+  total_observations = nrow(ireland_houses), 
+  num_property_levels = nlevels(ireland_houses$berRating)
+))
+```
+
+    ## F-Critical value is 0.9659157
+
+The F-Critical value is significantly smaller than the F-value
+calculated from the ANOVA step, therefore, we can certainly **reject**
+the null hypothesis (**H0**).
+
+#### Box Plot of BER Rating and House price
+
+``` r
+ggplot(ireland_houses, aes(x = berRating, y = price)) +
+  geom_boxplot( aes(fill = berRating), color = "black", outlier.shape = NA) +
+  labs(title = "Box plot of prices by BER rating", 
+       x = "BER rating", 
+       y = "Price in Log10 scale") +
+  scale_y_log10() +
+  theme(text=element_text(size = 20, face = "bold", family = "mono"))
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Box-Plot%20of%20BER%20Rating%20and%20House%20price-1.png)<!-- -->
+
+### Town or Neighbourhood
+
+#### Calculating ANOVA
+
+``` r
+anova_result <- aov(price ~ townOrNeighbourhood, data = ireland_houses)
+summary(anova_result)
+```
+
+    ##                       Df           Sum Sq       Mean Sq F value
+    ## townOrNeighbourhood  113  350000075292067 3097345799045   11.31
+    ## Residuals           8895 2435719352250241  273830168887        
+    ##                                  Pr(>F)    
+    ## townOrNeighbourhood <0.0000000000000002 ***
+    ## Residuals                                  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Given the results above, we can reject the null hypothesis based on the
+**p-value** as that is smaller than *0.05*.
+
+#### Calculating the F Critical
+
+``` r
+cat( "F-Critical value is", calculate_f_critical( 
+  total_observations = nrow(ireland_houses), 
+  num_property_levels = nlevels(ireland_houses$townOrNeighbourhood)
+))
+```
+
+    ## F-Critical value is 0.9658226
+
+The F-Critical value is significantly smaller than the F-value
+calculated from the ANOVA step, therefore, we can certainly **reject**
+the null hypothesis (**H0**).
+
+#### Box Plot of Town or Neighbourhood and House price
+
+``` r
+ggplot(ireland_houses, aes(x = townOrNeighbourhood, y = price)) +
+  geom_boxplot( aes(fill = townOrNeighbourhood), 
+                color = "black", 
+                outlier.shape = NA) +
+  labs(title = "Box plot of prices by Town or Neighbourhood", 
+       x = "Town or Neighbourhood", 
+       y = "Price in Log10 scale") +
+  scale_y_log10() +
+  theme(text=element_text(size = 20, face = "bold", family = "mono"))
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Box-Plot%20of%20Town%20or%20Neighbourhood%20and%20House%20price-1.png)<!-- -->
+
+# Data Visualisation
+
+## Property Price
+
+### Box-Plot Property Type by Price
 
 The next graph displays how prices and property prices are related.
 
 ``` r
-create_bivariate_graph <- function( house_df, limits, title ) {
-  property_type_by_price <- ggplot(house_df) + 
-    geom_density_ridges(aes(x = price, 
-                          y = propertyType, 
-                          fill = propertyType)) +
-    scale_x_continuous(name = "price", limits = limits) +
-    theme_ridges() + 
-    labs(title = title, x = "Price", y = "Property Type") +
-    theme(legend.position = "none")
-  
-  return (property_type_by_price)
-}
-
-property_type_by_price_1MI <- create_bivariate_graph(ireland_houses, c(0, 1000000), "Property Type by Price (up to €1MI)" )
-property_type_by_price_10MI <-create_bivariate_graph(ireland_houses, c(1000001, 10000000), "Property Type by Price (from €1MI to €10MI)" )
-  
-grid.arrange(property_type_by_price_1MI, property_type_by_price_10MI)
+ggplot(ireland_houses, aes(x = propertyType, y = price)) +
+  geom_boxplot( aes(fill = propertyType), color = "black", outlier.shape = NA) +
+  labs(title = "Box plot of prices by property type", 
+       x = "Property type", 
+       y = "Price in Log10 scale") +
+  scale_y_log10() +
+  theme(text=element_text(size = 20, face = "bold", family = "mono"))
 ```
 
-    ## Picking joint bandwidth of 39300
+![](DataExploration-HousingDataset_files/figure-gfm/Box-Plot%20of%20Property%20types%20and%20House%20price-1.png)<!-- -->
 
-    ## Picking joint bandwidth of 189000
-
-![](DataExploration-HousingDataset_files/figure-gfm/Property%20Type%20by%20Price%20Bivariate%20graph-1.png)<!-- -->
-
-### House Price
+### Frequency Plot Property Type by Price
 
 In order to better visualize how the observations distribute across the
 price range, let’s choose the range from €0 to €2 million euro as it
 will allow us to well visualise where most of the observations fall.
 
 ``` r
-ggplot(ireland_houses, aes(x = price, colour = propertyType, fill = propertyType)) +
+ggplot(ireland_houses, aes(x = price, 
+                           colour = propertyType, 
+                           fill = propertyType)) +
   geom_freqpoly(
     bins=30,
     lwd = 1,
@@ -945,9 +1165,36 @@ ggplot(ireland_houses, aes(x = price, colour = propertyType, fill = propertyType
   scale_fill_brewer() 
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/House%20Prices%20Histogram-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/House%20Price%20by%20Property%20type-1.png)<!-- -->
 
-### Plotting the data spatially
+## Density Plot of County and House price
+
+``` r
+med_price_county_df <- ireland_houses %>%
+  group_by(county) %>%
+  summarize(median = median(price))
+
+
+ggplot(ireland_houses, aes(x=price, color=county, fill=county)) +
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_log10() +
+  geom_vline(
+    data = med_price_county_df, 
+    aes(xintercept = median, color = county), 
+    linewidth = 0.5) + 
+  facet_wrap(~county) +
+  labs(x= "House Price", subtitle="House Price distribution per county") +
+  theme(
+    legend.position = "bottom",
+    text = element_text(size = 15, face = "bold", family = "mono")
+  )
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Density%20Plot%20of%20County%20and%20House%20price-1.png)<!-- -->
+
+# Spatial Visualisation
+
+Let’s first load the shape file of Ireland
 
 ``` r
 # Lets create a shape file object from our dataset
@@ -956,46 +1203,158 @@ ireland_houses_sf <- st_as_sf(x = ireland_houses,
                          crs = 4326)
 
 tmap_mode("view")
+
+shp_ireland <- readOGR(
+  dsn = "../../datasets/shapefile_ireland", 
+  layer = "gadm41_IRL_0", 
+  verbose = FALSE
+)
+
+
+create_county_map <- function() {
+  ireland_counties_sf <- st_read("../../datasets/ireland_counties.geojson", quiet = TRUE)
+  # Transformation needed to match format of ireland_houses dataset 
+  ireland_counties_sf$COUNTY <- toupper(ireland_counties_sf$COUNTY) 
+  ireland_counties_sf <- rename( ireland_counties_sf, county = COUNTY)
+  
+  counties_map <- ireland_counties_sf %>% 
+    group_by(county) %>% 
+    summarise(geometry = st_union(geometry) , AREA=sum(AREA))
+  
+  # Remove Northern Ireland as it is not part of this analysis
+  county_map <- counties_map %>% filter( county != "NI" )
+  
+  return (county_map)
+}
+
+ireland_by_county_sf <- create_county_map()
 ```
 
-    ## tmap mode set to interactive viewing
+## Plot of Property Type by County
 
 ``` r
-tm_shape(shp = ireland_houses_sf) + 
-  tm_dots(col = "deepskyblue4", 
-          border.col = "black", 
-          size = 0.02, 
-          alpha = 0.8)
-```
+property_type_count <- aggregate(
+  ireland_houses$address,
+  by = list(
+    ireland_houses$county,
+    ireland_houses$propertyType
+  ),
+  FUN = length
+)
 
-![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+names(property_type_count) <- c("county", "propertyType", "count")
 
-## Loading shapefile with the map of Ireland
 
-``` r
-shp_ireland <- readOGR("../../datasets/shapefile_ireland", "gadm41_IRL_0")
-```
+property_type_count_by_county <- merge( ireland_by_county_sf,
+                         property_type_count,
+                         by.x = "county",
+                         by.y = "county"
+)
 
-    ## OGR data source with driver: ESRI Shapefile 
-    ## Source: "/Users/marcoscavalcante/Projects/housing-dataset-geospatial-analysis/datasets/shapefile_ireland", layer: "gadm41_IRL_0"
-    ## with 1 features
-    ## It has 2 fields
 
-``` r
+property_type_count_by_county_map <- 
+  property_type_count_by_county %>% 
+  st_set_crs(value = 4326) %>% 
+  st_cast()
+
+tmap_mode("plot")
+
 tm_shape(shp = shp_ireland) + 
-  tm_borders()
+    tm_borders(alpha = 1) +
+tm_shape(shp = property_type_count_by_county) + 
+  tm_bubbles(size = "count", 
+             col = "propertyType", 
+             legend.size.show = FALSE, 
+             alpha=0.9, 
+             palette = "Set3") +
+  tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = FALSE) + 
+  tm_facets(by="propertyType", ncol = 3, nrow = 3) +
+  tm_legend(show = TRUE,  title = "Property Types by County")
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Property%20Type%20by%20County-1.png)<!-- -->
 
-## Joining the two objects together
+## Plot of Count of Houses by County
+
+``` r
+tmap_mode("view")
+
+count_properties_by_country <- aggregate(
+  x = ireland_houses["address"], 
+  by = ireland_houses["county"], 
+  FUN = length
+)
+
+names(count_properties_by_country)<- c("county","Count")
+
+count_houses_county <- merge( 
+  x = ireland_by_county_sf, 
+  y = count_properties_by_country, 
+  by.x = "county", 
+  by.y = "county" 
+)
+
+
+count_houses_county_map <- count_houses_county %>% 
+  st_set_crs(value = 4326) %>% 
+  st_cast()
+
+tm_shape(count_houses_county_map) + 
+    tm_polygons("Count", 
+                legend.title = "Count of Houses per County", 
+                style = "kmeans") +
+  
+    tmap_options(
+      basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                   Imagery = "Esri.WorldImagery") ) +
+    tm_text("county", size = 1, style = "pretty") +
+    tm_scale_bar()
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Count%20of%20Houses%20by%20County-1.png)<!-- -->
+
+## Plot of Property Type
 
 ``` r
 tm_shape(shp = shp_ireland) + 
   tm_borders(alpha = 0.5) +
   tm_shape(shp = ireland_houses_sf) + 
-  tm_dots(col = "propertyType", 
-          size = 0.02)
+  tm_dots(
+    style = "quantile",
+    col = "propertyType", 
+    size = 0.05
+  ) +
+  tm_scale_bar()
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Property%20Type-1.png)<!-- -->
+
+## Choropleth Map of Mean House Price per County
+
+``` r
+ireland_houses_by_county <- aggregate(ireland_houses["price"], 
+                          by = ireland_houses["county"], mean)
+
+mean_price_map <- merge( ireland_by_county_sf, ireland_houses_by_county, 
+            by.x = "county", 
+            by.y = "county" )
+
+
+mean_price_map <- mean_price_map %>% st_set_crs(value = 4326) %>% st_cast()
+
+tm_shape(shp = shp_ireland) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(shp = mean_price_map) + 
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", Imagery = "Esri.WorldImagery") ) +
+  tm_polygons(
+    col = "price", 
+    title = "Mean House Price Per County in €", 
+    palette = "Set3",                 
+    stretch.palette = FALSE, 
+    n = 6
+  ) +  
+  tm_text("county", size = 1, style = "pretty") +
+  tm_scale_bar()
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Mean%20House%20Price%20per%20County-1.png)<!-- -->
