@@ -275,12 +275,11 @@ ireland_houses <- mutate(ireland_houses,
 ```
 
 
-#### Fixing properties with empty factor for property type
+### Fixing properties with empty factor for property type
 
 It was noted that 2 properties have an empty property type. In order to fix it, the house address was used to look it up online. Suitable property types were found for those 2 observations and they are going to be applied now.
 
 ```{r - fixing property type of 2 observations}
-
 
 propertyLevels <- levels(ireland_houses$propertyType)
 semiDetached <- propertyLevels[7]
@@ -304,6 +303,8 @@ ireland_houses <- ireland_houses %>%
                             detached, 
                             propertyType ) 
   )
+
+ireland_houses$propertyType <- factor(ireland_houses$propertyType)
 
 ```
 
@@ -485,6 +486,8 @@ This step will not be performed at this point, as some data exploration activiti
 Finally, after doing some initial data exploration and cleaning, we can proceed to start analyzing the variance and covariance of the variables in our dataset, thus diving a little deeper into our analysis.
 
 ```{r Write Clean Dataset to Disk}
+
+
 dataset_filename <- paste(dataset_directory, 
                           "ireland_houses_cleaned.Rda", 
                           sep="")

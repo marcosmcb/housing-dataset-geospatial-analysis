@@ -1,7 +1,7 @@
 Ireland Housing - Data Cleaning
 ================
 Marcos Cavalcante
-2023-04-14
+2023-04-16
 
 - <a href="#data-cleaning" id="toc-data-cleaning">Data Cleaning</a>
 - <a href="#installing-libraries" id="toc-installing-libraries">Installing
@@ -32,6 +32,9 @@ Marcos Cavalcante
 - <a href="#conversion-into-appropriate-data-types"
   id="toc-conversion-into-appropriate-data-types">Conversion into
   appropriate data types</a>
+  - <a href="#fixing-properties-with-empty-factor-for-property-type"
+    id="toc-fixing-properties-with-empty-factor-for-property-type">Fixing
+    properties with empty factor for property type</a>
 - <a
   href="#handling-of-missing-values---removing-observations-and-variables"
   id="toc-handling-of-missing-values---removing-observations-and-variables">Handling
@@ -1198,7 +1201,7 @@ ireland_houses <- mutate(ireland_houses,
 )
 ```
 
-#### Fixing properties with empty factor for property type
+### Fixing properties with empty factor for property type
 
 It was noted that 2 properties have an empty property type. In order to
 fix it, the house address was used to look it up online. Suitable
@@ -1228,6 +1231,8 @@ ireland_houses <- ireland_houses %>%
                             detached, 
                             propertyType ) 
   )
+
+ireland_houses$propertyType <- factor(ireland_houses$propertyType)
 ```
 
 Let’s describe the dataset one more time to see what it looks like now.
