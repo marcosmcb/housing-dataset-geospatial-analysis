@@ -4,3 +4,4 @@ venv
 .RData
 .Ruserdata
 .DS_Store
+API_KEY.txt
