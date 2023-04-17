@@ -1,0 +1,568 @@
+Station,Address,County,Phone,Mon-Fri,Mon-FI,Tuesday,Wednesday,Thursday,Sat,Sun,Latitude,Longitude,StationID
+Arvagh,Tycusker,Co. Cavan,(049) 4335302,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.925376,-7.583729,6802M
+Bailieboro,Barrack Street,Co. Cavan,(042) 9694570,24/7,,,,,24/7,24/7,53.915212,-6.96963,6870E
+Ballinagh,Main Street,Co. Cavan,(049) 4337102,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.93111,-7.409629,6801B
+Ballybay,Hall Street,Co. Monaghan,(042) 9741002,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.128944,-6.904803,6771G
+Ballyconnell,Doon,Co. Cavan,(049) 9525580,24/7,,,,,24/7,24/7,54.118998,-7.580204,6900M
+Ballyjamesduff,Granard Street,Co. Cavan,(049) 8544102,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.86311,-7.208767,6877B
+Belturbet,Holborn Hill,Co. Cavan,(049) 9522122,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.101166,-7.442615,6901K
+Blacklion,Main Street,Co. Cavan,(071) 9853002,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.291479,-7.876192,6377M
+Carrickmacross,Main Street,Co. Monaghan,(042) 9690190,24/7,,,,,24/7,24/7,53.976059,-6.718776,6770K
+Castleblaney,Upper York Street,Co. Monaghan,(042) 9740668,24/7,,,,,24/7,24/7,54.117858,-6.735032,6772E
+Cavan,Farnham Street,Co. Cavan,(049) 4368800,24/7,,,,,24/7,24/7,53.993329,-7.360879,6800D
+Clones,Analore Street,Co. Monaghan,(047) 51028,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.177489,-7.228158,6701F
+Cootehill,Station Road,Co. Cavan,(049) 5552105,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.074708,-7.078703,6876D
+Dowra,Main Street,Co. Cavan,(071) 9643002,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.190428,-8.01525,6376B
+Emyvale,Glaslough Road,Co. Monaghan,(047) 87222,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.339356,-6.957596,6705K
+Killeshandra,Main Street,Co. Cavan,(049) 4334302,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.011748,-7.525932,6903E
+Kilnaleck,Barrack Road,Co. Cavan,(049) 4336202,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.858467,-7.317923,6805E
+Kingscourt,Hall Street,Co. Cavan,(042) 9667292,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.904314,-6.806759,6871C
+Monaghan,Plantation Road,Co. Monaghan,(047) 77200,24/7,,,,,24/7,24/7,54.25137,-6.967516,6700H
+Mullagh,Mullagh,Co. Cavan,(046) 9242002,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.811139,-6.943188,6872A
+Rockcorry,Monneill,Co. Monaghan,(042) 9742288,Varies,,,,,,,54.120158,-7.009368,6775L
+Scotstown,Carrowhatta,Co. Monaghan,(047) 79140,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.280267,-7.063623,6704M
+Shercock,Shinan,Co. Cavan,(042) 9669102,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.992199,-6.900786,6873L
+Swanlinbar,Hawkswood,Co. Cavan,(049) 9521242,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.196111,-7.703839,6902G
+Virginia,Main Street,Co. Cavan,(049) 8547002,10:00-13:00,,,,,10:00-13:00,12:00-14:00,53.834442,-7.081928,6875F
+Ballyvaughan,Ballyvaughan,Co. Clare,(065) 7077002,10:00-13:00,,,,,10:00-12:00,Closed,53.116153,-9.147112,5171C
+Corofin,Kilnaboy Road,Co. Clare,(065) 6837622,10:00-13:00,,,,,10:00-12:00,Closed,52.947992,-9.068588,5172A
+Crusheen,Crusheen,Co. Clare,(065) 6827122,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.938477,-8.898636,5031H
+Ennis,Abbey Street,Co. Clare,(065) 6848100,24/7,,,,,24/7,24/7,52.84681,-8.98112,5030L
+Ennistymon,Ennis Road,Co. Clare,(065) 7072180,24/7,,,,,24/7,24/7,52.937394,-9.288537,5170E
+Kildysart,Ennis Road,Co. Clare,(065) 6832102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,52.674604,-9.105833,5077F
+Kilkee,Circular Road,Co. Clare,(065) 9056002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,52.682402,-9.644718,5078D
+Killaloe,The Green,Co. Clare,(061) 620540,10am-1.00pm + 5pm-20pm,,,,,10am-1pm,10am-1pm,52.806662,-8.44366,5130F
+Kilmihil,Kilmihil,Co. Clare,(065) 9050002,"Tue 10:00-13:00, Thu 18:00-20:00",,,,,10:00-13:00,Closed,52.72036,-9.31152,5032F
+Kilrush,Ennis Road,Co. Clare,(065) 9080550,24/7,,,,,24/7,24/7,52.641064,-9.481077,5070K
+Lisdoonvarna,Main Street,Co. Clare,(065) 7074222,10:00-13:00,,,,,10:00-12:00,Closed,53.028625,-9.289667,5175F
+Miltown Malbay,Church Street,Co. Clare,(065) 7084222,10:00-13:00,,,,,10:00-12:00,Closed,52.857453,-9.400594,5176D
+Newmarket-on-Fergus,Ennis Road,Co. Clare,(061) 368172,"10:00-13:00, 14:00-18:00",,,,,"10:00-13:00, 14:00-18:00","10:00-13:00, 14:00-18:00",52.763172,-8.899113,5033D
+Scarriff,Drewsborough,Co. Clare,(061) 922790,10:00-13:00,,,,,10:00-13:00,10:00-13:00,52.90683,-8.534771,5133M
+Shannon,Shannon Town Centre,Co. Clare,(061) 365900,24/7,,,,,24/7,24/7,52.707895,-8.877221,5035M
+Sixmilebridge,Shannon Road,Co. Clare,(061) 369133,"10:00-13:00, 14:00-18:00",,,,,"10:00-13:00, 14:00-21:00","10:00-13:00, 14:00-18:00",52.740101,-8.777945,5037G
+Tulla,Ashler,Co. Clare,(065) 6835103,14:30-15:30,,,,,14:30-15:30,Closed,52.865385,-8.75477,5135G
+Anglesea Street,Anglesea Street,Co. Cork,(021) 4522000,24/7,,,,,24/7,24/7,51.895775,-8.465015,3900D
+Ballincollig,Main Street,Co. Cork,(021) 4214680,"09:00-13:00, 14:00-18:00, 19:00-20:00",,,,,"10:00-13:00, 14:00-18:00","10:00-13:00, 14:00-18:00",51.888237,-8.590321,4022C
+Bishopstown,Bishopstown Road,Co. Cork,(021) 4624500,Varies,,,,,Varies,Varies,51.880667,-8.514534,3931D
+Blackrock,Blackrock,Co. Cork,(021) 4536690,"09:00-13:00, 14:00-18:00, 19:00-22:00",,,,,"09:00-13:00, 14:00-18:00, 19:00-22:00","10:00-13:00, 15:00-18:00",51.894335,-8.40431,3908L
+Blarney,The Square,Co. Cork,(021) 4516290,"10:00-13:00, 14:00-18:00, 19:00-22:00",,,,,"10:00-13:00, 14:00-18:00, 19:00-22:00","10:00-13:00, 14:00-18:00",51.931964,-8.567658,4021E
+Bridewell,Kyrl's Street,Co. Cork,(021) 4943330,24/7,,,,,24/7,24/7,51.900553,-8.477045,3902M
+Carrigaline,Main Street,Co. Cork,(021) 4919370,Varies,,,,,Varies,Varies,51.814833,-8.391535,3933M
+Carrignavar,Main Street,Co. Cork,(021) 4884222,19:00-20:00,,,,,19:00-20:00,19:00-20:00,51.988915,-8.478209,4077M
+Crosshaven,2 Coastguard Cottages,Co. Cork,(021) 4831222,Varies,,,,,Varies,Varies,51.803976,-8.304453,3934K
+Douglas,Maryborough Hill,Co. Cork,(021) 4857670,Varies,,,,,Varies,Varies,51.875091,-8.430959,3932B
+Glanmire,Glanmire Village,Co. Cork,(021) 4556370,09:00-18:00,,,,,09:00-18:00,12:00-13:00,51.918419,-8.396809,4074F
+Gurranabraher,Baker's Road,Co. Cork,(021) 4946200,24/7,,,,,24/7,24/7,51.903493,-8.496622,4020G
+Mayfield,Mayfield,Co. Cork,(021) 4558510,24/7,,,,,24/7,24/7,51.909732,-8.429043,3980B
+Passagewest,Passage West,Co. Cork,(021) 4841001,Varies,,,,,Varies,Varies,51.865188,-8.331746,3935G
+Togher,Tramore Road,Co. Cork,(021) 4947120,24/7,,,,,24/7,24/7,51.876497,-8.486227,3930F
+Watercourse Road,53 Watercourse Road,Co. Cork,(021) 4558260,"09:00-18:00, 19:00-22:00",,,,,"09:00-18:00, 19:00-22:00","10:00-14:00, 19:00-22:00",51.907175,-8.474483,3982K
+Ballycotton,Main Street,Co. Cork,(021) 4646712,19:00-21:00,,,,,19:00-21:00,12:00-13:00,51.830332,-8.013091,4205F
+Ballynoe,Ballynoe,Co. Cork,(058) 59100,20:00-21:00,,,,,20:00-21:00,Closed,52.060207,-8.099306,4102E
+Buttevant,Richmond Street,Co. Cork,(022) 41740,"Mon 18:00-19:00, Tue-Fri 10:00-11:00",,,,,"11:00-13:00, 19:00-20:30",12:00-13:00,52.229313,-8.671275,4171H
+Carrigtwohil,Main Street,Co. Cork,(021) 4883222,10:00-12:00,,,,,12:00-13:00,12:00-13:00,51.909467,-8.261819,4072L
+Charleville,Chapel Street,Co. Cork,(063) 21770,"10:00-13:00, 14:00-17:00",,,,,"10:00-13:00, 14:00-17:00",12:00-13:00,52.356054,-8.682567,4172F
+Cloyne,Spital Street,Co. Cork,(021) 4652515,11:00-13:00,,,,,11:00-13:00,12:00-13:00,51.86276,-8.123499,4201C
+Cobh,Lower Road,Co. Cork,(021) 4908530,24/7,,,,,24/7,24/7,51.84824,-8.303642,4070C
+Doneraile,Main Street,Co. Cork,(022) 24182,"Mon 19:30-20:30, Tue-Fri 11:30-12:30",,,,,11:30-12:30,11:30-12:30,52.215706,-8.585414,4173D
+Fermoy,O'Neill-Crowley Quay,Co. Cork,(025) 82100,24/7,,,,,24/7,24/7,52.138516,-8.274164,4100K
+Glantane,Smithfield,Co. Cork,(022) 47154,Varies,,,,,Varies,Varies,52.104692,-8.748764,4175M
+Kanturk,Percival Street,Co. Cork,(029) 20680,24/7,,,,,24/7,24/7,52.17587,-8.912577,4500D
+Kildorrery,Farrahy Road,Co. Cork,(022) 25162,18:30-19:30,,,,,18:30-19:30,Closed,52.245439,-8.429624,4103C
+Killeagh,Main Street,Co. Cork,(024) 95112,16:00-18:00,,,,,16:00-18:00,12:00-13:00,51.939762,-7.994963,4202A
+Kilworth,Main Street,Co. Cork,(025) 27101,16:00-17:00,,,,,16:00-17:00,Closed,52.176253,-8.249569,4104A
+Liscarroll,Main Street,Co. Cork,(022) 48163,Varies,,,,,Varies,Varies,52.259567,-8.806261,4176K
+Mallow,Bowling Green,Co. Cork,(022) 31450,24/7,,,,,24/7,24/7,52.13877,-8.64594,4170L
+Midleton,Oliver Plunkett Place,Co. Cork,(021) 4621550,24/7,,,,,24/7,24/7,51.916681,-8.173526,4200E
+Milford,Milford,Co. Cork,(063) 80002,Varies,,,,,Varies,Varies,52.342465,-8.8564,4174B
+Millstreet,Main Street,Co. Cork,(029) 70002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,52.060069,-9.061531,4505E
+Mitchelstown,Upper Cork Street,Co. Cork,(025) 84833,10:00-18:00,,,,,10:00-18:00,14:00-17:00,52.263585,-8.270568,4105L
+Newmarket,Church Street,Co. Cork,(029) 60002,10:30-12:30,,,,,10:30-12:30,Closed,52.214576,-8.99698,4504G
+Rathcormack,Rathcormac,Co. Cork,(025) 36102,18:30-19:30,,,,,18:30-19:30,Closed,52.076086,-8.284331,4101G
+Watergrasshill,Watergrasshill,Co. Cork,(021) 4889102,16:00-17:00,,,,,16:00-17:00,16:00-17:00,52.013443,-8.342022,4078K
+Whitegate,New Road,Co. Cork,(021) 4661212,11:00-13:00,,,,,11:00-13:00,12:00-13:00,51.82707,-8.22781,4203L
+Youghal,O'Brien's Place,Co. Cork,(024) 92200,08:00-22:00,,,,,08:00-22:00,08:00-22:00,51.948069,-7.842754,4204H
+Ballyvourney,Baile Bhúirne,,,,,,,,,,,,
+Ballineen,Main Street,Co. Cork,(023) 8847111,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.73592,-8.948867,4303F
+Ballinhassig,Halfway,Co. Cork,(021) 4885102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.804093,-8.570545,4302H
+Ballydehob,Ballydehob,Co. Cork,(028) 37111,Contact Ballydehob,,,,,,,51.559116,-9.460782,4376A
+Ballydesmond,Ballydesmond,Co. Cork,(064) 51102,18:30-20:30,,,,,6:30-20:30,Closed,52.178235,-9.230971,4501B
+Baltimore,Baltimore,Co. Cork,(028) 20102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.483488,-9.372258,4404M
+Bandon,Weir Street,Co. Cork,(023) 8852200,24/7,,,,,24/7,24/7,51.745084,-8.739863,4300A
+Bantry,The Quay,Co. Cork,(027) 20860,24/7,,,,,24/7,24/7,51.68027,-9.455239,4370B
+Ballingeary,An Chill Mhór - Kilmore,Co. Cork,(026) 47002,10:00-13:00,,,,,10:00-13:00,Closed,51.851864,-9.228983,4473C
+Boherbue,Boherbue,Co. Cork,(029) 76002,14:30-16:30,,,,,14:30-16:30,Closed,52.158972,-9.069752,4502M
+Castletownbere,West End,Co. Cork,(027) 70002,10:00-14:00,,,,,10:00-14:00,10:00-14:00,51.649482,-9.914682,4378H
+Castletownroche,Mallow Road,Co. Cork,(022) 26161,20:00-21:00,,,,,20:00-21:00,Closed,52.170729,-8.467951,4106H
+Clonakilty,Mccurtain Hill,Co. Cork,(023) 8821570,24/7,,,,,24/7,24/7,51.624951,-8.888908,4400H
+Coachford,Knockaneowen,Co. Cork,(021) 7334002,10:00-13:00,,,,,10:00-13:00,Closed,51.909134,-8.791136,4472E
+Crookstown,Crookstown,Co. Cork,(021) 7336002,10:00-13:00,,,,,10:00-13:00,Closed,51.858654,-8.801264,4475L
+Drimoleague,Drimoleague,Co. Cork,(028) 31111,10:00-14:00,,,,,10:00-14:00,10:00-14:00,51.659024,-9.263986,4377L
+Drinagh,Toughbawn,Co. Cork,(028) 30113,10:00-13:00,,,,,10:00-13:00,Closed,51.64771,-9.154526,4406G
+Dunmanway,Main Street,Co. Cork,(023) 8845202,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.722827,-9.11014,4405K
+Durrus,Durrus,Co. Cork,(027) 61002,10:00-14:00,,,,,10:00-14:00,10:00-14:00,51.620542,-9.523956,4375C
+Glengarriff,The Village,Co. Cork,(027) 63002,10:00-14:00,,,,,10:00-14:00,10:00-14:00,51.750564,-9.55071,4374E
+Innishannon,Main Street,Co. Cork,(021) 4775302,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.764428,-8.655438,4301L
+Kealkill,Kealkill,Co. Cork,(027) 20867,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.755046,-9.375317,4372K
+Kilbrittain,Main Street,Co. Cork,(023) 8849666,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.673531,-8.690112,4307K
+Kinsale,Church Square,Co. Cork,(021) 4772302,10:00-18:00,,,,,10:00-18:00,10:00-18:00,51.706322,-8.52548,4305B
+Macroom,Barrack Lane,Co. Cork,(026) 20590,24/7,,,,,24/7,24/7,51.906268,-8.963996,4470K
+Rathmore,East End,Co. Kerry,(074) 9158113,14:30-16:30,,,,,14:30-16:30,Closed,52.084275,-9.214231,4507A
+Rosscarberry,Church Street,Co. Cork,(023) 8848162,10:00-13:00,,,,,10:00-13:00,Closed,51.577571,-9.031503,4401F
+Schull,Schull,Co. Cork,(028) 28111,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.528718,-9.54136,4371M
+Skibbereen,High Street,Co. Cork,(028) 23088,10:00-13:00,,,,,10:00-13:00,Closed,51.548587,-9.264135,4402D
+Stuake,Stuake,Co. Cork,(021) 7337032,10:00-13:00,,,,,10:00-13:00,Closed,51.990501,-8.760124,4471G
+Tarelton,Deshure,Co. Cork,(026) 46002,10:00-13:00,,,,,10:00-13:00,Closed,51.838531,-8.992849,4477F
+Timoleague,Mill Street,Co. Cork,(023) 8846122,10:00-13:00,,,,,10:00-13:00,10:00-13:00,51.642666,-8.766241,4308G
+Burtonport,Ailt an Chorráin,Co. Donegal,(074) 9542007,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.984922,-8.438638,6554D
+Bunbeg,Magheraclogher,Co. Donegal,(074) 9531333,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.065567,-8.289455,6553F
+Carrick,An tSráid Mhór - Main Street,Co. Donegal,(074) 9739002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.65788,-8.63309,6558G
+Dungloe,An tSráid Mhór - Main Street,Co. Donegal,(074) 9521000,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.951565,-8.361278,6557K
+Falcarragh,An tSráid Mhór - Main Street,Co. Donegal,(074) 9135113,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.136977,-8.102015,6547A
+Ardara,Hillhead,Co. Donegal,(074) 9541102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.764529,-8.409485,6552H
+Ballintra,Main Street,Co. Donegal,(074) 9734002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.577798,-8.125418,6601L
+Ballybofey,Main Street,Co. Donegal,(074) 9137740,10:00-18:00,,,,,10:00-18:00,Closed,54.800024,-7.779638,6407F
+Ballyshannon,Portnason,Co. Donegal,(071) 9858530,24/7,,,,,24/7,24/7,54.498743,-8.204817,6600A
+Buncrana,Lisfannon,Co. Donegal,(074) 9320540,24/7,,,,,24/7,24/7,55.1315,-7.450711,6470L
+Bundoran,Church Road,Co. Donegal,(071) 9841203,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.476554,-8.279344,6602H
+Burnfoot,Ballyderowen,Co. Donegal,(074) 9368194,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.054674,-7.401576,6471H
+Carndonagh,Malin Road,Co. Donegal,(074) 9374109,09:00-13:00,,,,,09:00-13:00,Closed,55.253506,-7.259461,6472F
+Carrigallen,Longford Road,Co. Leitrim,(049) 4339602,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.975591,-7.646708,6906L
+Carrigans,Main Street,Co. Donegal,(074) 9140113,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.951187,-7.426749,6401G
+Carrigart,Umlagh,Co. Donegal,(074) 9155104,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.175128,-7.798482,6541B
+Castlefinn,Grahamsland,Co. Donegal,(074) 9146113,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.8027,-7.595233,6402E
+Clogher,Clooney,Co. Donegal,(074) 9545102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.836778,-8.4275,6555B
+Clonmany,Main Street,Co. Donegal,(074) 9376102,19:00-20:00,,,,,Closed,Closed,55.263009,-7.412817,6473D
+Convoy,Townparks,Co. Donegal,(074) 9147114,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.859325,-7.668991,6408D
+Creeslough,Massinass,Co. Donegal,(074) 9138002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.125281,-7.912554,6546C
+Donegal,Quay Street,Co. Donegal,(074) 9740190,24/7,,,,,24/7,24/7,54.652423,-8.111061,6603F
+Dunfanaghy,Main Street,Co. Donegal,(074) 9136114,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.182921,-7.974435,6545E
+Glenties,Main Street,Co. Donegal,(074) 9551108,10.00-13.00,,,,,10.00-13.00,10.00-13.00,54.79555,-8.28098,6550A
+Carrowkeel,Main Street,Co. Donegal,(074) 9150002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.137138,-7.666324,6542M
+Killybegs,Main Street,Co. Donegal,(074) 9731002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.636599,-8.444392,6636B
+Kilmacrennan,Main Street,Co. Donegal,(074) 9139002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.029495,-7.778514,6543K
+Letterkenny,New Line Road,Co. Donegal,(074) 9167100,24/7,,,,,24/7,24/7,54.954697,-7.736422,6400K
+Lifford,The Diamond,Co. Donegal,(074) 9141000,10:00-18:00,,,,,10:00-13:00,10:00-13:00,54.832829,-7.480269,6406H
+Milford,Main Street,Co. Donegal,(074) 9153060,24/7,,,,,24/7,24/7,55.08699,-7.698108,6540D
+Mountcharles,Lower Main Street,Co. Donegal,(074) 9735002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.645993,-8.195837,6637M
+Moville,Greencastle Road,Co. Donegal,(074) 9382002,"10:00-13:00, 17.00-19.00",,,,,"10:00-13:00, 17.00-19.00","10:00-13:00, 17.00-19.00",55.191632,-7.028567,6476K
+Muff,3 Dispensary Court,Co. Donegal,(074) 9384002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.068587,-7.268756,6477G
+Newtowncunningham,Colehill,Co. Donegal,(074) 9156113,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.997599,-7.507791,6404A
+Pettigo,Main Street,Co. Donegal,(071) 9861512,10:00-13:00,,,,,10:00-13:00,Closed,54.54823,-7.834881,6604D
+Ramelton,The Mall,Co. Donegal,(074) 9151002,"10:00-13:00, 19:00-21:00",,,,,"10:00-13:00, 19:00-21:00",10:00-13:00,55.036652,-7.650725,6548L
+Raphoe,William Street,Co. Donegal,(074) 9145114,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.8744,-7.59437,6405L
+Rathmullen,Kerr's Bay,Co. Donegal,(074) 9158002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,55.0958,-7.532564,6549H
+Balbriggan,Drogheda Road,Co. Dublin,(01) 8020510,24/7,,,,,24/7,24/7,53.61433,-6.191172,2200D
+Ballyfermot,Rossmore Avenue,Co. Dublin,(01) 6667200,24/7,,,,,24/7,24/7,53.34476,-6.357991,1720E
+Ballymun,Main Street,Co. Dublin,(01) 6664400,24/7,,,,,24/7,24/7,53.394531,-6.26371,1502D
+Blackrock,15 Sweetman's Avenue,Co. Dublin,(01) 6665200,24/7,,,,,24/7,24/7,53.299805,-6.177504,1970D
+Blanchardstown,Main Street,Co. Dublin,(01) 6667000,24/7,,,,,24/7,24/7,53.38992,-6.380975,1700M
+Bridewell,28/30 Chancery Street,Co. Dublin,(01) 6668200,24/7,,,,,24/7,24/7,53.34708,-6.27413,1870H
+Cabinteely,Bray Road,Co. Dublin,(01) 6665400,24/7,,,,,24/7,24/7,53.260789,-6.150651,1903H
+Cabra,Navan Road,Co. Dublin,(01) 6667400,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.364985,-6.30764,1701K
+Clondalkin,Orchard Lane,Co. Dublin,(01) 6667600,24/7,,,,,24/7,24/7,53.323146,-6.394958,1721C
+Clontarf,Strandville Avenue East,Co. Dublin,(01) 6664800,24/7,,,,,24/7,24/7,53.363544,-6.220152,1571G
+Coolock,Oscar Traynor Road,Co. Dublin,(01) 6664200,24/7,,,,,24/7,24/7,53.390335,-6.201099,1530L
+Crumlin,23 Saint Agnes Road,Co. Dublin,(01) 6666200,24/7,,,,,24/7,24/7,53.319567,-6.315017,1300E
+Donnybrook,43 Donnybrook Road,Co. Dublin,(01) 6669200,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.321731,-6.235914,1200K
+Dublin Airport,Terminal Complex,Co. Dublin,(01) 6664950,24/7,,,,,24/7,24/7,53.429782,-6.24501,1503B
+Dun Laoghaire,Corrig Avenue,Co. Dublin,(01) 6665000,24/7,,,,,24/7,24/7,53.289915,-6.133347,1900C
+Dundrum,Dundrum,Co. Dublin,(01) 6665600,24/7,,,,,24/7,24/7,53.289544,-6.242572,1971B
+Finglas,Mellowes Road,Co. Dublin,(01) 6667500,24/7,,,,,24/7,24/7,53.389651,-6.306919,1702G
+Fitzgibbon Street,23-28 Fitzgibbon Street,Co. Dublin,(01) 6668400,24/7,,,,,24/7,24/7,53.357735,-6.255359,1830K
+Garristown,Main Street,Co. Dublin,(01) 8354112,,,,,17:00-19:00,,,53.567052,-6.383903,2204G
+Howth,8 Dunbo Hill,Co. Dublin,(01) 6664900,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.387287,-6.069001,1572E
+Irishtown,Irishtown Road,Co. Dublin,(01) 6669600,24/7,,,,,24/7,24/7,53.338063,-6.22304,1201G
+Kevin Street,Kevin Street upper,Co. Dublin,(01) 6669400,24/7,,,,,24/7,24/7,53.338982,-6.270248,1070G
+Kilmainham,Kilmainham Lane,Co. Dublin,(01) 6669700,24/7,,,,,24/7,24/7,53.341869,-6.304273,1071E
+Lucan,Leixlip Road,Co. Dublin,(01) 6667300,24/7,,,,,24/7,24/7,53.356052,-6.45068,1710H
+Lusk,Dublin Road,Co. Dublin,(01) 8437222,,,,17:00-19:00,,,,53.523431,-6.167335,2202M
+Malahide,1/2 James's Terrace,Co. Dublin,(01) 6664600,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.451162,-6.151959,1531H
+Mountjoy,399 North Circular Road,Co. Dublin,(01) 6668600,24/7,,,,,24/7,24/7,53.360484,-6.266825,1831G
+O'Connell Street,13A O'Connell Street,Co. Dublin,(01) 6668000,,8am-2am,,,,8am-2am,8am-2am,53.3507,-6.2602,1800G
+Pearse Street,1-6 Pearse Street,Co. Dublin,(01) 6669000,24/7,,,,,24/7,24/7,53.345702,-6.256269,1000F
+Raheny,All Saints Road,Co. Dublin,(01) 6664300,24/7,,,,,24/7,24/7,53.378983,-6.177986,1570K
+Rathcoole,Main Street,Co. Dublin,(01) 6667900,"10:00-13:00, 14:00-17:00",,,,,"10:00-13:00, 14:00-17:00","10:00-13:00, 14:00-17:00",53.281792,-6.464709,1723L
+Rathfarnham,Butterfield Avenue,Co. Dublin,(01) 6666500,24/7,,,,,24/7,24/7,53.297388,-6.28815,1370F
+Rathmines,Rathgar Road,Co. Dublin,(01) 6666700,24/7,,,,,24/7,24/7,53.321317,-6.267004,1470B
+Ronanstown,Saint Ronan's Avenue,Co. Dublin,(01) 6667700,24/7,,,,,24/7,24/7,53.337899,-6.406023,1712C
+Santry,Shanowen Road,Co. Dublin,(01) 6664000,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.389728,-6.251635,1500H
+Shankill,Dorney Court,Co. Dublin,(01) 6665900,24/7,,,,,24/7,24/7,53.233524,-6.121017,1932A
+Skerries,90 Strand Street,Co. Dublin,(01) 8491211,,,17:00-19:00,,,,,53.579593,-6.106963,2201B
+Stepaside,Stepaside,Co. Dublin,(01) 6665700,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.253332,-6.214520,3686B
+Store Street,4-6 Store Street,Co. Dublin,(01) 6668000,24/7,,,,,24/7,24/7,53.350455,-6.252246,1800G
+Sundrive Road,Crumlin Road,Co. Dublin,(01) 6666600,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.330191,-6.298731,1301C
+Swords,Main Street,Co. Dublin,(01) 6664700,24/7,,,,,24/7,24/7,53.456023,-6.221116,1532F
+Tallaght,Belgard Road East,Co. Dublin,(01) 6666000,24/7,,,,,24/7,24/7,53.286801,-6.367838,1372B
+Terenure,30/32 Terenure Road West,Co. Dublin,(01) 6666400,07:00-21:00,,,,,07:00-21:00,07:00-21:00,53.309815,-6.288029,1471M
+Ahascragh,Chapel Street,Co. Galway,(090) 9688652,Contact Mountbellew (090) 9679292,,,,,Closed,Closed,53.395672,-8.33064,5671E
+Carraroe,An Cheathrú Rua,Co. Galway,(091) 595102,10:00-11:00,,,,,Closed,Closed,53.264508,-9.600493,5352L
+Maum,An Mám,Co. Galway,(091) 571100,10:00-13:00,,,,,Closed,Closed,53.510728,-9.564931,5255H
+Spiddle,An Spidéal,Co. Galway,(091) 553122,10:00-13:00,,,,,Closed,Closed,53.245432,-9.305633,5355D
+Ardrahan,Ardrahan,Co. Galway,(091) 635102,"Mon-Wed 19:30-20:30, Fri 10-11:00",,,,,14:30-15:30,Closed,53.15665,-8.806455,5401A
+Athenry,Church Street,Co. Galway,(091) 844016,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.29975,-8.749687,5247G
+Ballinasloe,Dunlo Street,Co. Galway,(090) 9631890,24/7,,,,,24/7,24/7,53.328431,-8.223624,5670G
+Ballygar,High Street,Co. Galway,(090) 6624512,2 hour daily-no set time,,,,,Closed,Closed,53.521866,-8.32839,5606E
+Barnaderg,Barnaderg,Co. Galway,(093) 49212,"Mon-Thu 10:00-11:00, Fri 17:00-18:00",,,,,17:00-18:00,12:00-13:00,53.480544,-8.722468,5807F
+Carna,Carna,Co. Galway,(095) 32242,10:00-13:00,,,,,Closed,Closed,53.323548,-9.824405,5254L
+Cill Ronain,Inis Mór - Inishmore,Co. Galway,(099) 61102,10:00-13:00,,,,,Closed,Closed,53.121306,-9.667818,5358K
+Clifden,Galway Road,Co. Galway,(095) 22500,24/7,,,,,24/7,24/7,53.488185,-10.009242,5250G
+Corofin,Kilnaboy Road,Co. Clare,(065) 6837622,10:00-13:00,,,,,10:00-12:00,Closed,52.947992,-9.068588,5172A
+Craughwell,Craughwell,Co. Galway,(091) 846002,Varies,,,,,"10:00-11:00 , 20:00-22:00",12:00-13:00,53.22943,-8.733921,5402L
+Creggs,Millford,Co. Galway,(090) 6621112,3 hour daily-no set time,,,,,Closed,Closed,53.59486,-8.363792,5605G
+Dunmore,Barrack Street,Co. Galway,(093) 38131,"Mon-Thur 10:00-11:00, Fri 17:00-18:00",,,,,17:00-18:00,12:00-13:00,53.617554,-8.74063,5805L
+Eyrecourt,Main Street,Co. Galway,(090) 9675122,16:00-17:00,,,,,16:00-5 pm,Closed,53.199426,-8.132368,5306F
+Galway,Mill Street,Co. Galway,(091) 538000,24/7,,,,,24/7,24/7,53.271404,-9.057489,5240L
+Glenamaddy,Ballymoe Road,Co. Galway,(094) 9659002,"Mon-Thur 10:00-11:00, Fri 17:00-18:00",,,,,17:00-18:00,12:00-13:00,53.607443,-8.560181,5804A
+Gort,Barrack Street,Co. Galway,(091) 636400,24/7,,,,,24/7,24/7,53.067434,-8.818184,5400C
+Headford,Bridge Street,Co. Galway,(093) 35412,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.470318,-9.098307,5245M
+Inverin,Indreabhán,Co. Galway,(091) 593102,10:00-13:00,,,,,Closed,Closed,53.240587,-9.429568,5354F
+Kilconnell,Kilconnell,Co. Galway,(090) 9686622,1 hour daily-no set time,,,,,Closed,Closed,53.331374,-8.401656,5672C
+Killimor,Killimor,Co. Galway,(090) 9676142,Varies,,,,,Varies,Closed,53.165886,-8.294188,5303A
+Kilrickle,Kilreekil,Co. Galway,(091) 843002,20:00-21:00,,,,,20:00-21:00,Closed,53.230643,-8.452731,5308B
+Kiltormer,Kiltormer,Co. Galway,(090) 9627122,Contact Ballinasloe (090) 9631890,,,,,,,53.237577,-8.271341,5673A
+Kinvara,Glebe Road,Co. Galway,(091) 637102,"Mon 19:00-20:00, Wed 19:30-20:30",,,,,11:00-12:00,Closed,53.14047,-8.939726,5403H
+Loughgeorge,Leacht Seoirse,Co. Galway,(091) 798122,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.357056,-8.931294,5244B
+Leitir Mor,Leitir Móir,Co. Galway,(091) 551122,10:00-13:00,,,,,Closed,Closed,53.289412,-9.655065,5356B
+Letterfrack,Letterfrack,Co. Galway,(095) 41052,10:00-13:00,,,,,Closed,Closed,53.554204,-9.947676,5252C
+Loughrea,Barrack Street,Co. Galway,(091) 842870,24/7,,,,,24/7,24/7,53.197374,-8.569948,5300G
+Moycullen,Maigh Cuilinn,Co. Galway,(091) 555122,10:00-13:00,,,,,Closed,Closed,53.33831,-9.181167,5351A
+Milltown,Milltown,Co. Galway,(093) 51312,"Mon-Thur 10:00-11:00, Fri 17:00-18:00",,,,,17:00-18:00,12:00-13:00,53.611605,-8.897447,5802E
+Monivea,Monivea,Co. Galway,(091) 849002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.373986,-8.702331,5248E
+Mountbellew,Ballygar Road,Co. Galway,(090) 9679292,"10:00-13:00, 14:00-17:00",,,,,10:00-11:00,12:00-13:00,53.471162,-8.500104,5675H
+Moylough,Moylough,Co. Galway,(090) 9679272,1 hour daily-no set time,,,,,Closed,Closed,53.487694,-8.567016,5678B
+Oranmore,Coast Road,Co. Galway,(091) 388030,09:00-17:00,,,,,10:00-13:00,10:00-13:00,53.272075,-8.931893,5242F
+Oughterard,Main Street,Co. Galway,(091) 557320,10:00-13:00,,,,,15:00-18:00,Closed,53.427355,-9.324545,5350C
+Portumna,Abbey Street,Co. Galway,(090) 9741004,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.09001,-8.22043,5307D
+Ros Muck,Ros Muc,Co. Galway,(091) 574102,10:00-13:00,,,,,Closed,Closed,53.386363,-9.609865,5353H
+Roundstone,Coast Road,Co. Galway,(095) 35835,10:00-13:00,,,,,Closed,Closed,53.393576,-9.921109,5256F
+Salthill,Dalysfort Road,Co. Galway,(091) 514720,24/7,,,,,24/7,24/7,53.258788,-9.079714,5357M
+Recess,Sraith Salach,Co. Galway,(095) 34603,10:00-13:00,,,,,Closed,Closed,53.465315,-9.721433,5251E
+Tuam,Abbey Trinity Road,Co. Galway,(093) 70840,24/7,,,,,24/7,24/7,53.515662,-8.855884,5800K
+Galway,Dublin Road,Co. Galway,(091) 337140,07:00-19:00,,,,,07:00-19:00,07:00-19:00,53.271404,-9.057489,5240L
+Williamstown,Old Church Road,Co. Galway,(094) 9643002,"Mon-Thur 10:00-11:00 , Fri 17:00-18:00",,,,,10:00-11:00,12:00-13:00,53.677145,-8.578412,5801G
+Woodford,Woodford,Co. Galway,(090) 9749002,10:00-11:00,,,,,10:00-11:00,Closed,53.047611,-8.400132,5304L
+Annascaul,Main Street,Co. Kerry,(066) 9157102,10:30-11:30,,,,,10:30-11:30,Closed,52.152418,-10.052538,4638H
+Ardfert,Ardfert,Co. Kerry,(066) 7134133,16:00-17:00,,,,,16:00-17:00,Closed,52.323486,-9.778885,4601K
+Ballyferiter,Baile an Fheirtéaraigh,Co. Kerry,(066) 9156111,16:30-17:30,,,,,16:30-17:30,Closed,52.165926,-10.406194,4639F
+Ballybunnion,Main Street,Co. Kerry,(068) 27104,9:30-17:30,,,,,9:30-17:30,12:00-14:00,52.511257,-9.670238,4773B
+Ballyduff,An Baile Dubh,Kerry,(066) 7131122,10-2,,,,,Dúnta,Dúnta,52.4558542,-9.663107699999955,4774M
+Ballyheigue,Buncurrig,Co. Kerry,(066) 7133122,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.389174,-9.827458,4771F
+Barraduff,Shronedarragh,Co. Kerry,(064) 7754002,Varies,,,,,Closed,Closed,52.059764,-9.340943,4706F
+Caherciveen,Caherciveen,Co. Kerry,(066) 9473600,24/7,,,,,24/7,24/7,51.946966,-10.219832,4650G
+Castlegregory,Main Street,Co. Kerry,(066) 7139690,2:30-15:30,,,,,2:30-15:30,Closed,52.254163,-10.020617,4637L
+Castleisland,Castleisland,Co. Kerry,(066) 7141204,"11:00-15:00, 20:00-21:30",,,,,"11:00-15:00, 20:00-21:30",Varies,52.230794,-9.467496,4703A
+Castlemaine,Castlemaine,Co. Kerry,(066) 9767317,10:00-12:00,,,,,10:00-12:00,Varies,52.170229,-9.700593,4658B
+Dingle,Sráid an Droichid - Bridge Street,Co. Kerry,(066) 9151522,10:00-18:00,,,,,10:00-18:00,12:00-13:00,52.139247,-10.270497,4635C
+Farranfore,Farranfore,Co. Kerry,(066) 9764111,"10:00-11.30,  20:00-21:00",,,,,"10:00-11.30,  20:00-21:00",Varies,52.171391,-9.549687,4704L
+Glenbeigh,Kilnabrack Lower,Co. Kerry,(066) 9768202,10:00-12:00,,,,,Closed,Closed,52.057123,-9.937063,4653A
+Kenmare,Shelbourne Street,Co. Kerry,(064) 6641177,09:30-17:30,,,,,09:30-17:30,12:00-14:00,51.878502,-9.581625,4702C
+Killarney,New Road,Co. Kerry,(064) 6671160,24/7,,,,,24/7,24/7,52.062403,-9.512388,4700G
+Killorglin,Upper Bridge Street,Co. Kerry,(066) 9790500,09:00-17:00,,,,,09:00-17:00,09:00-17:00,52.106496,-9.787144,4655H
+Knocknagoshel,Knocknagoshel,Co. Kerry,(068) 46102,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.330666,-9.385306,4776G
+Listowel,Church Street,Co. Kerry,(068) 50820,24/7,,,,,24/7,24/7,52.447132,-9.483916,4770H
+Lixnaw,Lixnaw,Co. Kerry,(066) 7132122,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.404074,-9.616641,4777E
+Portmagee,Doora,Co. Kerry,(066) 9477102,10:00-12:00,,,,,Closed,Closed,51.885159,-10.36178,4654L
+Sneem,West End,Co. Kerry,(064) 6645111,10:00-12:00,,,,,10:00-12:00,Closed,51.838914,-9.90396,4657D
+Tarbert,Bridewell Street,Co. Kerry,(068) 36101,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.572734,-9.375422,4779A
+Tralee,New Road,Co. Kerry,(066) 7102300,24/7,,,,,24/7,24/7,52.269488,-9.708839,4600M
+Waterville,New Line Road,Co. Kerry,(066) 9474111,09:00-13:00,,,,,09:00-13:00,Closed,51.831085,-10.174173,4656F
+Athy,Green Alley,Co. Kildare,(059) 8634210,09:00-22:00,,,,,09:00-22:00,09:00-22:00,52.990206,-6.988236,2806A
+Carbury,Derrinturn,Co. Kildare,(046) 9553002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.338463,-6.936698,2777D
+Castledermot,Woodlands East,Co. Kildare,(059) 9144112,"10:00-13:00, 18:00-19:30",,,,,"10:00-13:00, 18:00-19:30","10:00-13:00, 18:00-19:30",52.909221,-6.849182,2807L
+Celbridge,Maynooth Road,Co. Kildare,(01) 6012370,"10:00-18:00, 19:00-21:00",,,,,"10:00-18:00, 19:00-21:00",12:00-14:00,53.343999,-6.541734,2701D
+Clane,Dublin Road,Co. Kildare,(045) 868262,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.293654,-6.685898,2702B
+Kilcock,Church Street,Co. Kildare,(01) 6757390,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.403846,-6.672497,2043E
+Killcullen,Main Street,Co. Kildare,(045) 481212,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.12914,-6.746572,2772C
+Kildare,Dublin Street,Co. Kildare,(045) 527730,24/7,,,,,24/7,24/7,53.156035,-6.907264,2770G
+Leixlip,19 Station Road,Co. Kildare,(01) 6667800,24/7,,,,,24/7,24/7,53.367378,-6.49825,1711F
+Maynooth,Leinster Street,Co. Kildare,(01) 6292380,"10:00-13:00, 19:00-21:00",,,,,10:00-13:00,12:00-14:00,53.380813,-6.5927,2704K
+Monasterevin,Dublin Road,Co. Kildare,(045) 525322,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.138195,-7.054709,2773A
+Naas,Kilcullen Road,Co. Kildare,(045) 884300,24/7,,,,,24/7,24/7,53.210722,-6.666007,2700F
+Newbridge,Main Street,Co. Kildare,(045) 440180,24/7,,,,,24/7,24/7,53.181435,-6.795531,2774L
+Rathangan,Main Street,Co. Kildare,(045) 524353,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.222117,-6.997539,2775H
+Robertstown,Robertstown West,Co. Kildare,(045) 860202,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.27022,-6.816396,2771E
+Ballon,Ballon,Co. Carlow,(059) 9159122,"10:00-13:00, 18:00-19:30",,,,,"10:00-13:00, 18:00-19:30","10:00-13:00, 18:00-19:30",52.743226,-6.772182,2803G
+Ballyhale,Main Street,Co. Kilkenny,(056) 7768602,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,Closed,52.468333,-7.201527,3574B
+Bennetsbridge,Bennettsbridge,Co. Kilkenny,(056) 7727112,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,closed,52.590303,-7.183241,3571H
+Borris,Borris,Co. Carlow,(059) 9773102,"10:00-13:00, 18:00-19:30",,,,,"10:00-13:00, 18:00-19:30","10:00-13:00, 18:00-19:30",52.601802,-6.929311,3578E
+Callan,Green Street,Co. Kilkenny,(056) 7725232,10:00-12:00 or 18:00-19:00,,,,,18:00-19:00,Closed,52.542375,-7.391039,3502E
+Carlow,Athy Road,Co. Carlow,(059) 9136620,24/7,,,,,24/7,24/7,52.840527,-6.929317,2800B
+Castlecomer,Kilkenny Road,Co. Kilkenny,(056) 4440650,Varies,,,,,10:00-13:00,10:00-11:00,52.799265,-7.209541,3503C
+Freshford,Kilkenny Street,Co. Kilkenny,(056) 8832122,Varies,,,,,Varies,Closed,52.73244,-7.39441,3501G
+Glenmore,Robinstown,Co. Kilkenny,(051) 880122,12:00-13:00,,,,,12:00-13:00,Closed,52.35384,-7.028012,3305G
+Goresbridge,Barrack Street,Co. Kilkenny,(059) 9775202,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,Closed,52.630035,-6.994435,3504A
+Graiguenmana,Upper Main Street,Co. Kilkenny,(059) 9725750,11:00-13:00,,,,,11:00-13:00,12:00-13:00,52.542471,-6.956768,3572F
+Hacketstown,Main Street,Co. Carlow,(059) 6471202,11:00-13:00,,,,,11:00-13:00,Closed,52.864342,-6.556978,2907F
+Kilkenny,Dominic Street,Co. Kilkenny,(056) 7775000,24/7,,,,,24/7,24/7,52.65244,-7.259723,3500K
+Kilmacow,Upper Kilmacow,Co. Kilkenny,(051) 885112,12:00-13:00,,,,,12:00-13:00,Closed,52.314568,-7.174842,3306E
+Kilmoganny,Kilmoganny,Co. Kilkenny,(051) 648002,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,Closed,52.46092,-7.329284,3576K
+Mooncoin,Main Street,Co. Kilkenny,(051) 895122,10:00-13:00,,,,,10:00-13:00,12:30-13:30,52.294707,-7.257334,3304K
+Muine Bheag,Kilree Street,Co. Carlow,(059) 9774120,"10:00-13:00, 18:00-19:30",,,,,"10:00-13:00, 18:00-19:30","10:00-13:00, 18:00-19:30",52.701304,-6.957359,2805C
+Mullinavat,Main Street,Co. Kilkenny,(051) 898122,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,Closed,52.366384,-7.172155,3577G
+Myshall,Myshall,Co. Carlow,(059) 9157622,"10:00-13:00, 18:00-19:30",,,,,"10:00-13:00, 18:00-19:30","10:00-13:00, 18:00-19:30",52.68752,-6.778446,2804E
+Pilltown,Main Street,Co. Kilkenny,(051) 643102,10:00-12:00,,,,,10:00-12:00,10:00-12:00,52.349824,-7.325473,3676E
+Rathvilly,Rathvilly,Co. Carlow,(059) 9161122,15:00-17:00,,,,,15:00-17:00,Closed,52.880429,-6.695366,2908D
+Stoneyford,Main Street,Co. Kilkenny,(056) 7728232,16:30-17:30 except Tuesday 11:00-13:00,,,,,16:30-17:30,Closed,52.536386,-7.228582,3573D
+Thomastown,The Fairgreen,Co. Kilkenny,(056) 7754150,24/7,,,,,24/7,24/7,52.528949,-7.140031,3570L
+Tullow,Dublin Road,Co. Carlow,(059) 9151222,10:00-13:00,,,,,10:00-13:00,11:00-13:00,52.803828,-6.733401,2910F
+Urlingford,Main Street,Co. Kilkenny,(056) 8831133,Varies,,,,,10:00-11:00 or 18:00-19:00,14:00-15:00 or 20:00-21:00,52.722103,-7.58013,3606D
+Abbeyleix,Ballinakill Road,Co. Laois,(057) 8730580,24/7,,,,,24/7,24/7,52.912735,-7.343784,2570D
+Arles,Ballickmoyler,Co. Laois,(059) 9147628,Varies,,,,,Varies,Varies,52.890977,-7.018923,2575E
+Ballylinan,Main Street,Co. Laois,(059) 8625112,Varies,,,,,Varies,Varies,52.942954,-7.043236,2574G
+Banagher,Harbour Street,Co. Offaly,(057) 9151310,14:00-17:00,,,,,14:00-17:00,,53.190536,-7.98593,2601H
+Birr,Emmet Square,Co. Offaly,(057) 9169710,24/7,,,,,24/7,24/7,53.096052,-7.911523,2600L
+Borris-in-Ossory,Main Street,Co. Laois,(0505) 41122,Varies,,,,,Varies,Varies,52.939297,-7.628803,2577A
+Clara,The Fairgreen,Co. Offaly,(057) 9331100,"10:00-12:00, 14:00-16:00",,,,,10:00-12:00,,53.345415,-7.614105,2671K
+Cloghan,Hill Road,Co. Offaly,(090) 6457102,15:00-17:00,,,,,15:00-17:00,,53.224847,-7.877516,2602F
+Clonaslee,Main Street,Co. Laois,(057) 8628022,Varies,,,,,Varies,Varies,53.148619,-7.526043,2505D
+Clonbologue,Clonbullogue,Co. Offaly,(046) 9730002,"Tue , Fri 15:00-17:00",,,,,Varies,,53.259142,-7.08576,2672G
+Daingean,Main Street,Co. Offaly,(057) 9353042,10:00-13:00,,,,,Varies,,53.292953,-7.293573,2673E
+Durrow,Chapel Street,Co. Laois,(057) 8736113,Varies,,,,,Varies,Varies,52.844258,-7.396091,2572M
+Edenderry,Saint Mary's Street,Co. Offaly,(046) 9731290,"Tue , Thu 10:00-13:00",,,,,Varies,,53.336835,-7.060821,2674C
+Ferbane,Main Street,Co. Offaly,(090) 6454302,15:00-17:00,,,,,15:00-17:00,,53.270751,-7.827618,2603D
+Kilcormac,Birr Street,Co. Offaly,(057) 9135002,15:00-17:00,,,,,15:00-17:00,,53.176184,-7.728836,2604B
+Kinnity,Kinnitty,Co. Offaly,(057) 9137002,15:00-17:00,,,,,15:00-17:00,,53.098414,-7.722148,2605M
+Mountmellick,Wolfe Tone Street,Co. Laois,(057) 8624140,Varies,,,,,Varies,Varies,53.118781,-7.335148,2501A
+Mountrath,Patrick Street,Co. Laois,(057) 8732236,Varies,,,,,Varies,Varies,52.998152,-7.478072,2502L
+Portarlington,Main Street,Co. Laois,(057) 8623112,"10:00-13:00, 20:00-21:00",,,,,"10:00-13:00, 20:00-21:00",,53.159159,-7.187796,2503H
+Portlaoise,Abbeyleix Road,Co. Laois,(057) 8674100,24/7,,,,,24/7,24/7,53.03165,-7.303082,2500C
+Rathdowney,Mooreville,Co. Laois,(0505) 46122,Varies,,,,,Varies,Varies,52.856712,-7.597837,2573K
+Rhode,Edenderry Road,Co. Offaly,(046) 9737002,Varies,,,,,Varies,,53.351091,-7.194828,2675A
+Shinrone,Shinrone,Co. Offaly,(050) 547122,15:00-17:00,,,,,15:00-17:00,,52.984679,-7.934131,2606K
+Stradbally,Main Street,Co. Laois,(057) 8625222,Varies,,,,,Varies,Varies,53.0176739,-7.151598400000012,2504F
+Tullamore,Patrick Street,Co. Offaly,(057) 9327600,24/7,,,,,24/7,24/7,53.276055,-7.494906,2670M
+Abbeyfeale,Convent Road,Co. Limerick,(068) 30010,10:00-12:00,,,,,10:00-12:00,closed,52.387297,-9.290012,4971K
+Adare,Main Street,Co. Limerick,(061) 396216,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.563903,-8.792065,4881L
+Ardnacrusha,Castlebank,Co. Clare,(061) 345136,10:00-13:00,,,,,10:00-13:00,12:00-14:00,52.707692,-8.613146,4803H
+Askeaton,Chapel Road,Co. Limerick,(061) 601630,24/7,,,,,24/7,24/7,52.600208,-8.978285,4880A
+Athea,Barrack Street,Co. Limerick,(068) 42102,14:00-15:00,,,,,14:00-15:00,closed,52.459923,-9.28747,4977H
+Ballingarry,Knightstreet,Co. Limerick,(069) 68103,14:00-17:00,,,,,14:00-17:00,closed,52.47213,-8.862845,4973E
+Ballylanders,Main Street,Co. Limerick,(062) 46622,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.370709,-8.34547,4902F
+Ballyneety,Ballyneety,Co. Limerick,(061) 351102,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.597271,-8.548932,4876C
+Bruff,Main Street,Co. Limerick,(061) 382940,24/7,,,,,24/7,24/7,52.47733,-8.546975,4900L
+Bruree,Bruree,Co. Limerick,(063) 90502,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.42316,-8.650418,4905M
+Caherconlish,Templemichael,Co. Limerick,(061) 351202,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.593816,-8.469536,4877A
+Cappamore,Main Street,Co. Limerick,(061) 381202,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.614671,-8.338486,4912C
+Castleconnel,Station Road,Co. Limerick,(061) 377105,"10:00-13:00, 17:00-19:00",,,,,"10:00-13:00, 17:00-19:00","10:00-12:00, 17:00-19:00",52.713406,-8.49847,4802L
+Croom,3 Main Street,Co. Limerick,(061) 397240,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.522001,-8.718798,4883F
+Dromcollogher,Woodfield,Co. Limerick,(063) 83002,10:00-11:30,,,,,10:00-11:30,closed,52.338222,-8.911261,4177G
+Foynes,Main Street,Co. Limerick,(069) 65122,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.60973,-9.10367,4884D
+Glin,Church Street,Co. Limerick,(068) 34100,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.569586,-9.284509,4885B
+Henry Street,Henry Street,Co. Limerick,(061) 212400,24/7,,,,,24/7,24/7,52.66164,-8.631345,4800C
+Hospital,Lower Main Street,Co. Limerick,(061) 383102,Closed,,,,,Closed,Closed,52.475237,-8.432453,4903D
+Kilmallock,Emmet Street,Co. Limerick,(063) 98018,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.398381,-8.575769,4906K
+Mayorstone,Mayorstone,Co. Limerick,(061) 456980,10:00-18:00,,,,,10:00-18:00,10:00-13:00,52.673726,-8.64474,4804F
+Murroe,Liscreagh,Co. Limerick,(061) 386102,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.649681,-8.399188,4913A
+Newcastle West,Churchtown Road,Co. Limerick,(069) 20650,24/7,,,,,24/7,24/7,52.453746,-9.062395,4970M
+Oola,Main Street,Co. Limerick,(062) 47641,10:00-13:00 or 19:00-21:00,,,,,10:00-13:00 or 19:00-21:00,10:00-13:00 or 19:00-21:00,52.52999,-8.259684,3876H
+Pallasgreen,Garranmore,Co. Limerick,(061) 384102,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.54829,-8.353081,4907G
+Pallaskenry,Pallaskenry,Co. Limerick,(061) 393102,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.64055,-8.866541,4882H
+Patrickswell,Main Street,Co. Limerick,(061) 355103,10:00-13:00,,,,,10:00-13:00,10:00-12:00,52.595751,-8.712941,4872M
+Rathkeale,Lower Main Street,Co. Limerick,(069) 63222,10:00-13:00,,,,,10:00-11:00,10:00-11:00,52.523368,-8.939033,4887K
+Roxboro Road,Roxboro Road,Co. Limerick,(061) 214340,24/7,,,,,24/7,24/7,52.650763,-8.61491,4870D
+Ardee,Jervis Street,Co. Louth,(041) 6853222,"09:00-14:00, 18:00-22:00",,,,,09:00-14:00,Closed,53.854914,-6.541139,2271C
+Blackrock,Sandy Lane,Co. Louth,(042) 9322194,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.963757,-6.368241,2076A
+Carlingford,Newry Street,Co. Louth,(042) 9373102,10:00-13:00,,,,,10:00-13:00,12:00-13:00,54.041228,-6.187213,2071M
+Castlebellingham,Dundalk Road,Co. Louth,(042) 9372205,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.899264,-6.389939,2002H
+Clogherhead,Clogherhead,Co. Louth,(041) 9822222,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.790411,-6.242661,2004D
+Collon,Drogheda Street,Co. Louth,(041) 9826102,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.777854,-6.484901,2272A
+Drogheda,Father Connolly Way,Co. Louth,(041) 9874200,24/7,,,,,24/7,24/7,53.715056,-6.356643,2000A
+Drumad,Drumad,Co. Louth,(042) 9358680,24/7,,,,,24/7,24/7,54.095768,-6.360793,2073G
+Dundalk,The Crescent,Co. Louth,(042) 9388400,24/7,,,,,24/7,24/7,53.999499,-6.409665,2070B
+Dunleer,Upper Main Street,Co. Louth,(041) 6851202,10:00-20:00,,,,,10:00-20:00,12:00-18:00,53.828524,-6.394568,2005B
+Hackballscross,Hackballscross,Co. Louth,(042) 9377142,17:00-20:00,,,,,17:00-20:00,17:00-20:00,54.031641,-6.524163,2072K
+Louth,Louth Village,Co. Louth,(042) 9374102,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.952394,-6.537919,2075C
+Omeath,Main Street,Co. Louth,(042) 9375175,18:00-21:00,,,,,18:00-21:00,18:00-21:00,54.086532,-6.256309,2074E
+Balla,Balla,Co. Mayo,(094) 9365002,11:00-13:00,,,,,11:00-13:00,Closed,53.801869,-9.129879,5903L
+Ballina,Lord Edward Street,Co. Mayo,(096) 20560,24/7,,,,,24/7,24/7,54.112854,-9.160445,5970F
+Ballindine,Main Street,Co. Mayo,(094) 9364219,11:00-12:00,,,,,11:00-12:00,Closed,53.669647,-8.957725,6072M
+Ballinrobe,Creagh Road,Co. Mayo,(094) 9542830,"11:00-13:00, 20:00-21:00",,,,,"11:00-13:00, 20:00-21:00",12:00-13:00,53.624611,-9.226214,6074G
+Ballycroy,Ballycroy,Co. Mayo,(098) 49132,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.025764,-9.825856,6004F
+Ballyhaunis,Main Street,Co. Mayo,(094) 9630008,"10:00-13:00, 20:00-21:00",,,,,"10:00-13:00, 20:00-21:00",Closed,53.763974,-8.767407,6104B
+Bangor Erris,Bangor Erris,Co. Mayo,(097) 83462,10:00-13:00,,,,,10:00-13:00,10:00-12:00,54.143979,-9.747078,6003H
+Belmullet,Béal an Mhuirthead,Co. Mayo,(097) 81910,24/7,,,,,24/7,24/7,54.221746,-9.985584,6000C
+Bonniconlon,Bonniconlon,Co. Mayo,(096) 45002,10:00-13:00,,,,,10:00-13:00,Closed,54.109553,-9.028962,5973M
+Castlebar,The Mall,Co. Mayo,(094) 9038200,24/7,,,,,24/7,24/7,53.853436,-9.297628,5900E
+Charlestown,Ballyhaunis Road,Co. Mayo,(094) 9254104,10:00-12:00,,,,,10:00-12:00,Closed,53.962745,-8.793514,6102F
+Claremorris,Mount Street,Co. Mayo,(094) 9372080,24/7,,,,,24/7,24/7,53.722297,-9.000249,6070D
+Cong,Main Street,Co. Mayo,(094) 9546002,11:00-12:00,,,,,11:00-12:00,Closed,53.541468,-9.286535,6075E
+Crossmolina,Erris Street,Co. Mayo,(096) 31371,"10:00-12:00, 19:00-21:00",,,,,"10:00-12:00, 19:00-21:00",Closed,54.099814,-9.322703,5974K
+Foxford,Barrack Road,Co. Mayo,(094) 9256102,10:00-12:00,,,,,10:00-12:00,Closed,53.983287,-9.108411,6105M
+Glenamoy,Gleann na Muaidhe,Co. Mayo,(097) 87844,10:00-13:00,,,,,10:00-13:00,12:00-14:00,54.240839,-9.67877,6005D
+Achill Sound,Gob an Choire,Co. Mayo,(098) 20830,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.933725,-9.918491,6172G
+Keel,Keel,Co. Mayo,(098) 43102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.975372,-10.082253,6175A
+Kilkelly,Kilkelly,Co. Mayo,(090) 9367002,10:00-12:00,,,,,10:00-12:00,Closed,53.873356,-8.843456,6103D
+Killala,Chapel Lane,Co. Mayo,(096) 32111,10:00-13:00,,,,,10:00-13:00,Closed,54.214104,-9.220515,5971D
+Kilmaine,Kilmaine,Co. Mayo,(093) 33372,14:30-15:30,,,,,14:30-15:30,Closed,53.582596,-9.123797,6071B
+Kiltimagh,Gortgarve,Co. Mayo,(094) 9381222,10:00-12:00,,,,,10:00-12:00,Closed,53.846055,-9.005765,6101H
+Knock,Airport Road,Co. Mayo,(094) 9388102,10:00-13:00,,,,,10:00-13:00,Closed,53.795363,-8.918831,6073K
+Louisburgh,Long Street,Co. Mayo,(098) 66055,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.764608,-9.807597,6174C
+Newport,Newport,Co. Mayo,(098) 41102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.890184,-9.54662,6171K
+Partry,Newtown,Co. Mayo,(094) 9543002,"10:00-12:00, 19:00-21:00",,,,,"10:00-12:00, 19:00-21:00",Closed,53.698681,-9.279587,5904H
+Shrule,Shrule,Co. Mayo,(093) 31292,16:00-17:00,,,,,16:00-17:00,Closed,53.519846,-9.087625,6076C
+Swinford,Chapel Street,Co. Mayo,(094) 9252990,24/7,,,,,24/7,24/7,53.940637,-8.952211,6100L
+Westport,Fairgreen,Co. Mayo,(098) 50230,24/7,,,,,24/7,24/7,53.79907,-9.519437,6170M
+Ashbourne,Frederick Street,Co. Meath,(01) 8010600,24/7,,,,,24/7,24/7,53.511375,-6.396999,2040M
+Athboy,Lower Bridge Street,Co. Meath,(046) 9432201,Varies,,,,,Varies,,53.623639,-6.915872,2102D
+Ballivor,Mullingar Road,Co. Meath,(046) 9546002,Varies,,,,,Varies,Varies,53.532703,-6.967157,2179B
+Duleek,Main Street,Co. Meath,(041) 9823222,Varies,,,,,Varies,Varies,53.653865,-6.418061,2273L
+Dunboyne,Dunboyne,Co. Meath,(01) 8252211,Varies,,,,,Varies,Varies,53.421092,-6.477153,2041K
+Dunshaughlin,Main Street,Co. Meath,(01) 8258600,Varies,,,,,Varies,Varies,53.510761,-6.539311,2042G
+Enfield,Main Street,Co. Meath,(046) 9541460,Varies,,,,,Varies,Varies,53.415111,-6.833864,2178D
+Kells,Fair Green,Co. Meath,(046) 9280820,24/7,,,,,24/7,24/7,53.728408,-6.881215,2100H
+Laytown,Beach Park,Co. Meath,(041) 9827074,Varies,,,,,Varies,Varies,53.689197,-6.244004,2006M
+Longwood,Longwood,Co. Meath,(046) 9554570,Varies,,,,,Varies,Varies,53.454571,-6.926959,2175L
+Navan,Abbey Road,Co. Meath,(046) 9079930,24/7,,,,,24/7,24/7,53.654517,-6.690418,2270E
+Nobber,Main Street,Co. Meath,(046) 9052182,"10:00-13:00, 18:00-21:00",,,,,10:00-13:00,12:00-13:00,53.820954,-6.74664,2106G
+Oldcastle,Church Street,Co. Meath,(049) 8541102,Varies,,,,,Varies,,53.769274,-7.161933,2104M
+Slane,Main Street,Co. Meath,(041) 9824202,"10:00-13:00, 18:00-21:00",,,,,"10:00-13:00, 14:00-18:00",11:00-13:00,53.709681,-6.547504,2274H
+Summerhill,Summerhill,Co. Meath,(046) 9557002,Varies,,,,,Varies,Varies,53.48196,-6.733438,2177F
+Trim,Castle Street,Co. Meath,(046) 9481540,24/7,,,,,24/7,24/7,53.553114,-6.789303,2170K
+Athleague,Athleague,Co. Roscommon,(090) 6663312,10:00-11:00,,,,,18:00-19:00,Closed,53.568697,-8.252367,5601D
+Ballaghaderreen,New Street,Co. Roscommon,(094) 9860002,22:00-13:00,,,,,22:00-13:00,11:00-13:00,53.899932,-8.584588,5771A
+Ballinlough,Ballinlough,Co. Roscommon,(094) 9640002,22:00-13:00,,,,,22:00-13:00,12:00-14:00,53.740774,-8.635822,5772L
+Ballymahon,Ballymahon,Co. Longford,(090) 6432303,11:00-13:00,,,,,Varies,Varies,53.56131,-7.760849,2376M
+Boyle,Military Road,Co. Roscommon,(071) 9664620,24/7,,,,,24/7,24/7,53.97337,-8.300395,5700B
+Castlerea,Barrack Street,Co. Roscommon,(094) 9621630,24/7,,,,,24/7,24/7,53.766632,-8.484061,5770C
+Clonark,Clonark,Co. Roscommon,(090) 6437102,10:00-12:00,,,,,14:00-16:00,14:00-16:00,53.368396,-8.034655,5677D
+Drumlish,Drumlish,Co. Longford,(043) 3324102,20:00-22:00,,,,,"18:00-22:00, 1 Saturday per month","10:00-13:00, 2 Sundays per month",53.821699,-7.765943,2401E
+Edgeworthstown,Granard Road,Co. Longford,(043) 6671002,10:00-13:00,,,,,10:00-13:00,12:00-13:00,53.695578,-7.60599,2472D
+Elphin,Main Street,Co. Roscommon,(071) 9635002,Varies,,,,,Varies,Varies,53.84582,-8.192477,5703G
+Frenchpark,Corskeagh,Co. Roscommon,(094) 9870002,"10:00-12:00, 20:00-22:00",,,,,Varies,10:00-12:00,53.869536,-8.407873,5704E
+Granard,Barrack Street,Co. Longford,(043) 6687660,24/7,,,,,24/7,24/7,53.778552,-7.494222,2470H
+Keadue,Keadue West,Co. Roscommon,(071) 9647202,Varies,,,,,Varies,Varies,54.050646,-8.137298,5705C
+Keenagh,Kenagh,Co. Longford,(043) 3322102,"15:00-17:00, 2 days per week",,,,,Varies,Closed,53.621951,-7.815098,2402C
+Lanesboro,Knock,Co. Longford,(043) 3321102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.671004,-7.985285,2405H
+Longford,Battery Road,Co. Longford,(043) 3350570,24/7,,,,,24/7,24/7,53.73251,-7.80138,2400G
+Rooskey,Main Street,Co. Roscommon,(071) 9638002,10:00-13:00,,,,,14:00-17:00,11:00-13:00,53.832866,-7.922834,6306A
+Roscommon,Abbey Street,Co. Roscommon,(090) 6638300,24/7,,,,,24/7,24/7,53.629842,-8.193576,5600F
+Smear,Cleenrah,Co. Longford,(043) 6684102,10:00-13:00,,,,,Varies,Varies,53.860567,-7.601682,2473B
+Strokestown,Elphin Street,Co. Roscommon,(071) 9633002,10:00-11:00,,,,,18:00-19:00,Closed,53.780762,-8.103817,5603M
+Taughmaconnell,"Onagh, Taughmaconnell",Co. Roscommon,(090) 9683612,"10:00-11:00, 18:00-19:00",,,,,"10:00-11:00, 18:00-19:00",Closed,53.393162,-8.172962,5676F
+Tulsk,Tulsk,Co. Roscommon,(071) 9639002,"10:00-11:00, 14:00-15:00, 20:00-21:00",,,,,"10:00-11:00, 14:00-15:00, 20:00-21:00","10:00-11:00,  20:00-21:00",53.777444,-8.251828,5706A
+Ballinamore,Railway Road,Co. Leitrim,(071) 9644002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.054599,-7.796969,6905A
+Ballymote,O'Connell Street,Co. Sligo,(071) 9189500,24/7,,,,,24/7,24/7,54.087429,-8.515224,6270G
+Carrick-on-Shannon,Shannon Lodge,Co. Leitrim,(071) 9650510,24/7,,,,,24/7,24/7,53.944337,-8.09015,6300B
+Collooney,Boyle Road,Co. Sligo,(071) 9167122,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.185481,-8.487866,6201D
+Coolaney,Coolaney,Co. Sligo,(071) 9167222,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.172371,-8.603388,6203M
+Drumshanbo,Barrack Square,Co. Leitrim,(071) 9641002,10:00-13:00,,,,,10:00-13:00,12:00-13:00,54.046503,-8.039977,6303G
+Enniscrone,Main Street,Co. Sligo,(096) 36103,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.213846,-9.088505,5976E
+Grange,Grange,Co. Sligo,(071) 9163144,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.393368,-8.520745,6206E
+Gurteen,Gurteen,Co. Sligo,(071) 9182002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.992967,-8.515829,6272C
+Kinlough,Barrack Street,Co. Leitrim,(071) 9841412,10:00-13:00,,,,,10:00-13:00,12:00-13:00,54.445777,-8.286956,6373H
+Manorhamilton,Sligo Road,Co. Leitrim,(071) 9820620,24/7,,,,,24/7,24/7,54.304359,-8.178512,6370C
+Mohill,Main Street Upper,Co. Leitrim,(071) 9631002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,53.920831,-7.868075,6305C
+Riverstown,Cooperhill,Co. Sligo,(071) 9165122,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.12957,-8.399996,6273A
+Rosses Point,Ballyweelin,Co. Sligo,(071) 9177143,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.305369,-8.546543,6205G
+Skreen,Leekfield,Co. Sligo,(071) 9166662,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.2446,-8.720407,6202B
+Sligo,Pearse Road,Co. Sligo,(071) 9157000,24/7,,,,,24/7,24/7,54.269256,-8.471265,6200F
+Tubbercurry,Teeling Street,Co. Sligo,(071) 9185002,10:00-13:00,,,,,10:00-13:00,10:00-13:00,54.051574,-8.734268,6271E
+Ardfinnan,Barrack Street,Co. Tipperary,(052) 7466203,10:00-13:00 or 14:00-17:00 or 18:00-21:00,,,,,10:00-13:00 or 14:00-17:00 or 18:00-21:00,10:00-13:00 or 14:00-17:00 or 18:00-21:00,52.31183,-7.878311,3701L
+Ballingarry North,Ballingarry,Co. Tipperary,(069) 68103,Contact Borrisokane station,,,,,,,53.018366,-8.030464,3771M
+Ballingarry South,Ballingarry,Co. Tipperary,(069) 68103,16:00-17:00,,,,,16:00-17:00,closed,52.586041,-7.541163,3601C
+Ballyporeen,Lower Main Street,Co. Tipperary,(052) 7467102,10:00-13:00 or 14:00-17:00 or 18:00-21:00,,,,,10:00-13:00 or 14:00-17:00 or 18:00-21:00,10:00-13:00 or 14:00-17:00 or 18:00-21:00,52.270205,-8.097746,3702H
+Bansha,Barrack Street,Co. Tipperary,(062) 54141,10:00-13:00 or 14:00-16:00 or 19:00-21:00,,,,,10:00-13:00 or 14:00-16:00,10:00-13:00,52.449254,-8.065584,3875L
+Borrisokane,Main Street,Co. Tipperary,(067) 27101,10:00-13:00,,,,,10:00-13:00,Closed,52.997118,-8.127013,3772K
+Borrisoleigh,Lower Main Street,Co. Tipperary,(0504) 51295,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,10:00-13:00,52.75149,-7.955371,3805K
+Cahir,Townspark,Co. Tipperary,(052) 7445630,24/7,,,,,24/7,24/7,52.375972,-7.920298,3700A
+Cappawhite,Church Street,Co. Tipperary,(062) 75202,10:00-13:00 or 14:00-16:00 or 19:00-21:00,,,,,10:00-13:00 or 14:00-16:00,10:00-13:00,52.583158,-8.164835,3874A
+Carrick-on-Suir,Greenside South,Co. Tipperary,(051) 642040,"09:00-13:00, 14:00-18:00, 19:00-22:00",,,,,"09:00-13:00, 14:00-18:00, 19:00-22:00","09:00-13:00, 14:00-18:00, 19:00-22:00",52.348154,-7.409894,3675G
+Cashel,Commandant P J Hogan Square,Co. Tipperary,(062) 75840,09:00-17:00,,,,,09:00-17:00,09:00-17:00,52.516336,-7.890302,3704D
+Clogheen,Lower Main Street,Co. Tipperary,(052) 7465204,10:00-13:00 or 14:00-17:00 or 18:00-21:00,,,,,10:00-13:00 or 14:00-17:00 or 18:00-21:00,10:00-13:00 or 14:00-17:00 or 18:00-21:00,52.276899,-7.995338,3705B
+Clonmel,Emmet Street,Co. Tipperary,(052) 6177640,24/7,,,,,24/7,24/7,52.354092,-7.699937,3670F
+Cloughjordan,Church Road,Co. Tipperary,(0505) 42122,10:30-11:30,,,,,10:30-11:30,Closed,52.941967,-8.039714,3773G
+Dolla,Dolla,Co. Tipperary,(067) 25250,14:00-15:00,,,,,14:00-15:00,Closed,52.797134,-8.192115,3774E
+Emly,Emly,Co. Tipperary,(062) 57157,10:00-13:00 or 14:00-16:00 or 19:00-21:00,,,,,10:00-13:00 or 14:00-16:00,14:00-16:00,52.465127,-8.354184,3872E
+Fethard,Main Street,Co. Tipperary,(052) 6131202,10:00-13:00 or 14:00-17:00,,,,,10:00-13:00 or 14:00-17:00,10:00-13:00 or 14:00-15:00,52.466397,-7.694428,3674K
+Golden,Persses - Lot,Co. Tipperary,(062) 72100,10:00-13:00 or 14:00-16:00 or 19:00-21:00,,,,,10:00-13:00 or 14:00-16:00,10:00-13:00,52.496771,-7.984693,3873C
+Holycross,Holycross,Co. Tipperary,(0504) 43222,Varies,,,,,Varies,Varies,52.642571,-7.872911,3602A
+Killenaule,River Street,Co. Tipperary,(052) 9156202,Varies,,,,,Varies,Varies,52.568519,-7.672826,3603L
+Kilsheelan,Kilsheelan Village,Co. Tipperary,(052) 6133160,10:00-13:00 or 14:00-17:00,,,,,10:00-13:00 or 14:00-17:00,10:00-13:00 or 14:00-17:00,52.361522,-7.579801,3671D
+Littleton,Slievenamon Road,Co. Tipperary,(0504) 44395,Varies,,,,,Varies,Varies,52.640702,-7.734927,3607B
+Lorrha,Lorrha,Co. Tipperary,(090) 9747002,15:00-16:30,,,,,15:00-16:30,Closed,53.09366,-8.122077,2608E
+Moneygall,Moneygall,Co. Offaly,(0505) 45202,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,10:00-13:00,52.881293,-7.95344,3807E
+Moyne,Moynetemple,Co. Tipperary,(0504) 45125,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,Closed,52.734272,-7.714104,3803B
+Mullinahone,Carrick Street,Co. Tipperary,(052) 6153100,10:00-13:00 or 14:00-17:00,,,,,10:00-13:00 or 14:00-17:00,10:00-13:00 or 14:00-17:00,52.510156,-7.505575,3672B
+Nenagh,Banba Square,Co. Tipperary,(067) 50450,24/7,,,,,24/7,24/7,52.864279,-8.199582,3770B
+Newport,Jail Street,Co. Tipperary,(061) 378102,"09:30-10:30, 20:00-21:00",,,,,"09:30-10:30, 20:00-21:00",Closed,52.70962,-8.407173,5132B
+Portroe,Portroe,Co. Tipperary,(067) 23255,15:30-16:30,,,,,15:30-16:30,Closed,52.881904,-8.353676,3775C
+Roscrea,Main Street,Co. Tipperary,(0505) 21700,24/7,,,,,24/7,24/7,52.956163,-7.798782,3802D
+Shevry,Shevry,Co. Tipperary,(0504) 54102,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,10:00-13:00,52.686935,-8.04713,3806G
+Templederry,Templederry,Co. Tipperary,(0504) 52202,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,Closed,52.774143,-8.07501,3804M
+Templemore,Main Street,Co. Tipperary,(0504) 32630,24/7,,,,,24/7,24/7,52.796632,-7.835087,3800H
+Templetuohy,Lisdalleen,Co. Tipperary,(0504) 53202,10:00-11:00 or 14:00-15:00,,,,,10:00-13:00 or 14:00-15:00,Closed,52.790294,-7.720095,3801F
+Thurles,Slievenamon Road,Co. Tipperary,(0504) 25100,24/7,,,,,24/7,24/7,52.675712,-7.8119,3600E
+Tipperary,Saint Michael's Road,Co. Tipperary,(062) 80670,24/7,,,,,24/7,24/7,52.476051,-8.162901,3870K
+Toomevara,Main Street,Co. Tipperary,(067) 26002,10:00-11:00,,,,,10:00-11:00,Closed,52.849684,-8.036502,3776A
+Aglish,Aglish,Co. Waterford,(024) 96122,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.07159,-7.822039,3375H
+Ring,An Rinn,Co. Waterford,(058) 46111,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.048379,-7.593043,3376F
+Ardmore,College Road,Co. Waterford,(024) 94222,10:00-13:00,,,,,10:00-13:00,12:00-13:00,51.95102,-7.728211,4206D
+Ballymacarberry,Curtiswood,Co. Waterford,(052) 36100,10:00-13:00,,,,,10:00-13:00,12:00-13:30,52.267228,-7.717707,3374L
+Cappoquin,Barrack Street,Co. Waterford,(058) 54244,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.145886,-7.845723,3371E
+Dungarvan,Youghal Road,Co. Waterford,(058) 48600,24/7,,,,,24/7,24/7,52.087691,-7.624475,3370G
+Dunmore East,Dock Road,Co. Waterford,(051) 383112,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.14839,-6.99287,3301D
+Ferrybank,122 Rockenham,Co. Waterford,(051) 832570,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.267457,-7.101039,3302B
+Kill,Kilbarrymeaden,Co. Waterford,(051) 292211,Varies,,,,,Varies,Varies,52.177324,-7.335097,3401M
+Kilmacthomas,Kilmacthomas,Co. Waterford,(051) 294124,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.206191,-7.421334,3402K
+Kilmeaden,Kilmeaden,Co. Waterford,(051) 384105,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.246247,-7.245047,3403G
+Leamybrien,Lemybrien,Co. Waterford,(051) 291182,10:00-13:00 If member is working,,,,,10:00-13:00 If member is working,12:30-13:00,52.169328,-7.521634,3406A
+Lismore,West Street,Co. Waterford,(058) 54222,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.136673,-7.935513,3377D
+Passage East,Barrack Street,Co. Waterford,(051) 382211,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.23918,-6.972809,3303M
+Portlaw,Main Street,Co. Waterford,(051) 387105,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.286264,-7.317612,3404E
+Rathgormack,Rathgormack,Co. Waterford,(051) 646002,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.307456,-7.50377,3405C
+Tallow,West Street,Co. Waterford,(058) 56222,10:00-13:00,,,,,10:00-13:00,12:00-13:00,52.093703,-8.007298,3372C
+Tramore,Off Market Street,Co. Waterford,(051) 391620,24/7,,,,,24/7,24/7,52.161475,-7.153412,3400B
+Waterford,Patrick Street,Co. Waterford,(051) 305300,24/7,,,,,24/7,24/7,52.260269,-7.115254,3300F
+Athlone,Barrack Street,Co. Westmeath,(090) 6492600,24/7,,,,,24/7,24/7,53.423248,-7.944738,2370A
+Ballymore,High Street,Co. Westmeath,(044) 9356222,Varies,,,,,Varies,Varies,53.491082,-7.681731,2372H
+Ballynacargy,Ballynacarrigy,Co. Westmeath,(044) 9373122,Varies,,,,,Varies,Varies,53.586311,-7.534945,2474M
+Castlepollard,Dublin Road,Co. Westmeath,(044) 9661112,Varies,,,,,Varies,Varies,53.678482,-7.296635,2475K
+Delvin,Castletown,Co. Westmeath,(044) 9664193,Varies,,,,,Varies,Varies,53.614455,-7.090084,2305A
+Glassan,Glasson,Co. Westmeath,(090) 6485102,Varies,,,,,Varies,Varies,53.471354,-7.864255,2373F
+Kilbeggan,Lower Main Street,Co. Westmeath,(057) 9332102,Varies,,,,,Varies,Varies,53.368544,-7.499184,2374D
+Killucan,Killucan,Co. Westmeath,(044) 9374112,Varies,,,,,Varies,Varies,53.514714,-7.13967,2301K
+Kinnegad,Kinnegad,Co. Westmeath,(044) 9375112,Varies,,,,,Varies,Varies,53.455927,-7.102805,2302G
+Moate,Athlone Road,Co. Westmeath,(090) 6481106,Varies,,,,,Varies,Varies,53.395738,-7.734526,2375B
+Mullingar,College Road,Co. Westmeath,(044) 9384000,24/7,,,,,24/7,24/7,53.525701,-7.345952,2300M
+Multyfarnham,Multyfarnham,Co. Westmeath,(044) 9371112,Varies,,,,,Varies,Varies,53.624231,-7.392333,2476G
+Rochfortbridge,Rochfortbridge,Co. Westmeath,(044) 9222102,Varies,,,,,Varies,Varies,53.413283,-7.301832,2303E
+Ballycullane,Ballycullane,Co. Wexford,(051) 562121,10:00-13:00,,,,,Closed,Closed,52.278869,-6.839211,3171B
+Blackwater,Inch,Co. Wexford,(053) 9129142,14:00-16:00,,,,,14:00-16:00,14:00-16:00,52.445411,-6.348826,3101A
+Bunclody,Carrickduff,Co. Carlow,(053) 9377102,"10:00-13:00, 18:00-19:00",,,,,"10:00-13:00, 18:00-19:00","10:00-12:00, 18:00-19:00",52.656758,-6.662477,3071F
+Campile,Ballyvelig,Co. Wexford,(051) 388103,10:00-13:00,,,,,Closed,Closed,52.287783,-6.939622,3176C
+Carrickbyrne,Foulksmills,Co. Wexford,(053) 9240542,10:00-13:00,,,,,11:00-12:00,Closed,52.362377,-6.759713,3175E
+Carrick-on-Bannow,Danescastle,Co. Wexford,(051) 561122,10:00-13:00,,,,,10:00-13:00,Closed,52.238145,-6.734023,3172M
+Castlebridge,Ballyboggan Lower,Co. Wexford,(053) 9159221,10:00-18:00 or 18:00-02:00,,,,,10:00-18:00 or 18:00-02:00,10:00-18:00 or 18:00-02:00,52.384712,-6.452561,3003A
+Clonroche,Clonroche,Co. Wexford,(053) 9244102,14:00-15:00,,,,,14:00-15:00,Closed,52.450375,-6.715873,3106B
+Courtown Harbour,Ballintra Lower,Co. Wexford,(053) 9425102,10:00-13:00,,,,,10:00-13:00,10:00-13:00,52.644257,-6.230528,3072D
+Duncannon,Duncannon,Co. Wexford,(051) 389102,"Mon, Wed-Fri 09:00-17:00, Tue 19:00-21:00",,,,,10:00-13:00,10:00-14:00,52.221401,-6.929776,3173K
+Enniscorthy,Lymington Road,Co. Wexford,(053) 9233534,24/7,,,,,24/7,24/7,52.500739,-6.570682,3100C
+Ferns,Main Street,Co. Wexford,(053) 9366104,10:00-11:00,,,,,10:00-11:00,Closed,52.590995,-6.497766,3102L
+Glynn,Glynn,Co. Wexford,(053) 9128142,10:00-18:00 or 18:00-02:00,,,,,10:00-18:00 or 18:00-02:00,10:00-18:00 or 18:00-02:00,52.372768,-6.582891,3005H
+Gorey,Main Street,Co. Wexford,(053) 9421222,24/7,,,,,24/7,24/7,52.675046,-6.29727,3070H
+Kilmore Quay,The Beake,Co. Wexford,(053) 9129642,10:00-18:00 or 18:00-02:00,,,,,10:00-18:00 or 18:00-02:00,10:00-18:00 or 18:00-02:00,52.178668,-6.58373,3004L
+New Ross,Marshmeadows,Co. Wexford,(051) 426030,24/7,,,,,24/7,24/7,52.387564,-6.9508,3170D
+Oulart,Oulart,Co. Wexford,(053) 9136102,16:30-17:30,,,,,16:30-17:30,Closed,52.503337,-6.391333,3105D
+Oylegate,The Oil,Co. Wexford,(053) 9138132,10:00-11:00,,,,,10:00-11:00,Closed,52.424081,-6.529615,3104F
+Rosslare Strand,Walsheslough,Co. Wexford,(053) 9132103,10:00-18:00 or 18:00-2:00,,,,,10:00-18:00 or 18:00-2:00,10:00-18:00 or 18:00-2:00,52.269656,-6.384849,3006F
+Rosslare Strand,Walsheslough,Co. Wexford,(053) 9132103,10:00-18:00 or 18:00-2:00,,,,,10:00-18:00 or 18:00-2:00,10:00-18:00 or 18:00-2:00,52.269656,-6.384849,3006F
+Taghmon,Taghmon,Co. Wexford,(053) 9134102,10:00-18:00 or 18:00-02:00,,,,,10:00-18:00 or 18:00-02:00,10:00-18:00 or 18:00-02:00,52.322031,-6.651727,3001E
+Wexford,Mulgannon,Co. Wexford,(053) 9165200,24/7,,,,,24/7,24/7,52.335547,-6.461997,3000G
+Arklow,Abbey Street,Co. Wicklow,(0402) 32304,24/7,,,,,24/7,24/7,52.796281,-6.154628,3073B
+Ashford,Ballinahinch,Co. Wicklow,(0404) 40212,10:00-13:00,,,,,Varies,,53.013445,-6.108274,3201H
+Aughrim,Main Street,Co. Wicklow,(0402) 36142,10:00-13:00,,,,,Varies,,52.856031,-6.32684,3207G
+Avoca,Main Street,Co. Wicklow,(0402) 35102,10:00-13:00,,,,,Varies,,52.858789,-6.212905,3205M
+Baltinglass,Edward Street,Co. Wicklow,(059) 6482610,24/7,,,,,24/7,24/7,52.938986,-6.709772,2900K
+Blessington,Main Street,Co. Wicklow,(045) 857620,"10:00-13:00, 19:00-22:00",,,,,"10:00-13:00, 19:00-22:00",,53.170266,-6.533734,2901G
+Bray,Convent Avenue,Co. Wicklow,(01) 6665300,24/7,,,,,24/7,24/7,53.198679,-6.100595,1930E
+Carnew,Gorey Road,Co. Wicklow,(053) 9426102,10:00-13:00,,,,,Varies,,52.710507,-6.491768,3074M
+Dunlavin,Market Square,Co. Wicklow,(045) 401211,15:00-17:00,,,,,Varies,,53.058777,-6.701071,2902E
+Enniskerry,Church Hill,Co. Wicklow,(01) 6665750,10:00-13:00,,,,,Varies,,53.191343,-6.169531,1931C
+Greystones,Marine Terrace,Co. Wicklow,(01) 6665800,24/7,,,,,24/7,24/7,53.147964,-6.063164,1933L
+Newtownmountkennedy,Dublin Road,Co. Wicklow,(01) 2819222,"09:00-13:00, 15:00-17:00",,,,,Varies,,53.096895,-6.10944,3203D
+Rathdrum,Rathdrum,Co. Wicklow,(0404) 46206,"10:00-13:00, 17:00-19:00",,,,,"10:00-13:00, 17:00-19:00",,52.930996,-6.226505,3202F
+Roundwood,Main Street,Co. Wicklow,(01) 2818142,10:00-13:00,,,,,Varies,,53.063047,-6.224677,3206K
+Shilleagh,Main Street,Co. Wicklow,(055) 29102,11:00-13:00,,,,,Varies,,52.754565,-6.537507,2905L
+Tinahely,Shillelagh Road,Co. Wicklow,(0402) 38102,15:00-17:00,,,,,Varies,,52.796724,-6.469283,2906H
+Wicklow,Bachelor's Walk,Co. Wicklow,(0404) 60140,24/7,,,,,24/7,24/7,52.981435,-6.042638,3200L
