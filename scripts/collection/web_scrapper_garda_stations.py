@@ -2,7 +2,6 @@ import html_to_json
 import csv
 
 
-
 def convert_html_to_json():
     response_html_format = open("response_garda_all.txt", "r")
     return html_to_json.convert(response_html_format.read())

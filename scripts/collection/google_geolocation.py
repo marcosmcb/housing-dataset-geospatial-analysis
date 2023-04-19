@@ -70,6 +70,25 @@ def find_schools_geolocation(filename):
         "headers": headers
     }
 
+def find_hospitals_geolocation(filename):
+    rows = []
+    headers = []
+    with open(filename, 'r') as f:
+        reader = csv.DictReader(f)
+        headers = reader.fieldnames
+        for row in reader:
+            address = ",".join([row["name"], row["address"], row["eircode"]])
+            geolocation = call_google_maps(address)            
+            row.update(geolocation)
+            rows.append(row)
+            time.sleep(0.1)
+    headers.append("latitude")
+    headers.append("longitude")
+    return {
+        "rows": rows,
+        "headers": headers
+    }
+
             
 
 
@@ -81,5 +100,8 @@ if __name__ == "__main__":
     elif (dataset == "schools"):
         result = find_schools_geolocation("schools_addresses.csv")
         writeDictToCSV( result["rows"], result["headers"], "schools-geolocation.csv" )
+    elif (dataset == "hospitals"):
+        result = find_hospitals_geolocation("hospitals.csv")
+        writeDictToCSV( result["rows"], result["headers"], "hospitals-geolocation.csv" )
     else:
         raise Exception("Invalid Argument")
