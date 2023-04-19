@@ -18,6 +18,12 @@ For the Data Collection step, you can find further information at:
 
   * In order to address the above, the dataset collected is stored and kept prestine inside the [datasets folder](/datasets/house_listings_all.csv)
 
+  * Other datasets used in this project were:
+    * [Transport](/datasets/transport/)
+    * [Police](/datasets/police/)
+    * [Health](/datasets/hospitals/)
+    * [Education](/datasets//education/)
+
 * [Data Preparation](/scripts/cleaning/)
 
     * In this folder, you can find all the steps taken to clean the dataset, such as:
@@ -35,7 +41,7 @@ For the Data Collection step, you can find further information at:
 
     * In this step, the goal is to perform the following tasks:
 
-        1. Data Visualisation: 
+        1. **Data Visualisation**: 
            
            * Histograms of variables
            * Box Plot
@@ -43,7 +49,7 @@ For the Data Collection step, you can find further information at:
            * Heat Maps
            * Spatial plots
   
-        2. Summary Statistics:
+        2. **Summary Statistics**:
            
            * Mean 
            * Median 
@@ -51,17 +57,17 @@ For the Data Collection step, you can find further information at:
            * Standard Deviation 
            * Correlation coefficients.
 
-        3. Data Distribution
-        4. Outliers
-        5. Feature Engineering
-        6. Hypoteshis testing
-        7. Data Normalisation
-        8. Further data cleaning
+        3. **Data Distribution**
+        4. **Outliers**
+        5. **Feature Engineering**
+        6. **Hypoteshis testing**
+        7. **Data Normalisation**
+        8. **Further data cleaning**
 
 * [Model Selection](/scripts/model-selection/)
 
-   1. Evaluation metrics selection
-   2. Choosing candidate models
-   3. Training and evaluation models
-   4. Model testing
-   5. Model validation
+   1. **Evaluation metrics selection**
+   2. **Choosing candidate models**
+   3. **Training and evaluation models**
+   4. **Model testing**
+   5. **Model validation**
