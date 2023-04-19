@@ -1,39 +1,39 @@
-name,address,eircode,x,y
-Midland Regional Hospital Portlaoise,"Dublin Road, Portlaoise, Co. Laois, ",R32RW61,248539.8285,198821.7809
-Midland Regional Hospital Tullamore,"Arden Road, Tullamore, Co. Offaly, ",R35NY51,233923.1455,225877.1039
-St James's Hospital Dublin,"James's Street, Dublin 8, ",D08NHY1,313433.6436,233460.873
-Naas General Hospital,"Craddockstown Road, Naas, Co. Kildare, ",W91AE76,289392.2816,218724.4999
-The Adelaide & Meath Hospital (Tallaght Hospital) Dublin,"Tallaght, Dublin 24",,308195.7986,227903.5429
-Cavan General Hospital,"Lisdarn, Cavan, ",H12A5D7,241108.2195,305926.719
-Louth County Hospital Dundalk,"Dublin Road, Dundalk",,304933.9162,305486.799
-Monaghan Hospital,"Monaghan, ",H18NV91,266828.5975,333908.8821
-Our Lady of Lourdes Hospital Drogheda,"Drogheda, Co. Louth, ",A92VW28,308563.4386,276047.75
-Connolly Hospital Dublin,"Mill Road, Dublin 15, ",D15X40D,308545.2076,238839.27
-Beaumont Hospital,"Beaumont Road, Dublin 9, ",D09C562,318014.4006,239461.7999
-St Luke's General Hospital Kilkenny,"Freshford Road, Kilkenny, ",R95FY71,249849.5305,157441.6319
-Wexford General Hospital,"Newtown Road, Wexford, Y35y17d",,303401.8406,122304.6848
-Our Lady's Hospital Navan,"Navan, Co. Meath, ",C15RK7Y,286123.9386,267517.563
-Midland Regional Hospital Mullingar,"Longford Road, Mullingar, Co. Westmeath, ",N91NA43,243131.5005,254000.7
-St Columcille's Hospital,"Bray Road, Loughlinstown, Co. Dublin, ",D18V9K1,324650.0136,223005.9479
-St Vincent's University Hospital,"Elm Park, Nutley Lane, Dublin 4, ",D04T6F4,319049.9696,231076.2339
-St Michael's Hospital Dun Laoghaire,"George's Street Lower, Dun Laoghaire, Co. Dublin, ",A96P902,324095.6746,228667.4989
-Mater Misericordiae Hospital,"Eccles Street, Dublin 7, ",D07R2WY,315270.9066,235749.3699
-South Tipperary General Hospital,"Western Road, Clonmel, Co. Tipperary, ",E91VY40,219438.4595,122665.8848
-University Hospital Waterford,"Dunmore Road, Waterford, ",X91ER8E,262910.9695,111129.5228
-Bantry General Hospital,"Carrignagat, Bantry, Co. Cork, ",P75DX93,99695.28536,48014.02974
-Cork University Hospital,"Wilton, Cork, ",T12DC4A,164819.4034,70216.09277
-Mallow General Hospital,"Kilknockin, Mallow, Co. Cork, ",P51N288,154551.0944,100117.7888
-Ennis Hospital,"Gort Road, Ennis, Co. Clare, ",V95HN29,133732.5354,178235.0779
-Roscommon County Hospital,"Ardsallagh Beg, Co. Roscommon, ",F42AX61,188388.3285,263899.813
-Mercy University Hospital,"Grenville Place, Cork, ",T12WE28,166764.5734,71915.37076
-Nenagh Hospital,"Tyone, Nenagh, Co. Tipperary, ",E45PT86,187094.4565,178527.3649
-Sligo Regional Hospital,"The Mall, Sligo, ",F91H684,169786.3464,336269.7351
-University Hospital Galway,"Newcastle Road, Galway, ",H91YR71,128926.2994,225582.2939
-Portiuncula Hospital,"Ballinasloe, Co. Galway, ",H53T971,184339.0425,230731.3919
-South Infirmary Victoria University Hospital,"Old Blackrock Road, Cork, ",T12X23H,168045.1354,71328.93777
-St John's Hospital,"St. John's Square, Limerick",,158298.4279,157008.8367
-Letterkenny University Hospital,"Kilmacrennan Road, Letterkenny, Co. Donegal, ",F92AE81,216990.1175,412551.1811
-Merlin Park University Hospital,"Galway, ",H91N973,133719.3214,225686.7119
-University Hospital Kerry,"Tralee, Co. Kerry, ",V92NX94,84653.57835,113945.3278
-University Hospital Limerick,"Saint Nessan's Road, Dooradoyle, Limerick, ",V94F858,155741.1214,154029.2699
-Mayo General Hospital,"Westport Road, Castlebar, Co. Mayo, ",F23H529,114195.8524,289970.125
+name,address,eircode,x,y,latitude,longitude
+Midland Regional Hospital Portlaoise,"Dublin Road, Portlaoise, Co. Laois, ",R32RW61,248539.8285,198821.7809,53.03820839999999,-7.2760839
+Midland Regional Hospital Tullamore,"Arden Road, Tullamore, Co. Offaly, ",R35NY51,233923.1455,225877.1039,53.2830682,-7.488466400000001
+St James's Hospital Dublin,"James's Street, Dublin 8, ",D08NHY1,313433.6436,233460.873,53.339302,-6.296513099999999
+Naas General Hospital,"Craddockstown Road, Naas, Co. Kildare, ",W91AE76,289392.2816,218724.4999,53.21244950000001,-6.6623605
+The Adelaide & Meath Hospital (Tallaght Hospital) Dublin,"Tallaght, Dublin 24",,308195.7986,227903.5429,53.2902365,-6.3784299
+Cavan General Hospital,"Lisdarn, Cavan, ",H12A5D7,241108.2195,305926.719,54.0018304,-7.372206100000001
+Louth County Hospital Dundalk,"Dublin Road, Dundalk",,304933.9162,305486.799,53.9880575,-6.4008677
+Monaghan Hospital,"Monaghan, ",H18NV91,266828.5975,333908.8821,54.2495105,-6.974504199999999
+Our Lady of Lourdes Hospital Drogheda,"Drogheda, Co. Louth, ",A92VW28,308563.4386,276047.75,53.72221469999999,-6.354331999999999
+Connolly Hospital Dublin,"Mill Road, Dublin 15, ",D15X40D,308545.2076,238839.27,53.3883035,-6.3688477
+Beaumont Hospital,"Beaumont Road, Dublin 9, ",D09C562,318014.4006,239461.7999,53.3903749,-6.2239615
+St Luke's General Hospital Kilkenny,"Freshford Road, Kilkenny, ",R95FY71,249849.5305,157441.6319,52.6665445,-7.2622519
+Wexford General Hospital,"Newtown Road, Wexford, Y35y17d",,303401.8406,122304.6848,52.3430674,-6.4827788
+Our Lady's Hospital Navan,"Navan, Co. Meath, ",C15RK7Y,286123.9386,267517.563,53.6510655,-6.6965577
+Midland Regional Hospital Mullingar,"Longford Road, Mullingar, Co. Westmeath, ",N91NA43,243131.5005,254000.7,53.5339849,-7.348869199999999
+St Columcille's Hospital,"Bray Road, Loughlinstown, Co. Dublin, ",D18V9K1,324650.0136,223005.9479,53.242363,-6.1323181
+St Vincent's University Hospital,"Elm Park, Nutley Lane, Dublin 4, ",D04T6F4,319049.9696,231076.2339,53.3168588,-6.2123275
+St Michael's Hospital Dun Laoghaire,"George's Street Lower, Dun Laoghaire, Co. Dublin, ",A96P902,324095.6746,228667.4989,53.29399799999999,-6.137810399999999
+Mater Misericordiae Hospital,"Eccles Street, Dublin 7, ",D07R2WY,315270.9066,235749.3699,53.3597398,-6.267096899999999
+South Tipperary General Hospital,"Western Road, Clonmel, Co. Tipperary, ",E91VY40,219438.4595,122665.8848,52.3532682,-7.7185647
+University Hospital Waterford,"Dunmore Road, Waterford, ",X91ER8E,262910.9695,111129.5228,52.2486512,-7.0782892
+Bantry General Hospital,"Carrignagat, Bantry, Co. Cork, ",P75DX93,99695.28536,48014.02974,51.6763343,-9.4497013
+Cork University Hospital,"Wilton, Cork, ",T12DC4A,164819.4034,70216.09277,51.8828831,-8.5123853
+Mallow General Hospital,"Kilknockin, Mallow, Co. Cork, ",P51N288,154551.0944,100117.7888,52.1514945,-8.6634922
+Ennis Hospital,"Gort Road, Ennis, Co. Clare, ",V95HN29,133732.5354,178235.0779,52.8510808,-8.983316499999999
+Roscommon County Hospital,"Ardsallagh Beg, Co. Roscommon, ",F42AX61,188388.3285,263899.813,53.6249601,-8.175125999999999
+Mercy University Hospital,"Grenville Place, Cork, ",T12WE28,166764.5734,71915.37076,51.8987984,-8.4829103
+Nenagh Hospital,"Tyone, Nenagh, Co. Tipperary, ",E45PT86,187094.4565,178527.3649,52.85777239999999,-8.191309799999999
+Sligo Regional Hospital,"The Mall, Sligo, ",F91H684,169786.3464,336269.7351,54.2744498,-8.4653928
+University Hospital Galway,"Newcastle Road, Galway, ",H91YR71,128926.2994,225582.2939,53.276846,-9.066112
+Portiuncula Hospital,"Ballinasloe, Co. Galway, ",H53T971,184339.0425,230731.3919,53.3266912,-8.2345509
+South Infirmary Victoria University Hospital,"Old Blackrock Road, Cork, ",T12X23H,168045.1354,71328.93777,51.8933557,-8.4632009
+St John's Hospital,"St. John's Square, Limerick",,158298.4279,157008.8367,52.6631885,-8.6170449
+Letterkenny University Hospital,"Kilmacrennan Road, Letterkenny, Co. Donegal, ",F92AE81,216990.1175,412551.1811,54.9599749,-7.7341944
+Merlin Park University Hospital,"Galway, ",H91N973,133719.3214,225686.7119,53.2775573,-8.990568399999999
+University Hospital Kerry,"Tralee, Co. Kerry, ",V92NX94,84653.57835,113945.3278,52.2652569,-9.688643200000001
+University Hospital Limerick,"Saint Nessan's Road, Dooradoyle, Limerick, ",V94F858,155741.1214,154029.2699,52.6351824,-8.6538598
+Mayo General Hospital,"Westport Road, Castlebar, Co. Mayo, ",F23H529,114195.8524,289970.125,53.8520474,-9.3032032
