@@ -1582,11 +1582,10 @@ corrplot( corr = correlation_matrix,
 
 ## Write Clean Dataset to disk
 
-Finally, after doing some initial data exploration and cleaning, we can
-proceed to start analyzing the variance and covariance of the variables
-in our dataset, thus diving a little deeper into our analysis.
+Saving resulting data from Exploration step to disk.
 
 ``` r
+dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, 
                           "ireland_houses_explored.Rda", 
                           sep="")

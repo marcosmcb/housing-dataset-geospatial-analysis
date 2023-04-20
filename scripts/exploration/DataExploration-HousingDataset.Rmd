@@ -852,6 +852,7 @@ corrplot( corr = correlation_matrix,
 Saving resulting data from Exploration step to disk.
 
 ```{r Write Clean Dataset to Disk}
+dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, 
                           "ireland_houses_explored.Rda", 
                           sep="")
