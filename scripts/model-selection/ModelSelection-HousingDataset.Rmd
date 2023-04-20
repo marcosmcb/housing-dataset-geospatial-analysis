@@ -1,0 +1,21 @@
+---
+title: "Ireland Housing - Model Selection"
+author: "Marcos Cavalcante"
+date: '`r Sys.Date()`'
+output: 
+  github_document:
+    toc: true
+    toc_depth: 3
+    number_sections: false
+always_allow_html: true
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo=TRUE, error=FALSE)
+options(dplyr.summarise.inform = FALSE)
+```
+
+
+# Model Selection
+
+TBD
