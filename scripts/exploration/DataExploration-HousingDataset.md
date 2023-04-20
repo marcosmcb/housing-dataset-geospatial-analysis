@@ -1,7 +1,7 @@
 Ireland Housing - Exploratory Data Analysis - EDA
 ================
 Marcos Cavalcante
-2023-04-16
+2023-04-20
 
 - <a href="#exploratory-data-analysis"
   id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
@@ -52,14 +52,12 @@ Marcos Cavalcante
     and House price</a>
 - <a href="#spatial-visualisation" id="toc-spatial-visualisation">Spatial
   Visualisation</a>
-  - <a href="#plot-of-property-type-by-county"
-    id="toc-plot-of-property-type-by-county">Plot of Property Type by
-    County</a>
-  - <a href="#plot-of-count-of-houses-by-county"
-    id="toc-plot-of-count-of-houses-by-county">Plot of Count of Houses by
-    County</a>
-  - <a href="#plot-of-property-type" id="toc-plot-of-property-type">Plot of
-    Property Type</a>
+  - <a href="#bubble-plot-of-property-type-by-county"
+    id="toc-bubble-plot-of-property-type-by-county">Bubble Plot of Property
+    Type by County</a>
+  - <a href="#density-plot-of-count-of-houses-by-county"
+    id="toc-density-plot-of-count-of-houses-by-county">Density Plot of Count
+    of Houses by County</a>
   - <a href="#choropleth-map-of-mean-house-price-per-county"
     id="toc-choropleth-map-of-mean-house-price-per-county">Choropleth Map of
     Mean House Price per County</a>
@@ -1057,8 +1055,8 @@ the null hypothesis (**H0**).
 #### Box Plot of BER Rating and House price
 
 ``` r
-ggplot(ireland_houses, aes(x = berRating, y = price)) +
-  geom_boxplot( aes(fill = berRating), color = "black", outlier.shape = NA) +
+ggplot(ireland_houses %>% filter(!(berRating == "")), aes(x = berRating, y = price)) +
+  geom_boxplot( aes(fill = berRating), color = "black", outlier.shape = 16) +
   labs(title = "Box plot of prices by BER rating", 
        x = "BER rating", 
        y = "Price in Log10 scale") +
@@ -1104,22 +1102,6 @@ The F-Critical value is significantly smaller than the F-value
 calculated from the ANOVA step, therefore, we can certainly **reject**
 the null hypothesis (**H0**).
 
-#### Box Plot of Town or Neighbourhood and House price
-
-``` r
-ggplot(ireland_houses, aes(x = townOrNeighbourhood, y = price)) +
-  geom_boxplot( aes(fill = townOrNeighbourhood), 
-                color = "black", 
-                outlier.shape = NA) +
-  labs(title = "Box plot of prices by Town or Neighbourhood", 
-       x = "Town or Neighbourhood", 
-       y = "Price in Log10 scale") +
-  scale_y_log10() +
-  theme(text=element_text(size = 20, face = "bold", family = "mono"))
-```
-
-![](DataExploration-HousingDataset_files/figure-gfm/Box-Plot%20of%20Town%20or%20Neighbourhood%20and%20House%20price-1.png)<!-- -->
-
 # Data Visualisation
 
 ## Property Price
@@ -1130,7 +1112,7 @@ The next graph displays how prices and property prices are related.
 
 ``` r
 ggplot(ireland_houses, aes(x = propertyType, y = price)) +
-  geom_boxplot( aes(fill = propertyType), color = "black", outlier.shape = NA) +
+  geom_boxplot( aes(fill = propertyType), color = "black", outlier.shape = 16) +
   labs(title = "Box plot of prices by property type", 
        x = "Property type", 
        y = "Price in Log10 scale") +
@@ -1191,6 +1173,8 @@ ggplot(ireland_houses, aes(x=price, color=county, fill=county)) +
 ```
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Density%20Plot%20of%20County%20and%20House%20price-1.png)<!-- -->
+The density plot of the house price by county above shows the
+distribution of the house price.
 
 # Spatial Visualisation
 
@@ -1230,7 +1214,7 @@ create_county_map <- function() {
 ireland_by_county_sf <- create_county_map()
 ```
 
-## Plot of Property Type by County
+## Bubble Plot of Property Type by County
 
 ``` r
 property_type_count <- aggregate(
@@ -1264,17 +1248,37 @@ tm_shape(shp = shp_ireland) +
 tm_shape(shp = property_type_count_by_county) + 
   tm_bubbles(size = "count", 
              col = "propertyType", 
-             legend.size.show = FALSE, 
-             alpha=0.9, 
+             legend.size.show = TRUE, 
+             alpha = 0.9, 
              palette = "Set3") +
-  tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = FALSE) + 
-  tm_facets(by="propertyType", ncol = 3, nrow = 3) +
-  tm_legend(show = TRUE,  title = "Property Types by County")
+  tm_facets(by = "propertyType", ncol = 3, nrow = 3) +
+  tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = TRUE) 
 ```
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Property%20Type%20by%20County-1.png)<!-- -->
 
-## Plot of Count of Houses by County
+The bubble plot above depicts the size of the presence for each property
+type across the country. A few interesting things can be seen in the
+graph above, for example:
+
+- There is little observation with *propertyType* of type **Duplex**,
+  and where we see those is in the **Dublin** county area in the east
+  side of the country.
+
+- Similar case we can find for *propertyType* of type **Bungalow**,
+  however those do not even have a significant presence in any area.
+
+- By far, the most popular property types are **Terrace**, **Detached**
+  and **Semi-D**.
+
+- **Apartments** have a very heavy presence in Dublin area, East Coast,
+  and some presence near other big centres like Cork city in the South
+  East and Galway city on the West coast.
+
+- Lastly, there seems to be little presence of properties in the middle
+  of the country.
+
+## Density Plot of Count of Houses by County
 
 ``` r
 tmap_mode("view")
@@ -1311,27 +1315,24 @@ tm_shape(count_houses_county_map) +
     tm_scale_bar()
 ```
 
-![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Count%20of%20Houses%20by%20County-1.png)<!-- -->
+![](DataExploration-HousingDataset_files/figure-gfm/Density%20Plot%20of%20Count%20of%20Houses%20by%20County-1.png)<!-- -->
 
-## Plot of Property Type
+The graph above illustrates some points indicated by the previous Bubble
+plot. The countryside of the country or its midlands do not have as many
+properties on offer as some counties located in the coast. The amount of
+properties available in the countries on the countryside range from 35
+to 256 properties per county. When compared to Dublin and Cork, it is
+possible to see a huge disparaty.
 
-``` r
-tm_shape(shp = shp_ireland) + 
-  tm_borders(alpha = 0.5) +
-  tm_shape(shp = ireland_houses_sf) + 
-  tm_dots(
-    style = "quantile",
-    col = "propertyType", 
-    size = 0.05
-  ) +
-  tm_scale_bar()
-```
-
-![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Property%20Type-1.png)<!-- -->
+It is worth noting that counties adjacent to areas with high property
+supply tend to have more availability compared to counties situated
+farther away from the center of those clusters.
 
 ## Choropleth Map of Mean House Price per County
 
 ``` r
+tmap_mode("view")
+
 ireland_houses_by_county <- aggregate(ireland_houses["price"], 
                           by = ireland_houses["county"], mean)
 
@@ -1349,7 +1350,7 @@ tm_shape(shp = shp_ireland) +
   tm_polygons(
     col = "price", 
     title = "Mean House Price Per County in €", 
-    palette = "Set3",                 
+    palette = "YlOrBr",                 
     stretch.palette = FALSE, 
     n = 6
   ) +  
@@ -1358,3 +1359,16 @@ tm_shape(shp = shp_ireland) +
 ```
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Plot%20of%20Mean%20House%20Price%20per%20County-1.png)<!-- -->
+
+The above graph demonstrates yet another fascinating phenomenon known as
+the “neighbouring effect,” which supports the first law of geography’s
+assertion that the price of houses in a given county can impact the
+prices in adjacent counties. In other words, the mean house price in one
+county has a significant influence on the mean house prices of
+neighboring counties.
+
+It is noteworthy to emphasize that county Dublin has a significant
+impact on neighboring counties such as Wicklow, Kildare, and Meath,
+among others. Similarly, the counties in the midlands have a noticeable
+impact on each other, resulting in lower mean house prices in the
+region.
