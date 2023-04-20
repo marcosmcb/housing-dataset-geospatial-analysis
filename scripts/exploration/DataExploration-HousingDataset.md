@@ -65,10 +65,10 @@ Marcos Cavalcante
   Engineering</a>
   - <a href="#price-per-square-meter" id="toc-price-per-square-meter">Price
     per square meter</a>
-  - <a href="#nearest-hospital" id="toc-nearest-hospital">Nearest
-    Hospital</a>
-  - <a href="#nearest-garda-station" id="toc-nearest-garda-station">Nearest
-    Garda Station</a>
+  - <a href="#nearest-hospitals" id="toc-nearest-hospitals">Nearest
+    Hospitals</a>
+  - <a href="#nearest-garda-stations"
+    id="toc-nearest-garda-stations">Nearest Garda Stations</a>
   - <a href="#nearest-education-centre"
     id="toc-nearest-education-centre">Nearest Education Centre</a>
   - <a href="#nearest-public-transport"
@@ -87,7 +87,8 @@ First step is to install and load the necessary libraries.
 packages <- c("tidyverse", "haven", "devtools", "dplyr", 
               "ggplot2", "gapminder", "patchwork", "ggridges", 
               "corrplot", "gridExtra", "sf","tmap","rgdal","rgeos",
-              "adehabitatHR", "knitr", "kableExtra", "geosphere")
+              "adehabitatHR", "knitr", "kableExtra", "geosphere", 
+              "fastDummies")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -1070,7 +1071,9 @@ the null hypothesis (**H0**).
 #### Box Plot of BER Rating and House price
 
 ``` r
-ggplot(ireland_houses %>% filter(!(berRating == "")), aes(x = berRating, y = price)) +
+ggplot(ireland_houses %>% 
+         filter(!(berRating == "")), aes(x = berRating, y = price)) +
+  
   geom_boxplot( aes(fill = berRating), color = "black", outlier.shape = 16) +
   labs(title = "Box plot of prices by BER rating", 
        x = "BER rating", 
@@ -1211,7 +1214,8 @@ shp_ireland <- readOGR(
 
 
 create_county_map <- function() {
-  ireland_counties_sf <- st_read("../../datasets/ireland_counties.geojson", quiet = TRUE)
+  ireland_counties_sf <- st_read("../../datasets/ireland_counties.geojson", 
+                                 quiet = TRUE)
   # Transformation needed to match format of ireland_houses dataset 
   ireland_counties_sf$COUNTY <- toupper(ireland_counties_sf$COUNTY) 
   ireland_counties_sf <- rename( ireland_counties_sf, county = COUNTY)
@@ -1362,7 +1366,8 @@ mean_price_map <- mean_price_map %>% st_set_crs(value = 4326) %>% st_cast()
 tm_shape(shp = shp_ireland) + 
   tm_borders(alpha = 0.5) +
   tm_shape(shp = mean_price_map) + 
-  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", Imagery = "Esri.WorldImagery") ) +
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                            Imagery = "Esri.WorldImagery") ) +
   tm_polygons(
     col = "price", 
     title = "Mean House Price Per County in €", 
@@ -1392,31 +1397,38 @@ region.
 # Feature Engineering
 
 In this step, we would like to explore the creation of a some new
-variables to see if they can derive better insights into the dataset. At
-this step, 5 new variables will get created:
+variables to see if they can help derive better insights into the
+dataset. At this step, 5 new variables will get created:
 
 - Price per square meter - *pricePerSqMeter*.
-- Nearest Hospital - *nearestHospital*.
-- Nearest Garda Stations - *nearestGardaStation*.
-- Nearest Education Centre - *nearestEducationCentre*.
-- Nearest Public Transport - *nearestPublicTransport*.
+- Nearest Hospitals - *nearestHospitals*.
+- Nearest Garda Stations - *nearestGardaStations*.
+- Nearest Education Centres - *nearestEducationCentres*.
+- Nearest Public Transports - *nearestPublicTransports*.
 
 ## Price per square meter
 
-This vairable is going to be created by dividing the house price by its
-size.
+This variable is going to be created by dividing the house price by its
+size. The idea behind creating this variable is to understand the price
+per square meter for a given property and being able to define a common
+ground when comparing houses with different characteristics.
 
 ``` r
 ireland_houses <- ireland_houses %>% 
-  mutate(pricePerSqMeter = round(price/size, digits=2) )
+  mutate(pricePerSqMeter = round(price/size, digits = 2))
 ```
 
-## Nearest Hospital
+## Nearest Hospitals
 
-The *nearestHospital* is computed by finding the closest hospital to
-each house in the dataset. The hospitals dataset is used and the crow
-flies distance (straight line distance) is computed for each house
-against each hospital.
+To calculate the *nearestHospitals* value, the algorithm identifies the
+hospitals that are closest to each residence within a **16 km** radius
+using the hospitals dataset. The straight-line distance (also known as
+crow flies distance) between each house and each hospital is then
+calculated.
+
+The decision to use a 16 km radius was based on the optimal results
+obtained from the Pearson correlation method and will be consistently
+applied to all other variables.
 
 ``` r
 dataset_directory <- "../../datasets/hospitals/"
@@ -1426,31 +1438,32 @@ hospitals <- read.csv(file = hospital_filename) # Load the dataset
 
 # Define a function to compute the distance between each observation in house 
 # dataset and all observations in socio economic dataset
-get_nearest_distance <- function(houseLon, houseLat, socioEconomic) {
-  distances <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat)) / 1000
-  num_of_points_interest <- distances[ distances <= 5 ]
+count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic) {
+  RADIUS_OF_INTEREST_KM = 16
+  
+  distances_in_m <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat))
+  distances_in_km <- distances_in_m / 1000
+  
+  num_of_points_interest <- distances_in_km[ distances_in_km <= RADIUS_OF_INTEREST_KM ]
   return( length(num_of_points_interest) )
 }
 
 # Apply the function to each observation in housing dataset
-# and store the nearest distance in a new variable
-ireland_houses$nearestHospital <- apply(
-  ireland_houses[, c("longitude", "latitude")], 
-  1, 
-  function(x) get_nearest_distance(
-    x[1], 
-    x[2], 
-    hospitals
-  )
+# and store the nearest points in a new variable
+ireland_houses$nearestHospitals <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           hospitals)
 )
 ```
 
-## Nearest Garda Station
+## Nearest Garda Stations
 
-The *nearestGardaStation* is computed by finding the closest garda
-station to each house in the dataset. The garda stations dataset is used
-and the crow flies distance (straight line distance) is computed for
-each house against each garda station.
+To calculate the *nearestGardaStations* value, the algorithm searches
+for the closest garda station to each house within a **16 km** radius,
+using the garda stations dataset. It then computes the straight-line
+distance between each house and each garda station.
 
 ``` r
 dataset_directory <- "../../datasets/police/"
@@ -1461,63 +1474,57 @@ garda_stations <- rename( garda_stations,
   latitude = Latitude,
   longitude = Longitude
 )
-# Apply the function to each observation in housing dataset
-# and store the nearest distance in a new variable
-ireland_houses$nearestGardaStation <- apply(
-  ireland_houses[, c("longitude", "latitude")], 
-  1, 
-  function(x) get_nearest_distance(
-    x[1], 
-    x[2], 
-    garda_stations
-  )
+
+ireland_houses$nearestGardaStations <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           garda_stations)
 )
 ```
 
 ## Nearest Education Centre
 
-The *nearestEducationCentre* is computed by finding the closest
-education centre (university and schools) to each house in the dataset.
-The education centre dataset is used and the crow flies distance
-(straight line distance) is computed for each house against each
-education centre.
+The algorithm computes the *nearestEducationCentre* by identifying the
+closest education centers, including universities and schools, to each
+house within a *16 km* radius, utilizing the education center dataset.
+It then calculates the crow flies distance between each house and each
+education center.
 
 ``` r
 dataset_directory <- "../../datasets/education/"
 universities_filename <- paste(dataset_directory, "universities.csv", sep="")
-universities <- read.csv(file = universities_filename) # Load the dataset
+universities <- read.csv(file = universities_filename)
 
 schools_filename <- paste(dataset_directory, "schools.csv", sep="")
-schools <- read.csv(file = schools_filename) # Load the dataset
+schools <- read.csv(file = schools_filename)
 schools <- schools[, c("name", "longitude", "latitude")]
 
+# Join schools and universities datasets.
 education <- rbind( schools, universities )
 
 
-# Apply the function to each observation in housing dataset
-# and store the nearest distance in a new variable
-ireland_houses$nearestEducationCentre <- apply(
-  ireland_houses[, c("longitude", "latitude")], 
-  1, 
-  function(x) get_nearest_distance(
-    x[1], 
-    x[2], 
-    education
-  )
+
+ireland_houses$nearestEducationCentres <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           education)
 )
 ```
 
 ## Nearest Public Transport
 
-The *nearestPublicTransport* is computed by finding the closest public
-transport (bus stop and train station) to each house in the dataset. The
-public transport dataset is used and the crow flies distance (straight
-line distance) is computed for each house against each public transport.
+To calculate the *nearestPublicTransports*, the algorithm identifies the
+closest public transport options, including bus stops and train
+stations, to each house in the dataset, utilizing the public transport
+dataset. It then calculates the straight-line distance between each
+house and each public transport option.
 
 ``` r
 dataset_directory <- "../../datasets/transport/"
 trains_filename <- paste(dataset_directory, "train_stations.csv", sep="")
-trains <- read.csv(file = trains_filename) # Load the dataset
+trains <- read.csv(file = trains_filename) 
 
 bus_filename <- paste(dataset_directory, "bus_stops_ireland.csv", sep="")
 bus <- read.csv(file = bus_filename) # Load the dataset
@@ -1534,24 +1541,26 @@ trains <- rename( trains,
   longitude = StationLongitude
 )
 
-
+# Join trains and buses datasets
 transport <- rbind( bus, trains )
 
-
-# Apply the function to each observation in housing dataset
-# and store the nearest distance in a new variable
-ireland_houses$nearestPublicTransport <- apply(
-  ireland_houses[, c("longitude", "latitude")], 
-  1, 
-  function(x) get_nearest_distance(
-    x[1], 
-    x[2], 
-    transport
-  )
+ireland_houses$nearestPublicTransports <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           transport)
 )
 ```
 
 ## Correlation Matrix with New Features
+
+The 5 new features were used to compute a correlation matrix, and the
+outcome was deemed satisfactory. One noticeable observation is that the
+variable *pricePerSqMeter* has a moderately positive correlation with
+the *price* variable. Furthermore, the variables
+*nearestPublicTransports*, *nearestEducationCentres*,
+*nearestGardaStations*, and *nearestHospitals* also exhibit a positive
+correlation with *price*, although weakly.
 
 ``` r
 correlation_matrix <- cor(select_if(ireland_houses, is.numeric))
