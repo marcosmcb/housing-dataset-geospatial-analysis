@@ -76,6 +76,8 @@ Marcos Cavalcante
   - <a href="#correlation-matrix-with-new-features"
     id="toc-correlation-matrix-with-new-features">Correlation Matrix with
     New Features</a>
+  - <a href="#write-clean-dataset-to-disk"
+    id="toc-write-clean-dataset-to-disk">Write Clean Dataset to disk</a>
 
 # Exploratory Data Analysis
 
@@ -1577,3 +1579,16 @@ corrplot( corr = correlation_matrix,
 ```
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Correlation%20Matrix%20with%20New%20Features-1.png)<!-- -->
+
+## Write Clean Dataset to disk
+
+Finally, after doing some initial data exploration and cleaning, we can
+proceed to start analyzing the variance and covariance of the variables
+in our dataset, thus diving a little deeper into our analysis.
+
+``` r
+dataset_filename <- paste(dataset_directory, 
+                          "ireland_houses_explored.Rda", 
+                          sep="")
+save(ireland_houses, file = dataset_filename)
+```
