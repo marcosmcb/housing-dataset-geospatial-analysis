@@ -61,6 +61,21 @@ Marcos Cavalcante
   - <a href="#choropleth-map-of-mean-house-price-per-county"
     id="toc-choropleth-map-of-mean-house-price-per-county">Choropleth Map of
     Mean House Price per County</a>
+- <a href="#feature-engineering" id="toc-feature-engineering">Feature
+  Engineering</a>
+  - <a href="#price-per-square-meter" id="toc-price-per-square-meter">Price
+    per square meter</a>
+  - <a href="#nearest-hospital" id="toc-nearest-hospital">Nearest
+    Hospital</a>
+  - <a href="#nearest-garda-station" id="toc-nearest-garda-station">Nearest
+    Garda Station</a>
+  - <a href="#nearest-education-centre"
+    id="toc-nearest-education-centre">Nearest Education Centre</a>
+  - <a href="#nearest-public-transport"
+    id="toc-nearest-public-transport">Nearest Public Transport</a>
+  - <a href="#correlation-matrix-with-new-features"
+    id="toc-correlation-matrix-with-new-features">Correlation Matrix with
+    New Features</a>
 
 # Exploratory Data Analysis
 
@@ -72,7 +87,7 @@ First step is to install and load the necessary libraries.
 packages <- c("tidyverse", "haven", "devtools", "dplyr", 
               "ggplot2", "gapminder", "patchwork", "ggridges", 
               "corrplot", "gridExtra", "sf","tmap","rgdal","rgeos",
-              "adehabitatHR", "knitr", "kableExtra", "randomForest")
+              "adehabitatHR", "knitr", "kableExtra", "geosphere")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -1372,3 +1387,183 @@ impact on neighboring counties such as Wicklow, Kildare, and Meath,
 among others. Similarly, the counties in the midlands have a noticeable
 impact on each other, resulting in lower mean house prices in the
 region.
+
+# Feature Engineering
+
+In this step, we would like to explore the creation of a some new
+variables to see if they can derive better insights into the dataset. At
+this step, 5 new variables will get created:
+
+- Price per square meter - *pricePerSqMeter*.
+- Nearest Hospital - *nearestHospital*.
+- Nearest Garda Stations - *nearestGardaStation*.
+- Nearest Education Centre - *nearestEducationCentre*.
+- Nearest Public Transport - *nearestPublicTransport*.
+
+## Price per square meter
+
+This vairable is going to be created by dividing the house price by its
+size.
+
+``` r
+ireland_houses <- ireland_houses %>% 
+  mutate(pricePerSqMeter = round(price/size, digits=2) )
+```
+
+## Nearest Hospital
+
+The *nearestHospital* is computed by finding the closest hospital to
+each house in the dataset. The hospitals dataset is used and the crow
+flies distance (straight line distance) is computed for each house
+against each hospital.
+
+``` r
+dataset_directory <- "../../datasets/hospitals/"
+hospital_filename <- paste(dataset_directory, "hospitals.csv", sep="")
+hospitals <- read.csv(file = hospital_filename) # Load the dataset
+
+
+# Define a function to compute the distance between each observation in house 
+# dataset and all observations in socio economic dataset
+get_nearest_distance <- function(houseLon, houseLat, socioEconomic) {
+  distances <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat)) / 1000
+  num_of_points_interest <- distances[ distances <= 5 ]
+  return( length(num_of_points_interest) )
+}
+
+# Apply the function to each observation in housing dataset
+# and store the nearest distance in a new variable
+ireland_houses$nearestHospital <- apply(
+  ireland_houses[, c("longitude", "latitude")], 
+  1, 
+  function(x) get_nearest_distance(
+    x[1], 
+    x[2], 
+    hospitals
+  )
+)
+```
+
+## Nearest Garda Station
+
+The *nearestGardaStation* is computed by finding the closest garda
+station to each house in the dataset. The garda stations dataset is used
+and the crow flies distance (straight line distance) is computed for
+each house against each garda station.
+
+``` r
+dataset_directory <- "../../datasets/police/"
+garda_stations_filename <- paste(dataset_directory, "garda_station.csv", sep="")
+garda_stations <- read.csv(file = garda_stations_filename) # Load the dataset
+
+garda_stations <- rename( garda_stations, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+# Apply the function to each observation in housing dataset
+# and store the nearest distance in a new variable
+ireland_houses$nearestGardaStation <- apply(
+  ireland_houses[, c("longitude", "latitude")], 
+  1, 
+  function(x) get_nearest_distance(
+    x[1], 
+    x[2], 
+    garda_stations
+  )
+)
+```
+
+## Nearest Education Centre
+
+The *nearestEducationCentre* is computed by finding the closest
+education centre (university and schools) to each house in the dataset.
+The education centre dataset is used and the crow flies distance
+(straight line distance) is computed for each house against each
+education centre.
+
+``` r
+dataset_directory <- "../../datasets/education/"
+universities_filename <- paste(dataset_directory, "universities.csv", sep="")
+universities <- read.csv(file = universities_filename) # Load the dataset
+
+schools_filename <- paste(dataset_directory, "schools.csv", sep="")
+schools <- read.csv(file = schools_filename) # Load the dataset
+schools <- schools[, c("name", "longitude", "latitude")]
+
+education <- rbind( schools, universities )
+
+
+# Apply the function to each observation in housing dataset
+# and store the nearest distance in a new variable
+ireland_houses$nearestEducationCentre <- apply(
+  ireland_houses[, c("longitude", "latitude")], 
+  1, 
+  function(x) get_nearest_distance(
+    x[1], 
+    x[2], 
+    education
+  )
+)
+```
+
+## Nearest Public Transport
+
+The *nearestPublicTransport* is computed by finding the closest public
+transport (bus stop and train station) to each house in the dataset. The
+public transport dataset is used and the crow flies distance (straight
+line distance) is computed for each house against each public transport.
+
+``` r
+dataset_directory <- "../../datasets/transport/"
+trains_filename <- paste(dataset_directory, "train_stations.csv", sep="")
+trains <- read.csv(file = trains_filename) # Load the dataset
+
+bus_filename <- paste(dataset_directory, "bus_stops_ireland.csv", sep="")
+bus <- read.csv(file = bus_filename) # Load the dataset
+
+bus <- bus[, c("Longitude", "Latitude")]
+bus <- rename( bus, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+
+trains <- trains[, c("StationLongitude", "StationLatitude")]
+trains <- rename( trains, 
+  latitude = StationLatitude,
+  longitude = StationLongitude
+)
+
+
+transport <- rbind( bus, trains )
+
+
+# Apply the function to each observation in housing dataset
+# and store the nearest distance in a new variable
+ireland_houses$nearestPublicTransport <- apply(
+  ireland_houses[, c("longitude", "latitude")], 
+  1, 
+  function(x) get_nearest_distance(
+    x[1], 
+    x[2], 
+    transport
+  )
+)
+```
+
+## Correlation Matrix with New Features
+
+``` r
+correlation_matrix <- cor(select_if(ireland_houses, is.numeric))
+
+corrplot( corr = correlation_matrix, 
+          method = "color", 
+          type = "lower", 
+          order = "hclust", 
+          addCoef.col = "black", 
+          diag = FALSE, 
+          tl.srt = 45, 
+          tl.col = "black"
+)
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Correlation%20Matrix%20with%20New%20Features-1.png)<!-- -->
