@@ -614,6 +614,7 @@ count_houses_county_map <- count_houses_county %>%
 
 tm_shape(count_houses_county_map) + 
     tm_polygons("Count", 
+                palette = "viridis",
                 legend.title = "Count of Houses per County", 
                 style = "kmeans") +
   
