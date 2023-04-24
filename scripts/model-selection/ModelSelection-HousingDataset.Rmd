@@ -26,7 +26,7 @@ In this study, to train tree and ensemble based models, **grid search** is going
 
 First step is to install and load the necessary libraries.
 
-```{r Installing Libraries, results='hide', message=F, warning=F, cache = TRUE}
+```{r Installing Libraries, results='hide', message=F, warning=F}
 
 packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", 
               "ranger", "randomForest", "caret", "rpart", "rpart.plot", "splines", 
@@ -94,7 +94,7 @@ testing_set <- ireland_houses[sets==3, ] # 15% of the observations
 
 The *linear regression* model will be the first one to be trained. To do that, we will make use of the following variables in the dataset: **price** as the target variable and we will use every other variable in the dataset as the predictors. Please note that factor variables have been transformed into dummy variables in the EDA notebook and that character variables have been removed, there are only *numeric* and *factor* variables in this dataset.
 
-```{r Multiple Linear Regression Model, cache=TRUE}
+```{r Multiple Linear Regression Model}
 linear_model <- lm( formula = price ~ ., 
                      data = training_set )
 
@@ -136,7 +136,7 @@ It can be interpreted in the same manner as Shapiro-Francia, where:
 
 * **H1**: The alternative hypothesis says if the *p-value* is lesser than 0.05, the residual errors do not follow a normal distribution.
 
-```{r Anderson Darling normality test for testing residual error, cache=TRUE}
+```{r Anderson Darling normality test for testing residual error}
 
 ad.test(linear_model_stepwise$residuals)
 
@@ -148,7 +148,7 @@ It is possible however, to use the *Box-Cox* transformation on the target variab
 
 Plot of the residual errors.
 
-```{r Plotting the residuals, cache=TRUE}
+```{r Plotting the residuals}
 # Adding Normal curve to compare the distribution
 training_set %>%
   mutate(residuals = linear_model_stepwise$residuals) %>%
@@ -174,7 +174,7 @@ training_set %>%
 Let us now run the **Box-Cox** transformation on the *price* variable.
 
 
-```{r Box Cox transformation, cache=TRUE}
+```{r Box Cox transformation}
 
 housing_box_cox <- powerTransform(training_set$price)
 housing_box_cox
@@ -199,16 +199,6 @@ From the results, it can be seen that the lambda parameter value is -0.1280778. 
 
 
 
-### Comparing the models
-
-Let's compare the two models so far, the *stepwise* and *box-cox* models.
-
-```{r Comparing the models, cache=TRUE, warning=FALSE}
-
-export_summs(linear_model_stepwise, linear_model_box_cox, scale = F, digits = 4)
-
-```
-
 ### Box-Cox with Stepwise
 
 Let us apply again the stewise method, but this time on the model using box-cox.
@@ -229,7 +219,7 @@ It looks like after applying the *stepwise* procedure on the *box-cox* model the
 
 ### Final Anderson Darling test
 
-```{r Final Anderson Darling test, cache=TRUE}
+```{r Final Anderson Darling test}
 ad.test(linear_model_box_cox_stepwise$residuals)
 ```
 As seen above, the null hypothesis will be accepted and the model cannot be used because it does not have a normal residual error distribution.
@@ -253,7 +243,7 @@ Regression Trees can be good to model complicated data that does not have any ap
 In regression trees, the decision about splitting across nodes is taken based on the Residual Sum of Square (RSS), many splits are computed and the one that minimizes RSS is chosen.
 
 
-```{r tree error metrics, cache=TRUE, include=FALSE}
+```{r tree error metrics, include=FALSE}
 calculate_metrics <- function( observed, expected, training ) {
   mae <- mean(abs(observed - expected))
   mse <- mean((observed - expected)^2)
@@ -292,7 +282,7 @@ tree_house_naive
 
 ### Visualising the tree
 
-```{r Visualising the tree, cache=TRUE}
+```{r Visualising the tree}
 viridis_palette = scales::viridis_pal(begin=.75, end=1)(20)
 rpart.plot(tree_house_naive, box.palette = viridis_palette)
 
@@ -302,7 +292,7 @@ plotcp(tree_house_naive)
 
 ### Grid Search 
 
-```{r Grid Search, cache=TRUE}
+```{r Grid Search}
 tree_grid_search <- expand.grid(
   minsplit = seq(3, 30, 1),
   maxdepth = seq(15, 50, 1)
@@ -336,7 +326,7 @@ for (i in 1:nrow(tree_grid_search)) {
 
 ```
 
-```{r getting the best hyperparameters, cache=TRUE}
+```{r getting the best hyperparameters}
 
 get_cp <- function(tree) {
   min <- which.min(tree$cptable[, "xerror"])
@@ -354,7 +344,7 @@ tree_grid_search %>%
     error = purrr::map_dbl(hyper_trees, get_min_error)
     ) %>%
   arrange(error) %>%
-  top_n(-5, wt = error)
+  head(10)
 
 ```
 
@@ -379,14 +369,14 @@ calculate_metrics( observed = tree_estimated,
 
 ### Plot of the tuned tree
 
-```{r}
-rpart.plot(tree_house_naive, box.palette = viridis_palette)
+```{r Plot of the tuned tree}
+rpart.plot(tuned_tree, box.palette = viridis_palette)
 ```
 
 
 ### Variable Importance
 
-```{r Variable Importance, cache=TRUE}
+```{r Variable Importance}
 vip::vip(tuned_tree)
 ```
 
@@ -474,7 +464,6 @@ tuned_random_forest <- ranger(
 )
 
 random_forest_estimated <- predict(tuned_random_forest, validation_set)
-head(random_forest_estimated$predictions)
 calculate_metrics( observed = random_forest_estimated$predictions, 
                    expected = validation_set$price, 
                    training = training_set$price

@@ -21,8 +21,6 @@ Marcos Cavalcante
       id="toc-plotting-the-residual-errors">Plotting the Residual Errors</a>
     - <a href="#box-cox-transformation"
       id="toc-box-cox-transformation">Box-Cox transformation</a>
-    - <a href="#comparing-the-models" id="toc-comparing-the-models">Comparing
-      the models</a>
     - <a href="#box-cox-with-stepwise" id="toc-box-cox-with-stepwise">Box-Cox
       with Stepwise</a>
     - <a href="#final-anderson-darling-test"
@@ -602,150 +600,6 @@ considerably.
 | linear model stepwise | 0.8225    | 0.822              |
 | linear model box-cox  | 0.8722    | 0.871              |
 
-### Comparing the models
-
-Let’s compare the two models so far, the *stepwise* and *box-cox*
-models.
-
-``` r
-export_summs(linear_model_stepwise, linear_model_box_cox, scale = F, digits = 4)
-```
-
-    ## Registered S3 methods overwritten by 'broom':
-    ##   method            from  
-    ##   tidy.glht         jtools
-    ##   tidy.summary.glht jtools
-
-         ──────────────────────────────────────────────────────────────
-                                         Model 1           Model 2     
-                                   ────────────────────────────────────
-           (Intercept)               -411619.5259 ***      7.3982 ***  
-                                       (7091.8675)        (0.2169)     
-           size                         2577.5368 ***      0.0007 ***  
-                                         (34.5134)        (0.0000)     
-           bedrooms                     8233.9948 ***      0.0096 ***  
-                                       (2173.1125)        (0.0007)     
-           bathrooms                    4113.3425 *        0.0032 ***  
-                                       (1931.4721)        (0.0007)     
-           pricePerSqMeter               138.4431 ***      0.0000 ***  
-                                          (1.3606)        (0.0000)     
-           nearestHospitals            10471.7871 ***      0.0061 ***  
-                                       (2558.6344)        (0.0010)     
-           nearestEducationCentres      -221.4772 **       0.0000      
-                                         (68.5830)        (0.0000)     
-           nearestPublicTransports       -41.1664 **      -0.0000 **   
-                                         (15.7312)        (0.0000)     
-           propertyTypeApartment      -95086.4351 ***     -0.0631 ***  
-                                       (6242.3397)        (0.0024)     
-           propertyTypeBungalow       -34145.2728 *       -0.0227 ***  
-                                      (14100.7969)        (0.0046)     
-           propertyTypeSemiD           13787.2243 ***     -0.0132 ***  
-                                       (4000.2606)        (0.0015)     
-           countyDonegal              -31519.0337 **      -0.0000      
-                                      (10490.2271)        (0.0085)     
-           countyKerry                -29350.1255 **      -0.0323 ***  
-                                      (10199.6577)        (0.0089)     
-           berRating                   79758.1796 ***     -0.0226 ***  
-                                      (12626.1659)        (0.0043)     
-           berRatingA2                 55984.7273 ***      0.0207 ***  
-                                      (14852.4056)        (0.0049)     
-           berRatingB2                -21284.7628 *        0.0088 **   
-                                       (9008.4454)        (0.0032)     
-           berRatingE1                -14904.6991 *       -0.0110 ***  
-                                       (6917.2392)        (0.0026)     
-           berRatingSi666              40891.4561 ***     -0.0453 ***  
-                                       (9230.9893)        (0.0033)     
-           latitude                                       -0.0244 ***  
-                                                          (0.0040)     
-           longitude                                       0.0102 ***  
-                                                          (0.0022)     
-           nearestGardaStations                           -0.0000      
-                                                          (0.0003)     
-           propertyTypeDuplex                             -0.0286 ***  
-                                                          (0.0063)     
-           propertyTypeEndOfTerrac                        -0.0240 ***  
-           e                                                           
-                                                          (0.0024)     
-           propertyTypeTerrace                            -0.0320 ***  
-                                                          (0.0018)     
-           propertyTypeTownhouse                          -0.0358 ***  
-                                                          (0.0043)     
-           countyCarlow                                   -0.0376 ***  
-                                                          (0.0079)     
-           countyCavan                                    -0.0375 ***  
-                                                          (0.0059)     
-           countyClare                                    -0.0184 *    
-                                                          (0.0074)     
-           countyCork                                     -0.0275 ***  
-                                                          (0.0074)     
-           countyGalway                                    0.0010      
-                                                          (0.0063)     
-           countyKildare                                  -0.0056      
-                                                          (0.0036)     
-           countyKilkenny                                 -0.0373 ***  
-                                                          (0.0058)     
-           countyLaois                                    -0.0345 ***  
-                                                          (0.0062)     
-           countyLeitrim                                  -0.0352 ***  
-                                                          (0.0080)     
-           countyLimerick                                 -0.0314 ***  
-                                                          (0.0067)     
-           countyLongford                                 -0.0442 ***  
-                                                          (0.0074)     
-           countyLouth                                    -0.0044      
-                                                          (0.0052)     
-           countyMayo                                     -0.0169 *    
-                                                          (0.0078)     
-           countyMeath                                     0.0026      
-                                                          (0.0037)     
-           countyMonaghan                                 -0.0344 ***  
-                                                          (0.0093)     
-           countyOffaly                                   -0.0230 **   
-                                                          (0.0071)     
-           countyRoscommon                                -0.0374 ***  
-                                                          (0.0061)     
-           countySligo                                    -0.0104      
-                                                          (0.0082)     
-           countyTipperary                                -0.0504 ***  
-                                                          (0.0058)     
-           countyWaterford                                -0.0419 ***  
-                                                          (0.0065)     
-           countyWestmeath                                -0.0184 **   
-                                                          (0.0068)     
-           countyWexford                                  -0.0490 ***  
-                                                          (0.0051)     
-           countyWicklow                                  -0.0075      
-                                                          (0.0040)     
-           berRatingA1                                     0.0496 *    
-                                                          (0.0211)     
-           berRatingA3                                     0.0165 ***  
-                                                          (0.0042)     
-           berRatingB1                                     0.0075      
-                                                          (0.0059)     
-           berRatingB3                                     0.0126 ***  
-                                                          (0.0024)     
-           berRatingC1                                     0.0067 **   
-                                                          (0.0021)     
-           berRatingC2                                     0.0045 *    
-                                                          (0.0021)     
-           berRatingD1                                    -0.0010      
-                                                          (0.0022)     
-           berRatingD2                                    -0.0055 *    
-                                                          (0.0023)     
-           berRatingE2                                    -0.0198 ***  
-                                                          (0.0029)     
-           berRatingF                                     -0.0246 ***  
-                                                          (0.0028)     
-           berRatingG                                     -0.0377 ***  
-                                                          (0.0026)     
-                                   ────────────────────────────────────
-           N                            6288            6288           
-           R2                              0.8225          0.8722      
-         ──────────────────────────────────────────────────────────────
-           *** p < 0.001; ** p < 0.01; * p < 0.05.                     
-
-Column names: names, Model 1, Model 2
-
 ### Box-Cox with Stepwise
 
 Let us apply again the stewise method, but this time on the model using
@@ -1047,15 +901,20 @@ tree_grid_search %>%
     error = purrr::map_dbl(hyper_trees, get_min_error)
     ) %>%
   arrange(error) %>%
-  top_n(-5, wt = error)
+  head(10)
 ```
 
-    ##   minsplit maxdepth   cp     error
-    ## 1       13       22 0.01 0.1541226
-    ## 2       21       30 0.01 0.1574747
-    ## 3       26       43 0.01 0.1578333
-    ## 4       18       31 0.01 0.1579086
-    ## 5       29       25 0.01 0.1579293
+    ##    minsplit maxdepth   cp     error
+    ## 1         3       15 0.01 0.1713882
+    ## 2         4       15 0.01 0.1713882
+    ## 3         5       15 0.01 0.1713882
+    ## 4         6       15 0.01 0.1713882
+    ## 5         7       15 0.01 0.1713882
+    ## 6         8       15 0.01 0.1713882
+    ## 7         9       15 0.01 0.1713882
+    ## 8        10       15 0.01 0.1713882
+    ## 9        11       15 0.01 0.1713882
+    ## 10       12       15 0.01 0.1713882
 
 ### Prediction
 
@@ -1084,10 +943,10 @@ calculate_metrics( observed = tree_estimated,
 ### Plot of the tuned tree
 
 ``` r
-rpart.plot(tree_house_naive, box.palette = viridis_palette)
+rpart.plot(tuned_tree, box.palette = viridis_palette)
 ```
 
-![](ModelSelection-HousingDataset_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](ModelSelection-HousingDataset_files/figure-gfm/Plot%20of%20the%20tuned%20tree-1.png)<!-- -->
 
 ### Variable Importance
 
@@ -1197,12 +1056,6 @@ tuned_random_forest <- ranger(
 )
 
 random_forest_estimated <- predict(tuned_random_forest, validation_set)
-head(random_forest_estimated$predictions)
-```
-
-    ## [1] 288466.5 251902.9 220072.2 394067.3 294707.3 587058.5
-
-``` r
 calculate_metrics( observed = random_forest_estimated$predictions, 
                    expected = validation_set$price, 
                    training = training_set$price
