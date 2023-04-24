@@ -1,7 +1,7 @@
 Ireland Housing - Exploratory Data Analysis - EDA
 ================
 Marcos Cavalcante
-2023-04-20
+2023-04-24
 
 - <a href="#exploratory-data-analysis"
   id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
@@ -76,8 +76,21 @@ Marcos Cavalcante
   - <a href="#correlation-matrix-with-new-features"
     id="toc-correlation-matrix-with-new-features">Correlation Matrix with
     New Features</a>
-  - <a href="#write-clean-dataset-to-disk"
-    id="toc-write-clean-dataset-to-disk">Write Clean Dataset to disk</a>
+- <a href="#removing-outliers" id="toc-removing-outliers">Removing
+  Outliers</a>
+  - <a href="#z-score-implementation"
+    id="toc-z-score-implementation">Z-Score Implementation</a>
+  - <a href="#removal-of-outliers" id="toc-removal-of-outliers">Removal of
+    Outliers</a>
+  - <a href="#plotting-outliers-removed"
+    id="toc-plotting-outliers-removed">Plotting Outliers Removed</a>
+- <a href="#creating-dummy-vars" id="toc-creating-dummy-vars">Creating
+  Dummy Vars</a>
+- <a href="#removing-character-variables"
+  id="toc-removing-character-variables">Removing Character variables</a>
+  - <a href="#write-explored-dataset-to-disk"
+    id="toc-write-explored-dataset-to-disk">Write Explored Dataset to
+    disk</a>
 
 # Exploratory Data Analysis
 
@@ -90,7 +103,7 @@ packages <- c("tidyverse", "haven", "devtools", "dplyr",
               "ggplot2", "gapminder", "patchwork", "ggridges", 
               "corrplot", "gridExtra", "sf","tmap","rgdal","rgeos",
               "adehabitatHR", "knitr", "kableExtra", "geosphere", 
-              "fastDummies")
+              "fastDummies", "janitor")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -1423,7 +1436,7 @@ ireland_houses <- ireland_houses %>%
 ## Nearest Hospitals
 
 To calculate the *nearestHospitals* value, the algorithm identifies the
-hospitals that are closest to each residence within a **16 km** radius
+hospitals that are closest to each residence within a **10 km** radius
 using the hospitals dataset. The straight-line distance (also known as
 crow flies distance) between each house and each hospital is then
 calculated.
@@ -1440,8 +1453,7 @@ hospitals <- read.csv(file = hospital_filename) # Load the dataset
 
 # Define a function to compute the distance between each observation in house 
 # dataset and all observations in socio economic dataset
-count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic) {
-  RADIUS_OF_INTEREST_KM = 16
+count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic, RADIUS_OF_INTEREST_KM) {
   
   distances_in_m <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat))
   distances_in_km <- distances_in_m / 1000
@@ -1456,14 +1468,14 @@ ireland_houses$nearestHospitals <- apply(
   X = ireland_houses[, c("longitude", "latitude")], 
   MARGIN = 1, 
   FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           hospitals)
+                                                           hospitals, 10)
 )
 ```
 
 ## Nearest Garda Stations
 
 To calculate the *nearestGardaStations* value, the algorithm searches
-for the closest garda station to each house within a **16 km** radius,
+for the closest garda station to each house within a **10 km** radius,
 using the garda stations dataset. It then computes the straight-line
 distance between each house and each garda station.
 
@@ -1481,7 +1493,7 @@ ireland_houses$nearestGardaStations <- apply(
   X = ireland_houses[, c("longitude", "latitude")], 
   MARGIN = 1, 
   FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           garda_stations)
+                                                           garda_stations, 10)
 )
 ```
 
@@ -1489,8 +1501,8 @@ ireland_houses$nearestGardaStations <- apply(
 
 The algorithm computes the *nearestEducationCentre* by identifying the
 closest education centers, including universities and schools, to each
-house within a *16 km* radius, utilizing the education center dataset.
-It then calculates the crow flies distance between each house and each
+house within a *5 km* radius, utilizing the education center dataset. It
+then calculates the crow flies distance between each house and each
 education center.
 
 ``` r
@@ -1511,17 +1523,17 @@ ireland_houses$nearestEducationCentres <- apply(
   X = ireland_houses[, c("longitude", "latitude")], 
   MARGIN = 1, 
   FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           education)
+                                                           education, 5)
 )
 ```
 
 ## Nearest Public Transport
 
 To calculate the *nearestPublicTransports*, the algorithm identifies the
-closest public transport options, including bus stops and train
-stations, to each house in the dataset, utilizing the public transport
-dataset. It then calculates the straight-line distance between each
-house and each public transport option.
+closest public transport options within a *5 km* radius, including bus
+stops and train stations, to each house in the dataset, utilizing the
+public transport dataset. It then calculates the straight-line distance
+between each house and each public transport option.
 
 ``` r
 dataset_directory <- "../../datasets/transport/"
@@ -1550,7 +1562,7 @@ ireland_houses$nearestPublicTransports <- apply(
   X = ireland_houses[, c("longitude", "latitude")], 
   MARGIN = 1, 
   FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           transport)
+                                                           transport, 5)
 )
 ```
 
@@ -1580,7 +1592,151 @@ corrplot( corr = correlation_matrix,
 
 ![](DataExploration-HousingDataset_files/figure-gfm/Correlation%20Matrix%20with%20New%20Features-1.png)<!-- -->
 
-## Write Clean Dataset to disk
+# Removing Outliers
+
+After trying to fit the model in this dataset in the notebook
+*model-selection*, it was noted that the presence of outliers was
+causing the Machine Learning Algorithms, **regression trees** and
+**random forests**, to have a high *RMSE* (Root Mean Squared Error).
+Looking at the variable importance graph of those algorithms, **size**
+and **pricePerSqMeter** were the variables most used by the *trees* to
+predict the results. Furthermore, during this exploratory data analysis,
+*price* proved to be a variable that has a lot of outliers, mostly due
+to the fact that not many people can buy very expensive houses.
+Therefore, It was decided that **price** and **size** are the two good
+candidates to get their outliers removed as they have the most influence
+in the algorithms’ decision process and have proved it during the
+exploratory data analysis. The variable **pricePerSqMeter** will not be
+modified as smaller houses in privileged areas could get penalised.
+
+The statistical method used for removing the outliers from the *size*
+and *price* columns is the *z-score* method. Where the *z-score* is
+calculated for each value and the values outside 3 standard deviations
+of the mean are removed. The z-score version used in this study is a
+modified version where 4 standard deviations are used instead of 3, the
+reason for that is to have a less aggressive approach and try not to
+shrink the dataset too much.
+
+## Z-Score Implementation
+
+``` r
+remove_outliers_zscore <- function( column ) {
+  
+  mean <- mean(column)
+  standard_deviation <- sd(column)
+  
+  z_scores <- (column - mean) / standard_deviation
+  
+  outliers <- which(z_scores > 4 | z_scores < -4)
+  
+  cat("Length Original data: ", length(column), "\n")
+  cat("length Outliers: ", length(outliers), "\n")
+  cat("Length Cleaned data: ", length(column) - length(outliers), "\n")
+
+  return (outliers)
+}
+```
+
+## Removal of Outliers
+
+After implementing the z-score function, let’s proceed to remove the
+outliers. We would also like to print the least expensive and smallest
+houses that are being removed.
+
+``` r
+outliers_price <- remove_outliers_zscore(ireland_houses$price)
+```
+
+    ## Length Original data:  9009 
+    ## length Outliers:  90 
+    ## Length Cleaned data:  8919
+
+``` r
+price_outliers <- ireland_houses[ outliers_price, ]
+
+ireland_houses <- ireland_houses[ -outliers_price, ]
+
+
+cat("Least Expensive House Removed: ", min(price_outliers$price), "\n")
+```
+
+    ## Least Expensive House Removed:  2695000
+
+``` r
+outliers_size <- remove_outliers_zscore(ireland_houses$size)
+```
+
+    ## Length Original data:  8919 
+    ## length Outliers:  43 
+    ## Length Cleaned data:  8876
+
+``` r
+size_outliers <- ireland_houses[ outliers_size, ]
+
+ireland_houses <- ireland_houses[ -outliers_size, ]
+
+cat("Smallest House Removed: ", min(size_outliers$size), "\n")
+```
+
+    ## Smallest House Removed:  724
+
+We can see that most of the houses being removed have an area of over
+724 square meters, and that the least expensive house removed is worth
+€2,695,000.00 euro. Finally, a total of 133 observations have been
+removed from the dataset, and we ended up with 8876 observations left in
+it.
+
+## Plotting Outliers Removed
+
+``` r
+price_outliers_graph <- create_lin_graph(
+  house_df = price_outliers,
+  aest = list( x = sym("size"), y = sym("price") ),
+  labels = list(title = "Price Outliers being Removed", x = "Size", y = "Price")
+)
+
+size_outliers_graph <- create_lin_graph(
+  house_df = size_outliers,
+  aest = list( x = sym("price"), y = sym("size") ),
+  labels = list(title = "Size Outliers being Removed", x = "Price", y = "Size")
+)
+
+grid.arrange(price_outliers_graph, size_outliers_graph) 
+```
+
+![](DataExploration-HousingDataset_files/figure-gfm/Plotting%20Outliers%20Removed-1.png)<!-- -->
+
+# Creating Dummy Vars
+
+In this part of the process, the factor variables are transformed into
+dummy variables to provide a better data type for machine learning
+algorithms in general.
+
+``` r
+ireland_houses <- dummy_columns(
+  .data = ireland_houses,
+  select_columns = c("propertyType", "county", "berRating"),
+  remove_selected_columns = T,
+  remove_most_frequent_dummy = T
+)
+
+# Formatting the name of the dummy variables
+ireland_houses <- ireland_houses %>%
+   clean_names(., "small_camel")
+```
+
+# Removing Character variables
+
+Before saving the dataset to the disk and handing it over to the model
+selection step, it is advised to remove character variables as those can
+introduce noise and bad predictions by the models.
+
+``` r
+columns_to_remove <- c("address", "location", "townOrNeighbourhood")
+ireland_houses <- ireland_houses[ , !names(ireland_houses) %in% columns_to_remove ]
+```
+
+## Write Explored Dataset to disk
 
 Saving resulting data from Exploration step to disk.
 
