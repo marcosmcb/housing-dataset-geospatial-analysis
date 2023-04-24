@@ -18,4 +18,468 @@ options(dplyr.summarise.inform = FALSE)
 
 # Model Selection
 
-TBD
+This project will use supervised machine learning algorithms to solve a regression problem. The goal is to understand whether socioeconomic variables along with house characteristics can improve the accuracy of house valuation predictions. The machine learning algorithms that will be used are generalized linear models (*linear regression*), *regression trees*, *random forests* and, *extreme gradient boosting*.
+
+In this study, to train tree and ensemble based models, **grid search** is going to be used to find the *hyperparameters* that yield the best result, **cross-validation** (*10-fold*) is also used when training the model. 
+
+## Installing Libraries
+
+First step is to install and load the necessary libraries.
+
+```{r Installing Libraries, results='hide', message=F, warning=F, cache = TRUE}
+
+packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", 
+              "ranger", "randomForest", "caret", "rpart", "rpart.plot", "splines", 
+              "gtools", "Rmisc", "scales", "viridis", "caret",  "gridExtra",
+              "AMR", "kableExtra", "rattle", "forecast", "plotly", "reshape2",
+              "nortest", "rgl", "car", "olsrr", "jtools", "MASS")
+
+if(sum(as.numeric(!packages %in% installed.packages())) != 0){
+  installer <- packages[!packages %in% installed.packages()]
+  for(i in 1:length(installer)) {
+    install.packages(installer, dependencies = T)
+    break()
+  }
+  sapply(packages, require, character = T) 
+} else {
+  sapply(packages, require, character = T) 
+}
+
+```
+## Load dataset
+
+```{r Load data}
+
+dataset_directory <- "../../datasets/"
+dataset_filename <- paste(dataset_directory, "ireland_houses_explored.Rda", 
+                          sep="")
+options(scipen = 999) # turn off scientific notation
+
+load(file = dataset_filename) # loads ireland_houses dataframe
+```
+
+## Split dataset
+
+Let us start by splitting the dataset into: *training*, *validation* and *testing* sets.
+Those sets of the main dataset are going to be used for different purposes:
+
+1. **training_set**: This dataset is only used for training the model that we are about to create.
+2. **validation_set**: The validation dataset is used for validating the hyperparameters used in the ML model on unseen/untrained data.
+3. **testing_set**: The testing dataset is the most pristine set as it is used for evaluating the model's performance on completely unseen data. This is the last step in the model selection and it must not be used during the training or validation stages.
+
+```{r Splitting dataset}
+
+SEED_VALUE <- 2360873
+
+# To allow reproducibility of the results
+set.seed(SEED_VALUE)
+
+# Data split is done accordingly: training (70%), validation (15%), and testing (15%) datasets.
+sets <- sample(1:3,
+          size = nrow(ireland_houses), 
+          replace = TRUE,
+          prob = c(0.70, 0.15, 0.15)) # Probability of being 1 is 70%, 2 is 15% and 3 is 15%
+
+training_set <- ireland_houses[sets==1, ] # 70% of the observations
+validation_set <- ireland_houses[sets==2, ] # 15% of the observations
+testing_set <- ireland_houses[sets==3, ] # 15% of the observations
+
+```
+
+
+# Generalized Linear Models
+
+
+## Linear Regression Model
+
+The *linear regression* model will be the first one to be trained. To do that, we will make use of the following variables in the dataset: **price** as the target variable and we will use every other variable in the dataset as the predictors. Please note that factor variables have been transformed into dummy variables in the EDA notebook and that character variables have been removed, there are only *numeric* and *factor* variables in this dataset.
+
+```{r Multiple Linear Regression Model, cache=TRUE}
+linear_model <- lm( formula = price ~ ., 
+                     data = training_set )
+
+summary(linear_model)
+```
+
+
+From the output of the linear model above, it is possible to see that the R-squared value is *0.8243* and the adjusted R-squared is *0.8227*.
+
+The intercept point is at *0.041* and it is also quite clear that many of the *county*, *berRating* dummy variables will likely be removed during the **stepwise** procedure. Similarly, it is also clear that *latitude* and *longitude* may also be removed.
+
+### Stepwise Procedure
+
+```{r Stepwise Procedure, cache=TRUE}
+
+linear_model_stepwise <- step(linear_model, k = 3.841459, trace = 0)
+summary( linear_model_stepwise )
+
+```
+
+
+
+As expected, many of the *county*, *berRating* dummy variables and, *latitude*, *longitude* also got removed. The **R-squared** and **Adjusted R-squared** values marginally changed after applying stepwise.
+
+| Model                 | R-squared | Adjusted R-sqaured |
+| --------------------- | --------- | ------------------ |
+| linear model          |    0.8243 |             0.8227 |  
+| linear model stepwise |    0.8225 |             0.822  |
+
+
+### Anderson Darling normality test for testing residual error
+
+The *Anderson Darling* test for residual normality was used instead of the well known *Shapiro-Francia* 
+as Anderson Darling can handle datasets with over 5,000 observations.
+
+It can be interpreted in the same manner as Shapiro-Francia, where:
+
+* **H0**: The null hypothesis says that if the *p-value* is greater than 0.05, the residual errors follow a normal distribution.
+
+* **H1**: The alternative hypothesis says if the *p-value* is lesser than 0.05, the residual errors do not follow a normal distribution.
+
+```{r Anderson Darling normality test for testing residual error, cache=TRUE}
+
+ad.test(linear_model_stepwise$residuals)
+
+```
+As per the p-value above, it is possible to see that the residual errors do not follow a normal distribution and the *alternative hypothesis* will be taken.
+It is possible however, to use the *Box-Cox* transformation on the target variable to try improve the normality of the resiudals so good predictions using the linear model can be made.
+
+### Plotting the Residual Errors
+
+Plot of the residual errors.
+
+```{r Plotting the residuals, cache=TRUE}
+# Adding Normal curve to compare the distribution
+training_set %>%
+  mutate(residuals = linear_model_stepwise$residuals) %>%
+  ggplot(aes(x = residuals)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 color = "white", 
+                 fill = "#55C667FF", 
+                 bins = 20,
+                 alpha = 0.6) +
+  stat_function(fun = dnorm, 
+                args = list(mean = mean(linear_model_stepwise$residuals),
+                            sd = sd(linear_model_stepwise$residuals)),
+                linewidth = 2, color = "grey30") +
+  scale_color_manual(values = "grey50") +
+  labs(x = "Residuals",
+       y = "Frequency") +
+  theme_bw()
+
+```
+
+### Box-Cox transformation
+
+Let us now run the **Box-Cox** transformation on the *price* variable.
+
+
+```{r Box Cox transformation, cache=TRUE}
+
+housing_box_cox <- powerTransform(training_set$price)
+housing_box_cox
+
+#Creating a box-cox field in the dataset to estimate new model
+bc_price <- (((training_set$price ^ housing_box_cox$lambda) - 1) / 
+                            housing_box_cox$lambda)
+
+linear_model_box_cox <- lm( formula = bc_price ~ . - price, 
+                             data = training_set )
+
+summary(linear_model_box_cox)
+```
+
+From the results, it can be seen that the lambda parameter value is -0.1280778. And that many predictors do no meet the *p-value* criteria. Nevertheless, the R-squared and Adjusted R-Squared increased considerably.
+
+| Model                 | R-squared | Adjusted R-sqaured |
+| --------------------- | --------- | ------------------ |
+| linear model          |    0.8243 |             0.8227 |  
+| linear model stepwise |    0.8225 |             0.822  |
+| linear model box-cox  |    0.8722 |             0.871  |
+
+
+
+### Comparing the models
+
+Let's compare the two models so far, the *stepwise* and *box-cox* models.
+
+```{r Comparing the models, cache=TRUE, warning=FALSE}
+
+export_summs(linear_model_stepwise, linear_model_box_cox, scale = F, digits = 4)
+
+```
+
+### Box-Cox with Stepwise
+
+Let us apply again the stewise method, but this time on the model using box-cox.
+
+```{r Box-Cox with Stepwise, cache=TRUE}
+linear_model_box_cox_stepwise <- step(linear_model_box_cox, k = 3.841459, trace = 0)
+summary(linear_model_box_cox_stepwise)
+```
+
+It looks like after applying the *stepwise* procedure on the *box-cox* model the **R-squared** and **Adjusted R-squared** had no noticeable improvement from the *box-cox* only model.
+
+| Model                          | R-squared | Adjusted R-sqaured |
+| -------------------------------| --------- | ------------------ |
+| linear model                   |    0.8243 |             0.8227 |  
+| linear model stepwise          |    0.8225 |             0.822  |
+| linear model box-cox           |    0.8722 |             0.871  |
+| linear model box-cox stepwise  |    0.872  |             0.871  |
+
+### Final Anderson Darling test
+
+```{r Final Anderson Darling test, cache=TRUE}
+ad.test(linear_model_box_cox_stepwise$residuals)
+```
+As seen above, the null hypothesis will be accepted and the model cannot be used because it does not have a normal residual error distribution.
+
+The result above tells that there might be some issues, such as **heteroskedasticity** or simply that there is no normal distribution.
+
+From the Exploratory Data Analysis step, it was seen that the house prices are not normally distributed and, rather, they are skewed to the right, meaning that most of the houses are valued lower than the average.
+
+Potentially, a Gamma Generalized Linear Model may be a better fit as Gamma GLMs build better models when the data is continuous, positive and skewed as it can capture non-linear relationships.
+
+
+# Regression Trees and Ensemble Methods
+
+
+
+
+## Regression Trees
+
+Regression Trees can be good to model complicated data that does not have any apparent structure. Regression trees are also easy to visualise (when not deep) and provide good insights into the splits done by the tree during its decision process.
+
+In regression trees, the decision about splitting across nodes is taken based on the Residual Sum of Square (RSS), many splits are computed and the one that minimizes RSS is chosen.
+
+
+```{r tree error metrics, cache=TRUE, include=FALSE}
+calculate_metrics <- function( observed, expected, training ) {
+  mae <- mean(abs(observed - expected))
+  mse <- mean((observed - expected)^2)
+  rmse <- sqrt(mse)
+  
+  tss <- sum((expected - mean(training))^2)
+  rss <- sum((expected - observed)^2)
+  impurity_error <- rss/tss
+  residual_error <- rss/length(expected)
+  
+  
+  cat("Root Mean Squared Error (RMSE): ", rmse, "\n") 
+  cat("Mean Absolute Error (MAE): ", mae, "\n")
+  cat("Mean Squared Error (MSE): ", mse, "\n")
+  cat("Impurity Error: ", impurity_error, "\n")
+  cat("Residual Error: ", residual_error, "\n")
+}
+```
+
+
+
+### Building the first regression tree
+
+```{r First Naive tree, cache=TRUE}
+
+tree_house_naive <- rpart(
+  formula = price ~ .,
+  data    = training_set,
+  method  = "anova"
+)
+
+
+# Let's see what was used in the tree splits
+tree_house_naive
+```
+
+### Visualising the tree
+
+```{r Visualising the tree, cache=TRUE}
+viridis_palette = scales::viridis_pal(begin=.75, end=1)(20)
+rpart.plot(tree_house_naive, box.palette = viridis_palette)
+
+plotcp(tree_house_naive)
+```
+
+
+### Grid Search 
+
+```{r Grid Search, cache=TRUE}
+tree_grid_search <- expand.grid(
+  minsplit = seq(3, 30, 1),
+  maxdepth = seq(15, 50, 1)
+)
+
+
+cat("Size of Grid Search", nrow(tree_grid_search))
+```
+
+### Find the best Hyperparameters
+
+```{r Find the best Hyperparameters, cache=TRUE}
+
+hyper_trees <- list()
+
+for (i in 1:nrow(tree_grid_search)) {
+  
+  minsplit <- tree_grid_search$minsplit[i]
+  maxdepth <- tree_grid_search$maxdepth[i]
+  
+  set.seed(SEED_VALUE) # be able to reproduce
+  
+  hyper_trees[[i]] <- rpart(
+    formula = price ~ .,
+    data    = training_set,
+    method  = "anova",
+    control = list(minsplit = minsplit, 
+                   maxdepth = maxdepth)
+  )
+}
+
+```
+
+```{r getting the best hyperparameters, cache=TRUE}
+
+get_cp <- function(tree) {
+  min <- which.min(tree$cptable[, "xerror"])
+  cp  <- tree$cptable[min, "CP"] 
+}
+
+get_min_error <- function(tree) {
+  min    <- which.min(tree$cptable[, "xerror"])
+  xerror <- tree$cptable[min, "xerror"] 
+}
+
+tree_grid_search %>%
+  mutate(
+    cp    = purrr::map_dbl(hyper_trees, get_cp),
+    error = purrr::map_dbl(hyper_trees, get_min_error)
+    ) %>%
+  arrange(error) %>%
+  top_n(-5, wt = error)
+
+```
+
+### Prediction
+
+```{r Applying hyperparameters, cache=TRUE}
+tuned_tree <- rpart(
+    formula = price ~ .,
+    data    = training_set,
+    method  = "anova",
+    control = list(minsplit = 3, maxdepth = 15, cp = 0.01)
+)
+
+tree_estimated <- predict(tuned_tree, 
+                       newdata = validation_set)
+
+calculate_metrics( observed = tree_estimated, 
+                   expected = validation_set$price, 
+                   training = training_set$price)
+
+```
+
+### Plot of the tuned tree
+
+```{r}
+rpart.plot(tree_house_naive, box.palette = viridis_palette)
+```
+
+
+### Variable Importance
+
+```{r Variable Importance, cache=TRUE}
+vip::vip(tuned_tree)
+```
+
+
+## Random Forest
+
+### Training of the Random Forest
+
+At this point, the random forest algorithm can start it is training phase.
+
+
+```{r Random Forest Naive, cache=TRUE}
+set.seed(SEED_VALUE)
+
+naive_random_forest <- randomForest(
+  formula = price ~ .,
+  data    = training_set,
+  ntree   = 500
+)
+
+plot(naive_random_forest)
+
+```
+
+```{r Get MSE and RMSE of the forest, cache=TRUE}
+
+cat("Number of trees with lowest MSE error:", which.min(naive_random_forest$mse), "\n")
+
+cat("RMSE of the best random forest:", sqrt(naive_random_forest$mse[which.min(naive_random_forest$mse)]), "\n")
+
+```
+
+### Grid Search and Finding Hyperparameters
+
+#### Creating Grid
+
+```{r RF - Creating Grid, cache=TRUE}
+rf_grid_search <- expand.grid(
+  mtry       = seq(5, 57, by = 2),
+  node_size  = seq(3, 20, by = 2),
+  sampe_size = c(.55, .632, .70, .80),
+  OOB_RMSE   = 0
+)
+
+cat("Size of Random Forest Grid Search: ", nrow(rf_grid_search))
+```
+
+
+#### Performing Random Forest Grid Search 
+```{r Performing Random Forest Grid Search, cache=TRUE}
+for(i in 1:nrow(rf_grid_search)) {
+  
+  model <- ranger(
+    formula         = price ~ ., 
+    data            = training_set, 
+    num.trees       = 1000,
+    mtry            = rf_grid_search$mtry[i],
+    min.node.size   = rf_grid_search$node_size[i],
+    sample.fraction = rf_grid_search$sampe_size[i],
+    seed            = SEED_VALUE
+  )
+  
+  # add OOB error to grid
+  rf_grid_search$OOB_RMSE[i] <- sqrt(model$prediction.error)
+}
+
+rf_grid_search %>% 
+  dplyr::arrange(OOB_RMSE) %>%
+  head(10)
+
+```
+
+
+### Tuned Random Forest Prediction
+```{r Tuned Random Forest Prediction, cache=TRUE}
+
+tuned_random_forest <- ranger(
+  formula   = price ~ ., 
+  data      = training_set, 
+  num.trees = 1000,
+  mtry      = 57,
+  min.node.size = 3,
+  sample.fraction = .8,
+  importance      = 'impurity'
+)
+
+random_forest_estimated <- predict(tuned_random_forest, validation_set)
+head(random_forest_estimated$predictions)
+calculate_metrics( observed = random_forest_estimated$predictions, 
+                   expected = validation_set$price, 
+                   training = training_set$price
+)
+```
+
+
+## eXtreme Gradient Boosting
