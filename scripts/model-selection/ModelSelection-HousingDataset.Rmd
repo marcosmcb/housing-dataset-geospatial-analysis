@@ -28,7 +28,7 @@ First step is to install and load the necessary libraries.
 
 ```{r Installing Libraries, results='hide', message=F, warning=F}
 
-packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", 
+packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", "vip",
               "ranger", "randomForest", "caret", "rpart", "rpart.plot", "splines", 
               "gtools", "Rmisc", "scales", "viridis", "caret",  "gridExtra",
               "AMR", "kableExtra", "rattle", "forecast", "plotly", "reshape2",
@@ -470,6 +470,12 @@ calculate_metrics( observed = random_forest_estimated$predictions,
 )
 ```
 
+### Random Frest Variable Importance
+
+```{r Random Frest Variable Importance}
+vip(tuned_random_forest) + ggtitle("ranger: RF")
+```
+
 
 ## eXtreme Gradient Boosting
 
@@ -638,7 +644,7 @@ xgb.plot.importance(variable_importance_matrix, top_n = 10, measure = "Gain")
 #### Explaining variables used with LIME
 
 ```{r Explaining variables used with LIME, warning=FALSE}
-local_obs <- vtreat::prepare(treatplan, training_set[1:2,])
+local_obs <- vtreat::prepare(treatplan, training_set[10:13,])
 
 
 # apply LIME

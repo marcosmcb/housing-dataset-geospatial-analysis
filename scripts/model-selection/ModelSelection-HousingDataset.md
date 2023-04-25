@@ -52,6 +52,9 @@ Marcos Cavalcante
     - <a href="#tuned-random-forest-prediction"
       id="toc-tuned-random-forest-prediction">Tuned Random Forest
       Prediction</a>
+    - <a href="#random-frest-variable-importance"
+      id="toc-random-frest-variable-importance">Random Frest Variable
+      Importance</a>
   - <a href="#extreme-gradient-boosting"
     id="toc-extreme-gradient-boosting">eXtreme Gradient Boosting</a>
     - <a href="#convert-datasets-to-xgboost-data-type"
@@ -94,7 +97,7 @@ model.
 First step is to install and load the necessary libraries.
 
 ``` r
-packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", 
+packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr", "vip",
               "ranger", "randomForest", "caret", "rpart", "rpart.plot", "splines", 
               "gtools", "Rmisc", "scales", "viridis", "caret",  "gridExtra",
               "AMR", "kableExtra", "rattle", "forecast", "plotly", "reshape2",
@@ -1088,6 +1091,14 @@ calculate_metrics( observed = random_forest_estimated$predictions,
     ## Impurity Error:  0.001519378 
     ## Residual Error:  122360272
 
+### Random Frest Variable Importance
+
+``` r
+vip(tuned_random_forest) + ggtitle("ranger: RF")
+```
+
+![](ModelSelection-HousingDataset_files/figure-gfm/Random%20Frest%20Variable%20Importance-1.png)<!-- -->
+
 ## eXtreme Gradient Boosting
 
 ### Convert datasets to xgboost data type
@@ -1251,7 +1262,7 @@ xgb.plot.importance(variable_importance_matrix, top_n = 10, measure = "Gain")
 #### Explaining variables used with LIME
 
 ``` r
-local_obs <- vtreat::prepare(treatplan, training_set[1:2,])
+local_obs <- vtreat::prepare(treatplan, training_set[10:13,])
 
 
 # apply LIME
