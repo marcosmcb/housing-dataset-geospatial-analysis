@@ -663,3 +663,38 @@ calculate_metrics( observed = pred,
 
 ```
 
+
+
+# Testing all models on testing dataset
+
+## Regression tree
+
+```{r Testing all models on testing dataset - regression tree}
+tree_estimated <- predict(tuned_tree, 
+                       newdata = testing_set)
+
+calculate_metrics( observed = tree_estimated, 
+                   expected = testing_set$price, 
+                   training = training_set$price)
+```
+
+## Random Forest
+
+```{r Testing all models on testing dataset - random forest}
+random_forest_estimated <- predict(tuned_random_forest, testing_set)
+
+calculate_metrics( observed = random_forest_estimated$predictions, 
+                   expected = testing_set$price, 
+                   training = training_set$price)
+```
+## Extreme Gradient Boosting
+
+```{r Testing all models on testing dataset - xgboost}
+pred <- predict(tuned_xgb, vtreat_testing_predictors)
+
+
+
+calculate_metrics( observed = pred, 
+                   expected = vtreat_testing_target, 
+                   training = vtreat_trainining_target)
+```

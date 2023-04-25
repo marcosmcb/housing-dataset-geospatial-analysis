@@ -1,7 +1,7 @@
 Ireland Housing - Model Selection
 ================
 Marcos Cavalcante
-2023-04-25
+2023-04-26
 
 - <a href="#model-selection" id="toc-model-selection">Model Selection</a>
   - <a href="#installing-libraries" id="toc-installing-libraries">Installing
@@ -67,6 +67,13 @@ Marcos Cavalcante
     - <a href="#training-tuned-model" id="toc-training-tuned-model">Training
       tuned model</a>
     - <a href="#predicting" id="toc-predicting">Predicting</a>
+- <a href="#testing-all-models-on-testing-dataset"
+  id="toc-testing-all-models-on-testing-dataset">Testing all models on
+  testing dataset</a>
+  - <a href="#regression-tree" id="toc-regression-tree">Regression tree</a>
+  - <a href="#random-forest-1" id="toc-random-forest-1">Random Forest</a>
+  - <a href="#extreme-gradient-boosting-1"
+    id="toc-extreme-gradient-boosting-1">Extreme Gradient Boosting</a>
 
 # Model Selection
 
@@ -1274,3 +1281,56 @@ calculate_metrics( observed = pred,
     ## Mean Squared Error (MSE):  161992820 
     ## Impurity Error:  0.002011505 
     ## Residual Error:  161992820
+
+# Testing all models on testing dataset
+
+## Regression tree
+
+``` r
+tree_estimated <- predict(tuned_tree, 
+                       newdata = testing_set)
+
+calculate_metrics( observed = tree_estimated, 
+                   expected = testing_set$price, 
+                   training = training_set$price)
+```
+
+    ## Root Mean Squared Error (RMSE):  131472 
+    ## Mean Absolute Error (MAE):  92134.84 
+    ## Mean Squared Error (MSE):  17284894411 
+    ## Impurity Error:  0.1627699 
+    ## Residual Error:  17284894411
+
+## Random Forest
+
+``` r
+random_forest_estimated <- predict(tuned_random_forest, testing_set)
+
+calculate_metrics( observed = random_forest_estimated$predictions, 
+                   expected = testing_set$price, 
+                   training = training_set$price)
+```
+
+    ## Root Mean Squared Error (RMSE):  19489.01 
+    ## Mean Absolute Error (MAE):  5663.361 
+    ## Mean Squared Error (MSE):  379821356 
+    ## Impurity Error:  0.003576734 
+    ## Residual Error:  379821356
+
+## Extreme Gradient Boosting
+
+``` r
+pred <- predict(tuned_xgb, vtreat_testing_predictors)
+
+
+
+calculate_metrics( observed = pred, 
+                   expected = vtreat_testing_target, 
+                   training = vtreat_trainining_target)
+```
+
+    ## Root Mean Squared Error (RMSE):  14717.2 
+    ## Mean Absolute Error (MAE):  6652.643 
+    ## Mean Squared Error (MSE):  216595854 
+    ## Impurity Error:  0.002039658 
+    ## Residual Error:  216595854
