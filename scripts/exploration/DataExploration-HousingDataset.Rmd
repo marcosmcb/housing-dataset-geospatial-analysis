@@ -68,9 +68,9 @@ options(scipen = 999) # turn off scientific notation
 skim(ireland_houses)
 ```
 
-At this point, the dataset has over 9000 thousand observations and 12 variables, where one of those is the **target** variable.
+At this point, the dataset has over 9000 thousand observations and 17 variables, where one of those is the **target** variable.
 
-6 of those variables are of numeric type, 4 are of factor type and the other 2 are of character type.
+11 of those variables are of numeric type, 4 are of factor type and the other 2 are of character type.
 
 From the quick statistic summary above, it can be observed that:
 
@@ -82,11 +82,22 @@ From the quick statistic summary above, it can be observed that:
 
 * **Price**: As expected, around 75% of the houses are under the €495,000.00 mark. And the most expensive house costs €15.000.000,00.
 
+* **Price Per Sq Meter**: The mean price per $sq^2$ meter is at €3,402.00, and the highest value is marked at €41,666.67
+
 * **Size**: The majority of the houses are under 164 $sq^2$, there seems to be a clear outlier whose size is 6109 $sq^2$.
 
 * **Bathrooms**: The variable shows some interesting behaviour, where the mean is about 2 bathrooms per house and the maximum number of bathrooms in a house is 28.
 
 * **Bedrooms**: Similar to the *bathrooms* variable, **bedrooms** also show an interesting behaviour, the mean is 3 bedrooms per house and the maximum number of bedrooms is 30.
+
+* **Nearest Hospitals**: About 75% of the observations have up to 3 hospitals and that 50% of the houses have up to 1 hospital within a 10 km radius.
+
+* **Nearest Garda Stations**: The mean count of garda stations for the houses in the dataset is about 9 and, 50% of the houses have up to 4 garda stations in a 10 km radius. At the other extreme, we find houses with up to 31 garda stations in a 10 km.
+
+* **Nearest Education Centres**: The mean count of education centres for the houses in the dataset is around 56 and, 50% of the houses have up to 13 education centres in a 5 km radius. Some houses may have between 65 to 319 education centres within a 5 km radius
+
+* **Nearest Public Transports**: The mean count of public transports available for a house is 412 and 50% of the houses have up to 82 public transport stops. Some extreme values can be seen too, where some houses have between 627 and 2024 public trasnport stops in a 5 km radius.
+
 
 Each variable's significance is described below:
 
@@ -100,6 +111,10 @@ Each variable's significance is described below:
 | latitude      | The latitude of the property        |
 | location      | A short form of the property address area, i.e. Dublin 1, Co. Dublin    |
 | longitude     | The longitude of the property    |
+| nearestEducationCentres | Count on the number of schools and universities within a 5km radius of the house |
+| nearestGardaStations | Count on the number of garda stations within a 10km radius of the house |
+| nearestHospitals | Count on the number of hospitals within a 10km radius of the house |
+| nearestPublicTransports | Count on the number of bus stops and train stations within a 5km radius of the house |
 | price         | The price of the property, in euro €  |
 | propertyType  | The type of the property, i.e. Apartment, End of Terrace, Semi-D, Terrace  |
 | size          | The size of the property in square meters      |
@@ -145,7 +160,7 @@ At a later point, we start looking more carefully at the character variables.
 
 The correlation method used in this calculation is the **Pearson** method.
 
-```{r Correlation Matrix}
+```{r Correlation Matrix with New Features, fig.width=20, fig.height=15}
 
 correlation_matrix <- cor(select_if(ireland_houses, is.numeric))
 
@@ -163,9 +178,12 @@ corrplot( corr = correlation_matrix,
 
 From the matrix correlation above, some important information can be inferred:
 
-* There is a **moderate positive correlation** between price and size as the coeficient is over 0.40 and a **weak positive correlation** with bathroom and bedroom. Latitude and longitude have very weak correlation with price, as expected.
+* There is a **moderate positive correlation** between price and size as well as price and pricePerSqMeter, which may indicate that there a strong relationship between those variables.
 
-* There is also a **strong positive correlation** between bathrooms and bedrooms, which can be an early indication of multicollinearity.
+* There is a **weak positive correlation** between price and - bathroom, bedroom, nearestHospitals, nearestGardaStations, nearestEducationCentres and nearestPublicTransports.
+
+* There is also a **strong positive correlation** between bathrooms and bedrooms; and also amongst the socio-economic variables; which might be an early indication of multicollinearity.
+
 
 ## Analysing relationship between house price and size
 
@@ -282,6 +300,41 @@ grid.arrange(bar_chart_under_6_bedrooms, bar_chart_over_6_bedrooms)
 
 The same kind of behaviour can be seen with the bedroom variable. This should be no surprise as there was indeed a positive correlation between number of bedrooms and house price. 
 
+## Analysing relationship between house price and nearest education centres
+
+```{r Analysing relationship between house price and socio economic variables, warning=FALSE, fig.height = 20, fig.width = 12}
+
+house_by_education_centre <- create_lin_graph(
+  house_df = ireland_houses,
+  aest = list( x = sym("nearestEducationCentres"), y = sym("price") ),
+  labels = list(title = "Houses by Count of Education Centres", x = "Count of Education Centres", y = "Price")
+)
+
+house_by_garda_stations <- create_lin_graph(
+  house_df = ireland_houses,
+  aest = list( x = sym("nearestGardaStations"), y = sym("price") ),
+  labels = list(title = "Houses by Count of Garda Stations", x = "Count of Garda Stations", y = "Price")
+)
+
+house_by_hospitals <- create_lin_graph(
+  house_df = ireland_houses,
+  aest = list( x = sym("nearestHospitals"), y = sym("price") ),
+  labels = list(title = "Houses by Count of Hospitals", x = "Count of Hospitals", y = "Price")
+)
+
+house_by_public_transport <- create_lin_graph(
+  house_df = ireland_houses,
+  aest = list( x = sym("nearestPublicTransports"), y = sym("price") ),
+  labels = list(title = "Houses by Count of Public Transport", x = "Count of Public Transport", y = "Price")
+)
+
+
+grid.arrange(house_by_education_centre, house_by_garda_stations, house_by_hospitals, house_by_public_transport, ncol=1) 
+```
+
+
+The graphs above do not seem to show us any relationship between house price and each of those socio-economic variables.
+Perhaps, when the spatial visualisation is done, there might be some hidden relationship.
 
 ## Analysing factor variables - ANOVA, p-value and f-value
 
@@ -497,7 +550,7 @@ The density plot of the house price by county above shows the distribution of th
 Let's first load the shape file of Ireland
 
 
-```{r Shape file of Ireland, warning=FALSE, message=FALSE}
+```{r Shape file of Ireland, warning=FALSE, message=FALSE, cache=TRUE}
 # Lets create a shape file object from our dataset
 ireland_houses_sf <- st_as_sf(x = ireland_houses, 
                          coords = c("longitude", "latitude"), 
@@ -536,7 +589,7 @@ ireland_by_county_sf <- create_county_map()
 
 ## Bubble Plot of Property Type by County
 
-```{r Plot of Property Type by County, warning=FALSE, message=FALSE, fig.width=12, fig.height=10}
+```{r Plot of Property Type by County, warning=FALSE, message=FALSE, fig.width=12, fig.height=10, cache=TRUE}
 
 property_type_count <- aggregate(
   ireland_houses$address,
@@ -592,7 +645,7 @@ The bubble plot above depicts the size of the presence for each property type ac
 
 ## Density Plot of Count of Houses by County
 
-```{r Density Plot of Count of Houses by County, warning=FALSE, message=FALSE, fig.height=15, fig.width=15}
+```{r Density Plot of Count of Houses by County, warning=FALSE, message=FALSE, fig.height=15, fig.width=15, cache=TRUE}
 
 tmap_mode("view")
 
@@ -639,7 +692,7 @@ It is worth noting that counties adjacent to areas with high property supply ten
 ## Choropleth Map of Mean House Price per County
 
 
-```{r Plot of Mean House Price per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE}
+```{r Plot of Mean House Price per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE, cache=TRUE}
 
 tmap_mode("view")
 
@@ -675,173 +728,153 @@ The above graph demonstrates yet another fascinating phenomenon known as the "ne
 It is noteworthy to emphasize that county Dublin has a significant impact on neighboring counties such as Wicklow, Kildare, and Meath, among others. Similarly, the counties in the midlands have a noticeable impact on each other, resulting in lower mean house prices in the region.
 
 
-# Feature Engineering
-
-In this step, we would like to explore the creation of a some new variables to see if they can help derive better insights into the dataset. At this step, 5 new variables will get created:
-
-* Price per square meter - *pricePerSqMeter*.
-* Nearest Hospitals - *nearestHospitals*.
-* Nearest Garda Stations - *nearestGardaStations*.
-* Nearest Education Centres - *nearestEducationCentres*.
-* Nearest Public Transports - *nearestPublicTransports*.
+## Choropleth Map of Mean Count of Public Transport per County
 
 
-## Price per square meter
+```{r Plot of Mean Count of Public Transport per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE, cache=TRUE}
 
-This variable is going to be created by dividing the house price by its size. The idea behind creating this variable is to understand the price per square meter for a given property and being able to define a common ground when comparing houses with different characteristics.
+tmap_mode("view")
 
+ireland_houses_by_county <- aggregate(ireland_houses["nearestPublicTransports"], 
+                          by = ireland_houses["county"], mean)
 
-```{r Price per square meter}
-
-ireland_houses <- ireland_houses %>% 
-  mutate(pricePerSqMeter = round(price/size, digits = 2))
-```
-
-## Nearest Hospitals
-
-To calculate the *nearestHospitals* value, the algorithm identifies the hospitals that are closest to each residence within a **10 km** radius using the hospitals dataset. The straight-line distance (also known as crow flies distance) between each house and each hospital is then calculated. 
-
-The decision to use a 16 km radius was based on the optimal results obtained from the Pearson correlation method and will be consistently applied to all other variables.
-
-```{r Nearest Hospital}
-
-dataset_directory <- "../../datasets/hospitals/"
-hospital_filename <- paste(dataset_directory, "hospitals.csv", sep="")
-hospitals <- read.csv(file = hospital_filename) # Load the dataset
+mean_map_transport <- merge( ireland_by_county_sf, ireland_houses_by_county, 
+            by.x = "county", 
+            by.y = "county" )
 
 
-# Define a function to compute the distance between each observation in house 
-# dataset and all observations in socio economic dataset
-count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic, RADIUS_OF_INTEREST_KM) {
-  
-  distances_in_m <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat))
-  distances_in_km <- distances_in_m / 1000
-  
-  num_of_points_interest <- distances_in_km[ distances_in_km <= RADIUS_OF_INTEREST_KM ]
-  return( length(num_of_points_interest) )
-}
+mean_map_transport <- mean_map_transport %>% st_set_crs(value = 4326) %>% st_cast()
 
-# Apply the function to each observation in housing dataset
-# and store the nearest points in a new variable
-ireland_houses$nearestHospitals <- apply(
-  X = ireland_houses[, c("longitude", "latitude")], 
-  MARGIN = 1, 
-  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           hospitals, 10)
-)
-
-```
-
-## Nearest Garda Stations
-
-To calculate the *nearestGardaStations* value, the algorithm searches for the closest garda station to each house within a **10 km** radius, using the garda stations dataset. It then computes the straight-line distance between each house and each garda station.
-
-
-```{r Nearest Garda Station}
-dataset_directory <- "../../datasets/police/"
-garda_stations_filename <- paste(dataset_directory, "garda_station.csv", sep="")
-garda_stations <- read.csv(file = garda_stations_filename) # Load the dataset
-
-garda_stations <- rename( garda_stations, 
-  latitude = Latitude,
-  longitude = Longitude
-)
-
-ireland_houses$nearestGardaStations <- apply(
-  X = ireland_houses[, c("longitude", "latitude")], 
-  MARGIN = 1, 
-  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           garda_stations, 10)
-)
-
-```
-
-## Nearest Education Centre
-
-The algorithm computes the *nearestEducationCentre* by identifying the closest education centers, including universities and schools, to each house within a *5 km* radius, utilizing the education center dataset. It then calculates the  crow flies distance between each house and each education center.
-
-```{r Nearest Education Centre}
-dataset_directory <- "../../datasets/education/"
-universities_filename <- paste(dataset_directory, "universities.csv", sep="")
-universities <- read.csv(file = universities_filename)
-
-schools_filename <- paste(dataset_directory, "schools.csv", sep="")
-schools <- read.csv(file = schools_filename)
-schools <- schools[, c("name", "longitude", "latitude")]
-
-# Join schools and universities datasets.
-education <- rbind( schools, universities )
-
-
-
-ireland_houses$nearestEducationCentres <- apply(
-  X = ireland_houses[, c("longitude", "latitude")], 
-  MARGIN = 1, 
-  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           education, 5)
-)
+tm_shape(shp = shp_ireland) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(shp = mean_map_transport) + 
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                            Imagery = "Esri.WorldImagery") ) +
+  tm_polygons(
+    col = "nearestPublicTransports", 
+    title = "Mean Count of Public Transport Per County", 
+    palette = "viridis",                 
+    stretch.palette = FALSE, 
+    n = 6
+  ) +  
+  tm_text("county", size = 1, style = "pretty") +
+  tm_scale_bar()
 
 ```
 
 
-## Nearest Public Transport
+In the plot above, it can be seen that properties in county Dublin benefit from a much better access to public transport.
+The overwhelming difference between Dublin and other counties may indicate that the houses in the countryside are lacking on access to public transport.
 
-To calculate the *nearestPublicTransports*, the algorithm identifies the closest public transport options within a *5 km* radius, including bus stops and train stations, to each house in the dataset, utilizing the public transport dataset. It then calculates the straight-line distance between each house and each public transport option.
 
-```{r Nearest Public Transport}
-dataset_directory <- "../../datasets/transport/"
-trains_filename <- paste(dataset_directory, "train_stations.csv", sep="")
-trains <- read.csv(file = trains_filename) 
 
-bus_filename <- paste(dataset_directory, "bus_stops_ireland.csv", sep="")
-bus <- read.csv(file = bus_filename) # Load the dataset
+## Choropleth Map of Mean Count of Education Centres per County
 
-bus <- bus[, c("Longitude", "Latitude")]
-bus <- rename( bus, 
-  latitude = Latitude,
-  longitude = Longitude
-)
 
-trains <- trains[, c("StationLongitude", "StationLatitude")]
-trains <- rename( trains, 
-  latitude = StationLatitude,
-  longitude = StationLongitude
-)
+```{r Plot of Mean Count of Education Centres per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE, cache=TRUE}
 
-# Join trains and buses datasets
-transport <- rbind( bus, trains )
+tmap_mode("view")
 
-ireland_houses$nearestPublicTransports <- apply(
-  X = ireland_houses[, c("longitude", "latitude")], 
-  MARGIN = 1, 
-  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
-                                                           transport, 5)
-)
+ireland_houses_by_county <- aggregate(ireland_houses["nearestEducationCentres"], 
+                          by = ireland_houses["county"], mean)
+
+mean_map_education <- merge( ireland_by_county_sf, ireland_houses_by_county, 
+            by.x = "county", 
+            by.y = "county" )
+
+
+mean_map_education <- mean_map_education %>% st_set_crs(value = 4326) %>% st_cast()
+
+tm_shape(shp = shp_ireland) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(shp = mean_map_education) + 
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                            Imagery = "Esri.WorldImagery") ) +
+  tm_polygons(
+    col = "nearestEducationCentres", 
+    title = "Mean Count of Education Centres Per County", 
+    palette = "viridis",                 
+    stretch.palette = FALSE, 
+    n = 6
+  ) +  
+  tm_text("county", size = 1, style = "pretty") +
+  tm_scale_bar()
+
+```
+
+
+
+## Choropleth Map of Mean Count of Hospitals per County
+
+
+```{r Plot of Mean Count of Hospitals per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE, cache=TRUE}
+
+tmap_mode("view")
+
+ireland_houses_by_county <- aggregate(ireland_houses["nearestHospitals"], 
+                          by = ireland_houses["county"], mean)
+
+mean_map_hospitals <- merge( ireland_by_county_sf, ireland_houses_by_county, 
+            by.x = "county", 
+            by.y = "county" )
+
+
+mean_map_hospitals <- mean_map_hospitals %>% st_set_crs(value = 4326) %>% st_cast()
+
+tm_shape(shp = shp_ireland) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(shp = mean_map_hospitals) + 
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                            Imagery = "Esri.WorldImagery") ) +
+  tm_polygons(
+    col = "nearestHospitals", 
+    title = "Mean Count of Hospitals Per County", 
+    palette = "YlOrBr",                 
+    stretch.palette = FALSE, 
+    n = 6
+  ) +  
+  tm_text("county", size = 1, style = "pretty") +
+  tm_scale_bar()
 
 ```
 
-## Correlation Matrix with New Features
-
-The 5 new features were used to compute a correlation matrix, and the outcome was deemed satisfactory. 
-One noticeable observation is that the variable *pricePerSqMeter* has a moderately positive correlation with the *price* variable. 
-Furthermore, the variables *nearestPublicTransports*, *nearestEducationCentres*, *nearestGardaStations*, and *nearestHospitals* also exhibit a positive correlation with *price*, although weakly.
 
 
-```{r Correlation Matrix with New Features, fig.width=20, fig.height=15}
+## Choropleth Map of Mean Count of Garda Stations per County
 
-correlation_matrix <- cor(select_if(ireland_houses, is.numeric))
 
-corrplot( corr = correlation_matrix, 
-          method = "color", 
-          type = "lower", 
-          order = "hclust", 
-          addCoef.col = "black", 
-          diag = FALSE, 
-          tl.srt = 45, 
-          tl.col = "black"
-)
+```{r Plot of Mean Count of Garda Stations per County, fig.height=15, fig.width=15, message=FALSE, warning=FALSE, cache=TRUE}
+
+tmap_mode("view")
+
+ireland_houses_by_county <- aggregate(ireland_houses["nearestGardaStations"], 
+                          by = ireland_houses["county"], mean)
+
+mean_map_garda <- merge( ireland_by_county_sf, ireland_houses_by_county, 
+            by.x = "county", 
+            by.y = "county" )
+
+
+mean_map_garda <- mean_map_garda %>% st_set_crs(value = 4326) %>% st_cast()
+
+tm_shape(shp = shp_ireland) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(shp = mean_map_garda) + 
+  tmap_options(basemaps = c(Canvas = "Esri.WorldTopoMap", 
+                            Imagery = "Esri.WorldImagery") ) +
+  tm_polygons(
+    col = "nearestGardaStations", 
+    title = "Mean Count of Garda Stations Per County", 
+    palette = "viridis",                 
+    stretch.palette = FALSE, 
+    n = 6
+  ) +  
+  tm_text("county", size = 1, style = "pretty") +
+  tm_scale_bar()
 
 ```
+
+What can be seen in the 
 
 
 # Removing Outliers
