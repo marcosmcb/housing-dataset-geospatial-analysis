@@ -793,7 +793,7 @@ tm_shape(shp = shp_ireland) +
   tm_polygons(
     col = "nearestEducationCentres", 
     title = "Mean Count of Education Centres Per County", 
-    palette = "viridis",                 
+    palette = "YlOrBr",                 
     stretch.palette = FALSE, 
     n = 6
   ) +  
