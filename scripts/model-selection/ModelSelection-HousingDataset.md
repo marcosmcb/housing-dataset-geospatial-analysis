@@ -54,6 +54,19 @@ Marcos Cavalcante
       Prediction</a>
   - <a href="#extreme-gradient-boosting"
     id="toc-extreme-gradient-boosting">eXtreme Gradient Boosting</a>
+    - <a href="#convert-datasets-to-xgboost-data-type"
+      id="toc-convert-datasets-to-xgboost-data-type">Convert datasets to
+      xgboost data type</a>
+    - <a href="#naive-extreme-gradient-boosting"
+      id="toc-naive-extreme-gradient-boosting">Naive eXtreme Gradient
+      Boosting</a>
+    - <a href="#naive-implementation---error-versus-number-of-trees"
+      id="toc-naive-implementation---error-versus-number-of-trees">Naive
+      Implementation - Error versus Number of trees</a>
+    - <a href="#tuning" id="toc-tuning">Tuning</a>
+    - <a href="#training-tuned-model" id="toc-training-tuned-model">Training
+      tuned model</a>
+    - <a href="#predicting" id="toc-predicting">Predicting</a>
 
 # Model Selection
 
@@ -78,7 +91,7 @@ packages <- c("tidyverse", "dplyr", "ggplot2", "corrplot", "knitr",
               "ranger", "randomForest", "caret", "rpart", "rpart.plot", "splines", 
               "gtools", "Rmisc", "scales", "viridis", "caret",  "gridExtra",
               "AMR", "kableExtra", "rattle", "forecast", "plotly", "reshape2",
-              "nortest", "rgl", "car", "olsrr", "jtools", "MASS")
+              "nortest", "rgl", "car", "olsrr", "jtools", "MASS", "xgboost", "lime")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -1069,3 +1082,195 @@ calculate_metrics( observed = random_forest_estimated$predictions,
     ## Residual Error:  122360272
 
 ## eXtreme Gradient Boosting
+
+### Convert datasets to xgboost data type
+
+``` r
+features <- setdiff(names(training_set), "price")
+
+treatplan <- vtreat::designTreatmentsZ(training_set, features, verbose = FALSE)
+
+vtreat_traininig_predictors <- vtreat::prepare(treatplan, training_set) %>% as.matrix()
+vtreat_trainining_target <- training_set$price
+
+vtreat_validation_predictors <- vtreat::prepare(treatplan, validation_set) %>% as.matrix()
+vtreat_validation_target <- validation_set$price
+
+vtreat_testing_predictors <- vtreat::prepare(treatplan, testing_set) %>% as.matrix()
+vtreat_testing_target <- testing_set$price
+```
+
+### Naive eXtreme Gradient Boosting
+
+``` r
+set.seed(SEED_VALUE)
+
+naive_xgb <- xgb.cv(
+  data = vtreat_traininig_predictors,
+  label = vtreat_trainining_target,
+  nrounds = 10000,
+  nfold = 10,
+  objective = "reg:squarederror",
+  verbose = 0 
+)
+
+naive_xgb$evaluation_log %>%
+  dplyr::summarise(
+    ntrees.train = which(train_rmse_mean == min(train_rmse_mean))[1],
+    rmse.train   = min(train_rmse_mean),
+    ntrees.test  = which(test_rmse_mean == min(test_rmse_mean))[1],
+    rmse.test   = min(test_rmse_mean),
+  )
+```
+
+    ##   ntrees.train rmse.train ntrees.test rmse.test
+    ## 1         3472  0.2412913        2502  24801.85
+
+### Naive Implementation - Error versus Number of trees
+
+``` r
+ggplot(naive_xgb$evaluation_log) +
+  geom_line(aes(iter, train_rmse_mean), color = "red") +
+  geom_line(aes(iter, test_rmse_mean), color = "blue")
+```
+
+![](ModelSelection-HousingDataset_files/figure-gfm/Naive%20Implementation%20-%20Error%20versus%20Number%20of%20trees-1.png)<!-- -->
+
+### Tuning
+
+#### Grid Search Definition
+
+``` r
+xgboost_grid <- expand.grid(
+  eta = c(.01, .05, .1),
+  max_depth = c(3, 5, 7),
+  min_child_weight = c(1, 3, 5),
+  subsample = c(.65, .8), 
+  colsample_bytree = c(.8, .9, 1),
+  optimal_trees = 0,               
+  min_RMSE = 0  
+)
+
+nrow(xgboost_grid)
+```
+
+    ## [1] 162
+
+#### Finding Hyperparameters
+
+``` r
+for(i in 1:nrow(xgboost_grid)) {
+  
+  params <- list(
+    eta = xgboost_grid$eta[i],
+    max_depth = xgboost_grid$max_depth[i],
+    min_child_weight = xgboost_grid$min_child_weight[i],
+    subsample = xgboost_grid$subsample[i],
+    colsample_bytree = xgboost_grid$colsample_bytree[i]
+  )
+  
+  cat("Iteration value:", i, "\n", "Time Started:", format(Sys.time(), "%H:%M:%S"), "\n")
+  set.seed(SEED_VALUE)
+  
+  model <- xgb.cv(
+    params = params,
+    data = vtreat_traininig_predictors,
+    label = vtreat_trainining_target,
+    nrounds = 3500,
+    nfold = 10,
+    objective = "reg:squarederror",
+    verbose = 0,               
+    early_stopping_rounds = 15 
+  )
+  
+  xgboost_grid$optimal_trees[i] <- which.min(model$evaluation_log$test_rmse_mean)
+  xgboost_grid$min_RMSE[i] <- min(model$evaluation_log$test_rmse_mean)
+}
+
+
+xgboost_grid %>%
+  arrange(min_RMSE) %>%
+  head(10)
+```
+
+Hyperparameters can be found below.
+
+|     | eta  | max_depth | min_child_weight | subsample | colsample_bytree | optimal_trees | min_RMSE |
+|-----|------|-----------|------------------|-----------|------------------|---------------|----------|
+| 1   | 0.05 | 3         | 3                | 0.65      | 1.0              | 2761          | 13991.78 |
+| 2   | 0.05 | 3         | 3                | 0.80      | 1.0              | 3338          | 14064.99 |
+| 3   | 0.05 | 3         | 1                | 0.80      | 1.0              | 3173          | 14332.72 |
+| 4   | 0.05 | 3         | 1                | 0.65      | 1.0              | 2140          | 14404.10 |
+| 5   | 0.01 | 5         | 3                | 0.65      | 1.0              | 3497          | 14640.60 |
+| 6   | 0.05 | 3         | 5                | 0.80      | 1.0              | 3283          | 14702.79 |
+| 7   | 0.05 | 3         | 1                | 0.65      | 0.9              | 2457          | 14943.85 |
+| 8   | 0.05 | 3         | 3                | 0.65      | 0.9              | 2102          | 15082.14 |
+| 9   | 0.05 | 3         | 1                | 0.80      | 0.9              | 3464          | 15091.21 |
+| 10  | 0.05 | 3         | 3                | 0.80      | 0.9              | 2495          | 15215.54 |
+
+### Training tuned model
+
+``` r
+# parameter list
+params <- list(
+  eta = 0.05,
+  max_depth = 3,
+  min_child_weight = 3,
+  subsample = 0.65,
+  colsample_bytree = 1
+)
+
+set.seed(SEED_VALUE)
+
+tuned_xgb <- xgboost(
+  params = params,
+  data = vtreat_traininig_predictors,
+  label = vtreat_trainining_target,
+  nrounds = 2800,
+  objective = "reg:squarederror",
+  verbose = 0
+)
+```
+
+#### Visualising Variable Importance
+
+``` r
+variable_importance_matrix <- xgb.importance(model = tuned_xgb)
+xgb.plot.importance(variable_importance_matrix, top_n = 10, measure = "Gain")
+```
+
+![](ModelSelection-HousingDataset_files/figure-gfm/Visualising%20Variable%20Importance-1.png)<!-- -->
+
+#### Explaining variables used with LIME
+
+``` r
+local_obs <- vtreat::prepare(treatplan, training_set[1:2,])
+
+
+# apply LIME
+explainer <- lime(data.frame(vtreat_traininig_predictors), tuned_xgb)
+explanation <- explain(local_obs, explainer, n_features = 5)
+plot_features(explanation)
+```
+
+![](ModelSelection-HousingDataset_files/figure-gfm/Explaining%20variables%20used%20with%20LIME-1.png)<!-- -->
+
+### Predicting
+
+``` r
+# predict values for test data
+pred <- predict(tuned_xgb, vtreat_validation_predictors)
+
+
+
+calculate_metrics( observed = pred, 
+                   expected = vtreat_validation_target, 
+                   training = vtreat_trainining_target
+)
+```
+
+    ## Root Mean Squared Error (RMSE):  12727.64 
+    ## Mean Absolute Error (MAE):  5828.174 
+    ## Mean Squared Error (MSE):  161992820 
+    ## Impurity Error:  0.002011505 
+    ## Residual Error:  161992820
