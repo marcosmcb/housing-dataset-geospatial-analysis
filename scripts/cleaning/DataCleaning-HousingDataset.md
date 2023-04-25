@@ -1,7 +1,7 @@
 Ireland Housing - Data Cleaning
 ================
 Marcos Cavalcante
-2023-04-16
+2023-04-25
 
 - <a href="#data-cleaning" id="toc-data-cleaning">Data Cleaning</a>
 - <a href="#installing-libraries" id="toc-installing-libraries">Installing
@@ -9,6 +9,9 @@ Marcos Cavalcante
 - <a href="#loading-the-dataset---ireland-housing-dataset"
   id="toc-loading-the-dataset---ireland-housing-dataset">Loading the
   Dataset - Ireland Housing dataset</a>
+- <a href="#loading-the-dataset---first-look-at-the-dataset"
+  id="toc-loading-the-dataset---first-look-at-the-dataset">Loading the
+  Dataset - First look at the dataset</a>
 - <a href="#removal-of-duplicates" id="toc-removal-of-duplicates">Removal
   of duplicates</a>
 - <a
@@ -35,37 +38,36 @@ Marcos Cavalcante
   - <a href="#fixing-properties-with-empty-factor-for-property-type"
     id="toc-fixing-properties-with-empty-factor-for-property-type">Fixing
     properties with empty factor for property type</a>
-- <a
-  href="#handling-of-missing-values---removing-observations-and-variables"
-  id="toc-handling-of-missing-values---removing-observations-and-variables">Handling
-  of missing values - Removing observations and variables</a>
+- <a href="#handling-missing-values---removing-observations-and-variables"
+  id="toc-handling-missing-values---removing-observations-and-variables">Handling
+  missing values - Removing observations and variables</a>
 - <a href="#creation-of-new-variables"
   id="toc-creation-of-new-variables">Creation of new variables</a>
 - <a href="#handling-outliers" id="toc-handling-outliers">Handling
   Outliers</a>
-- <a href="#scaling-variables" id="toc-scaling-variables">Scaling
-  variables</a>
+- <a href="#feature-engineering" id="toc-feature-engineering">Feature
+  Engineering</a>
+  - <a href="#price-per-square-meter" id="toc-price-per-square-meter">Price
+    per square meter</a>
+  - <a href="#nearest-hospitals" id="toc-nearest-hospitals">Nearest
+    Hospitals</a>
+  - <a href="#nearest-garda-stations"
+    id="toc-nearest-garda-stations">Nearest Garda Stations</a>
+  - <a href="#nearest-education-centre"
+    id="toc-nearest-education-centre">Nearest Education Centre</a>
+  - <a href="#nearest-public-transport"
+    id="toc-nearest-public-transport">Nearest Public Transport</a>
+  - <a href="#looking-at-the-resulting-dataset"
+    id="toc-looking-at-the-resulting-dataset">Looking at the resulting
+    dataset</a>
 - <a href="#write-clean-dataset-to-disk"
   id="toc-write-clean-dataset-to-disk">Write Clean Dataset to disk</a>
 
-### Data Cleaning
+## Data Cleaning
 
-In this part, the dataset will be cleant so it can be used more
-appropriately for data exploration and use by the machine learning
+In this part, the dataset will be cleaned and prepared so it can be used
+more appropriately for data exploration and use by the machine learning
 techniques.
-
-The following steps will be taken:
-
-1.  Loading the dataset
-2.  Removal of duplicates
-3.  Handling of missing values
-4.  Removal of unnecessary variables
-5.  Renaming variables
-6.  Conversion into appropriate data types
-7.  Creation of new variables
-8.  Handling outliers
-9.  Scaling variables
-10. Write Clean Dataset
 
 ## Installing libraries
 
@@ -73,9 +75,9 @@ In this pre-step, all of the required packages will be installed and
 loaded.
 
 ``` r
-packages <- c("tidyverse", "haven", "devtools", "dplyr", "stringr", "kableExtra", 
-              "formattable","stringi", "see", "ggraph", "correlation", 
-              "PerformanceAnalytics", "gridExtra")
+packages <- c("tidyverse", "haven", "devtools", "dplyr", "stringr", 
+              "kableExtra", "formattable","stringi", "see", "ggraph", 
+              "gridExtra", "geosphere")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -105,7 +107,7 @@ options(scipen = 999) # turn off scientific notation
 ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
 ```
 
-#### Loading the Dataset - First look at the dataset
+## Loading the Dataset - First look at the dataset
 
 In this step, the first five rows of our dataset will be displayed so
 that we can take a look at the different pieces of data available to us
@@ -1771,7 +1773,7 @@ longitude
 </tbody>
 </table>
 
-## Handling of missing values - Removing observations and variables
+## Handling missing values - Removing observations and variables
 
 Once the date types have been correctly typed, it is possible to see the
 presence of observations with missing number of **bedrooms**, only 2,
@@ -1943,10 +1945,892 @@ been incorrectly input in the dataset, so they can be filtered out.
 ireland_houses <- ireland_houses %>% filter(!(size < 17))
 ```
 
-## Scaling variables
+## Feature Engineering
 
-This step will not be performed at this point, as some data exploration
-activities are necessary to be carried out beforehand.
+In this step, we would like to explore the creation of a some new
+variables to see if they can help gain better insights into the dataset.
+At this step, 5 new variables will get created:
+
+- Price per square meter - *pricePerSqMeter*.
+- Count of Nearest Hospitals - *nearestHospitals*.
+- Count of Nearest Garda Stations - *nearestGardaStations*.
+- Count of Nearest Education Centres - *nearestEducationCentres*.
+- Count of Nearest Public Transports - *nearestPublicTransports*.
+
+### Price per square meter
+
+This variable is going to be created by dividing the house price by its
+size. The idea behind creating this variable is to understand the price
+per square meter for a given property and being able to define a common
+ground when comparing houses with different characteristics.
+
+``` r
+ireland_houses <- ireland_houses %>% 
+  mutate(pricePerSqMeter = round(price/size, digits = 2))
+```
+
+### Nearest Hospitals
+
+To calculate the *nearestHospitals* value, the algorithm identifies the
+hospitals that are closest to each residence within a **10 km** radius
+using the hospitals dataset. The straight-line distance (also known as
+crow flies distance) between each house and each hospital is then
+calculated.
+
+The decision to use a 16 km radius was based on the optimal results
+obtained from the Pearson correlation method and will be consistently
+applied to all other variables.
+
+``` r
+dataset_directory <- "../../datasets/hospitals/"
+hospital_filename <- paste(dataset_directory, "hospitals.csv", sep="")
+hospitals <- read.csv(file = hospital_filename) # Load the dataset
+
+
+# Define a function to compute the distance between each observation in house 
+# dataset and all observations in socio economic dataset
+count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic, RADIUS_OF_INTEREST_KM) {
+  
+  distances_in_m <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat))
+  distances_in_km <- distances_in_m / 1000
+  
+  num_of_points_interest <- distances_in_km[ distances_in_km <= RADIUS_OF_INTEREST_KM ]
+  return( length(num_of_points_interest) )
+}
+
+# Apply the function to each observation in housing dataset
+# and store the nearest points in a new variable
+ireland_houses$nearestHospitals <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           hospitals, 10)
+)
+```
+
+### Nearest Garda Stations
+
+To calculate the *nearestGardaStations* value, the algorithm searches
+for the closest garda station to each house within a **10 km** radius,
+using the garda stations dataset. It then computes the straight-line
+distance between each house and each garda station.
+
+``` r
+dataset_directory <- "../../datasets/police/"
+garda_stations_filename <- paste(dataset_directory, "garda_station.csv", sep="")
+garda_stations <- read.csv(file = garda_stations_filename) # Load the dataset
+
+garda_stations <- rename( garda_stations, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+
+ireland_houses$nearestGardaStations <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           garda_stations, 10)
+)
+```
+
+### Nearest Education Centre
+
+The algorithm computes the *nearestEducationCentre* by identifying the
+closest education centers, including universities and schools, to each
+house within a *5 km* radius, utilizing the education center dataset. It
+then calculates the crow flies distance between each house and each
+education center.
+
+``` r
+dataset_directory <- "../../datasets/education/"
+universities_filename <- paste(dataset_directory, "universities.csv", sep="")
+universities <- read.csv(file = universities_filename)
+
+schools_filename <- paste(dataset_directory, "schools.csv", sep="")
+schools <- read.csv(file = schools_filename)
+schools <- schools[, c("name", "longitude", "latitude")]
+
+# Join schools and universities datasets.
+education <- rbind( schools, universities )
+
+
+
+ireland_houses$nearestEducationCentres <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           education, 5)
+)
+```
+
+### Nearest Public Transport
+
+To calculate the *nearestPublicTransports*, the algorithm identifies the
+closest public transport options within a *5 km* radius, including bus
+stops and train stations, to each house in the dataset, utilizing the
+public transport dataset. It then calculates the straight-line distance
+between each house and each public transport option.
+
+``` r
+dataset_directory <- "../../datasets/transport/"
+trains_filename <- paste(dataset_directory, "train_stations.csv", sep="")
+trains <- read.csv(file = trains_filename) 
+
+bus_filename <- paste(dataset_directory, "bus_stops_ireland.csv", sep="")
+bus <- read.csv(file = bus_filename) # Load the dataset
+
+bus <- bus[, c("Longitude", "Latitude")]
+bus <- rename( bus, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+
+trains <- trains[, c("StationLongitude", "StationLatitude")]
+trains <- rename( trains, 
+  latitude = StationLatitude,
+  longitude = StationLongitude
+)
+
+# Join trains and buses datasets
+transport <- rbind( bus, trains )
+
+ireland_houses$nearestPublicTransports <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           transport, 5)
+)
+```
+
+### Looking at the resulting dataset
+
+Let’s use the skimr function to get a statistical summary of the
+different variables in the dataset.
+
+``` r
+skim(ireland_houses)
+```
+
+    ## Warning: There was 1 warning in `dplyr::summarize()`.
+    ## ℹ In argument: `dplyr::across(tidyselect::any_of(variable_names),
+    ##   mangled_skimmers$funs)`.
+    ## ℹ In group 0: .
+    ## Caused by warning:
+    ## ! There was 1 warning in `dplyr::summarize()`.
+    ## ℹ In argument: `dplyr::across(tidyselect::any_of(variable_names),
+    ##   mangled_skimmers$funs)`.
+    ## Caused by warning in `sorted_count()`:
+    ## ! Variable contains value(s) of "" that have been converted to "empty".
+
+<table style="width: auto;" class="table table-condensed">
+<caption>
+Data summary
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+ireland_houses
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+9009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+
+**Variable type: character**
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+empty
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:right;">
+whitespace
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+address
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8871
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+location
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+
+**Variable type: factor**
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+propertyType
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Det: 3440, Sem: 2278, Ter: 1427, Apa: 977
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+berRating
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+C3: 1112, C1: 1086, C2: 1085, D1: 975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+county
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+DUB: 3303, COR: 1168, GAL: 533, WEX: 398
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+townOrNeighbourhood
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+114
+</td>
+<td style="text-align:left;">
+NOR: 780, SOU: 705, IBA: 592, COR: 561
+</td>
+</tr>
+</tbody>
+</table>
+
+**Variable type: numeric**
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+<th style="text-align:left;">
+hist
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+price
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+462485.76
+</td>
+<td style="text-align:right;">
+556102.05
+</td>
+<td style="text-align:right;">
+40000.00
+</td>
+<td style="text-align:right;">
+245000.00
+</td>
+<td style="text-align:right;">
+340000.00
+</td>
+<td style="text-align:right;">
+495000.00
+</td>
+<td style="text-align:right;">
+15000000.00
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+size
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+145.76
+</td>
+<td style="text-align:right;">
+150.64
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+86.00
+</td>
+<td style="text-align:right;">
+112.00
+</td>
+<td style="text-align:right;">
+164.00
+</td>
+<td style="text-align:right;">
+6109.00
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bedrooms
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.43
+</td>
+<td style="text-align:right;">
+1.35
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+30.00
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bathrooms
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2.35
+</td>
+<td style="text-align:right;">
+1.35
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+28.00
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+latitude
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+53.09
+</td>
+<td style="text-align:right;">
+0.70
+</td>
+<td style="text-align:right;">
+51.44
+</td>
+<td style="text-align:right;">
+52.63
+</td>
+<td style="text-align:right;">
+53.29
+</td>
+<td style="text-align:right;">
+53.40
+</td>
+<td style="text-align:right;">
+55.38
+</td>
+<td style="text-align:left;">
+▂▂▇▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+longitude
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+-7.34
+</td>
+<td style="text-align:right;">
+1.18
+</td>
+<td style="text-align:right;">
+-10.35
+</td>
+<td style="text-align:right;">
+-8.46
+</td>
+<td style="text-align:right;">
+-6.80
+</td>
+<td style="text-align:right;">
+-6.28
+</td>
+<td style="text-align:right;">
+-6.01
+</td>
+<td style="text-align:left;">
+▁▂▃▂▇
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pricePerSqMeter
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3402.62
+</td>
+<td style="text-align:right;">
+1895.76
+</td>
+<td style="text-align:right;">
+11.62
+</td>
+<td style="text-align:right;">
+2061.40
+</td>
+<td style="text-align:right;">
+2947.37
+</td>
+<td style="text-align:right;">
+4326.92
+</td>
+<td style="text-align:right;">
+41666.67
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nearestHospitals
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.68
+</td>
+<td style="text-align:right;">
+2.07
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+7.00
+</td>
+<td style="text-align:left;">
+▇▁▂▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nearestGardaStations
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9.34
+</td>
+<td style="text-align:right;">
+9.78
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+14.00
+</td>
+<td style="text-align:right;">
+31.00
+</td>
+<td style="text-align:left;">
+▇▂▁▁▂
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nearestEducationCentres
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+56.65
+</td>
+<td style="text-align:right;">
+89.03
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+13.00
+</td>
+<td style="text-align:right;">
+65.00
+</td>
+<td style="text-align:right;">
+319.00
+</td>
+<td style="text-align:left;">
+▇▁▁▁▁
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nearestPublicTransports
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+412.35
+</td>
+<td style="text-align:right;">
+589.48
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+11.00
+</td>
+<td style="text-align:right;">
+82.00
+</td>
+<td style="text-align:right;">
+627.00
+</td>
+<td style="text-align:right;">
+2024.00
+</td>
+<td style="text-align:left;">
+▇▂▁▁▁
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Write Clean Dataset to disk
 
@@ -1955,6 +2839,7 @@ proceed to start analyzing the variance and covariance of the variables
 in our dataset, thus diving a little deeper into our analysis.
 
 ``` r
+dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, 
                           "ireland_houses_cleaned.Rda", 
                           sep="")

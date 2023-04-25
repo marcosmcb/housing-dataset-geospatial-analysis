@@ -16,31 +16,18 @@ options(dplyr.summarise.inform = FALSE)
 ```
 
 
-### Data Cleaning
+## Data Cleaning
 
-In this part, the dataset will be cleant so it can be used more appropriately for data exploration and use by the machine learning techniques.
-
-The following steps will be taken:
-
-1. Loading the dataset
-2. Removal of duplicates
-3. Handling of missing values
-4. Removal of unnecessary variables
-5. Renaming variables
-6. Conversion into appropriate data types
-7. Creation of new variables
-8. Handling outliers
-9. Scaling variables
-10. Write Clean Dataset
+In this part, the dataset will be cleaned and prepared so it can be used more appropriately for data exploration and use by the machine learning techniques.
 
 ## Installing libraries
 
 In this pre-step, all of the required packages will be installed and loaded.
 
 ```{r, Package Installation, results=FALSE, message=FALSE, warning=FALSE}
-packages <- c("tidyverse", "haven", "devtools", "dplyr", "stringr", "kableExtra", 
-              "formattable","stringi", "see", "ggraph", "correlation", 
-              "PerformanceAnalytics", "gridExtra")
+packages <- c("tidyverse", "haven", "devtools", "dplyr", "stringr", 
+              "kableExtra", "formattable","stringi", "see", "ggraph", 
+              "gridExtra", "geosphere")
 
 if(sum(as.numeric(!packages %in% installed.packages())) != 0){
   installer <- packages[!packages %in% installed.packages()]
@@ -71,7 +58,7 @@ options(scipen = 999) # turn off scientific notation
 ireland_houses <- read.csv(file = dataset_filename) # Load the dataset
 ```
 
-#### Loading the Dataset - First look at the dataset
+## Loading the Dataset - First look at the dataset
 
 In this step, the first five rows of our dataset will be displayed so that we can take a look at the different pieces of data available to us and what kind of information they bring to the analysis.
 
@@ -317,7 +304,7 @@ skim(ireland_houses)
 ```
 
 
-## Handling of missing values - Removing observations and variables
+## Handling missing values - Removing observations and variables
 
 Once the date types have been correctly typed, it is possible to see the presence of observations with missing number of __bedrooms__, only 2, and also that about 44% of the observations are missing a value for __berEPI__. Finally, there are also 298 observations without __price__, which is the target variable of this study, so those can also be removed.
 
@@ -477,9 +464,163 @@ ireland_houses <- ireland_houses %>% filter(!(size < 17))
 ```
 
 
-## Scaling variables
 
-This step will not be performed at this point, as some data exploration activities are necessary to be carried out beforehand.
+## Feature Engineering
+
+In this step, we would like to explore the creation of a some new variables to see if they can help gain better insights into the dataset. At this step, 5 new variables will get created:
+
+* Price per square meter - *pricePerSqMeter*.
+* Count of Nearest Hospitals - *nearestHospitals*.
+* Count of Nearest Garda Stations - *nearestGardaStations*.
+* Count of Nearest Education Centres - *nearestEducationCentres*.
+* Count of Nearest Public Transports - *nearestPublicTransports*.
+
+
+### Price per square meter
+
+This variable is going to be created by dividing the house price by its size. The idea behind creating this variable is to understand the price per square meter for a given property and being able to define a common ground when comparing houses with different characteristics.
+
+
+```{r Price per square meter}
+
+ireland_houses <- ireland_houses %>% 
+  mutate(pricePerSqMeter = round(price/size, digits = 2))
+```
+
+### Nearest Hospitals
+
+To calculate the *nearestHospitals* value, the algorithm identifies the hospitals that are closest to each residence within a **10 km** radius using the hospitals dataset. The straight-line distance (also known as crow flies distance) between each house and each hospital is then calculated. 
+
+The decision to use a 16 km radius was based on the optimal results obtained from the Pearson correlation method and will be consistently applied to all other variables.
+
+```{r Nearest Hospital, cache=TRUE}
+
+dataset_directory <- "../../datasets/hospitals/"
+hospital_filename <- paste(dataset_directory, "hospitals.csv", sep="")
+hospitals <- read.csv(file = hospital_filename) # Load the dataset
+
+
+# Define a function to compute the distance between each observation in house 
+# dataset and all observations in socio economic dataset
+count_points_of_interest_within_radius <- function(houseLon, houseLat, socioEconomic, RADIUS_OF_INTEREST_KM) {
+  
+  distances_in_m <- distHaversine(socioEconomic[, c("longitude", "latitude")], c(houseLon, houseLat))
+  distances_in_km <- distances_in_m / 1000
+  
+  num_of_points_interest <- distances_in_km[ distances_in_km <= RADIUS_OF_INTEREST_KM ]
+  return( length(num_of_points_interest) )
+}
+
+# Apply the function to each observation in housing dataset
+# and store the nearest points in a new variable
+ireland_houses$nearestHospitals <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           hospitals, 10)
+)
+
+```
+
+### Nearest Garda Stations
+
+To calculate the *nearestGardaStations* value, the algorithm searches for the closest garda station to each house within a **10 km** radius, using the garda stations dataset. It then computes the straight-line distance between each house and each garda station.
+
+
+```{r Nearest Garda Station, cache=TRUE}
+dataset_directory <- "../../datasets/police/"
+garda_stations_filename <- paste(dataset_directory, "garda_station.csv", sep="")
+garda_stations <- read.csv(file = garda_stations_filename) # Load the dataset
+
+garda_stations <- rename( garda_stations, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+
+ireland_houses$nearestGardaStations <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           garda_stations, 10)
+)
+
+```
+
+### Nearest Education Centre
+
+The algorithm computes the *nearestEducationCentre* by identifying the closest education centers, including universities and schools, to each house within a *5 km* radius, utilizing the education center dataset. It then calculates the  crow flies distance between each house and each education center.
+
+```{r Nearest Education Centre, cache=TRUE}
+dataset_directory <- "../../datasets/education/"
+universities_filename <- paste(dataset_directory, "universities.csv", sep="")
+universities <- read.csv(file = universities_filename)
+
+schools_filename <- paste(dataset_directory, "schools.csv", sep="")
+schools <- read.csv(file = schools_filename)
+schools <- schools[, c("name", "longitude", "latitude")]
+
+# Join schools and universities datasets.
+education <- rbind( schools, universities )
+
+
+
+ireland_houses$nearestEducationCentres <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           education, 5)
+)
+
+```
+
+
+### Nearest Public Transport
+
+To calculate the *nearestPublicTransports*, the algorithm identifies the closest public transport options within a *5 km* radius, including bus stops and train stations, to each house in the dataset, utilizing the public transport dataset. It then calculates the straight-line distance between each house and each public transport option.
+
+```{r Nearest Public Transport, cache=TRUE}
+dataset_directory <- "../../datasets/transport/"
+trains_filename <- paste(dataset_directory, "train_stations.csv", sep="")
+trains <- read.csv(file = trains_filename) 
+
+bus_filename <- paste(dataset_directory, "bus_stops_ireland.csv", sep="")
+bus <- read.csv(file = bus_filename) # Load the dataset
+
+bus <- bus[, c("Longitude", "Latitude")]
+bus <- rename( bus, 
+  latitude = Latitude,
+  longitude = Longitude
+)
+
+trains <- trains[, c("StationLongitude", "StationLatitude")]
+trains <- rename( trains, 
+  latitude = StationLatitude,
+  longitude = StationLongitude
+)
+
+# Join trains and buses datasets
+transport <- rbind( bus, trains )
+
+ireland_houses$nearestPublicTransports <- apply(
+  X = ireland_houses[, c("longitude", "latitude")], 
+  MARGIN = 1, 
+  FUN = function(x) count_points_of_interest_within_radius(x[1], x[2], 
+                                                           transport, 5)
+)
+
+```
+
+
+### Looking at the resulting dataset
+
+Let's use the skimr function to get a statistical summary of the different variables in the dataset.
+
+```{r}
+skim(ireland_houses)
+```
+
+
+
 
 ## Write Clean Dataset to disk
 
@@ -487,7 +628,7 @@ Finally, after doing some initial data exploration and cleaning, we can proceed 
 
 ```{r Write Clean Dataset to Disk}
 
-
+dataset_directory <- "../../datasets/"
 dataset_filename <- paste(dataset_directory, 
                           "ireland_houses_cleaned.Rda", 
                           sep="")
