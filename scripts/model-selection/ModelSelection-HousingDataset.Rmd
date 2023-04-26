@@ -704,3 +704,13 @@ calculate_metrics( observed = pred,
                    expected = vtreat_testing_target, 
                    training = vtreat_trainining_target)
 ```
+
+
+
+
+## References
+
+This work loosely based on the articles on [Regression Trees](https://uc-r.github.io/2018/04/28/regression-trees/), [Random Forest](https://uc-r.github.io/random_forests) and [Gradient Boosting](https://uc-r.github.io/2018/06/14/gbm-regression/) from the University of Cincinnati.
+
+
+

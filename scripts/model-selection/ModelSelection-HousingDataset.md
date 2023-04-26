@@ -77,6 +77,7 @@ Marcos Cavalcante
   - <a href="#random-forest-1" id="toc-random-forest-1">Random Forest</a>
   - <a href="#extreme-gradient-boosting-1"
     id="toc-extreme-gradient-boosting-1">Extreme Gradient Boosting</a>
+  - <a href="#references" id="toc-references">References</a>
 
 # Model Selection
 
@@ -1345,3 +1346,11 @@ calculate_metrics( observed = pred,
     ## Mean Squared Error (MSE):  216595854 
     ## Impurity Error:  0.002039658 
     ## Residual Error:  216595854
+
+## References
+
+This work loosely based on the articles on [Regression
+Trees](https://uc-r.github.io/2018/04/28/regression-trees/), [Random
+Forest](https://uc-r.github.io/random_forests) and [Gradient
+Boosting](https://uc-r.github.io/2018/06/14/gbm-regression/) from the
+University of Cincinnati.
